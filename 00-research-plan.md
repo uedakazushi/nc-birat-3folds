@@ -1,6 +1,6 @@
 # 研究方針　非可換三次元多様体の双有理幾何と非可換有理性
 
-2026年11月8日（日本標準時）・現行第12版（トーリックAS-有理性の十分条件）
+2026年11月8日（日本標準時）・現行第13版（Sklyanin generic quadric の ruling 下降）
 
 ## 目標と達成基準
 
@@ -12,7 +12,7 @@
 
 ## 現行版と再開の入口
 
-現在有効な公表用原稿は **`monograph/poisson_threefolds_monograph.tex` / `monograph/poisson_threefolds_monograph.pdf`** の1冊だけである。2026年11月8日の現行第12版（トーリックAS-有理性の十分条件）。旧版の参照を前提とせず、必要なソース・証明・実装・文献を同梱した。
+現在有効な公表用原稿は **`monograph/poisson_threefolds_monograph.tex` / `monograph/poisson_threefolds_monograph.pdf`** の1冊だけである。2026年11月8日の現行第13版（Sklyanin generic quadric の ruling 下降）。旧版の参照を前提とせず、必要なソース・証明・実装・文献を同梱した。
 
 研究の理解と再開に必要な情報は、この研究方針、`01-research-notes.md`、モノグラフ、依存TeX断片、計算コードに整理した。量子化の存在結果もモノグラフ前半に統合しているため、別の独立した量子化原稿は不要である。
 
@@ -74,6 +74,18 @@
 
 変形パラメーターと整格子を保存する同型なら半古典極限は Poisson 双有理同型を与えることを証明した。逆向きは一般には知られない。合理的な研究問題は「古典的に rational な三次元の integral quantization が何らかの非可換 P3 の関数斜体を持つか」であり、**未解決**。特に垂直楕円型から R(2,2) への中心体上の下降、三重積最大 pencil の Segre 環から階数64の共通圏への比較が優先。Poisson 同型を誘導しない任意の斜体同型と、半古典極限に整合する同型を区別する。
 
+### Sklyanin generic quadric の ruling 下降：確立した範囲
+
+`sklyanin_ruling_descent.tex` は、Smith--Van den Bergh (2013) 第5・7・10節の一次本文を確認し、次の帰結を証明する。
+
+- 4次元 Sklyanin 代数の独立な中央二次元 $\Omega_0,\Omega_1$ に対し $u=\Omega_1/\Omega_0$、$K=\mathbb C(u)$ とする。中央な同次数元を持つ一般的な Ore domain について、$\Omega_0\ne0$ チャートの generic pencil quotient の次数零分数体はもとの $D(S)$ と一致する。これは中央局所化と Veronese 不変性による直接証明であり、商全体の smoothness は仮定しない。
+- 二つの ruling の標識は $z$ と $-z-2\tau$ であり、ruling の分離体は $K'=\mathbb C(E)$、$K=\mathbb C(E/\langle\iota\rangle)$、$\iota(z)=-z-2\tau$、拡大次数2。四つの固定点は $z+\tau\in E[2]$。Weierstrass 表示では $K'=\mathbb C(x,y)$、$y^2=x^3+ax+b$、$K=\mathbb C(x)$、Galois 元は $y\mapsto-y$。非自明な ruling のモノドロミーは残る。
+- generic quadric の8次元 Clifford 型代数 $C_\eta$ は中心が $K'$ となる中心単純代数で、Tsen により $C_\eta\simeq M_2(K')$。**有限次元 Clifford Brauer 類の消滅**は確立。関数斜体の AS-有理性や特定の spinor/ruling の $K$-下降は**未証明**。
+- 有限 Galois 拡大後に得た関数斜体同型は、自己同型群係数の非可換 $H^1$ cocycle が自明となることが下降の必要十分条件。今後は具体的な非可換平面との比較同型上で Galois 作用を計算する。
+- **古典的注意**：共通楕円基底曲線上の定数点からの射影により、滑らかな一般のquadric は $K$-rational である。ruling の下降不可能だけから AS-有理性の否定を推論しない。
+
+依存文献：Smith--Van den Bergh, *Noncommutative quadric surfaces* (JNCG 7 (2013), Proposition 5.3, Theorem 5.6, Proposition 10.1, Theorem 10.2), Stacks Project Tag `03RF` (Tsen--Brauer)。この観察の新規性は主張しない。コード `check_sklyanin_ruling_descent.py` は具体的な楕円曲線の分岐数と可換射影写像の式のみを有限検算する。
+
 ### 三次元トーリック型に対する証明済みのAS-有理性
 
 `toric_as_rational.tex` に、任意の rank 3 指標格子 M と双指標 c による toric chart の twist の共通分数斜体が、中央一次生成元を持つ4次元量子多項式環 B_q の次数零分数斜体に同型であることを**直接証明**した。したがって任意の射影トーリック三次元多様体の、同じ双指標を用いた**トーリック量子化**は AS-有理的である（fan の滑らかさは不要）。これは Cirio--Landi--Szabo の既知構成に対する簡明な帰結であり、新規性を主張しない。任意の非トーリック・非双指標型変形については何も主張しない。
@@ -84,7 +96,7 @@
 
 1. **最大 pencil の二構成の比較。** `nc_pencil_projective.tex` の Segre 斉次環の八対象を作り、`pcat:kernel-bimodule` の階数32の cross bimodule と Hom・合成を照合する。特定の斉次環の smooth properness、階数64の mutation 代数との導来同値、D(u) への generic localization が一致することを達成基準とする。中央 pencil と三つの次数二直線束の標識を固定する。
 2. **反標準 section functor と係数。** `restored_anticanonical_criterion.tex` の定理を適用するため、有限代数 B の coherent heart 上で $S^{-1}[2]$ の t-exactness、Artin–Zhang の ample 条件、五個の section module の full dg endomorphism algebra と生成性を照合する。42二次関係式と S3 の二点 evaluation の核 V を入力にし、旧版での証明報告だけを根拠に同値を主張しない。
-3. **Sklyanin pencil の下降。** u を保持し、二つの ruling、点、直線束の Galois descent datum を計算する。有限中心拡大後の同型が C(u) 上へ降りる条件を決定する。
+3. **Sklyanin pencil の下降。** `sklyanin_ruling_descent.tex` の $K' = \mathbb C(E)$ に移り、Smith--Van den Bergh の二つの spinor module の Galois 交換を明示的行列で計算する。Clifford 型代数は $M_2(K')$ に分裂済みなので、次は選んだ非可換曲面の関数斜体同型の cocycle $a_\gamma$ を生成元で計算し、非可換 $H^1$ 類の自明性を判定する。比較同型と平面の具体モデルが揃うまでは AS-有理性を断言しない。
 4. **Riccati の射影比較と残る成分。** P3 の S(2,3) 内の像とファイバーを求め、元の X12 偏極を回復する ample sequence または blow-up を構成する。導分の定数体・有理第一積分・monodromy を比較する。R(1,3) の中心拡大 Sklyanin 模型と残る log-canonical 正規形の native compactification も扱う。
 5. **Rees の射影降下。** `central_pencil_basechange.tex` に、$A$ の $\mathbb C[s,t]$-自由性、Rees 環の可換 blow-up からの基底変換、$\operatorname{Perf}(Y,\mathscr A)=\langle\operatorname{Perf}(D),\operatorname{Perf}(A)\rangle$ を証明した。$A$ と $D=B(E,M,\tau)$ の vertex では $\operatorname{pd} k=\infty$ なので、単なる perfect torsion による商では `qgr` を回復できない。二重次数付き導来加群圏で真の torsion 局所化を指定し、SOD の projection functors がこれと両立すること、例外成分が $\operatorname{Perf}(E)$ になることを証明する。$\operatorname{Perf}(\operatorname{qgr}A)$ の smoothness と共通斜体局所化の照合も必要。
 6. **Poisson 概型の境界。** 全成分交叉、embedded associated primes、原点の深さと一般自己同型商を調べる。まず本文の正規形で成分交叉の小さなスライスを作り、既存の exact Jacobi 実装で局所イデアルを比較する。

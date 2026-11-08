@@ -1,0 +1,221 @@
+\section{Sklyanin 二次曲面 pencil の ruling 下降と Clifford 分裂}
+\label{sec:sklyanin-ruling-descent}
+
+本節では4次元 Sklyanin 代数の中心二次曲面 pencil について、
+\emph{二つの ruling の Galois 下降}と\emph{有限次元 Clifford 型代数の Brauer 類}を区別する。
+本節の ruling の幾何学的記述と8次元 Clifford 型代数の構成は
+Smith--Van den Bergh~\cite[第5節・第7節・定理10.2]{SmithVdB} による既知の結果である。
+その上で、ruling を選ぶ最小の体拡大、Clifford 型代数の分裂、
+非可換関数斜体への正確な還元および下降の必要十分条件を記す。
+これらは既知理論と Tsen の定理からの帰結であり、新規性を主張しない。
+
+\subsection{中央 pencil の generic localization}
+\begin{lemma}[中央な同次数の二元による generic fiber]\label{lem:central-pencil-generic-chart}
+$k$ を体、$S=\bigoplus_{n\ge0}S_n$ を連結次数付き Ore domain とする。
+$c_0,c_1\in Z(S)_d\setminus\{0\}$ は同じ正次数 $d$ を持ち、
+$u=c_1c_0^{-1}$ は $Q_{\mathrm{gr}}(S)_0$ で $k$ 上超越的とする。
+$K=k(u)$ を抽象変数 $u$ で表示し、
+\[
+ T=(S\otimes_k K)/(c_1-u c_0),\qquad
+ T^{\mathrm{loc}}=T[c_0^{-1}]
+\]
+とおく。このとき次数付き $K$-代数の標準同型
+\[
+ T^{\mathrm{loc}}\cong
+ S[c_0^{-1}]\otimes_{k[c_1c_0^{-1}]}K
+ \cong S[c_0^{-1}]\bigl[p(c_1c_0^{-1})^{-1}:0\ne p\in k[u]\bigr]
+\]
+があり、これらは domain である。さらに
+\[
+ \operatorname{Frac}\bigl((T^{\mathrm{loc}})_0\bigr)
+ \cong Q_{\mathrm{gr}}(S)_0
+\]
+が $K$-斜体として成立する。ここで $\operatorname{Frac}$ は右左 Ore 分数斜体である。
+特に generic fiber の $c_0\ne0$ のチャートは、元の三次元非可換射影多様体の
+関数斜体を失わない。
+\end{lemma}
+\begin{proof}
+$c_0$ が中央なので $R=S[c_0^{-1}]$ は次数付き domain である。
+$u_0=c_1c_0^{-1}$ と書くと
+\[
+ (R\otimes_k K)/(c_1-u c_0)
+ =(R\otimes_k k(u))/(u_0-u)
+ \cong R\otimes_{k[u_0]}k(u_0).
+\]
+最後の同型は中央変数 $u$ を $u_0$ に代入する普遍性による。
+$u_0$ が超越的なので右辺は $R$ の中央局所化であり、domain である。
+局所化する中央元はすべて次数零なので、
+$\operatorname{Frac}((T^{\mathrm{loc}})_0)=\operatorname{Frac}(R_0)$ である。
+$d$ 次 Veronese $S^{(d)}$ を取ると、$c_0$ は次数1の中央元になり、
+$S^{(d)}[c_0^{-1}]$ の任意の斉次元は $c_0$ の冪と次数零元の積である。
+従って $\operatorname{Frac}(R_0)=Q_{\mathrm{gr}}(S^{(d)})_0$。
+最後に、同次数の任意の右分数 $ab^{-1}$ に対し、
+$n+\deg h\equiv0\pmod d$ となる非零斉次元 $h$ を右から同時に掛けて
+$(ah)(bh)^{-1}=ab^{-1}$ とできる。
+したがって Veronese 不変性により $Q_{\mathrm{gr}}(S^{(d)})_0=Q_{\mathrm{gr}}(S)_0$。
+\end{proof}
+
+\begin{remark}
+この補題は $T$ 全体が domain であることや $\qgr T$ の smoothness を主張しない。
+$c_0$-torsion の可能性は、中央局所化で除去される。
+4次元 Sklyanin 代数では $c_i=\Omega_i$ は次数2の中央二次元であり、
+$K$ は対応する quadric pencil の generic parameter field である。
+\end{remark}
+
+\subsection{ruling の二重被覆とその非自明性}
+\begin{theorem}[ruling を分離する楕円二次拡大]\label{thm:sklyanin-ruling-cover}
+$k=\CC$、$S=S(E,\mathcal L,\tau)$ を滑らかな楕円曲線 $E$ と平行移動 $\tau$
+に付随する4次元 Sklyanin 代数とする。
+$\Omega_0,\Omega_1\in Z(S)_2$ の pencil のパラメーター体を
+$K=\CC(\Omega_1/\Omega_0)$ とする。
+その一般の滑らかな非可換 quadric の\emph{二つの ruling を区別する}最小の分離拡大は
+\[
+ K'=\CC(E),\qquad K=\CC(E/\langle\iota\rangle),
+ \qquad \iota(z)=-z-2\tau,
+ \qquad [K':K]=2.
+\]
+この二重被覆は4点で分岐し、$K'/K$ は非自明である。
+特に二つの ruling のうち\emph{一方を指定する選択}は、$K$ 上では定義できない。
+一方、ruling の\emph{順序を忘れた二元集合}は $K$ 上定義される。
+\end{theorem}
+\begin{proof}
+Smith--Van den Bergh~\cite[第10.3--10.4節、命題10.1、定理10.2]{SmithVdB}
+によれば、quadric は $Q_z=Q_{-z-2\tau}$ で標識され、
+非特異な quadric の二つの ruling はそれぞれ $z$ と $-z-2\tau$
+に対応する。従って ruling 選択の moduli の一般点は $E$ の一般点であり、
+quadric の moduli の一般点は商 $E/\iota$ の一般点である。
+$w=z+\tau$ と平行移動すると $\iota(w)=-w$ となる。
+標数零の楕円曲線の $\pm1$ 商は $\PP^1$ であり、固定点は $E[2]$ の4点に一致する。
+Riemann--Hurwitz によっても、次数2で四点分岐することが分かる。
+従って関数体拡大は次数2かつ非自明であり、
+二つのrulingのうち一方の選択を定義する最小の拡大となる。
+\end{proof}
+
+\begin{corollary}[Weierstrass 表示]\label{cor:ruling-weierstrass}
+$E$ の群座標を $w=z+\tau$ とし、$w=0$ を無限遠に取る Weierstrass 表示
+\[
+ y^2=f(x)=x^3+ax+b,
+ \qquad 4a^3+27b^2\ne0
+\]
+で書けば、$K=\CC(x)$、$K'=\CC(x,y)$ であり、
+非自明な Galois 元は $y\mapsto-y$ である。
+分岐点は $f$ の三つの根と $x=\infty$ である。
+\end{corollary}
+\begin{proof}
+楕円曲線の反転は $(x,y)\mapsto(x,-y)$ であり、
+$x$ は次数2の商写像を与える。$f$ が三重根を持たないので
+有限分岐点は相異なる三点である。奇次数の超楕円表示では無限遠も分岐する。
+\end{proof}
+
+\subsection{Clifford 型代数の Brauer 障害は消える}
+\begin{theorem}[generic Clifford 型代数の分裂]\label{thm:sklyanin-clifford-split}
+定理\ref{thm:sklyanin-ruling-cover}の状況で、generic quadric の
+Smith--Van den Bergh の有限次元 Clifford 型代数を $C_\eta$ とする。
+その二つの幾何学的単純成分を ruling で標識する自然な同一視のもとで
+\[
+ Z(C_\eta)\cong K',\qquad
+ C_\eta\cong M_2(K')
+\]
+が $K$-代数として成立する。従って Clifford 型代数に由来する Brauer 類は
+$\operatorname{Br}(K')=0$ であり、Brauer 障害はない。
+ただし、$K$ 上で二つの行列因子に分裂するわけではない。
+\end{theorem}
+\begin{proof}
+$C_\eta$ は $K$ 上8次元であり、代数閉包への基底変換後には
+\[
+ C_\eta\otimes_K\overline K\cong
+ M_2(\overline K)\oplus M_2(\overline K)
+\]
+となる\cite[命題5.3、定理5.6]{SmithVdB}。
+したがって $C_\eta$ は separable $K$-代数であり、
+その中心は二次 étale $K$-代数である。
+二つの単純成分は generic quadric の二つの ruling に対応し
+\cite[第7節、第10節]{SmithVdB}、
+定理\ref{thm:sklyanin-ruling-cover}の非自明な Galois 交換を受ける。
+よって中心は分裂 $K\times K$ ではなく、ruling cover の関数体 $K'$ である。
+$[C_\eta:K']=4$ なので $C_\eta$ は $K'$ 上次数2の中心単純代数である。
+$K'=\CC(E)$ は複素曲線の関数体であり、
+Tsen の定理 \cite[定理59.67.10、補題59.67.11]{StacksTsen}
+によって $\operatorname{Br}(K')=0$。
+従って中心単純代数は $M_2(K')$ に同型である。
+\end{proof}
+
+\begin{remark}[何が解決し、何が残るか]
+$C_\eta$ の $K$-線形 Morita 類は $K'$ へ下降しており、
+幾何学的二つの spinor module は $K'$ の上でそれぞれ定義できる。
+しかし $K'/K$ の Galois 元は二つを交換するため、個々の spinor module や
+特定の ruling を $K$ 上で取り出すことはできない。
+Clifford 型代数の分裂は、それだけでは $Q_{\mathrm{gr}}(S)_0$ と
+他の4次元 AS-regular 代数の関数斜体の同型を与えない。
+\end{remark}
+
+\subsection{下降の非可換 $H^1$ 障害}
+\begin{lemma}[体拡大後の斜体同型の下降判定]\label{lem:sklyanin-descent-cocycle}
+$L/K$ を有限 Galois 拡大、群を $G$ とし、$D_1,D_2$ を $K$-代数で
+$D_{i,L}=D_i\otimes_K L$ が斜体である場合を考える。
+$L$-代数同型 $\phi:D_{1,L}\xrightarrow{\sim}D_{2,L}$ が与えられたとする。
+各 $\gamma\in G$ に対して
+\[
+ a_\gamma=\phi^{-1}\circ\gamma_{D_2}\circ\phi
+ \circ\gamma_{D_1}^{-1}\in\operatorname{Aut}_L(D_{1,L})
+\]
+と置くと、$(a_\gamma)$ は通常の Galois 作用に関する非可換1-cocycle である。
+ある $L$-自己同型を $\phi$ に合成して $K$-同型にできるための
+必要十分条件は、この1-cocycle が
+$H^1(G,\operatorname{Aut}_L(D_{1,L}))$ で自明となることである。
+\end{lemma}
+\begin{proof}
+$\gamma_{D_i}$ は $D_{i,L}$ の自然な半線形 Galois 作用である。
+合成の定義から
+$a_{\gamma\delta}=a_\gamma\,\gamma(a_\delta)$
+が従う（$G$ の $\operatorname{Aut}_L(D_{1,L})$ への作用は
+$\gamma(b)=\gamma_{D_1}b\gamma_{D_1}^{-1}$）。
+$\phi$ を $\phi\circ b$ に置換すると $a_\gamma$ は対応する coboundary で変わる。
+これを全て恒等元にできることは、置換後の $\phi$ が Galois 作用と可換であることと同値である。
+Galois descent により、それは $K$-代数同型の存在と同値である。
+\end{proof}
+
+\begin{remark}
+定理\ref{thm:sklyanin-clifford-split}は、有限次元の Clifford 型代数の Brauer 類が
+消えるという主張であって、補題\ref{lem:sklyanin-descent-cocycle}の
+\emph{無限次元の関数斜体}の $H^1$ 類が消えるという主張ではない。
+本研究で必要なのは、$K'=\CC(E)$ の Galois 元 $y\mapsto-y$ が
+具体的な Sklyanin 平面／quadric の生成元と関係式へどう作用するかを決定し、
+選んだ $\phi$ の1-cocycle を実際に計算することである。
+$D_{i,L}$ が斜体のままかどうかも、その際の仮定として確認する。
+\end{remark}
+
+\subsection{可換模型では ruling が下降しなくても有理的である}
+\begin{proposition}[共通基底点からの射影]\label{prop:sklyanin-classical-projection}
+$\CC$ 上の滑らかな二次曲面 pencil の基底楕円曲線を
+$E=\{q_0=q_1=0\}\subset\PP^3$ とし、
+$K=\CC(u)$ 上の generic quadric を $Q_\eta=\{q_1-uq_0=0\}$ とする。
+任意の $p\in E(\CC)$ に対して、$Q_\eta$ は $K$-有理的である。
+一方、上記の四点分岐する一般の pencil では、個々の ruling は
+$K$ 上に下降しない。
+\end{proposition}
+\begin{proof}
+$p=[1:0:0:0]$ とする射影座標を選び、$y=(x_1,x_2,x_3)$ と書く。
+$p$ が全ての quadric 上にあるので
+\[
+ q_1-uq_0=x_0\ell_u(y)+r_u(y)
+\]
+と書ける。滑らかな generic quadric では $\ell_u\ne0$ である。
+$p$ からの射影 $Q_\eta\dashrightarrow\PP^2_K$ の逆写像は
+\[
+ [y_1:y_2:y_3]\longmapsto
+ [-r_u(y):\ell_u(y)y_1:\ell_u(y)y_2:\ell_u(y)y_3]
+\]
+であり、直接代入すると $q_1-uq_0=0$ になる。
+$\ell_u(y)\ne0$ の開集合で互いに逆である。
+後半は定理\ref{thm:sklyanin-ruling-cover}の可換版であり、
+四点分岐の連結二重被覆の generic fiber は $K\times K$ にならない。
+\end{proof}
+
+\begin{remark}[研究上の帰結]
+個々の ruling の下降が不可能なことだけを、AS-有理性の否定理由にはできない。
+可換側では、ruling を選ばずに共通基底点から射影できるからである。
+非可換側で対応する研究課題は、楕円曲線 $E$ 上の $\CC$-点に付随する point module を用い、
+Galois 作用に不変な射影／mutation の構成を見つけることである。
+この非可換 analogue は未完成である。
+\end{remark}

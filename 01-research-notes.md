@@ -317,6 +317,16 @@ qgrA の任意の dg 圏変形には Ore division field が付随するとは限
 
 文献：Pym, *Quantum deformations of projective three-space*, Adv. Math. 281 (2015), 1216–1241, DOI 10.1016/j.aim.2015.06.005（P3の次数付きCY変形の六族。すべてのASregularの分類ではない）；Presotto–Van den Bergh, JNCG 10 (2016), 221–244, DOI 10.4171/JNCG/232（平面/quadricの斜体同型）；Rogalski–Sierra–Stafford, Adv. Math. 369 (2020), 107151, DOI 10.1016/j.aim.2020.107151（曲面の極小模型）；Goodearl–Yakimov, *Twist invariants of graded algebras*, arXiv:1706.06957（スカラー交換子不変量）。
 
+## Sklyanin generic quadric の Galois 下降：再開に必要な具体的情報
+
+- 文献一次確認：S. P. Smith--M. Van den Bergh, *Noncommutative quadric surfaces*, JNCG 7 (2013), §5（8次元 Clifford 型代数 $C(A)$、半単純時 $M_2\oplus M_2$）、§7（二つの ruling と単純 $C(A)$-module）、§10.3--10.4・Proposition 10.1・Theorem 10.2（$Q_z=Q_{-z-2\tau}$、$z+\tau\in E[2]$ が四つの特異元）。PDF/DOI: https://doi.org/10.4171/JNCG/136 。Tsen による Brauer 群消滅: Stacks Project Tags 0A2M, 03RF。
+- 群の原点を平行移動して $w=z+\tau$ と置けば Galois involution は $w\mapsto-w$。$E:y^2=x^3+ax+b$ の Weierstrass 座標では $\gamma(x)=x,\gamma(y)=-y$、分岐は三根と無限遠。$K'=\mathbb C(E)$、$K=\mathbb C(x)$。幾何学的二つの ruling を選ぶ最小の extension はこの $K'/K$ であり、非自明。
+- Clifford の中心は $K'$： generic separable algebra $C_\eta$ の幾何学的二つの行列因子は Galois が交換するため、二次 étale center は $K\times K$ ではない。$\operatorname{Br}(K')=0$ より $C_\eta\simeq M_2(K')$。これは **Clifford Brauer 障害の消滅**であって、関数斜体の Galois descent 障害の消滅ではない。
+- generic pencil の $c_0\ne0$ chart の局所化定理を monograph `sklyanin_ruling_descent.tex` に追加した。$T=(S\otimes_k k(u))/(c_1-u c_0)$ とすると $T[c_0^{-1}]$ は $S[c_0^{-1}]$ の中央局所化で、次数零分数体は $D(S)$。$T$ 自身の domain / smoothness にはこの補題だけでは触れない。
+- Galois cocycle の具体式：$a_\gamma=\phi^{-1}\gamma_{D_2}\phi\gamma_{D_1}^{-1}$。$K'/K$ 上での関数斜体同型 $\phi$ を構成し、生成元に作用させ $a_\gamma$ の coboundary 性を判定する。構成すべき同型の存在そのものは現在未解決。
+- **危険な誤推論**： ruling が $K$ 上で二つに分離しないことは一般の AS-有理性の障害にならない。可換 quadric pencil の generic fiber は定数点 $p\in E(\mathbb C)$ から射影して $K$-rational。射影逆写像は $q=x_0\ell(y)+r(y)$ に対し $y\mapsto[-r(y):\ell(y)y]$。非可換 analogue はまだ得ていない。
+- `check_sklyanin_ruling_descent.py` は $y^2=x^3-x+1$ の判別式 $-23$ と四分岐の例および可換射影逆写像の恒等式を SymPy で検算する。**Clifford の全族の証明や Brauer 群の計算を機械検証しているわけではない。**
+
 ## AS-有理性の新しい正確な十分条件
 
 現行主論文 `toric_as_rational.tex` の定理 `thm:toric-AS-rational` と命題 `prop:toric-Poisson-center`, `prop:central-stabilization` を参照。
