@@ -1,0 +1,532 @@
+\section{共通圏の反標準環と楕円 blow-up 環}
+\label{sec:anticanonical-common-ring}
+
+本節では、階数23の directed 代数 $B$ から構成した共通圏に、
+全次数で平坦な反標準切断環を付随させる。
+楕円曲線への restriction が与える Serre 三角を用いるため、
+次数を増やすたびに基底を縮める操作を必要としない。
+この構成は、非可換 del Pezzo 曲面上の rigid sheaf から中心拡大を作る
+Rains の構成 \cite[命題5.1]{PencilRainsFiltered} の、
+有限次元代数による相対的な実現を与える。
+ここでの相対的な証明と明示的な二点 blow-up 環との比較については、
+先行研究との新規性の比較を継続する。
+
+\subsection{restriction の Serre 三角}
+
+$R=\mathcal O(U)$、$\mathcal H=\operatorname{Perf}(B)$、
+$O=T_0$ とする。$U$ は古典点 $0$ を含む滑らかな連結アフィン曲線である。
+本節で基底を縮める操作は、$0$ を含む Zariski 開近傍への置換を意味する。
+固定楕円曲線 $E$ 上の次数3の線束 $L$ と平行移動 $\psi$ を用い、
+\[
+ N_0=\mathcal O_E,\qquad
+ N_1=(\psi^{-1})^*L,\qquad
+ N_2=(\psi^{-1})^*L\otimes(\psi^{-2})^*L
+\]
+と置く。相異なる定数切断 $p,q$ と合わせて
+\[
+ \mathcal P=N_0\oplus N_1\oplus N_2\oplus k_p\oplus k_q
+ \quad\text{on }E_U=E\times U
+\]
+を考える。既に定義した evaluation による $B$-作用を用いて
+\[
+ r=-\otimes_B^{\mathbf L}\mathcal P\colon
+ \mathcal H\longrightarrow\operatorname{Perf}(E_U)
+\]
+とする。$\operatorname{Perf}(E_U)$ の Serre 関手は $[1]$ である。
+この同一視には $H^1(E,\mathcal O_E)\simeq\mathbb C$ の自明化を固定する。
+
+\begin{lemma}\label{lem:ac-serre-triangle}
+$\mathcal H$ の相対 Serre 関手を $\mathbb S$ とし、
+$\theta=\mathbb S[-2]$ と置く。
+自然な完全三角
+\begin{equation}\label{eq:ac-serre-triangle}
+ \theta\xrightarrow{\alpha}\mathrm{id}_{\mathcal H}
+ \longrightarrow r^Rr\longrightarrow\theta[1]
+\end{equation}
+が存在する。この三角と $\theta$ は基底変換と両立する。
+基底を一度縮めると、$r$ は相対 spherical functor となる。
+その twist を
+\[
+ T=\operatorname{Cone}(rr^R\longrightarrow\mathrm{id}),\qquad
+ F=\theta^{-1}=\mathbb S^{-1}[2],\qquad
+ \Psi=T^{-1}[2]
+\]
+と書けば、自然同型
+\begin{equation}\label{eq:ac-intertwining}
+                 rF\simeq\Psi r
+\end{equation}
+が得られる。
+\end{lemma}
+
+\begin{proof}
+$B$-両側加群の perfect 複体
+\[
+ D=\mathbf R\Gamma(E_U,
+       \mathbf R\mathcal Hom_{E_U}(\mathcal P,\mathcal P))
+\]
+を考える。$B\to D$ は $B$ の作用から得られる。
+線束の次数は $0,3,6$ であり、$p,q$ は相異なるので、
+\[
+ H^0(D)=B,\qquad H^1(D)=B^\vee,
+ \qquad H^i(D)=0\ (i\ne0,1).
+\]
+最初の等式は、最初の三対象間では
+$\mathcal S_d\simeq H^0(E,L_d)$ が $d=0,1,2$ で成立することと、
+線束から点への evaluation による。
+二番目の等式は楕円曲線上の相対 Serre 双対性であり、
+積に関する trace の巡回性により両側加群の同型である。
+従って標準的な truncation により
+\[
+ \operatorname{Cone}(B\longrightarrow D)\simeq B^\vee[-1]
+\]
+を得る。$\mathbb S$ は $-\otimes_B^{\mathbf L}B^\vee$ であるから、
+これを一つ回転した三角が \eqref{eq:ac-serre-triangle} である。
+
+spherical 性について用いる開性を具体的に述べる。
+$r$ とその左右随伴は perfect な $B$--$E_U$ 両側加群で表される。
+左随伴は $r^L=\mathbb S^{-1}r^R[1]$ である。
+Anno--Logvinenko の spherical 判定
+\cite[定理1.1および定理5.1]{ACAnnoLogvinenko} に現れる比較射
+\[
+                  r^R\longrightarrow\theta r^L[1]
+\]
+の cone も、この種の perfect 両側加群で表される。
+古典点では $\mathcal H_0=\operatorname{Perf}(Y)$、
+$Y=\operatorname{Bl}_{p,q}\mathbb P^2$ であり、
+$r_0=\mathbf L i^*$ は反標準楕円曲線 $i\colon E\hookrightarrow Y$ への restriction
+である。このとき比較射は同型である。
+cone を $E_U$ 上の perfect 複体として見ると、そのコホモロジーの台は閉集合であり、
+$E_U\to U$ は proper である。その像を除けば比較射は同型になる。
+$\theta$ は既に可逆なので、同判定を適用できる。
+
+twist の kernel も明示できる。
+$p_1,p_2\colon E_U\times_U E_U\to E_U$ とすると、$rr^R$ は
+\[
+ p_1^*(\mathcal P^\vee)\otimes_B^{\mathbf L}p_2^*\mathcal P
+\]
+を kernel とする。$B$ の相対 smoothness によりこの kernel は perfect である。
+評価射から対角の構造層 $\mathcal O_\Delta$ への射を取り、その cone が $T$ の kernel
+となる。逆関手の kernel はその随伴 kernel で与えられる。
+spherical 関手の標準的な同型 $Tr\simeq r\theta[2]$ から
+\eqref{eq:ac-intertwining} が従う。
+以上の構成は tensor、双対、proper pushforward と unit・counit によるため、
+基底変換と両立する。
+\end{proof}
+
+\begin{lemma}\label{lem:ac-elliptic-automorphism}
+基底をさらに一度縮めると、$\Psi$ は
+\[
+                 \Psi(G)=\rho_*(G\otimes M)
+\]
+と書ける。ここで $\rho$ は $E_U/U$ の平行移動、$M$ は各ファイバーで次数7の線束である。
+さらに、基底からの線束の自明化を選ぶと
+\begin{equation}\label{eq:ac-elliptic-data}
+ \rho=\tau=\psi^3,\qquad
+ M=L_3(-\tau^{-1}p-\tau^{-1}q),\qquad
+ L_3=L\otimes\psi^*L\otimes(\psi^2)^*L
+\end{equation}
+となる。
+\end{lemma}
+
+\begin{proof}
+古典点の Cartier divisor の計算により
+\[
+ T_0(G)=G\otimes\mathcal O_E(-E)[2],\qquad
+ \Psi_0(G)=G\otimes\mathcal O_E(E).
+\]
+$E^2=K_Y^2=7$ である。
+前補題の $\Psi$ の perfect kernel を $K$ とする。
+その古典的ファイバーは $\Delta_*\mathcal O_E(E)$ である。
+derived flatness の開性を $K$ の第一射影に適用すると、
+$E\times\{0\}$ の近傍で、$K$ は第一射影に関して平坦な一つの coherent sheaf となり、
+その各ファイバーは長さ1の零次元層となる。
+この条件の失敗する閉集合を第一射影で押し出し、さらに $E_U\to U$ で押し出して除く。
+どちらも proper な射の下の台を用いるので、$0$ を含む一つの開近傍を取れる。
+長さ1の層の族は相対 Hilbert scheme $\operatorname{Hilb}^1(E_U/U)=E_U$ により、
+ある射 $\rho\colon E_U\to E_U$ の graph 上の線束となる。
+$\Psi$ が同値なので $\rho$ は自己同型である。
+$\rho_0=\mathrm{id}$ と $U$ の連結性により、$\rho$ は平行移動である。
+線束の次数は連結基底上で一定なので7となる。
+
+平行移動と線束を $K_0$ で決定する。
+五対象の Euler 行列は基底に依存せず、Serre 作用はその行列により決まる。
+従って $F$ の $K_0$ 作用は、古典点での $-K_Y$ の tensor 作用と同じである。
+\[
+ \delta=[T_2]-2[T_1]+[T_0],\qquad
+ \varepsilon=(\psi^{-2})^*L\otimes((\psi^{-1})^*L)^{-1}
+\]
+と置けば、$\delta$ は古典的な点の類であり、$r(\delta)=(0,\varepsilon)$ となる。
+ここでは $K_0(E)\simeq\mathbb Z\oplus\operatorname{Pic}(E)$ を rank と determinant
+により表示する。古典点で直接計算すると
+\begin{align}
+ F[P_p]&=[P_p]+\delta,\label{eq:ac-coxeter-point}\\
+ F[O]&=[T_0]-3[T_1]+3[T_2]-[P_p]-[P_q].\label{eq:ac-coxeter-unit}
+\end{align}
+例えば二番目は $-K_Y=3H-E_p-E_q$ および
+$\chi(\mathcal O_Y(-K_Y))=8$ から従う。
+
+式 \eqref{eq:ac-coxeter-point} を restriction すると
+\[
+        \mathcal O_E(\rho(p)-p)\simeq\varepsilon.
+\]
+$\psi=t_s$ と書けば、次数3の線束に対して
+$\varepsilon\simeq\mathcal O_E(3s-0)$ であるから $\rho=t_{3s}=\psi^3$ となる。
+式 \eqref{eq:ac-coxeter-unit} からは
+\[
+ \Psi(\mathcal O_E)=\rho_*M
+ \simeq ((\psi^{-2})^*L)^{\otimes3}(-p-q)
+\]
+を得る。$\tau^*$ を適用し、楕円曲線上の平行移動に関する恒等式
+\[
+             (\psi^*L)^{\otimes3}\simeq
+             L\otimes\psi^*L\otimes(\psi^2)^*L
+\]
+を用いると \eqref{eq:ac-elliptic-data} が従う。
+これらの線束の同型を各ファイバーで得た場合、seesaw により残る差は $U$ からの
+線束である。$0$ の近傍でそれを自明化する。
+\end{proof}
+
+\subsection{全次数の平坦性と中心元}
+
+\begin{theorem}\label{thm:relative-anticanonical-ring}
+上の一つの基底上で
+\[
+ \mathscr A_n=\operatorname{Hom}_{\mathcal H}(O,F^nO),\qquad
+ \mathscr A=\bigoplus_{n\ge0}\mathscr A_n
+\]
+と置く。乗法は、$a\in\mathscr A_m$、$b\in\mathscr A_n$ に対して
+\begin{equation}\label{eq:ac-orbit-product}
+                      a b=F^n(a)\circ b
+\end{equation}
+とする。すると次が成立する。
+\begin{enumerate}
+\item
+全ての $n\ge0$ について
+$\mathbf R\operatorname{Hom}_{\mathcal H}(O,F^nO)$ は次数零に集中し、
+$\mathscr A_n$ は有限局所自由 $R$-加群である。その階数は
+\[
+         \operatorname{rk}_R\mathscr A_n=1+\frac{7n(n+1)}2.
+\]
+構成とこの同型は任意の基底変換と両立する。
+\item
+自然変換 $\alpha$ から得られる
+$g=\alpha_{FO}\colon O\to FO$ は次数1の中心正則元であり、
+\begin{equation}\label{eq:ac-central-extension}
+ 0\longrightarrow\mathscr A(-1)
+ \xrightarrow{\,g\,}\mathscr A
+ \longrightarrow B(E_U,M,\tau)\longrightarrow0
+\end{equation}
+は graded algebra の中心拡大である。
+\item
+$\mathscr A$ は次数1で生成され、局所的に8生成元、42個の二次関係式で表示される。
+古典的ファイバーは
+\[
+          \mathscr A_0^{\mathrm{fiber}}
+          \simeq\bigoplus_{n\ge0}H^0(Y,\mathcal O_Y(-nK_Y))
+\]
+である。各幾何学的ファイバーは domain である。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$M_n=M\otimes\tau^*M\otimes\cdots\otimes(\tau^{n-1})^*M$ と置くと、
+\[
+                  \Psi^n\mathcal O_E=\tau_*^nM_n,
+                  \qquad\deg M_n=7n.
+\]
+式 \eqref{eq:ac-serre-triangle} を $F^nO$ に適用し、$O$ から Hom を取ると
+\begin{equation}\label{eq:ac-degree-triangle}
+ \mathbf R\operatorname{Hom}(O,F^{n-1}O)
+ \longrightarrow\mathbf R\operatorname{Hom}(O,F^nO)
+ \longrightarrow\mathbf R\Gamma(E_U,\Psi^n\mathcal O_E)
+ \longrightarrow
+\end{equation}
+となる。$n\ge1$ では右項は次数零に集中し、階数 $7n$ の局所自由加群である。
+これは各楕円ファイバー上での正次数線束の $H^1$ 消滅と cohomology and base change
+による。$\mathbf R\operatorname{Hom}(O,O)=R$ を出発点として帰納すれば
+\begin{equation}\label{eq:ac-degree-short-exact}
+ 0\longrightarrow\mathscr A_{n-1}\longrightarrow\mathscr A_n
+ \longrightarrow H^0(E_U,\Psi^n\mathcal O_E)\longrightarrow0
+\end{equation}
+および第一の主張を得る。全ての次数で同じ正次数消滅を用いるため、
+この帰納の途中で $U$ を縮める必要はない。
+
+中心性のための自然変換の整合性を確認する。
+自然性から、任意の $Y$ について
+\[
+ \alpha_Y\circ(\alpha_{\theta Y}-\theta(\alpha_Y))=0,
+ \qquad
+ \alpha_{\theta Y}-\theta(\alpha_Y)\colon\theta^2Y\to\theta Y
+\]
+となる。$Y=F^{n+2}O$ と取る。
+三角 \eqref{eq:ac-serre-triangle} の $Y$ での値に
+$\operatorname{Hom}(F^nO,-)$ を適用する。
+$rF^nO$ と $rY$ は線束であるため
+\[
+ \operatorname{Ext}^{-1}_{E_U}(rF^nO,rY)=0.
+\]
+従って $\alpha_Y$ による postcomposition は
+$\operatorname{Hom}(F^nO,F^{n+1}O)$ 上単射であり、
+\[
+ \alpha_{F^{n+1}O}=F^{-1}(\alpha_{F^{n+2}O}),\qquad
+ F(\alpha_{F^{n+1}O})=\alpha_{F^{n+2}O}
+\]
+が従う。$\eta_X=\alpha_{FX}\colon X\to FX$ と書くと、
+$\eta_{F^nO}=F^n(\eta_O)$ である。
+$a\colon O\to F^nO$ に対する $\eta$ の自然性から
+\[
+                  F(a)g=F^n(g)a
+\]
+となり、\eqref{eq:ac-orbit-product} の下で $ag=ga$ を得る。
+ここでは必要な orbit 上で可換性を証明した。
+式 \eqref{eq:ac-degree-short-exact} の左射はこの $g$ による乗法であるから、
+$g$ は左右の正則元である。
+
+restriction は乗法を保つ。
+$H^0(E_U,\Psi^n\mathcal O_E)\simeq H^0(E_U,M_n)$ の下で、
+式 \eqref{eq:ac-orbit-product} は
+\[
+        a b=a\,\tau^{m*}b\qquad(\deg a=m)
+\]
+となる。従って商は \eqref{eq:ac-central-extension} の THCR である。
+次数7の線束による楕円 THCR は次数1で生成される。
+各次数の乗法の全射性は、次数が少なくとも3の二線束についての
+楕円曲線上の切断の乗法の全射性から従い、相対的にも base change により成立する。
+中心元 $g$ を加えて帰納すれば $\mathscr A$ も次数1生成となる。
+
+次数7の楕円 THCR は Koszul、特に二次関係式で定義される
+\cite[定理3.19]{PencilRainsFiltered}。
+中心正則元による拡大も二次関係式で表示されることを確認する。
+商の二次関係式を $\mathscr A$ に持ち上げ、$g$ と残りの七生成元との可換関係を加えた
+二次代数を $C$ とする。$C\twoheadrightarrow\mathscr A$ であり、
+$C/gC\simeq\mathscr A/g\mathscr A$ である。
+核の次数 $n$ の元は $g$ の倍数となる。
+$g$ が $\mathscr A$ 上正則であることと次数に関する帰納により、その元は零である。
+この議論は各ファイバーで成立する。
+相対的には
+$\ker(\mathscr A_1\otimes_R\mathscr A_1\to\mathscr A_2)$ を関係式空間に取る。
+各次数の presentation の核は有限 $R$-加群であり、$\mathscr A_n$ の平坦性と
+全ファイバーでの二次性から Nakayama により零となる。
+従って同一基底上の相対的な二次表示を得る。
+$\operatorname{rk}\mathscr A_1=8$、$\operatorname{rk}\mathscr A_2=22$ なので、
+関係式空間の階数は $8^2-22=42$ である。
+
+古典点では $F=-\otimes\mathcal O_Y(-K_Y)$ なので、主張した section ring となる。
+各幾何学的ファイバーの商 THCR は domain である。
+非零な斉次元を割り切る最大の $g$ の冪を取り除けば、
+商でその積が非零となることから $\mathscr A$ の各ファイバーも domain となる。
+\end{proof}
+
+\begin{remark}\label{rem:ac-noetherian}
+$B(E_U,M,\tau)$ は左右 noetherian である。
+実際、$E$ 上の次数7の線束 $H$ を固定すると
+$M_n\otimes H^{-n}$ は全ファイバーで次数零であり、相対的に numerically effective
+である。従って Keeler の相対 Fujita 消滅
+\cite[定理1.5]{ACKeelerAmple} により、$M$ は $\tau$-ample となる。
+同論文の定理1.1は、可換 noetherian 基底上の proper scheme に適用でき、
+左右の $\tau$-ampleness と THCR の noetherian 性を与える。
+中心正則元による拡大について $g$-進 associated graded は
+$B(E_U,M,\tau)[z]$ となる。
+斉次イデアルの先頭項の有限個の生成元を持ち上げ、$g$ の次数が正であることを用いて
+次数ごとに帰納すれば、$\mathscr A$ も左右 noetherian となる。
+この議論は楕円 THCR の ample pair に関するものであり、
+$\mathcal H$ 上の反標準関手 $F$ の ample 性は追加の問題である。
+\end{remark}
+
+\subsection{平面の二点 blow-up 環との同定}
+
+平面側の圏を $\mathcal D=\operatorname{Perf}(A)$ とし、
+$j\colon\mathcal D\hookrightarrow\mathcal H$ を包含とする。
+$\mathcal E=\langle P_p,P_q\rangle$ と置けば
+$\mathcal H=\langle\mathcal D,\mathcal E\rangle$ である。
+右 mutation の規約は
+\[
+ R_{\mathcal E}(X)\longrightarrow X\longrightarrow
+ P_p\otimes\mathbf R\operatorname{Hom}(X,P_p)^\vee
+ \oplus P_q\otimes\mathbf R\operatorname{Hom}(X,P_q)^\vee
+ \longrightarrow
+\]
+とする。従って $R_{\mathcal E}(X)\in{}^\perp\mathcal E$ である。
+
+以下の Sklyanin 表示では平面側の反標準関手は
+$F_{\mathrm{pl}}=\mathbb S_{\mathcal D}^{-1}[2]=(3)$ である。
+この点は Nakayama automorphism の規約に関わるため確認しておく。
+式 (S8) の三関係式は cyclic potential
+\[
+       W=XYZ+bXZY-\frac h3(X^3+Y^3+Z^3)
+\]
+の cyclic derivatives である。
+AS-regular Koszul resolution に対応する三段の両側 Koszul complex は、
+この cyclicity により内部次数3のずれを伴って自己双対になる。
+従って Nakayama automorphism は恒等であり、
+balanced dualizing complex の qgr への降下から
+$\mathbb S_{\mathcal D}=(-3)[2]$ を得る。
+自己双対両側分解による Calabi--Yau 判定は
+\cite[定理4.2--4.3]{ACBocklandt} に述べられている。
+この有限な Koszul complex と自己双対写像は相対的にも同じ式で定義される。
+
+\begin{lemma}\label{lem:ac-mutation-map}
+自然同型と自然射
+\[
+ F j\simeq R_{\mathcal E}jF_{\mathrm{pl}},\qquad
+ c_1\colon Fj\longrightarrow jF_{\mathrm{pl}}
+\]
+が存在する。これを反復して得られる $c_n\colon F^nj\to jF_{\mathrm{pl}}^n$ は、
+graded algebra homomorphism
+\begin{equation}\label{eq:ac-plane-homomorphism}
+                 \phi\colon\mathscr A\longrightarrow\mathcal S^{(3)}
+\end{equation}
+を定める。次数1の射は単射であり、その像は
+\begin{equation}\label{eq:ac-degree-one-subspace}
+ V=\bigl\{s\in\mathcal S_3\mid
+     \bar s\in H^0(E_U,L_3(-\tau^{-1}p-\tau^{-1}q))\bigr\}.
+\end{equation}
+ここで $\bar s$ は楕円商への像である。
+\end{lemma}
+
+\begin{proof}
+$M\in\mathcal D$ とし、$V_M=R_{\mathcal E}jF_{\mathrm{pl}}M$ と置く。
+$Z\in\mathcal D$ に対しては半直交性により
+\[
+ \mathbf R\operatorname{Hom}_{\mathcal H}(V_M,jZ)
+ \simeq\mathbf R\operatorname{Hom}_{\mathcal D}(F_{\mathrm{pl}}M,Z)
+ \simeq\mathbf R\operatorname{Hom}_{\mathcal H}(jZ,jM[2])^\vee.
+\]
+$Z\in\mathcal E$ に対しては同じ両辺が零である。
+二つの部分圏が $\mathcal H$ を生成するので、Serre 関手の特徴付けから
+$V_M\simeq FjM$ を得る。これは $M$ に自然であり、mutation 三角から $c_1$ を得る。
+
+$c_0=\mathrm{id}$ とし、$c_n$ を $c_1$ の反復合成で定める。
+合成の定義から
+\begin{equation}\label{eq:ac-c-coherence}
+ c_{m+n}=(c_nF_{\mathrm{pl}}^m)\circ F^n(c_m)
+\end{equation}
+となる。$a\colon O\to F^mO$ に対し、
+$\phi(a)$ を $c_m(O)\circ a\colon jO\to jF_{\mathrm{pl}}^mO$ に対応する
+$\mathcal D$ の射とする。
+$c_n$ の自然性を $\phi(a)$ に適用すると
+\[
+ c_{m+n}(O)\circ F^n(a)
+   =jF_{\mathrm{pl}}^n(\phi(a))\circ c_n(O).
+\]
+この右に $b\colon O\to F^nO$ を合成すれば
+$\phi(ab)=\phi(a)\phi(b)$ となる。
+ここで両側の orbit 乗法に \eqref{eq:ac-orbit-product} を用いた。
+平面側の orbit 環は $\mathcal S^{(3)}$ である。
+
+$N_3=(\psi^{-3})^*L_3=\tau_*L_3$ と置く。
+evaluation による gluing は任意の $M\in\mathcal D$ について
+\[
+ \mathbf R\operatorname{Hom}_{\mathcal H}(jM,P_\nu)
+ \simeq\mathbf R\operatorname{Hom}_{E_U}(rjM,k_\nu)
+\]
+と両立する。従って $M=F_{\mathrm{pl}}O=O(3)$ の mutation 三角は
+\[
+ FO\longrightarrow jO(3)\longrightarrow
+       P_p\otimes N_3|_p\oplus P_q\otimes N_3|_q\longrightarrow
+\]
+となる。$O$ から Hom を取り、定理\ref{thm:relative-anticanonical-ring} の消滅を用いると
+\[
+ 0\longrightarrow\mathscr A_1\xrightarrow{\phi_1}\mathcal S_3
+ \longrightarrow N_3|_p\oplus N_3|_q\longrightarrow0
+\]
+を得る。最後の射は $rj$ による evaluation である。
+既存の右加群の規約では $s\in\mathcal S_3$ の restriction は
+$(\psi^{-3})^*\bar s$ なので、これは $\bar s$ を
+$\tau^{-1}p,\tau^{-1}q$ で評価する射である。
+従って核は \eqref{eq:ac-degree-one-subspace} となる。
+\end{proof}
+
+\begin{theorem}\label{thm:ac-rss-identification}
+関数体 $K=\mathbb C(U)$ 上で $\tau_K$ が無限位数であると仮定する。
+幾何学的 generic fiber について RSS の意味で
+\begin{equation}\label{eq:ac-rss-generic}
+ \mathscr A_{\overline K}
+ \simeq\mathcal S_{\overline K}^{(3)}
+       (\tau^{-1}p+\tau^{-1}q)
+\end{equation}
+となる。相対的には、$\phi$ は単射であり、
+\begin{equation}\label{eq:ac-rss-relative}
+                 \mathscr A\simeq R\langle V\rangle\subset\mathcal S^{(3)}.
+\end{equation}
+基底をさらに一度縮め、中心元を単元倍で規格化すると、$\phi$ は
+$g$ を $\mathcal S$ の次数三の中心元 $g_{\mathcal S}$ に移す。
+各ファイバーでも \eqref{eq:ac-rss-relative} は単射な環の表示となる。
+従ってこの式は古典点を含む、次数ごとに平坦な二点 blow-up 環の代数的な族を与える。
+\end{theorem}
+
+\begin{proof}
+$\mathscr A$ は次数1で生成されるので、前補題により
+$\phi(\mathscr A)=R\langle V\rangle$ である。
+無限位数の場合、RSS の blow-up 環
+$\mathcal S^{(3)}(d)$、$d=\tau^{-1}p+\tau^{-1}q$ は $V$ で生成される。
+またその Hilbert 関数は
+\[
+             1+\frac{(9-\deg d)n(n+1)}2
+             =1+\frac{7n(n+1)}2
+\]
+である \cite[定義5.1、定理5.3]{BlowupRSS2015}。
+従って $\phi_{\overline K}$ は各次数で同じ有限次元空間の全射であり、同型となる。
+忠実平坦な体拡大から $K$ 上でも単射である。
+$\mathscr A_n$ は $R$ 上 torsion-free なので、$\phi_n$ の核は零である。
+これで \eqref{eq:ac-rss-relative} を得る。
+
+中心元と特殊化の整合性も確認する。
+$\mathcal S_3\to H^0(E_U,L_3)$ の核は階数1の線束であり、
+近傍で生成元 $g_{\mathcal S}$ を選べる。
+generic fiber の Sklyanin の中心性により、これは全基底上で中心元となる。
+古典点では $E$ の三次方程式を生成する。
+無限位数の楕円 THCR の正次数の中心は零であるから、
+RSS 環の次数1の中心は $\overline K g_{\mathcal S}$ である。
+\eqref{eq:ac-rss-generic} と $g$ の中心性から
+\[
+                          \phi(g)=c g_{\mathcal S}
+\]
+を得る。両辺の局所自由性と楕円商への射により $c\in R$ である。
+古典点では Serre 三角の射が反標準楕円曲線の方程式であるから、$c(0)\ne0$ となる。
+基底を縮めて $c$ を可逆とし、$g$ を規格化する。
+
+この規格化の下で $\phi$ は中心商の射
+\[
+ \mathscr A/g\mathscr A\longrightarrow
+ \mathcal S^{(3)}/g_{\mathcal S}\mathcal S^{(3)}=B(E_U,L_3,\tau)
+\]
+を誘導する。その像は $H^0(E_U,L_3(-d))$ で生成される部分環である。
+楕円曲線上の切断の乗法の全射性により、その次数 $n$ の部分は
+\[
+ H^0\!\left(E_U,(L_3)_n(-d_n)\right),\qquad
+ d_n=d+\tau^{-1}d+\cdots+\tau^{-(n-1)}d
+\]
+であり、$n\ge1$ で階数 $7n$ である。
+中心商の左辺も各次数で同じ階数なので、この像への射は同型である。
+従って商の射は任意のファイバーで単射となる。
+各ファイバーで $\phi(a)=0$ ならば、中心商の単射性により $a=g a'$ と書ける。
+$g_{\mathcal S}$ の正則性から $\phi(a')=0$ である。
+次数を一つずつ下げて帰納すると $a=0$ となる。
+この証明でも全次数について新しい開近傍を取る操作は用いていない。
+\end{proof}
+
+\begin{remark}\label{rem:ac-coefficients-and-hearts}
+式 \eqref{eq:ac-degree-one-subspace} と二次性により、係数の有限計算法を得る。
+$\mathcal S_3$ の10次元表示で二点の evaluation 行列を作り、その核 $V$ の基底を選ぶ。
+次に Sklyanin の二次関係式を用いて
+$V\otimes_RV\to\mathcal S_6$ の積を計算する。
+その核は階数42であり、これが \eqref{eq:ac-rss-relative} の全関係式を生成する。
+この有限計算が十分である理由は、前の全次数の証明と二次性である。
+
+RSS の quadric--plane 同型の仮定を満たすファイバーでは、
+\eqref{eq:ac-rss-generic} の環は $Q^{(2)}(r)$ とも同型である
+\cite[定理7.3]{RSS2023}。
+一方、$\operatorname{Perf}(B)$ と $\operatorname{Perf}(\operatorname{qgr}\mathscr A)$
+の同値を反標準 section functor そのもので構成するには、
+選んだ coherent heart における $F$ の ample 性、または blow-up 圏との
+derived comparison を確認する必要がある。
+Rains の指定する非可換 del Pezzo heart では反標準類が nef となり、
+特定の root の壁で ample 性が失われる
+\cite[\S4]{PencilRainsFiltered}。
+この現象と Van den Bergh の derived comparison
+\cite[定理11.1.3]{BlowupVdB2001} を比較する際は、
+heart、構造対象、blow-up 点の表示を揃える必要がある。
+本節の環の同型と全次数平坦性は、上記の Serre 三角、楕円曲線上の消滅、
+mutation、および RSS の Hilbert 関数によって証明されている。
+\end{remark}

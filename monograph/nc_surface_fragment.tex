@@ -1,0 +1,283 @@
+\section{楕円型の曲面リンクと両立する量子化}
+\label{sec:nc-surface-links}\label{sec:elliptic-links}
+
+この節では、平面三次曲線と二重積の双二次曲線を結ぶ標準的な曲面リンクを扱う。
+量子化の高次項および二周期的な表示を選択し、両側が同じ非可換関数体を持つ族を構成する。
+本節の既知の曲面双有理定理は Presotto--Van den Bergh
+\cite{PVdB2016}、Presotto \cite{Presotto2018}、
+Rogalski--Sierra--Stafford \cite{RSS2023} による。
+古典的ファイバーと一次括弧を指定する相対的な構成は、以下でこれらの定理から導く。
+
+\subsection{楕円曲線上のパラメーターの照合}
+
+滑らかな楕円曲線 $E$ 上の次数 $3$ の直線束 $L$ と平行移動 $\psi$ に付随する
+三次元 quadratic Sklyanin 代数を $S(E,L,\psi)$ と書く。
+$\tau=\psi^3\ne\mathrm{id}$ とし、$p,q\in E$ を選ぶ。
+Presotto \cite[定理4.4、\S4.2、式(4.7)--(4.10)]{Presotto2018} の構成では
+\[
+ d_{2j}=\tau^{-j}p,\qquad d_{2j+1}=\tau^{-j}q,\qquad
+ G_i=\psi^{i*}L\otimes\mathcal O_E(-d_i)
+ \tag{S1}
+\]
+に付随する cubic AS-regular $\mathbb Z$-代数 $D$ と包含
+\[
+ D\hookrightarrow\check S
+ \tag{S2}
+\]
+が得られ、この包含は非可換関数体の同型を誘導する。
+ここで $\check S_{i,j}=S_{j-i}$ である。
+使用する開条件には、隣接する $G_i,G_{i+1}$ が非同型であることを含める。
+三次関係式は
+\[
+ R_i=\ker\!\left(
+ H^0(G_i)\otimes H^0(G_{i+1})\otimes H^0(G_{i+2})
+ \longrightarrow H^0(G_iG_{i+1}G_{i+2})\right)
+ \tag{S3}
+\]
+で与えられる。
+式 (S2) は点イデアルの積を用いて構成される。
+その関数体上の全射性は、同論文 \S4.2 の Step 7 で証明されている。
+
+平行移動 $\alpha$ を $\alpha^2=\tau$ となるように選べば
+\[
+ G_{i+2}\cong\alpha^*G_i
+ \tag{S4}
+\]
+であり、$D$ は二周期的な表示を持つ。
+従って even Veronese は通常の斉次代数 $Q$ として表せる。
+正確には周期同型 $\phi:D_{i,j}\to D_{i+2,j+2}$ を選び、
+$Q_n=D_{0,2n}$ に $a*b=a\phi^m(b)$、$a\in Q_m$、という積を入れる。
+これにより $\check Q\cong D^{\mathrm{even}}$ である。
+また
+\[
+ Q_0(Q)\cong\operatorname{Frac}(D^{\mathrm{even}})_{0,0}
+       \cong\operatorname{Frac}(D)_{0,0}.
+\]
+最後の同型では、奇数終点 $N$ の分数 $ca^{-1}$ の分子分母に
+同じ非零元 $b\in D_{N,N+1}$ を右から掛け、偶数終点の分数に直す。
+以下の比較にはこの corner division ring の同定を用いる。
+滑らかな楕円曲線と $\alpha^2\ne\mathrm{id}$ を持つ
+一般の非可換 quadric から始める逆向きの構成は
+\cite[定理4.1、\S4.1、式(4.4)]{Presotto2018} にあり、
+平面側の平行移動は
+\[
+                 \psi^3=\alpha^2
+                 \tag{S5}
+\]
+によって照合される。
+特に、一周期的な cubic Sklyanin 代数の平行移動を $\sigma$ とする場合、
+$\alpha=\sigma^2$ と取れるため、式 (S5) は
+$\psi^3=\sigma^4$ となる。
+
+\subsection{古典的な曲面リンクを持つ相対族}
+
+\begin{proposition}\label{prop:relative-elliptic-surface-link}
+$\sigma_f$ を、零曲線 $E=\{f=0\}\subset\mathbb P^2$ が滑らかな
+平面 Poisson 構造とし、相異なる $p,q\in E$ を取る。
+標準的なリンク
+\[
+ \operatorname{Bl}_{p,q}\mathbb P^2
+ \cong \operatorname{Bl}_{r}(\mathbb P^1\times\mathbb P^1)
+\]
+で $\sigma_f$ から得られる Poisson 構造を $\sigma_D$ と書く。
+滑らかな点付き代数曲線 $(B,0)$ 上で、両側を量子化する
+次数ごとに平坦な斉次代数の族 $\mathcal S,\mathcal Q$ を選べる。
+これらは
+\[
+ \mathcal S_0=\mathbb C[X,Y,Z],\qquad
+ \mathcal Q_0=\bigoplus_{n\ge0}
+ H^0(\mathbb P^1\times\mathbb P^1,\mathcal O(n,n))
+\]
+を満たし、一般の幾何学的ファイバーで
+\[
+ \operatorname{Frac}_0(\mathcal S_b)
+ \cong \operatorname{Frac}_0(\mathcal Q_b)
+ \tag{S6}
+\]
+となる。この同型は古典的な関数体のリンクを持ち上げる。
+$\mathcal Q$ は cubic AS-regular $\mathbb Z$-代数の even Veronese として構成される。
+\end{proposition}
+
+\begin{proof}
+まず $E$ を固定した Sklyanin 代数の族で $\sigma_f$ を量子化する。
+この族の古典的な点と規格化は Hesse 表示で直接確認できる。
+\[
+ F=X^3+Y^3+Z^3-3\lambda XYZ,\qquad \lambda^3\ne1
+\]
+とし、点 $(b,h)=(-1,0)$ を持つ滑らかな代数曲線
+\[
+ 1+b^3-h^3+3\lambda bh=0
+ \tag{S7}
+\]
+のこの点の近傍上で
+\[
+ \mathcal S=
+ \mathcal O_B\langle X,Y,Z\rangle/
+ (YZ+bZY-hX^2,\ ZX+bXZ-hY^2,\ XY+bYX-hZ^2)
+ \tag{S8}
+\]
+を取る。式 (S7) の $b$ による偏微分は古典点で $3$ なので、$h$ は局所パラメーターであり、
+$b=-1+\lambda h+O(h^2)$ である。
+従ってアフィン錐上の半古典括弧は
+\[
+ \{Y,Z\}=X^2-\lambda YZ=\tfrac13F_X
+\]
+およびその巡回置換である。射影化した括弧は $\sigma_F$ となる。
+座標変換と $h$ の一次係数の調整で $\sigma_f$ を得る。
+
+式 (S8) の point-module 行列の行列式は $bhF$ である。
+従って $h\ne0$ の一般のファイバーの楕円曲線は同じ $E=\{F=0\}$ である。
+$E$ 上でこの行列は古典点でも階数 $2$ であり、その核が定める自己同型
+$\psi_b$ は代数的に $\psi_0=\mathrm{id}_E$ へ延びる。
+基底を連結な近傍に取ると $\psi_b$ は平行移動である。
+この Sklyanin 表示に対する AS 正則性の非退化条件を用いて基底を縮めると、$\mathcal S$ は
+各次数の階数が $\binom{n+2}{2}$ の族となる。
+
+$p,q$ をこの固定された楕円曲線上の定数切断として、式 (S1) を相対的に定義する。
+$\tau_b=\psi_b^3$ と置く。
+乗法 $[2]\colon E\to E$ は \'etale なので、基底の \'etale 近傍への置換により
+\[
+ \alpha_b^2=\tau_b,\qquad\alpha_0=\mathrm{id}_E
+\]
+を満たす平行移動の族を選べる。
+式 (S4) は相対直線束について成立する。
+必要な直線束の同型とその基底方向の自明化を選び、
+二周期的な生成元・関係式の族として表示する。
+
+次にこの族の平坦性を有限の条件で確認する。
+$G_i$ の次数は $2$ なので $H^0(G_i)$ は階数 $2$ のベクトル束である。
+古典点では
+\[
+ G_{2j}=L(-p),\qquad G_{2j+1}=L(-q),\qquad L=\mathcal O_E(1).
+ \tag{S9}
+\]
+$p\ne q$ よりこれら二つは非同型である。
+隣接する二直線束の非同型性を保つ開集合では、base-point-free pencil trick により
+式 (S3) の写像は階数 $6$ の全射となる。
+従って $R_i$ は階数 $2$ のベクトル束であり、基底変換と可換である。
+
+四重テンソル中の
+\[
+ (R_i\otimes H^0(G_{i+3}))\cap(H^0(G_i)\otimes R_{i+1})
+ \tag{S10}
+\]
+は古典点で一次元である。
+一般ファイバーでは Presotto の cubic AS-regular 代数の四次 syzygy なので
+同じく一次元である。従って交わりの次元の上半連続性から、
+古典点の近傍で次元が一に等しく、基底変換と可換な直線束となる。
+古典点のテンソルは linear quadric の geometric quintuple である。
+geometric 条件は隣接二因子による縮約の非消滅で表される開条件なので、
+\cite[\S5.2、定義5.3.1、定理5.5.10]{VdBQuadrics} によって、
+基底を一度縮めれば相対 cubic AS-regular $\mathbb Z$-代数 $\mathcal D$ が得られる。
+二周期性により確認すべきテンソルは有限個である。
+このため全次数で同じ基底開集合を用いることができ、
+$\mathcal D_{i,i+2n}$ の階数は $(n+1)^2$、
+$\mathcal D_{i,i+2n+1}$ の階数は $(n+1)(n+2)$ となる。
+
+古典点の関係式も明示する。
+$p=[0:1:0]$, $q=[0:0:1]$ とする座標を取ると、
+偶数位置と奇数位置の生成元はそれぞれ
+\[
+ V_p=\langle X,Z\rangle,\qquad V_q=\langle X,Y\rangle
+\]
+である。三次関係式は同じ偶奇の二因子を交換する関係であり、linear quadric を与える。
+even Veronese の次数 $n$ は
+\begin{align*}
+ \mathcal D_{0,2n}|_0
+ &=V_p^nV_q^n\\
+ &=\operatorname{span}\{X^{2n-i-j}Y^iZ^j\mid0\le i,j\le n\}\\
+ &=H^0(\mathbb P^2,I_p^nI_q^n(2n)).
+ \tag{S11}
+\end{align*}
+従って古典的な even Veronese は、$p,q$ を結ぶ直線を収縮する
+線形系 $|2H-E_p-E_q|$ による滑らかな quadric の切断環である。
+
+式 (S2) の包含を相対化する。
+$H^0(G_i)$ は、$\psi_b^{i*}L$ の切断として、
+$\check{\mathcal S}_{i,i+1}$ の階数 $2$ の部分束に入る。
+生成元のこの写像が三次関係式を零に送ることは、一般のファイバーでは
+\cite[\S4.2]{Presotto2018} の包含から従う。
+これは有限階数自由加群間の写像の恒等式なので、古典点を含めて成立する。
+得られる $\mathcal D\to\check{\mathcal S}$ は、各斉次部分について
+一般ファイバー上で単射である。始域は基底上平坦なので、全体でも単射である。
+一般の幾何学的ファイバーの関数体の同型は同論文の定理4.4による。
+この同型は基底の関数体 $K=\mathbb C(B)$ 上でも成立する。
+実際、包含 $\mathcal D_K\hookrightarrow\check{\mathcal S}_K$ は $K$ 上定義されている。
+元 $v$ を $\check{\mathcal S}_K$ の次数零関数体に取る。
+$\overline K$ 上の全射性と Ore 分数表示から、ある $N$ と
+$a,c\in (\mathcal D_{\overline K})_{0,N}$ が存在して
+\[
+                  va=c,\qquad a\ne0
+\]
+となる。この方程式は有限次元 $K$-空間
+$\mathcal D_{0,N}\oplus\mathcal D_{0,N}$ 上の線形方程式である。
+標的を、$v\mathcal D_{0,N}$ と $\mathcal D_{0,N}$ が張る有限次元空間に制限すればよい。
+幾何学的に domain であるため、分数環はこの体拡大に関して単射を保つ。
+従って解空間の $a$ 成分への射影が非零であることは $K$ に下降し、
+$K$ 上でも $a\ne0$ なる解が得られる。
+よって $v=ca^{-1}$ であり、$K$ 上の全射性が従う。
+二周期性を用いた even Veronese を $\mathcal Q$ と置けば式 (S6) を得る。
+
+古典点での包含は式 (S11) の可換な包含そのものである。
+周期同型 $\phi$ は基底上線形で、古典点でも同型なので $h$-付値を保つ。
+また式 (S11) の各斉次部分の包含は古典点でも単射であるため、
+原始元を原始元へ送り、corner 分数体の包含も $h$-付値を保つ。
+従って $Q_0(\mathcal Q)$ と $Q_0(\mathcal S)$ の同型は
+Poisson 標識を保ち、剰余体上で古典的なリンクを回復する。
+交換子を $h$ で割って得る一次括弧は、この剰余体の同型によって一致する。
+従って $\mathcal Q$ の半古典極限は指定された $\sigma_D$ である。
+\end{proof}
+
+\begin{corollary}\label{cor:threefold-elliptic-surface-link}
+$\mathbb P^1\times\mathbb P^2$ の垂直型成分と、
+$(\mathbb P^1)^3$ の各二因子型成分の一般元について、
+第\ref{subsec:classical-surface-link}節の曲面リンクと両立する射影量子化を選べる。
+非可換関数体の同型は
+\[
+ \operatorname{Frac}_0(\mathcal S_b)(u)
+ \cong \operatorname{Frac}_0(\mathcal Q_b)(u)
+ \tag{S12}
+\]
+で与えられ、$u$ は中央な超越元である。
+\end{corollary}
+
+\begin{proof}
+前命題の二つの族と $\mathcal O_B[U_0,U_1]$ の Segre 積を取る。
+各次数の階数はそれぞれ $(n+1)\binom{n+2}{2}$ と $(n+1)^3$ となる。
+次数零関数体では $u=U_1/U_0$ が中央であり、式 (S6) が式 (S12) を誘導する。
+古典的なリンクの両側で第三因子の括弧は零なので、一次括弧も所望のものとなる。
+\end{proof}
+
+\subsection{共通ブローアップについての既知の定理}
+
+非可換曲面が、四次元 Sklyanin 代数の中央二次式による商
+$Q=Q_{\mathrm{VdB}}(E,\rho,\Omega)$ として与えられる場合には、
+共通ブローアップの環まで既知である。
+$\rho$ が無限位数、$\operatorname{qgr}Q$ が滑らかであると仮定し、
+$T'=Q^{(2)}$、$\tau=\rho^2$ と置く。
+点 $r\in E$ を通る二つの ruling の line module が楕円曲線上に定める
+残余点を $p,q$ とする。
+Rogalski--Sierra--Stafford \cite[Basic Facts 7.2、定理7.3]{RSS2023} は
+\[
+ T'(r)\cong S(E,\psi)^{(3)}(\tau^{-1}p+\tau^{-1}q),
+ \qquad \psi^3=\tau
+ \tag{S13}
+\]
+を証明している。
+括弧内は elliptic algebra の点ブローアップを表す。
+従って、この表示を持つ模型については一方の一点ブローアップと
+他方の二点ブローアップが同じ環になり、標準的な曲面リンクの
+非可換版が得られる。
+
+式 (S13) は上記の仮定を持つ幾何学的ファイバーについての既知の定理である。
+命題\ref{prop:relative-elliptic-surface-link} は別途、古典点を含む
+両立した量子化と関数体の同型を構成している。
+第\ref{sec:relative-common-blowup}節では、二点 evaluation と例外対象の持上げから、
+古典点の上まで延びる共通 smooth proper 圏と二つの収縮を構成する。
+そこから通常の斉次 quadric 環も復元し、同じ一次 Poisson 括弧を得る。
+第\ref{sec:anticanonical-common-ring}節では、共通圏の反標準 orbit 環を
+式 (S13) の平面側の部分環へ同定する。
+その section functor からの共通圏の復元と、quadric 側の特定の反標準表示との
+標識付き比較には、coherent heart と周期性の同型をさらに照合する。
+固定された一般の Sklyanin quadric に対する式 (S13) の環と
+categorical blow-up の比較は第\ref{blowup:quadric-comparison}節で証明する。

@@ -1,0 +1,425 @@
+% 2026-11-08 v7. Japanese LuaLaTeX fragment.
+% Requires the theorem environments and macros of noncommutative_birational.tex.
+\section{非可換 blowup と三次元の半直交分解}
+\label{blowup:section}\label{sec:nc-blowups}
+
+本節では基礎体を $k=\CC$ とする。
+半直交分解の記法
+$\mathcal D=\langle\mathcal A_1,\ldots,\mathcal A_m\rangle$
+には $j>i$ のとき
+$\operatorname{Hom}(\mathcal A_j,\mathcal A_i)=0$ となる順序を用いる。
+三次元の対象には、射影圏 $\qgr A$、可換三次元多様体上の order、
+smooth proper dg 圏としての三次元量子化という複数の表示が現れる。
+以下では各結果の表示と仮定を指定する。
+特に、三次元 Sklyanin 代数の射影圏は非可換曲面であり、
+四次元 AS-regular 代数の射影圏が非可換射影三次元空間の候補となる。
+
+\subsection{曲面の blowup と blowdown}
+\label{blowup:surfaces}
+
+Van den Bergh の構成は、可換 Cohen--Macaulay 曲線 $C$ を
+両側閉な Cartier divisor として含む noetherian quasi-scheme $S$ を出発点とする。
+$C$ に支えを持つ対象の $S$ 上での有限 injective dimension などの仮定の下で、
+$p\in C$ における blowup $\alpha\colon\widetilde S\to S$ を構成する。
+生成に関する仮定は、$C$ への制限が line bundle となる対象で $S$ が生成される場合に
+満たされる。非可換射影平面と標準的な非可換 ruled surface はこの範囲に入る。
+exceptional object $\mathcal E=\mathcal O_e(-1)$ が存在し、
+有界 coherent derived category には
+\begin{equation}\label{blowup:surface-sod}
+ D^b(\operatorname{coh}\widetilde S)
+ =\left\langle
+     \mathcal E\otimes_k\operatorname{Perf}(k),
+     L\alpha^*D^b(\operatorname{coh}S)
+   \right\rangle
+\end{equation}
+が成り立つ。この結果は \cite[定理8.4.1]{BlowupVdB2001} による。
+生成仮定を明示した定式化は \cite[定理11.12]{BlowupRains2025} にもある。
+したがって、非可換曲面の点 blowup に対する Orlov 型の SOD は既知である。
+
+blowdown の abelian category を回復する際には $t$-structure の指定も重要である。
+Van den Bergh の \emph{Abstract blowing down} は、曲面の滑らかな点の blow-up において、
+$\operatorname{coh}(\widetilde S)$ と $\mathcal O_e(-1)$ から、
+その直交圏上の perverse $t$-structure を使って $\operatorname{coh}(S)$ を回復する。
+\cite[定理1.1]{BlowupAbstract}
+
+楕円代数 $T$ は、次数1の中心元 $g$ を持ち
+$T/gT=B(E,\mathcal L,\tau)$ となる連結次数付き domain である。
+Rogalski--Sierra--Stafford は $|\tau|=\infty$ と
+$\deg D<\deg\mathcal L$ の下で有効因子 $D$ に沿う部分環 $T(D)\subset T$ を構成し、
+分数環の保存と一重点 blowup の反復による表示を証明した。
+また適切な自己交点 $-1$ の line module を収縮する環論的 blowdown を構成した。
+前者は \cite[定理1.1、定理5.3、命題5.4]{BlowupRSS2015}、
+後者は \cite[定理1.4、定理1.5]{BlowupRSS2017} による。
+第\ref{sec:nc-surface-links}節の楕円リンクに用いた
+共通 blowup の同型は \cite[定理1.2、定理7.3]{RSS2023} の具体的な因子分解である。
+Presotto の $\mathbb Z^2$-代数による構成にも、
+共通 blowup の射影圏との比較同値がある。
+\cite[定理1.1]{BlowupPresotto2017}
+
+これらの定理で用いる smoothness と比較同値には実質的な役割がある。
+環論的 blowup の射影圏が有限 homological dimension を持つことは
+各段階で確認を要する。実際、同じ点における反復操作によって
+非 smooth な射影圏が生じる例が \cite[\S10]{BlowupRSS2017} にある。
+環論的モデルに \eqref{blowup:surface-sod} を適用するときは、
+Van den Bergh 型 blowup の圏との同一視を確認する。
+第\ref{blowup:quadric-comparison}節では、quadric の一点 blow-up について
+この比較を証明する。
+
+Rains の近年の研究は、非可換 quasi-ruled surface の blowdown をさらに扱う。
+その定理15.9は、$S$ のある反復 blowup が、曲線対 $(C_0,C_1)$ に付随する
+quasi-ruled surface の反復 blowup と同一になると仮定する。
+このとき $S$ 自身が同じ曲線対に付随する quasi-ruled surface の反復 blowup であるか、
+あるいは $C_0\cong C_1\cong\PP^1$ かつ $S$ が非可換平面である。
+この結果の出発点には共通 blowup の存在が置かれている。
+\cite[定理15.9]{BlowupRains2025}
+
+\subsection{曲面から得られる三次元の blowup と SOD}
+\label{blowup:product}
+
+dg 圏 $\mathcal C,\mathcal D$ の積
+$\mathcal C\widehat\otimes_k\mathcal D$ は、
+derived tensor product を pretriangulated かつ idempotent complete にした圏とする。
+以下の命題を既知の曲面 SOD からの形式的帰結として記す。
+
+\begin{proposition}[積による blowup の SOD]\label{blowup:product-proposition}
+$\mathcal C$ と $\widetilde{\mathcal C}$ を smooth proper な $k$-線形 dg 圏とする。
+dg-enhanced fully faithful functor
+$F\colon\mathcal C\to\widetilde{\mathcal C}$ と exceptional object
+$\mathcal E\in\widetilde{\mathcal C}$ があり、admissible な半直交分解
+\[
+ \widetilde{\mathcal C}
+ =\langle\mathcal E\otimes_k\operatorname{Perf}(k),F\mathcal C\rangle
+\]
+を与えると仮定する。
+$\mathcal P=\operatorname{Perf}(\PP^1)$ とおくと
+\begin{equation}\label{blowup:product-sod}
+ \widetilde{\mathcal C}\widehat\otimes_k\mathcal P
+ =\left\langle
+      \mathcal E\boxtimes\mathcal P,
+      (F\widehat\otimes\mathrm{id})
+      (\mathcal C\widehat\otimes_k\mathcal P)
+   \right\rangle
+\end{equation}
+は smooth proper dg 圏の admissible な半直交分解であり、
+第一成分は $\mathcal P$ と同値である。
+
+さらに $\mathcal C$ と $\widetilde{\mathcal C}$ がそれぞれ
+$\operatorname{Perf}(\qgr A)$ と $\operatorname{Perf}(\qgr\widetilde A)$ で表示され、
+$A,\widetilde A$ が次数1生成の noetherian graded domain で
+$Q_0(A)\cong Q_0(\widetilde A)=D$ を満たすと仮定する。
+両 Segre 環が積圏を表示する場合、その関数斜体はともに
+\begin{equation}\label{blowup:product-field}
+ D(u),\qquad u\text{ は中心変数}
+\end{equation}
+となる。
+\end{proposition}
+
+\begin{proof}
+外積対象間の Hom 複体には
+\[
+ R\operatorname{Hom}(M\boxtimes P,N\boxtimes Q)
+ \cong
+ R\operatorname{Hom}(M,N)\otimes_k^{\mathbb L}
+ R\operatorname{Hom}(P,Q)
+\]
+が成り立つ。従って
+$\mathcal E\boxtimes(-)$ と $F\widehat\otimes\mathrm{id}$ は fully faithful であり、
+必要な半直交性も従う。
+任意の $M\in\widetilde{\mathcal C}$ に元の分解三角形を適用してから
+$P\in\mathcal P$ と外積を取ると、$M\boxtimes P$ が右辺の二成分から生成される。
+これらの外積対象は積圏を生成するため、分解は full である。
+元の射影 functor とその随伴を $\mathrm{id}_{\mathcal P}$ と tensor すれば
+両成分の随伴を得るので、admissibility も保たれる。
+
+properness は上の Hom 複体の式から、smoothness は
+積圏の diagonal bimodule が両因子の diagonal bimodule の derived tensor product
+であることから従う。
+最後の主張は補題\ref{lem:segre-field}をそれぞれの次数付き表示に適用すればよい。
+\end{proof}
+
+\eqref{blowup:surface-sod} にこの命題を適用すると、
+$S\times\PP^1$ の $p\times\PP^1$ に沿う非可換 blowup の積モデルが得られる。
+可換特殊化が存在する場合、その特殊化は
+\[
+ \operatorname{Bl}_{p\times\PP^1}(S_0\times\PP^1)
+ \cong(\operatorname{Bl}_{p}S_0)\times\PP^1
+\]
+であり、exceptional divisor は $\PP^1\times\PP^1$ である。
+この同型は blowup の平坦基底変換性から従う。
+非可換積モデルの SOD に加わる成分は $\operatorname{Perf}(\PP^1)$ となる。
+従って、本研究の $X_{12}$ と $X_{111}$ のうち
+曲面量子化と中央 $\PP^1$ の積で表されるモデルに適用できる。
+代数的パラメータ族全体に同じ主張を行うには、曲面 functor と SOD の相対化を用いる。
+系\ref{cor:relative-common-threefold}は、二つの収縮を同時に相対化した具体例である。
+
+\begin{corollary}[共通曲面 blowup の積]\label{blowup:common-product}
+$\mathcal C_{\mathrm{pl}}$ と $\mathcal C_{\mathrm{qd}}$ をそれぞれ
+非可換平面と非可換 quadric surface の perfect dg 圏とする。
+smooth proper dg 圏 $\mathcal B$ が両者の共通 blowup であり、
+二つの Van den Bergh 型点 blowup と一つの点 blowup により
+\[
+ \mathcal B
+ =\langle\mathcal E_2,\mathcal E_1,\mathcal C_{\mathrm{pl}}\rangle
+ =\langle\mathcal E_r,\mathcal C_{\mathrm{qd}}\rangle
+\]
+と表示されると仮定する。
+ここで各 $\mathcal E_i$ は exceptional object の生成する成分を表す。
+$\mathcal Y=\mathcal B\widehat\otimes\operatorname{Perf}(\PP^1)$ とおけば
+\begin{align}
+ \mathcal Y
+ &=\left\langle
+    \operatorname{Perf}(\PP^1),\operatorname{Perf}(\PP^1),
+    \mathcal C_{\mathrm{pl}}\widehat\otimes\operatorname{Perf}(\PP^1)
+   \right\rangle,\label{blowup:common-plane}\\
+ \mathcal Y
+ &=\left\langle
+    \operatorname{Perf}(\PP^1),
+    \mathcal C_{\mathrm{qd}}\widehat\otimes\operatorname{Perf}(\PP^1)
+   \right\rangle.\label{blowup:common-quadric}
+\end{align}
+\end{corollary}
+\begin{proof}
+命題\ref{blowup:product-proposition}を各 blowup に順次適用する。
+\end{proof}
+
+\cite[定理7.3]{RSS2023} の共通環に対しては、
+各環論的 blowup と上記 categorical blowup の比較を確認したうえでこの系を適用する。
+関数斜体 $D(u)$ の同一視は第\ref{sec:nc-surface-links}節で用いた Segre の計算から得られる。
+一方、\eqref{blowup:common-plane}--\eqref{blowup:common-quadric} の
+仮定は exceptional object と fully faithful functor も指定している。
+第\ref{sec:relative-common-blowup}節は、選んだ量子化族に対してこれらのデータを構成する。
+
+平面側の比較には、さらに具体的な先行結果がある。
+Van den Bergh \cite[定理11.1.3]{BlowupVdB2001} は楕円量子平面の
+反復 categorical blowup とその section ring の射影圏を結ぶ射が、
+指定された移動後の点の一般位置条件の下で導来同値を誘導することを示す。
+二点の場合の条件は、その二点が相異なることである。
+RSS の section ring の比較 \cite[第5節、定義5.1の直後、命題5.4]{BlowupRSS2015} と合わせると、
+この条件を確認した平面側には二つの例外対象を加えた SOD が得られる。
+次の部分節では quadric 側の比較を証明し、
+固定された一般の Sklyanin quadric の共通環にも
+系\ref{blowup:common-product}を適用する。
+
+\input{nc_quadric_blowup}
+
+\subsection{三次元多様体上の order の blowup}
+\label{blowup:orders}
+
+有限中心上の非可換幾何では、三次元に直接適用できる blowup 公式がある。
+次の既知の定理には次元2という制限がない。
+
+\begin{theorem}[Belmans--Presotto]\label{blowup:order-theorem}
+$X$ を smooth quasiprojective variety、$\mathcal A$ を
+$X$ 上の次数 $n$ の locally free order とし、
+$\operatorname{gldim}\mathcal A<\infty$ と仮定する。
+$Z\subset X$ を余次元 $c\geq2$ の smooth closed subvariety とし、
+$Z$ は $\mathcal A$ の ramification locus と交わらず、
+$\mathcal A|_Z\cong\operatorname{Mat}_n(\mathcal O_Z)$ と仮定する。
+$p\colon\widetilde X=\operatorname{Bl}_Z X\to X$ とおくと
+$p^*\mathcal A$ も有限 global dimension を持ち、
+\begin{equation}\label{blowup:order-sod}
+ D^b(\widetilde X,p^*\mathcal A)
+ =\left\langle
+   D^b(Z),\ldots,D^b(Z),
+   Lp^*_{\mathcal A}D^b(X,\mathcal A)
+ \right\rangle
+\end{equation}
+を得る。$D^b(Z)$ は $c-1$ 個である。
+\end{theorem}
+
+\begin{proof}[既知結果への帰着]
+\cite[定理30、注意31]{BlowupBP2018} の Orlov 型公式を、
+標準的な負の twist による順序で記述する。
+$j\colon E\hookrightarrow\widetilde X$ と $q\colon E\to Z$ を
+exceptional divisor とその射影とすると、前の成分の埋込みは
+Morita 同値を介して
+\[
+ j_{\mathcal A,*}
+ \bigl(q_{\mathcal A}^*(-)\otimes\mathcal O_E(a)\bigr),
+ \qquad a=1-c,\ldots,-1
+\]
+で与えられる。ここで $\mathcal O_E(1)$ は $E=\PP(N_{Z/X})$ の相対的な
+正の tautological twist で、$\mathcal O_E(E)=\mathcal O_E(-1)$ である。
+この順序と twist は第\ref{sec:classical-factorizations}節と同じ Orlov の規約にそろえた。
+定理の証明では derived projection formula で $Lp^*_{\mathcal A}$ の
+fully faithfulness を示し、中心の近傍で order を split する
+\'etale 基底変換を用いて Orlov の blowup 公式に帰着する。
+この順序で $Lp^*$ から例外成分への Hom が消えることは
+$Rq_*\mathcal O_E(a)=0$ $(1-c\le a\le-1)$ から直接確認できる。
+例外成分同士の半直交性と生成性も、その分裂近傍での Orlov の計算から従う。
+\end{proof}
+
+特に $\dim X=3$ なら、滑らかな曲線を中心とする場合には $D^b(Z)$ が一つ、
+点を中心とする場合には $\operatorname{Perf}(k)$ が二つ加わる。
+中心の外側で $(\widetilde X,p^*\mathcal A)$ は $(X,\mathcal A)$ と同一になるので、
+generic central simple algebra $\mathcal A\otimes k(X)$ も同一になる。
+その division algebra 部分を選べば、関数斜体の保存も同時に得られる。
+
+中心が ramification locus に入ると、pullback order の有限 global dimension は
+改めて検証を要する。\cite[注意34]{BlowupBP2018} は周期的射影分解を持つ例を与える。
+本研究への適用には、対象の量子化が有限中心上の order として表示され、
+選んだ中心が定理\ref{blowup:order-theorem}の局所条件を満たすことが必要である。
+三次元 Sklyanin 代数にこの方法を用いる場合、対応する楕円曲線の自己同型が
+有限位数となる finite-over-center な部分族が適用範囲となる。
+\cite[定理5]{BlowupBP2018}
+
+\subsection{三次元 flop と noncommutative crepant resolution}
+\label{blowup:nccr}
+
+三次元の birational geometry における非可換環のもう一つの主要な用法は
+noncommutative crepant resolution (NCCR) である。
+標数零の代数閉体上の normal Gorenstein affine domain $R$ に対し、
+非零 reflexive $R$-module $M$ の endomorphism algebra
+$A=\operatorname{End}_R(M)$ が maximal Cohen--Macaulay かつ
+有限 global dimension を持つとき、$A$ は NCCR を与える。
+Van den Bergh は、$\dim R=3$ で $R$ が terminal singularities を持つ場合、
+NCCR の存在と可換 crepant resolution の存在が同値であり、
+これらの bounded derived category が同値になることを証明した。
+\cite[定義4.1、補題4.2、定理6.6.3]{BlowupVdBNCCR2004}
+
+滑らかな三次元多様体の間の flop についても、perverse coherent sheaf の projective generator の
+endomorphism algebra を介して derived equivalence を構成できる。
+\cite[定理C、定理4.4.2]{BlowupVdBFlops2004}
+この構成は共通の可換中心 $R$ に有限な代数を用いる。
+$K=\operatorname{Frac}(R)$、$r=\operatorname{rank}_R M$ とすると
+$A\otimes_R K\cong\operatorname{Mat}_r(K)$ であり、
+generic category は $K$ 上の線形代数として記述される。
+本研究の量子化へ適用するには、対象をこのような中心付き解消として実現することが必要となる。
+
+\subsection{非可換 \texorpdfstring{$\PP^1$}{P1}-束の SOD}
+\label{blowup:p1-bundles}
+
+三次元の SOD を与えるもう一つの一般的な構成は、曲面を底とする非可換
+$\PP^1$-束である。
+$X$ を smooth projective scheme とし、$X\times X$ 上の coherent sheaf
+$\mathcal E$ の support が両射影に関して有限で、
+両方の pushforward が rank2 の locally free sheaf であるとする。
+Van den Bergh の非可換 symmetric sheaf $\mathbb Z$-代数を
+$\mathbb S(\mathcal E)$ と書く。
+Mori--Okawa--Ueda は
+\begin{equation}\label{blowup:mou-sod}
+ D^b\qgr\mathbb S(\mathcal E)
+ =\left\langle
+      f_1^*D^b\operatorname{coh}X,
+      f_0^*D^b\operatorname{coh}X
+   \right\rangle
+\end{equation}
+を証明している。dual gluing functor は sheaf bimodule
+$\mathcal E$ による tensor functor で記述される。
+\cite[定理5.1]{BlowupMOU2019}
+
+$\dim X=2$ とすれば三次元の非可換束が得られる。
+中心上の有限性を用いずに構成できる点で、
+本研究の Ore 拡大による $\PP^1$-束モデルとも比較すべき結果である。
+具体的な比較には、対応する sheaf bimodule と次数付き表示の同定を要する。
+\eqref{blowup:mou-sod} は束の SOD であり、birational map の
+blowup 因子分解を得るにはさらに中心と収縮 functor の構成が必要となる。
+
+\subsection{任意次元の categorical resolution と refined blowup}
+\label{blowup:categorical}
+
+Kuznetsov--Lunts は標数零の体上の任意の separated finite-type scheme $X$ に
+categorical resolution を構成した。
+resolving category は smooth scheme の derived category を成分とする
+有限 SOD を持ち、$X$ が proper のとき resolving category も proper である。
+構成には可換 scheme の smooth-center blowup、非還元中心の厚みを記録する
+Auslander algebra、dg gluing を用いる。
+\cite[定理1.4]{BlowupKL2015}
+
+Kaledin--Kuznetsov は、この局所的な一段階を filtered derived category により
+refined blowup として記述した。
+$X$ が noetherian で、任意の coherent sheaf が有限階数の locally free sheaf の商となると仮定し、
+$Z=V(\mathcal I)$ と $Y=\operatorname{Bl}_{\mathcal I}X$ をとる。
+十分大きい整数 $N$ に対して圏 $\operatorname{Bl}_N(X,Z)$ と fully faithful functor
+\[
+ \operatorname{Perf}(X)\longrightarrow\operatorname{Bl}_N(X,Z)
+\]
+が存在し、
+\begin{equation}\label{blowup:refined-sod}
+ \operatorname{Bl}_N(X,Z)
+ =\left\langle D^b\operatorname{coh}Y,
+   \underbrace{D^b\operatorname{coh}Z,\ldots,D^b\operatorname{coh}Z}_{N\text{ 個}}
+   \right\rangle
+\end{equation}
+となる。$N$ は選んだ refinement の大きさである。
+\cite[定義1.7、命題1.8、式(1.9)]{BlowupKK2015}
+
+これらの結果は三次元の可換 scheme から構成する非可換解消にも適用できる。
+本稿の量子化環からの適用には、その環または射影圏を
+上記の中心付き構成に実現するデータが必要となる。
+関数斜体の同型のみから、refined blowup の中心や gluing bimodule を復元する問題は残る。
+
+\subsection{一般の Rees 構成と naive blowup}
+\label{blowup:naive}
+
+一般の非可換環では、両側イデアル $I$ の通常の Rees 環
+$\bigoplus_{m\geq0}I^m$ の exceptional fiber の次元が変化し得る。
+Van den Bergh の二変数の例を中央変数 $z$ で拡張すると
+\[
+ A=k\langle x,y,z\rangle/
+ (xy-yx-y,\ xz-zx,\ yz-zy),\qquad I=(x,y,z)
+\]
+を得る。この環は PBW 基底を持ち $\operatorname{GKdim}A=3$ である。
+$y=xy-yx$ により帰納的に $y\in I^m$ が全ての $m\geq1$ で成り立つ。
+$A/(y)=k[x,z]$ なので
+\[
+ I^m/I^{m+1}\cong (x,z)^m/(x,z)^{m+1},\qquad
+ \operatorname{gr}_I A\cong k[\bar x,\bar z].
+\]
+従って通常の Rees 構成の exceptional fiber は $\PP^1$ となる。
+この計算は、三次元の点 blowup に対し $\PP^2$ 型の exceptional fiber を得るには、
+中心と Rees 構成の追加条件が必要となることを示す。
+元の二変数の例と twisted Rees 構成は
+\cite[\S1.1]{BlowupVdB2001} を参照されたい。
+
+任意次元の射影多様体から得られる環論的な別の構成として、
+Keeler--Rogalski--Stafford の naive blowup がある。
+$X$ を integral projective variety、$\dim X\geq2$ とし、
+$\sigma\in\operatorname{Aut}(X)$、very ample かつ $\sigma$-ample な $\mathcal L$、
+critically dense な無限 orbit を持つ点 $p$ を選ぶ。
+$\mathcal I=\mathcal I_p$、
+$\mathcal L_m=\bigotimes_{i=0}^{m-1}(\sigma^i)^*\mathcal L$ とおくと
+\[
+ R=\bigoplus_{m\geq0}
+ H^0\!\left(X,
+   \mathcal I\,\sigma^*\mathcal I\cdots(\sigma^{m-1})^*\mathcal I
+   \otimes\mathcal L_m\right)
+\]
+に twisted multiplication を入れられる。
+$R$ は noetherian となる一方で、
+$\dim_k\operatorname{Ext}^1_{\qgr R}(\pi R,\pi R)=\infty$ が成り立つ。
+\cite[定理1.1]{BlowupKRS2005}
+
+この構成は $\dim X=3$ にも適用できるが、上の Ext により
+$D^b(\qgr R)$ の properness は破れる。
+また generic trivialization を選ぶと $R\subset k(X)[t;\sigma]$ となるため、
+次数零分数斜体は可換体 $k(X)$ の部分体に入る。
+従って本研究で現れる一般の非可換 $Q_0(A)$ と比較する際には、
+この birationally commutative な性質を確認する必要がある。
+
+さらに一般の quasi-scheme 上で中心を扱うため、Rogalski は
+closed subcategory の well-closedness を研究した。
+これは中心の ideal との tensor product に相当する右完全 functor の存在条件であり、
+tiny simple object $P$ に対する
+$\dim_k\operatorname{Ext}^1(M,P)<\infty$ が全ての noetherian $M$ で成り立つとき、
+対応する closed point は very well-closed になる。
+\cite[定理1.3、定理6.6]{BlowupRogalski2019}
+この条件は Rees 型操作の定義に必要な圏論的基盤を与える。
+本稿の三次元モデルへの応用では、その後に noetherianity、smoothness、
+generic localization、exceptional component を検証する段階が残る。
+
+\subsection{本研究における因子分解の範囲}
+\label{blowup:scope}
+
+中央 $\PP^1$ との積で表されるモデルでは、
+曲面の blowup と blowdown を積に移して三次元の因子分解を構成できる。
+SOD は命題\ref{blowup:product-proposition}の仮定の下で得られ、
+有限中心上の order については定理\ref{blowup:order-theorem}が直接適用できる。
+トーラス型では第\ref{sec:toric-nc-blowups}節の全 Rees blow-up 列がこの条件を満たす。
+楕円型では第\ref{sec:relative-common-blowup}節の相対共通圏と、
+第\ref{blowup:quadric-comparison}節の固定ファイバーの共通環を得た。
+残る成分間の量子化で分数斜体の同型が判明している各対に対して、
+中心付きの非可換 blowup を実際に構成し、射影圏と斜体の両方に整合する
+functor を与えることが次の課題となる。
+この課題は、Poisson blowup が存在すること、代数的量子化族が存在すること、
+関数斜体が同型になることにそれぞれ追加される条件である。

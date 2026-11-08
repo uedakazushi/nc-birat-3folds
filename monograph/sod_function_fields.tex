@@ -1,0 +1,190 @@
+\section{SOD と関数斜体を結ぶ局所化}
+\label{sec:sod-functions}
+
+\subsection{零ランク対象による商}
+
+関数斜体を回復する際には、圏とともに零ランク対象の部分圏を指定する。
+まず次数付き環について、この操作を明示する。
+
+\begin{proposition}\label{prop:generic-serre}
+$A$ を局所有限な連結次数付き noetherian domain とし、
+非零斉次元についての左右 Ore 局所化 $Q_{\rm gr}(A)$ が存在するとする。
+さらに $A_1\ne0$ とし、$D=Q_{\rm gr}(A)_0$ と置く。
+$\mathcal T_\eta\subset\qgr A$ を、斉次局所化が零となる有限生成次数付き加群の像が
+なす Serre 部分圏とする。このとき
+\[
+ (\qgr A)/\mathcal T_\eta\simeq\operatorname{mod}_{\rm fd}D.
+\]
+右辺は右 $D$-ベクトル空間として有限次元な加群の圏である。
+\end{proposition}
+
+\begin{proof}
+Ore 局所化は完全であり、その核は各元がある非零斉次元で消える加群である。
+局所化環上の有限生成加群とその射には有限個の生成元・関係・分母だけが現れるので、
+Ore 条件による分母払いにより元の次数付き加群から得られる。
+従って局所化はその核による Serre 商を与える。
+有限次元次数付き $A$-加群はこの核に含まれるから、$\qgr A$ を経由できる。
+非零 $t\in A_1$ は $Q_{\rm gr}(A)$ で可逆であり、
+$Q_{\rm gr}(A)=D[t,t^{-1};\sigma]$ は強次数付き環となる。
+次数零成分を取る操作と、$-\otimes_DQ_{\rm gr}(A)$ は互いに逆な同値である。
+これを先の Serre 商と合成すればよい。
+\end{proof}
+
+この命題では二種類の torsion が現れる。
+$\qgr A$ を定義する際には有限次元加群を除き、generic な商では斉次ランク零の
+加群を全て除く。例えば非可換曲面の曲線に支えられる加群は後者に含まれる。
+
+導来圏については、次の Ore 局所化の形が直接使える。
+
+\begin{proposition}\label{prop:generic-perf}
+$B$ を左右 Ore domain、$D=\Frac B$ とする。
+$\mathcal N$ を $P\otimes_B^LD=0$ を満たす
+$P\in\operatorname{Perf}(B)$ の thick 部分圏とすると、
+\[
+ \left(\operatorname{Perf}(B)/\mathcal N\right)^\natural
+ \simeq\operatorname{Perf}(D).
+\]
+ここで $(-)^\natural$ は冪等完備化を表す。
+\end{proposition}
+
+\begin{proof}
+$D$ は $B$ の非零元の右加群自己準同型 $B\to B$ を可逆化した環である。
+左右 Ore 局所化は平坦なので $\operatorname{Tor}^B_i(D,D)=0$ $(i>0)$ である。
+Neeman--Ranicki \cite[定理0.7]{NeemanRanicki} をこの可逆化に適用する。
+同定される核はこれらの射の cone が生成する thick 部分圏であり、
+同定後はちょうど $-\otimes_B^LD$ の核 $\mathcal N$ である。
+\end{proof}
+
+滑らかな整射影多様体 $X$ についても、generic point で零となる perfect complex の
+部分圏を $\operatorname{Perf}_{\rm tors}(X)$ とすれば
+\begin{equation}\label{eq:comm-generic-quotient}
+ \left(\operatorname{Perf}(X)/\operatorname{Perf}_{\rm tors}(X)\right)^\natural
+ \simeq\operatorname{Perf}(k(X))
+\end{equation}
+である。実際、generic point 上の有限次元ベクトル空間と射は稠密開集合に広がり、
+有限個の射の分母はさらに小さい稠密開集合を取れば消える。
+perfect complex もそのような開集合で cohomology の直和へ分裂する。
+その補集合に支えられる cone を商で零とすれば、局所化した圏の対象は
+$\mathcal O_X$ の有限直和とシフトから生成される。
+その自己準同型は $k(X)$ となり、高次自己準同型は稠密なアフィン開集合への制限で消える。
+これにより式\eqref{eq:comm-generic-quotient}を得る。
+
+本稿の斉次環が normal な元の局所化からアフィン Ore チャートを持つ場合には、
+このチャートと命題\ref{prop:generic-perf}を用いて generic な導来圏を計算できる。
+一般の smooth proper dg 圏に対しては、同様の generic localization のデータを
+追加することが関数斜体を論じるための条件となる。
+
+\subsection{blow-up の例外部分が局所化で消える理由}
+
+滑らかな曲面の一点 blow-up $f:\widetilde S\to S$ では
+\[
+ \operatorname{Perf}(\widetilde S)=
+ \left\langle\mathcal O_E(-1),Lf^*\operatorname{Perf}(S)\right\rangle.
+\]
+例外対象 $\mathcal O_E(-1)$ は generic rank が零である。
+$f$ は稠密開集合で同型であり、$Lf^*$ はその開集合上で恒等関手になる。
+従って generic quotient に移ると $k(\widetilde S)=k(S)$ が回復される。
+この記述は次の形で非可換の場合にも適用できる。
+
+\begin{proposition}\label{prop:sod-compatible-generic}
+冪等完備な pretriangulated dg 圏 $\mathcal C,\widetilde{\mathcal C}$ を取り、
+$\widetilde{\mathcal C}$ に admissible な SOD
+\[
+ \widetilde{\mathcal C}=\langle\mathcal E,F(\mathcal C)\rangle
+\]
+があり、両側に generic localization
+$q:\mathcal C\to\mathcal C_\eta$、
+$\widetilde q:\widetilde{\mathcal C}\to\widetilde{\mathcal C}_\eta$ が指定されているとする。
+ここで局所化先は対応する Verdier 商の冪等完備化とする。
+$\mathcal E\subset\ker\widetilde q$ であり、$F$ が零ランク対象を保ち、
+誘導される局所化関手が fully faithful ならば、
+\[
+ \mathcal C_\eta\simeq\widetilde{\mathcal C}_\eta.
+\]
+特にこの圏がそれぞれ関数斜体の perfect 圏ならば、両斜体は同型である。
+\end{proposition}
+
+\begin{proof}
+SOD の生成性より、$\widetilde{\mathcal C}_\eta$ は
+$\widetilde qF(\mathcal C)$ の像で生成される。
+誘導関手の fully faithfulness と冪等完備性から同値が従う。
+斜体 $D$ 上の perfect complex は、有限次元右 $D$-ベクトル空間のシフトの直和である。
+したがって indecomposable な対象は $D[n]$ であり、その自己準同型環が $D$ になる。
+同値はこの自己準同型環を保存する。
+\end{proof}
+
+Van den Bergh 型の曲面 blow-up では、適切な点の補集合上の比較がこの局所化との
+両立性を与える。ring-theoretic な common blow-up については、
+その圏とこの blow-up 圏との比較および smoothness を確認して適用する。
+第\ref{blowup:quadric-comparison}節は一点 quadric の比較を与える。
+相対的な共通圏では命題\ref{prop:relative-common-field}により、
+二つの局所化が同じ kernel を持つことから斜体同型が従う。
+トーリック共通模型では系\ref{cor:toric-nc-common}の単項式局所化が
+同じ量子トーラスを与える。
+
+\subsection{同じ SOD 成分と異なる関数斜体}
+
+\begin{proposition}\label{prop:sod-does-not-determine-field}
+$q\in\CC^*$ に対して
+\[
+ S_q=\CC\langle x,y,z\rangle/(xy-qyx,\ xz-zx,\ yz-zy)
+\]
+と置く。全ての $q$ に対して
+\[
+ D^b(\qgr S_q)=\langle\mathcal O,\mathcal O(1),\mathcal O(2)\rangle
+\]
+は full strong exceptional collection である。
+その関数斜体は
+\[
+ D_q=\Frac\bigl(\CC\langle u,v\rangle/(uv-qvu)\bigr).
+\]
+$q=1$ の関数体は $\CC(u,v)$ であり、$q\ne1$ の関数斜体は非可換である。
+従って SOD の各成分の同値型と個数から関数斜体を決定することはできない。
+\end{proposition}
+
+\begin{proof}
+$S_q$ は三変数の skew-polynomial 環であり、順序付き単項式を基底に持つ
+Koszul AS 正則環で、大域次元は三である。
+三つの normal な変数による次数付き \v{C}ech 複体から
+$H^1(\mathcal O(r))=0$、$H^2(\mathcal O(r))=0$ $(r\ge-2)$、
+$H^0(\mathcal O(r))=(S_q)_r$ を得る。
+これにより三つの対象の強例外性と半直交性が従う。
+Koszul 分解は $\qgr S_q$ で全ての $m$ に対して
+\[
+ 0\longrightarrow\mathcal O(m-3)\longrightarrow\mathcal O(m-2)^3
+ \longrightarrow\mathcal O(m-1)^3\longrightarrow\mathcal O(m)\longrightarrow0
+\]
+を与えるので、この三対象は全ての twist を生成する。
+有限生成次数付き加群の有限自由分解により full である。
+$z$ は中心元であり、次数零の局所化は
+$u=xz^{-1}$、$v=yz^{-1}$ を生成元とする量子平面になる。
+$q\ne1$ なら $uv-vu=(q-1)vu\ne0$ であり、domain の分数環への埋込み後も非零である。
+\end{proof}
+
+この例で変化するのは SOD の貼合せである。
+頂点 $0,1,2$ と、それぞれ $i\to i+1$ の三本の矢
+$x_i,y_i,z_i$ $(i=0,1)$ を用いる Beilinson 代数の関係式は
+\[
+ x_1y_0=qy_1x_0,\qquad x_1z_0=z_1x_0,\qquad y_1z_0=z_1y_0.
+\]
+$z_0,z_1$ を可逆化して三頂点を同一視すると、その corner は量子平面となる。
+さらに非零元を可逆化して $D_q$ を得る。
+従って貼合せ代数と可逆化する射を保持すれば、関数斜体を回復できる。
+
+generic quotient の後には、半直交性自体も通常は残らない。
+例えば $\mathcal O$ と $\mathcal O(1)$ はどちらも generic point 上で一つの
+自由 $D_q$-加群に移り、両方向の Hom が非零になる。
+
+\begin{remark}\label{rem:generic-not-proper}
+$D$ が $\CC$ 上無限次元の関数斜体ならば、$\operatorname{Perf}(D)$ を
+proper な $\CC$-線形 dg 圏へ fully faithfully 埋め込むことはできない。
+実際 $\operatorname{End}_D(D)=D$ は無限次元であり、properness の Hom の有限次元性と
+両立しない。generic な圏は式\eqref{eq:comm-generic-quotient}や
+命題\ref{prop:generic-perf}の商として現れる。
+\end{remark}
+
+曲面ではこの局所化、Van den Bergh の blow-up SOD、Sklyanin 曲面の明示的な
+双有理変換が利用できる。Rains の非可換曲面論が与える factorization 型の結論には、
+共通の反復 blow-up や quasi-ruled 模型に関する仮定が付く。
+本稿ではトーラス型と楕円型に共通模型を構成した。
+全成分の関数斜体同型をそのような共通模型で実現する問題は残る。

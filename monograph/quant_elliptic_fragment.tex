@@ -1,0 +1,210 @@
+\subsection{平面の三次式からの垂直型の量子化}
+\label{subsec:quant-plane}
+
+三次式 $f\in\mathbb C[X_0,X_1,X_2]_3$ に対応する
+$\mathbb P^2$ の Poisson 構造を $\sigma_f$ と書く。
+アフィン座標 $u=X_1/X_0$、$v=X_2/X_0$ では
+$\sigma_f=f(1,u,v)\partial_u\wedge\partial_v$ と規格化する。
+二次式の対称化を $g\mapsto\widehat g$ とし、
+\[
+ A_{f,t}=\mathbb C[t]\langle X_0,X_1,X_2\rangle\Big/
+ \left(
+ [X_0,X_1]-\frac t3\widehat{f_{X_2}},\quad
+ [X_1,X_2]-\frac t3\widehat{f_{X_0}},\quad
+ [X_2,X_0]-\frac t3\widehat{f_{X_1}}
+ \right)
+ \tag{E1}
+\]
+と置く。Mori--Smith \cite[\S1.7.3、定理1.4、\S1.8.2]{MoriSmith}
+の構成と正則性判定により、$0\in U\subset\mathbb A^1_t$ なる
+Zariski 開集合上で、これは次数ごとに平坦な三次元 quadratic AS-regular
+代数の族である。各次数 $n$ の階数は $\binom{n+2}{2}$ である。
+$f=0$ および特異な零三次曲線も許される。
+
+正則性の開性はここでは有限の条件で判定できる。
+三つの関係式は、交代三次テンソルに $-(t/3)\widehat f$ を加えた
+superpotential の巡回偏微分である。
+関係式の独立性を保つ開集合では標準性を満たし、AS 正則性は
+対応する $3\times3$ 行列の $2\times2$ 小行列式が
+$\mathbb P^2$ に共通零点を持たないことと同値である。
+この条件は射影性から開条件であり、$t=0$ の多項式環で成立する。
+各次数の商の次元がこの開集合上で一定なので、各斉次部分は局所自由である。
+
+関係式から、アフィン錐上の半古典極限は
+\[
+ \{X_0,X_1\}=\frac13 f_{X_2},\qquad
+ \{X_1,X_2\}=\frac13 f_{X_0},\qquad
+ \{X_2,X_0\}=\frac13 f_{X_1}.
+\]
+Euler の恒等式を使うと
+\[
+ \{u,v\}
+ =\frac{X_0 f_{X_0}+X_1f_{X_1}+X_2f_{X_2}}{3X_0^3}
+ =f(1,u,v).
+\]
+従って $\operatorname{qgr}A_{f,t}$ は指定した $\sigma_f$ を量子化する。
+さらに $P=\mathcal O_U[Y_0,Y_1]$ との Segre 積
+\[
+ C_{f,t}=A_{f,t}\mathbin{\circ}P
+   =\bigoplus_{n\geq0}(A_{f,t})_n\otimes_{\mathcal O_U}P_n
+ \tag{E2}
+\]
+を取ると、$t=0$ は $\mathbb P^2\times\mathbb P^1$ の
+$\mathcal O(1,1)$ に関する切断環である。
+半古典極限の混合括弧は零であり、垂直型成分の任意の元を得る。
+次数 $n$ の階数は $(n+1)\binom{n+2}{2}$ である。
+
+この積の圏は、$\mathbb P^1_U$ 上の定数族 $\operatorname{qgr}A_{f,t}$
+としても記述できる。アフィン開集合ごとには中央多項式拡大を取り、
+その間を通常の $\mathbb P^1$ の座標変換で貼り合わせる。
+各因子の ample sequence の外積から、同じ圏が上の Segre 切断環で復元される。
+Segre 積と二重次数付き商圏の同値については
+\cite[\S3.2、定理3.32]{BallardFarman} を用いる。
+
+\subsection{双二次式からの二因子型の量子化}
+\label{subsec:quant-quadric}
+
+二次元ベクトル空間 $A,B$ を固定する。
+$\mathbb P(A^*)\times\mathbb P(B^*)$ の Poisson 構造は、
+体積形式を選ぶと $D\in\operatorname{Sym}^2 A\otimes\operatorname{Sym}^2 B$
+で表される。$A$ の基底を $a_0,a_1$、$B$ の基底を $b_0,b_1$ とし、
+$A\otimes B\otimes A\otimes B$ において
+\begin{align*}
+ w_0={}&a_0b_0a_1b_1-a_1b_0a_0b_1\\
+       &-a_0b_1a_1b_0+a_1b_1a_0b_0
+\end{align*}
+と置く。ここで並置はテンソル積を意味する。
+$D$ を第一・第三因子および第二・第四因子に関して対称化した
+テンソルを $\widetilde D$ と書き、
+\[
+                   w(t)=w_0-t\widetilde D
+                   \tag{E3}
+\]
+と定める。
+
+$V_i=A$ または $B$ を $i$ の偶奇で定め、$w_i(t)$ を $w(t)$ の
+$i$ 回の巡回移動とする。$V_{i+3}^*$ による $w_i(t)$ の縮約の像を
+三次の関係式とし、これらでテンソル $\mathbb Z$-代数を割ったものを
+$\mathcal A_{D,t}$ と書く。
+Van den Bergh の geometric quintuple の判定と分類定理
+\cite[\S5.2、定理5.2.2、定義5.3.1、定理5.5.10]{VdBQuadrics} により、
+$0$ を含む Zariski 開集合上で全てのファイバーが
+三次元 cubic AS-regular $\mathbb Z$-代数になる。
+実際 geometric 条件の失敗は、隣接二因子の非零共変ベクトルによる
+縮約が零になるという射影的 incidence の像であり閉条件である。
+$w_0$ は linear quadric のテンソルなのでこの閉集合の外にある。
+定理によって全ファイバーの各斉次部分の次元は一定であり、
+関係式の行列の階数も一定になるため、族は次数ごとに平坦である。
+
+$w(t)$ は二回の巡回移動で不変なので、$\mathcal A_{D,t}$ は
+選んだ $V_{i+2}=V_i$ によって二周期的である。
+従って偶数 Veronese
+\[
+ B_{D,t}=\bigoplus_{n\geq0}(\mathcal A_{D,t})_{0,2n}
+ \tag{E4}
+\]
+には通常の $\mathbb N$-次数付き代数構造が入り、
+\[
+ \dim(B_{D,t})_n=(n+1)^2,\qquad
+ B_{D,0}=\bigoplus_{n\geq0}
+ H^0(\mathbb P^1\times\mathbb P^1,\mathcal O(n,n)).
+\]
+この Veronese は同じ非可換 quadric の圏を与える。
+
+この族の Kodaira--Spencer 写像は $D$ に対応する Poisson 構造である。
+ここではその規格化も確かめる。
+写像は $\operatorname{SL}(A)\times\operatorname{SL}(B)$-同変であり、
+始域および
+\[
+ HH^2(\mathbb P^1\times\mathbb P^1)
+ =H^0(\mathcal O(2,2))
+ =\operatorname{Sym}^2A\otimes\operatorname{Sym}^2B
+\]
+は同じ既約表現である。従って最高ウェイトベクトル
+$D=a_0^2b_0^2$ で確認すればよい。
+全ての位置の $a_0,b_0$ に対応する矢を universal localization で可逆にし、
+それらによって各対象を同定する。
+各位置に残る矢を $u_k,v_k$ とすると、三次関係式のうち二つは
+$u_{k+1}=u_k$ および $v_{k+1}=v_k$ を与える。
+残る関係式は、共通の座標 $u,v$ に対し
+\[
+                         uv-vu=t
+\]
+となる。この局所表示は Weyl 代数の族であり、PBW 基底 $u^iv^j$ を持つ。
+古典的な点では $u=a_1/a_0$、$v=b_1/b_0$ なので、半古典極限は
+$D(1,u,1,v)\partial_u\wedge\partial_v$ である。
+
+以上から
+\[
+ C_{D,t}=B_{D,t}\mathbin{\circ}\mathcal O_U[Y_0,Y_1]
+ \tag{E5}
+\]
+は三重積の任意の二因子型 Poisson 構造を量子化する代数的な族である。
+各次数の階数は $(n+1)^3$、$t=0$ の切断環は
+$\mathcal O(1,1,1)$ に関する Segre 環である。
+$D$ の零曲線の滑らかさは仮定しない。
+
+\subsection{同変性と対数型への適用}
+\label{subsec:quant-elliptic-equivariance}
+
+式 (E3) は二因子の線形座標変換と両立する。
+特に代数群が $w_0$ と $\widetilde D$ を同じ指標で変換するなら、
+全ての $B_{D,t}$ にその群の次数付き作用がある。
+三重積の一般の対数型では、二つの $(1,1)$ 因子の交点を
+$(0,0)$ と $(\infty,\infty)$ に送って
+\[
+ F=f x+g z,\qquad G=h x+k z
+\]
+と書ける。本書 の対数型の表示を用いると
+\[
+ \pi=\sigma+y\partial_y\wedge V,\qquad
+ \sigma=aFG\partial_z\wedge\partial_x,\qquad
+ V=\kappa(x\partial_x+z\partial_z),\quad
+ \kappa=b(fk-gh)
+ \tag{E6}
+\]
+である。$(u,v)=(x,z)$ に対して $D=-aFG$ と取る。
+$\sigma$ は radial $\mathbb G_m$ 作用で不変である。
+斉次座標の重みを $(0,1)$ と $(0,1)$ に取ると、
+$w_0$ と $\widetilde D$ はともに重み $2$ を持つため、
+上の量子化は同じ $\mathbb G_m$ 作用 $\rho$ を保つ。
+
+$q=1+t\kappa$ を可逆にした開集合に制限し、
+\[
+ T=B_{D,t}[Y_0][Y_1;\rho_q],\qquad
+ Y_1c=\rho_q(c)Y_1,\qquad Y_0\text{ は中央}
+ \tag{E7}
+\]
+という二重次数付き Ore 拡大を作る。
+次数は $\deg c=(\deg_B c,0)$、$\deg Y_i=(0,1)$ とする。
+その対角部分 $\bigoplus_{n\geq0}T_{(n,n)}$ は次数ごとに平坦であり、
+各次数の階数は $(n+1)^3$ である。
+アフィン座標 $y=Y_1/Y_0$ について
+\[
+ \{y,c\}=\kappa y(x\partial_x+z\partial_z)(c)
+\]
+なので、半古典極限は式 (E6) と一致する。
+従って各対数型成分の一般元についても、代数的な
+Segre 切断環の族が得られる。
+
+\subsection{pencil 成分のパラメーターと非可換 quadric}
+\label{subsec:quant-pencil-parameters}
+
+三重積の $(1,1,1)$-pencil の基底楕円曲線 $E$ は、
+三つの射影から次数 $2$ の直線束 $L_0,L_1,L_2$ を持つ。
+一般の場合、この四つ組は Van den Bergh の elliptic quadruple の条件を満たす。
+また pencil の二つの生成元を第四の二次元因子にまとめると、
+geometric quintuple の四重テンソルが得られる。
+これは、本書 の pencil 成分の射影 GIT 商
+$\mathbb P(1,2,2,3)$ と、Okawa--Ueda
+\cite[定理1.1]{OkawaUedaQuadrics} の非可換 quadric のコンパクトモジュライ
+$\mathbb P(2,4,4,6)$ が同じ重み付き射影空間になることを説明する。
+
+この四重テンソルは非可換 quadric 曲面を与える。
+本書 の「最大 pencil 成分の Segre 射影量子化」では、
+$L_E=L_0\otimes L_1\otimes L_2$ に対する filtered deformation の
+相対 $\mathbb P^1$ ruling から三次元の斉次環を構成する。
+二つの次数一の中央元 $s,t$ を持ち、各次数の階数は $(n+1)^3$ である。
+さらに同論文の「楕円曲線を中心とする基本変換の相対共通圏」では、
+楕円曲線のグラフに沿う gluing と二回の mutation により、
+元の三重積の量子化を一方の収縮とする二つの SOD を得る。

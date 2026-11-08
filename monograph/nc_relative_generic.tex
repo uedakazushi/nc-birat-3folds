@@ -1,0 +1,236 @@
+\subsection{共通関数斜体と半古典極限}
+\label{subsec:relative-common-generic}
+
+定理\ref{thm:relative-two-contractions}で得られる二つの contraction は、
+generic な局所化とも両立する。この点を、古典点における有限複体の計算から証明する。
+
+\begin{lemma}\label{lem:valued-complex-cancellation}
+$D$ を離散付値 $v:D^\times\to\mathbb Z$ を持つ斜体とし、
+$\mathcal V=\{a:v(a)\geq0\}$、$\mathfrak m=\{a:v(a)>0\}$、
+$\kappa=\mathcal V/\mathfrak m$ と置く。
+$P^\bullet$ を有限階数自由右 $\mathcal V$-加群の有界複体とする。
+その $\kappa$ 上の還元が acyclic なら、$P^\bullet\otimes_{\mathcal V}D$ も acyclic である。
+還元の cohomology が次数零の一次元空間だけなら、
+$P^\bullet\otimes_{\mathcal V}D\simeq D[0]$ である。
+後者の複体二つの間の射が還元の cohomology 上で非零なら、
+その $D$ 上の射も非零である。
+\end{lemma}
+\begin{proof}
+還元された微分の非零成分を一つ選ぶと、その lift は $\mathcal V$ の単元である。
+行と列の基本変形により、この成分を1とし、同じ行と列の残りを零にする。
+複体条件 $d^2=0$ から、前後の微分の対応成分も零となる。
+従って $\mathcal V\xrightarrow{1}\mathcal V$ という可縮な直和因子を除ける。
+これを有限回繰り返す。還元が acyclic なら全ての項が消え、
+cohomology が一つの一次元空間なら次数零の $\mathcal V$ 一個が残る。
+これらの基本変形を射にも施すと、最後の主張は還元が非零のスカラーの可逆性から従う。
+この証明に $\mathcal V$ の完備性は不要である。
+\end{proof}
+
+\begin{lemma}\label{lem:normal-projective-localization}
+$G$ を本節の平面または quadric の次数付き環とし、
+$g$ を楕円曲線を定める斉次正規非零因子とする。
+$U=(G[g^{-1}])_0$ と置くと、制限 functor は
+\[
+ \operatorname{Perf}(\operatorname{qgr}G)/\ker(-|_U)
+ \longrightarrow\operatorname{Perf}(U)
+\]
+の冪等完備化として同値を与える。
+\end{lemma}
+\begin{proof}
+$g$ の次数の Veronese を取ってよいので、$\deg g=1$ とする。
+$G[g^{-1}]$ は強次数付きであり、その次数付き加群圏は $U$ の加群圏と同値である。
+正規元の Ore 局所化は平坦かつ完全であり、核は $g$-冪 torsion である。
+有限生成加群と有界複体に必要な分母払いを確認する。
+$G[g^{-1}]$ 上の有界な有限生成次数付き複体で、各項の有限個の斉次生成元と
+その微分の像を取ると、微分で保たれる有限生成 $G$-格子が得られる。
+複体条件により像をもう一度追加する必要はない。
+有限個の chain maps と homotopies についても、その像を格子に加えれば同時に持ち上がる。
+格子の拡大は局所化後に同型になる。
+従って分母を可逆にする roof を用いれば、有界導来圏の局所化は
+$g$-冪 torsion cohomology を持つ複体による Verdier 商となる。
+有限次元 graded torsion はこの核に含まれ、十分高次の truncation により
+同じ議論を $\operatorname{qgr}G$ に移せる。
+
+本節の射影圏は full strong exceptional collection を持つ smooth な圏なので、
+その有界 coherent 導来圏は perfect 圏である。
+Veronese 後の ample 列 $\{\pi G(n)\}_{n\in\mathbb Z}$ はこの圏を thick に生成する。
+実際、coherent 圏の有限 homological dimension を $d$ とし、ample 性で
+$0\to K\to L_d\to\cdots\to L_0\to F\to0$ を取る。
+各 $L_i$ は有限個の $\pi G(n)$ の直和とできる。
+対応する三角 $K[d]\to[L_d\to\cdots\to L_0]\to F\to K[d+1]$ は
+$\operatorname{Ext}^{d+1}(F,K)=0$ により分裂するので、$F$ はこの有限複体の直和因子である。
+全ての twist $\pi G(n)$ は perfect であり、局所化後には自由階数一となる。
+従って上の quotient の対象は $U$ 上 perfect である。
+逆に $U$ 自身が像に入り、その有限複体と直和因子は全ての
+$\operatorname{Perf}(U)$ を生成する。
+これで主張の冪等完備化を得る。
+\end{proof}
+
+\begin{proposition}\label{prop:relative-common-field}
+定理\ref{thm:relative-two-contractions}の基底曲線の関数体を $K$ とし、
+平面の量子化を $\mathcal S_K$、再構成した quadric の even roll-up を $\mathcal Q_K$ とする。
+二点 gluing 代数を $B$、その圏を $\mathcal H=\operatorname{Perf}(B)$ と書く。
+このとき
+\[
+ D=Q_{\rm gr}(\mathcal S_K)_0
+ \cong Q_{\rm gr}(\mathcal Q_K)_0
+ \tag{RG1}
+\]
+であり、$\mathcal H_K$ と両端点に共通の generic localization
+$\mathcal H_K\to\operatorname{Perf}(D)$ を指定できる。
+二つの SOD の全ての例外対象は、この局所化で零となる。
+同型 (RG1) の古典的剰余は、指定した平面と quadric の曲面リンクである。
+\end{proposition}
+\begin{proof}
+基底の古典点での局所環を $R$、その一様化元を $h$ とする。
+$\mathcal S_R$ は各次数で自由であり、$\mathcal S_R/h\mathcal S_R$
+は可換多項式環である。従って $h$ の位数は積に関して加法的であり、
+Ore 分数環へ延長する。次数零部分 $D$ の剰余斜体は
+$\CC(\mathbb P^2)$ である。各有理関数は斉次分数で lift できるため、
+この剰余の同定は全射である。
+
+平面の Beilinson 代数を $A$ とする。
+三角代数の射 $B\to A$ と平面の generic localization の合成を
+\[
+ F:\operatorname{Perf}(B_K)\longrightarrow\operatorname{Perf}(D)
+ \tag{RG2}
+\]
+と置く。$B\to A$ による導来拡大は二つの追加点の例外成分を核とする商である。
+実際、三角代数の標準的な射影加群の三角により
+$\operatorname{Perf}(B)/\langle E_p,E_q\rangle\simeq\operatorname{Perf}(A)$
+を直接得る。
+平面側では中央三次式を可逆化した次数零環が noetherian Ore domain となる。
+補題\ref{lem:normal-projective-localization}と命題\ref{prop:generic-perf}から、
+$F$ も核による Verdier 商の冪等完備化を与える。
+
+平面の三つの line bundle を、一つの非零な一次式を使って generic point 上で自明化する。
+古典点でこの一次式が零でないように選ぶと、$A_R$ の射の像は全て $D$ の付値環に入る。
+$B_R$ の二つの追加頂点は零へ送る。
+したがって $B_R$ 上の有限射影複体の像は、付値環上の有限自由複体として計算できる。
+
+第三の例外対象 $E_r$ の古典的ファイバーは、
+$Y=\operatorname{Bl}_{p,q}\mathbb P^2$ の曲線 $H-E_p-E_q$ の構造層である。
+その generic restriction は零なので、補題\ref{lem:valued-complex-cancellation}より
+$F(E_r)=0$ となる。
+同じ補題により、quadric の四つの対象 $Q_i$ とその geometric helix の各対象は
+$D[0]$ へ送られる。これらの古典的ファイバーは全て line bundle だからである。
+
+第二の SOD を $\mathcal H_K=\langle\mathcal C_{\rm qd},E_r\rangle$ と書く。
+$E_r\in\ker F$ なので、SOD の射影三角を $F$ に適用すると、
+その制限 $F|_{\mathcal C_{\rm qd}}$ も同じ $\operatorname{Perf}(D)$ への Verdier 局所化を与える。
+ここでは各対象の $E_r$ 成分を零とする商を先に取ってよい。
+
+この商を quadric の内在的な関数斜体と照合する。
+helix の二対象間の非零射を $h$ のべきで規格化し、その還元を非零にする。
+全 helix の各 Hom は有限自由 $R$-加群で、その古典点への基底変換は
+古典的な Hom と同型である。従って primitive な射の還元は非零である。
+古典的な line bundle 間の非零射は
+有理関数体上でも非零である。
+補題\ref{lem:valued-complex-cancellation}より、その像も $D$ 上非零となる。
+従って全ての非零斉次射が $D$ 上で可逆となり、
+quadric の Ore corner division ring $D_{\rm qd}$ から $D$ への埋込みを得る。
+even roll-up を用いれば $D_{\rm qd}=Q_{\rm gr}(\mathcal Q_K)_0$ である。
+
+quadric 側にも、楕円曲線を定める正規元の局所化による affine Ore chart がある。
+従ってその canonical generic functor は、補題\ref{lem:normal-projective-localization}と
+命題\ref{prop:generic-perf}により $\operatorname{Perf}(D_{\rm qd})$ への Verdier 局所化である。
+上の制限 functor は
+\[
+ \mathcal C_{\rm qd}\longrightarrow\operatorname{Perf}(D_{\rm qd})
+ \xrightarrow{-\otimes_{D_{\rm qd}}D}\operatorname{Perf}(D)
+ \tag{RG3}
+\]
+と分解する。斜体拡大による右の functor は conservative である。
+従って左の functor と合成の核は一致する。
+両者がその核による Verdier 商の冪等完備化であることから、右の functor は同値である。
+自由一次元加群の自己準同型環を比較して $D_{\rm qd}\cong D$ を得る。
+
+各 helix 対象の像を付値環上で階数一に簡約すると、primitive な斉次射の像は
+付値零となり、その剰余は古典的な切断である。
+斉次分数に対して付値は分子と分母の付値の差なので、
+同型 (RG1) は $h$-付値を保つ。
+全ての自明化と有限複体の還元は、古典的な共通開集合への制限と両立する。
+従って (RG1) の剰余は $k(Y)=k(\mathbb P^2)=k(\mathbb P^1\times\mathbb P^1)$
+の指定した同一視となる。
+\end{proof}
+
+\begin{proposition}\label{prop:relative-common-poisson}
+上で再構成した quadric の一次 Poisson 構造は、
+$\sigma_f$ を古典的な曲面リンクで移した $\sigma_D$ である。
+\end{proposition}
+\begin{proof}
+命題\ref{prop:relative-common-field}の同型 $\iota:D_{\rm qd}\to D$ は
+$K$-線形であり、$h$-付値と古典的な曲面リンクを保つ。
+付値零の元 $a,b$ に対して
+\[
+ \overline{h^{-1}[\iota(a),\iota(b)]}
+ =\bar\iota\!\left(\overline{h^{-1}[a,b]}\right)
+ \tag{RG4}
+\]
+となる。左辺は選んだ平面量子化の Poisson 括弧である。
+右辺は quadric の一次括弧を同じ関数体へ移したものである。
+従って二つの括弧は共通の稠密開集合上で一致する。
+quadric の一次変形は
+$HH^2(\mathbb P^1\times\mathbb P^1)=H^0(\mathcal O(2,2))$
+によって正則 bivector を定める。
+正則 bivector は稠密開集合への制限で一意に定まるので、主張を得る。
+
+共通圏の一次変形にも同じ記述が成り立つ。
+$Y=\operatorname{Bl}_{p,q}\mathbb P^2$ では $H^2(\mathcal O_Y)=0$ であり、
+$\operatorname{PGL}_3$ の相異なる順序付き二点への推移的作用と
+blow-up の接束完全列から $H^1(T_Y)=0$ となる。
+従って $HH^2(Y)=H^0(Y,\wedge^2T_Y)$ である。
+有限代数の包含 $A\subset B$ と古典的な共通開集合 $W$ への制限について、
+\[
+ \begin{array}{ccc}
+ HH^2(Y)&\longrightarrow&HH^2(\mathbb P^2)\\
+ \downarrow&&\downarrow\\
+ HH^2(W)&=&HH^2(W)
+ \end{array}
+\]
+は可換となる。実際、上の矢は full subcategory への Hochschild cochain の制限であり、
+下への矢は同じ tilting bimodule を $W$ へ制限して得られる。
+$B\to A$ の二つの追加点の成分は $W$ 上で零なので、両経路の bimodule は一致する。
+従って $B_R$ の一次クラスは、$\sigma_f$ の $Y$ への Poisson lift である。
+\end{proof}
+
+\begin{corollary}\label{cor:relative-common-threefold}
+$X_{12}$ の垂直楕円型と $X_{111}$ の二因子楕円型について、
+古典的な曲面リンクを持つ射影量子化の代数的な族と、
+その共通の smooth proper dg 圏 $\mathcal Y$ を選べる。
+基底の \'etale 近傍上で
+\[
+ \begin{aligned}
+ \mathcal Y
+ &=\left\langle
+ \mathcal X_{12},\operatorname{Perf}(\mathbb P^1_U),
+ \operatorname{Perf}(\mathbb P^1_U)\right\rangle,\\
+ \mathcal Y
+ &=\left\langle
+ \mathcal X_{111},\operatorname{Perf}(\mathbb P^1_U)\right\rangle
+ \end{aligned}
+ \tag{RG5}
+\]
+という相対 admissible SOD があり、基底変換と両立する。
+generic な共通関数斜体は $D(u)$ であり、$u$ は中央な超越元である。
+古典的ファイバーは
+$\operatorname{Perf}(Y\times\mathbb P^1)$ で、full exceptional collection の長さは10である。
+\end{corollary}
+\begin{proof}
+$\mathcal Y=\mathcal H\otimes\operatorname{Perf}(\mathbb P^1_U)$ とする。
+定理\ref{thm:relative-two-contractions}の二つの SOD に
+$\operatorname{Perf}(\mathbb P^1_U)$ を掛けると (RG5) を得る。
+各射影模型は平面側および quadric 側の斉次環と
+$R[U_0,U_1]$ の対角 Segre 積で与えられる。
+その次数ごとの階数は $(n+1)\binom{n+2}{2}$ と $(n+1)^3$ である。
+補題\ref{lem:segre-field}により、関数斜体は両方とも $D(u)$ となる。
+一次 Poisson 構造は命題\ref{prop:relative-common-poisson}で照合される。
+共通圏は $B_R$ と $\mathbb P^1$ の Beilinson 代数のテンソル積でも表示でき、
+この代数は階数 $23\cdot4=92$、頂点数10を持つ。
+\end{proof}
+
+この構成では二点 $p,q$、基底の \'etale 近傍、周期同型を選んでいる。
+得られる通常の斉次 quadric 環と第\ref{sec:nc-surface-links}節の特定の表示の
+高次係数の一致は、別途そのパラメーターを照合して判断する。
+定理\ref{thm:relative-two-contractions}と上の系は、
+指定した古典的リンクと一次括弧を持つ量子化を両側で選ぶという存在主張である。

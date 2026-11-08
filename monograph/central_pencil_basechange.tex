@@ -1,0 +1,250 @@
+\section{中央 pencil の Rees 模型の基底変換とアフィン半直交分解}
+\label{sec:central-basechange}
+本節では第\ref{sec:restored-rees-sod}節に残された問題を、
+中央二変数環に関する\emph{アフィン錐の段階}で解く。
+次の議論は与えられた中央正則列について完全に代数的であり、
+特定の量子化や形式的な変形理論には依存しない。
+ただし最後に述べるように、射影圏への降下は別の問題である。
+
+\begin{theorem}[中央正則列に関する次数付き自由性]
+\label{thm:central-graded-freeness}
+$k$ を体とし、$A=\bigoplus_{n\ge0}A_n$ を
+$A_0=k$、$\dim_kA_n<\infty$ の連結次数付き結合代数とする。
+$s,t\in Z(A)_1$ は中央元で、$s$ は $A$ の非零因子、
+$t$ は $A/sA$ の非零因子であるとする。
+$C=k[s,t]$、$D=A/(s,t)$ と置くと、
+\begin{enumerate}
+\item 自然な写像 $k[S,T]\to A$、$S\mapsto s,T\mapsto t$ は単射である。
+\item $D$ の任意の斉次 $k$-基底を $A$ に斉次に持ち上げると、
+それらの持ち上げは $C$-加群として $A$ の自由基底をなす。
+\item 特に $A$ は $C$ 上忠実平坦で、Hilbert 級数は
+\[
+ H_A(z)=\frac{H_D(z)}{(1-z)^2}
+\]
+を満たす。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+$s,t$ の正則性から
+$0\to A(-1)\xrightarrow{s}A\to A/sA\to0$ と
+$0\to (A/sA)(-1)\xrightarrow{t}A/sA\to D\to0$
+は完全である。従って第3項の Hilbert 級数の公式を得る。
+$D$ の各次数の基底を $A$ に持ち上げた集合を $\{b_j\}$ とする。
+非負次数について帰納すれば、$A_n$ の任意の元は $b_j$ の
+$C$-線形結合で表せる。実際、$D_n$ の基底を引き去ると
+$(s,t)A$ に属するので、一つ低い次数へ帰着する。
+従って
+$F=\bigoplus_jC(-\deg b_j)\twoheadrightarrow A$
+は次数付き全射である。
+$H_F=H_D/(1-z)^2=H_A$ なので、各次数で全射は同じ有限次元
+$k$-ベクトル空間の間の同型である。従って $F\simeq A$。
+もし $P(s,t)=0$ という非零の多項式関係があれば、
+得られた自由 $k[S,T]$-加群構造に反する。
+$D_0=k$ の持ち上げは $1$ と取れるので、自由加群は零でなく、
+忠実平坦性も従う。
+\end{proof}
+
+\begin{theorem}[Rees 環の可換 blow-up からの基底変換]
+\label{thm:central-rees-basechange}
+定理\ref{thm:central-graded-freeness}の仮定の下で $I=(s,t)A$ とする。
+$m=(s,t)\subset C$、$\mathcal R_C(m)=\bigoplus_{r\ge0}m^r u^r$ とおけば
+\[
+\boxed{\quad
+ \mathcal R_A(I)\;\simeq\; A\otimes_C\mathcal R_C(m)
+ \;\simeq\; A[U,V]/(tU-sV).
+ \quad}
+\]
+ここで $U,V$ は $A$ と可換で、Rees 次数は $1$、元の次数も $1$ である。
+$Y=\operatorname{Bl}_0\mathbb A^2=\operatorname{Proj}_{C}\mathcal R_C(m)$
+とし、$f:Y\to\operatorname{Spec}C$ と置くと、
+Rees 方向の非可換相対 $\operatorname{Proj}$ は
+$Y$ 上の準連接な代数の層
+\[
+  \mathscr A=\mathcal O_Y\otimes_C A
+\]
+で記述できる。その二つの標準アフィンチャートは
+\[
+\mathscr A(U\ne0)\simeq A[w]/(t-sw),\qquad
+\mathscr A(V\ne0)\simeq A[v]/(s-tv),
+\]
+ここで $w=V/U$、$v=U/V$ は中央元で、交叉では $wv=1$ である。
+例外因子 $E=f^{-1}(0)\simeq\mathbb P^1$ に沿う制限は
+\[
+  \mathscr A|_E\simeq D\otimes_k\mathcal O_{\mathbb P^1}.
+\]
+さらに元の次数を $z$、Rees 次数を $w$ で数えた二変数 Hilbert 級数は
+\[
+ H_{\mathcal R_A(I)}(z,w)
+   =H_A(z)\frac{1-z^2w}{(1-zw)^2}.
+\]
+\end{theorem}
+\begin{proof}
+$I^r=m^rA$ であり、$A$ は $C$-平坦だから
+$\mathcal R_C(m)\hookrightarrow C[u]$ に
+$A\otimes_C-$ を施した写像も単射である。その像は
+$\bigoplus_{r\ge0}I^ru^r$ である。
+可換二変数の blow-up に対する標準表示
+$\mathcal R_C(m)\simeq C[U,V]/(tU-sV)$ を
+基底変換すれば最初の二つの同型を得る。
+二つのチャートは $U$ または $V$ で局所化し、
+Rees 次数零部分を取ることで得られる。
+$s=t=0$ を課すと $D[w]$ と $D[v]$ が生じる。
+また二重次数 $(\deg_A,\deg_{\mathrm{Rees}})$ は
+$\deg U=\deg V=(1,1)$、$\deg(tU-sV)=(2,1)$
+なので、正則な関係式一つを除すことから Hilbert 級数の式が従う。
+同じ式は $I^r=m^rA$ と $C$-自由性からも直接得られる。
+\end{proof}
+
+\begin{theorem}[アフィン非可換 blow-up の Orlov 分解]
+\label{thm:central-affine-orlov}
+さらに $A$ を左右 noetherian とする。
+$\mathscr A=\mathcal O_Y\otimes_C A$ 上の perfect な右加群複体の
+dg 圏を $\operatorname{Perf}(Y,\mathscr A)$ と書く。
+$\iota:E\hookrightarrow Y$ を例外因子とし、
+$\operatorname{Perf}(D)$ の対象 $M$ に
+\[
+ \Psi(M)=\iota_*\bigl((M\otimes_k\mathcal O_E)\otimes\mathcal O_E(-1)\bigr),
+ \qquad
+ \Phi(N)=N\otimes_A^{\mathbf L}\mathscr A
+ \quad(N\in\operatorname{Perf}(A))
+\]
+を対応させる。両関手は dg fully faithful であり、
+\[
+\boxed{\quad
+\operatorname{Perf}(Y,\mathscr A)
+ =\langle\Psi\operatorname{Perf}(D),\,
+               \Phi\operatorname{Perf}(A)\rangle.
+\quad}
+\]
+混合 Hom は
+\[
+ \operatorname{RHom}_{Y,\mathscr A}(\Phi N,\Psi M)=0,
+ \qquad
+ \operatorname{RHom}_{Y,\mathscr A}(\Psi M,\Phi N)
+ \simeq\operatorname{RHom}_{D}
+       (M,N\otimes_A^{\mathbf L}D)[-1]
+\]
+で与えられる。この SOD は第\ref{thm:restored-categorical-gluing}定理の
+上三角 bimodule の具体的な\emph{アフィン}実現である。
+特にRees と gluing の比較は、
+\emph{アフィン錐については}成立する。
+\end{theorem}
+\begin{proof}
+可換な $f:Y\to\operatorname{Spec}C$ は滑らかな点の余次元二 blow-up
+なので、Orlov の定理\cite{OrlovBlowup}は
+\[
+ \operatorname{Perf}(Y)
+ =\langle\iota_*\mathcal O_E(-1)\otimes\operatorname{Perf}(k),
+                 f^*\operatorname{Perf}(C)\rangle
+\]
+という $\operatorname{Perf}(C)$-線形の分解を与える。
+$A$ の $C$-平坦性によって、これを $A$-係数の加群圏へ
+基底変換できる。具体的には、$Y$ の二つのアフィンチャート上で
+$\operatorname{Mod}(\mathcal O_Y)\otimes_{\operatorname{Mod}(C)}
+\operatorname{Mod}(A)$ は
+$\operatorname{Mod}(\mathcal O_Y\otimes_C A)$ と同値であり、
+この同値はチャートの交わりと両立する。
+従って準連接導来加群圏を貼り合わせ、compact objects を取れば、
+$\operatorname{Perf}(Y)$ の上記分解を
+$\operatorname{Perf}(Y,\mathscr A)$ へ移せる。
+この基底変換の完備化・compact 性は
+可換側の Orlov 分解の局所的構成からも確認できる
+（半直交分解の基底変換について\cite{KuznetsovSODBaseChange}も参照）。
+
+直接、完全忠実性と混合 Hom を確認しておく。
+$Rf_*\mathcal O_Y=C$、$R^if_*\mathcal O_Y=0\;(i>0)$ と
+$C$-平坦性により $Rf_*\mathscr A=A$ となり、$\Phi$ は fully faithful。
+$E$ は Cartier 因子で、その法束は $\mathcal O_E(-1)$ である。
+$\iota^!\Phi N\simeq
+ ((N\otimes_A^{\mathbf L}D)\otimes_k\mathcal O_E(-1))[-1]$
+から第二の混合 Hom を得る。
+第一の混合 Hom は $R\Gamma(E,\mathcal O_E(-1))=0$ から消える。
+同じ Cartier resolution を $\Psi M,\Psi M'$ に使うと
+$\operatorname{RHom}(\Psi M,\Psi M')\simeq
+ \operatorname{RHom}_D(M,M')$ となる。
+全生成性は上記の $C$-線形 Orlov 分解の基底変換による。
+\end{proof}
+
+\begin{proposition}[射影圏への降下の際に残る非正則頂点]
+\label{prop:central-vertex-obstruction}
+最大 pencil の中央商が
+$D=B(E,L,\tau)$、$E$ が楕円曲線で $\deg L=6$ であるとする。
+このとき $A$ と $D$ の連結次数付き代数としての自明加群 $k$ は
+いずれも無限射影次元を持つ。実際
+\[
+ H_D(z)=\frac{1+4z+z^2}{(1-z)^2},\qquad
+ H_A(z)=\frac{1+4z+z^2}{(1-z)^4}
+   =\sum_{n\ge0}(n+1)^3z^n.
+\]
+従って定理\ref{thm:central-affine-orlov}の
+アフィン perfect 圏の SOD を、
+単に「有限次元加群で Verdier 商を取る」ことによって
+$\operatorname{Perf}(\operatorname{qgr}A)$ の SOD にすることはできない。
+これはそのような射影 SOD が存在しないという主張ではなく、
+\emph{導来 torsion 局所化を別途構成する必要がある}という障害である。
+\end{proposition}
+\begin{proof}
+$\deg L=6$ の楕円曲線では $h^0(E,L_n)=6n$（$n>0$）なので
+表示した $H_D$ を得る。中央正則列から $H_A=H_D/(1-z)^2$。
+もし連結次数付き右 noetherian 代数 $R=A$ または $D$ 上で
+$k=R/R_{\ge1}$ の射影次元が有限なら、有限個の有限生成次数付き
+自由加群からなる $k$ の分解があり、Euler--Poincar\'e の公式から
+$1/H_R(z)$ は Laurent 多項式となる。
+しかし $1+4z+z^2$ は $(1-z)$ と互いに素であるため
+\[
+ H_D(z)^{-1}=\frac{(1-z)^2}{1+4z+z^2},\qquad
+ H_A(z)^{-1}=\frac{(1-z)^4}{1+4z+z^2}
+\]
+はいずれも Laurent 多項式にならない。矛盾する。
+従って irrelevant torsion の基本対象 $k$ は
+$\operatorname{Perf}^{\mathrm{gr}}(A)$ および
+$\operatorname{Perf}^{\mathrm{gr}}(D)$ に含まれない。
+射影化ではこの非 perfect torsion も消すので、
+アフィン perfect 圏の単純な商だけで射影圏を記述することはできない。
+\end{proof}
+
+\begin{remark}[次の具体的な比較]
+上記の証明で Rees の\emph{アフィン} gluing は決定した。
+射影三次元模型に対しては、元の次数と Rees 次数の\emph{二重次数付き}
+導来加群圏を取り、まず Rees 方向の相対 Proj を構成し、
+次に元の irrelevant torsion を消す操作が必要である。
+そのとき投影関手が torsion 局所化と両立するか、
+$\operatorname{qgr}D\simeq\operatorname{coh}E$ の例外成分が
+正しい dg 埋込みとして残るか、を検証しなければならない。
+次の目標は二重次数付き局所化後の
+$\langle\operatorname{Perf}(E),\operatorname{Perf}(\operatorname{qgr}A)\rangle$
+という SOD の成立を実際に証明することであり、
+本節のアフィン結果から無条件に結論しない。
+\end{remark}
+
+\begin{proposition}[可換二点 blow-up の反標準性の境界]
+\label{prop:anticanonical-commutative-boundary}
+$Y$ を $\mathbb P^2$ の二点での逐次 blow-up とする。
+二点が元の平面上で相異なれば $-K_Y$ は ample で、
+$\operatorname{coh}Y\simeq\operatorname{qgr}R(Y,-K_Y)$ である。
+二点目が最初の例外曲線上にあれば、$-K_Y$ は big, nef だが
+ample ではなく、最初の例外曲線の狭義変換を収縮する。
+両場合で反標準環の Hilbert 関数は同じく
+\[
+ h^0(Y,-nK_Y)=1+\frac{7n(n+1)}2\quad(n\ge0)
+\]
+である。従ってこの Hilbert 関数の一致は、
+反標準 section functor の ample 性を保証しない。
+\end{proposition}
+\begin{proof}
+元の平面上で二点が相異なる場合、Mori 錐は二つの例外曲線
+$E_1,E_2$ と二点を通る直線の狭義変換
+$L=H-E_1-E_2$ により生成される。
+$-K_Y=3H-E_1-E_2$ はこれらと交点数 $1$ を持ち、
+$(-K_Y)^2=7$ なので Nakai--Moishezon により ample。
+従って通常の Serre の定理により反標準環から coherent 圏を復元できる。
+二点目が infinitely near なら $C=E_1-E_2$ は
+$C^2=-2$、$(-K_Y)\cdot C=0$ を満たす。
+この二点配置の反標準類は big, nef で、$C$ を収縮するから
+ample ではない（第\ref{ex:restored-weak-dp}注意も参照）。
+両場合 $K_Y^2=7$, $\chi(\mathcal O_Y)=1$ なので
+Riemann--Roch により $\chi(-nK_Y)=1+7n(n+1)/2$。
+$n>0$ の高次コホモロジーは
+$-nK_Y=K_Y+(n+1)(-K_Y)$ への Kawamata--Viehweg 消滅から零であり、
+$n=0$ も有理曲面のコホモロジーから従う。
+\end{proof}

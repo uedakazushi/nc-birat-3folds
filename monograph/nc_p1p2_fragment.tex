@@ -1,0 +1,416 @@
+\section{\texorpdfstring{$\PP^1\times\PP^2$}{P1 x P2} の一般元の有理模型}
+\label{sec:p1p2-rational-models}\label{sec:p1p2-models}
+
+この節の成分名と正規形は、第\ref{p12:classification}節の分類による。
+以下の議論は各正規形の式から直接行う。
+一般元の有理 Poisson 模型と、その模型上で選ぶ代数的量子化は次の通りである。
+表の $c$ は Poisson 中心に属し、記していない括弧は零である。
+係数 $\kappa,\lambda,\mu,a,b$ は変換後も保持する。
+\[
+\begin{array}{c|l|l}
+\text{成分}&\text{有理 Poisson 模型}&\text{選ぶ量子化}\\\hline
+V_{\mathrm{vert}}&\{v,w\}=f(v,w),\ c\text{ 中心}
+ &\text{非可換平面と中心変数}\\
+C_{\mathrm{tor}}&\{x_i,x_j\}=\lambda_{ij}x_ix_j
+ &\text{三変数量子トーラス}\\
+C_{\mathrm{fib}}&\{r,s\}=\kappa rs,\ c\text{ 中心}
+ &\text{量子平面と中心変数}\\
+C_{\mathrm{line\text{-}conic}}&\{r,s\}=\mu rs,\ \{s,t\}=\lambda st
+ &\text{三変数量子トーラス}\\
+C_{(1,1)^2(0,1)}&\{r,s\}=\kappa rs,\ c\text{ 中心}
+ &\text{量子平面と中心変数}\\
+C_{(1,1)(1,0)(0,2)}&\{r,s\}=\kappa rs,\ c\text{ 中心}
+ &\text{量子平面と中心変数}\\
+C_4&\{r,t\}=-b rt,\ \{s,t\}=a st
+ &\text{三変数量子トーラス}\\
+C_{(1,2)(1,0)(0,1)}&\{r,s\}=\kappa rs,\ c\text{ 中心}
+ &\text{量子平面と中心変数}\\
+C_{\mathrm{Ric}}&
+ (f(x)\partial_x+h(t,x)\partial_t)\wedge\partial_y
+ &\text{微分型 Ore 拡大}
+\end{array}
+\]
+最初の行の一般の $f$ は滑らかな平面三次曲線を定める。
+その射影量子化は 第\ref{sec:surface-quantization}節 にある。
+表の量子トーラスは有限型基底上の PBW 族であり、
+有理座標の古典極限を通して指定された Poisson 関数体を量子化する。
+この表示を元の射影コンパクト化の斉次環へ延長する問題は、
+各模型ごとの条件を伴う。次節では直線・二次曲線型について
+両側の射影斉次環まで構成する。
+
+\begin{proposition}\label{prop:p1p2-seven-toric}
+上表の $V_{\mathrm{vert}}$ と $C_{\mathrm{Ric}}$ を除く七成分の一般元は、
+表示した log-canonical Poisson 関数体を持つ。
+従って係数行列が一致する二つの表示には、
+同じ量子トーラスの分数体を用いる有理量子化を選べる。
+\end{proposition}
+\begin{proof}
+体積形式 $du\wedge dv\wedge dw$ と
+$\alpha=\iota_\pi(du\wedge dv\wedge dw)$ の規約を用いる。
+トーラス成分については定義から従う。
+
+\emph{直線束型。}
+$\alpha=H\,dw$ とし、
+$H=A(u)+vB(u)+wC(u)$ と書く。$A,B,C$ は二次以下である。
+$s=H$ と置くと
+\[
+ \{u,s\}=B(u)s,\qquad w\text{ は Casimir}
+\]
+となる。一般の $B$ について
+$B(u)=\beta(u-r_1)(u-r_2)$、$r_1\ne r_2$ と書き、
+\[
+ r=\frac{u-r_1}{u-r_2},\qquad c=w,\qquad
+ \kappa=\beta(r_1-r_2)
+\]
+と置けば $\{r,s\}=\kappa rs$ である。
+逆変換は $u=(rr_2-r_1)/(r-1)$ と
+$v=(s-A(u)-cC(u))/B(u)$ で与えられる。
+族全体で根を選ぶ場合は、判別式非零の開集合の有限 \'etale 被覆を取る。
+
+\emph{$(1,2)$ 型。}
+$U=L=1$ のチャートで
+$\alpha=dF$、$F=uQ(v,w)+R(v,w)$ と書ける。
+$c=F$ は Casimir で、$\{v,w\}=Q$ である。
+一般の二次式をアフィン座標変換によって
+$Q=\kappa(vw+1)$ とする。
+この座標変換の行列式による定数も $\kappa$ に含め、
+$F,R$ を同じ定数で取り直す。
+$r=v,s=vw+1$ と置けば $\{r,s\}=\kappa rs$、
+\[
+ w=(s-1)/r,\qquad u=(c-R(v,w))/(\kappa s)
+\]
+である。
+
+\emph{$(1,1)$-pencil 型。}
+$L=1$ とし、$\alpha=G\,dF-F\,dG$、$F=ua+b,G=uc+d$ と書く。
+$a,b,c,d$ は平面上の一次式である。
+ここだけ Casimir を $z=F/G$ と書くと
+\[
+ \{v,w\}=ad-bc,\qquad
+ u=\frac{zd-b}{a-zc}.
+\]
+一般の二次式 $ad-bc$ を $\kappa(vw+1)$ に直し、
+前段と同じ二変数変換を適用する。
+
+\emph{$(1,1)(1,0)(0,2)$ 型。}
+$U=1$ とし、$F$ の $u$ 係数を平面のアフィンチャートの分母に取ると
+$F=u+\ell(v,w)$ とできる。$z=F$ と置けば
+\[
+ \alpha=2Q\,dz-z\,dQ.
+\]
+$Q=\kappa_0(vw+1)$ と正規化すると
+\[
+ \{z,v\}=-\kappa_0zv,\quad
+ \{z,w\}=\kappa_0zw,\quad
+ \{v,w\}=2\kappa_0(vw+1).
+\]
+従って $c=z^2/(vw+1)$ は Casimir であり、
+$(r,s)=(z,v)$ と $\kappa=-\kappa_0$ を用いれば表の形となる。
+逆変換は $w=(r^2/c-1)/s$、$u=r-\ell(v,w)$ である。
+
+\emph{直線・二次曲線型。}
+$L=1$ とし、第一因子上の半単純ベクトル場を対角化する。
+二次式も正規化し、係数を吸収すると
+\[
+ \alpha=\lambda(vw+1)\,du+\mu u\,d(vw+1)
+\]
+となる。$(r,s,t)=(u,v,vw+1)$ に対して
+\[
+ \{r,s\}=\mu rs,\qquad \{s,t\}=\lambda st,
+ \qquad \{r,t\}=0,
+\]
+逆式は $w=(t-1)/s$ である。
+
+\emph{四因子型。}
+一般配置を $U=1,L=v,M=w,F=u+v+w$ とし、$z=F$ と置く。
+このとき
+\[
+ \alpha=avw\,dz+bzw\,dv-(a+b)zv\,dw.
+\]
+$r=z/w,s=v/w,t=w$ と取れば
+\[
+ \{r,s\}=0,\quad \{r,t\}=-brt,\quad \{s,t\}=ast.
+\]
+逆変換は $w=t,v=st,u=(r-s-1)t$ である。
+以上は各場合の有理逆写像を伴うので関数体の同型である。
+
+量子化には $q_{ij}=1+\hbar\lambda_{ij}$ を基本パラメーターとして
+対応する量子トーラスを取る。
+整数単項式変換を戻す場合の新しい $q$ は、基本の $q_{ij}$ の整数べきの積で定める。
+これにより、古典的な係数の整数関係と対応する量子交換関係を全次数で保てる。
+\end{proof}
+
+\section{直線・二次曲線型と \texorpdfstring{$\PP^3$}{P3} の対数型の量子双有理変換}
+\label{sec:line-conic-quantum-link}\label{sec:line-conic-quantum}
+
+$p=1+\hbar\mu,q=1+\hbar\lambda$、
+$R=\CC[\hbar,(pq)^{-1}]$ とする。
+$g(U,Z)$ を二次斉次式とし、
+\[
+ \sigma(U)=p^{-1}U,\quad \sigma(Z)=Z,\qquad
+ F_g=qg-\sigma(g)
+\]
+と置く。四生成元を全て次数1として
+\begin{equation}\label{eq:ore-log112}
+ A_g=\frac{R\langle U,Z,V,W\rangle}
+ {\bigl(Z\text{ は中心},\ UV-pVU,\ UW-p^{-1}WU,
+       VW-qWV-F_g(U,Z)\bigr)}
+\end{equation}
+を定める。
+
+\begin{proposition}\label{prop:ore-log112}
+$A_g$ は次数ごとに自由な $R$-代数で、各ファイバーは
+Hilbert 級数 $(1-s)^{-4}$ の四次元 AS-regular 代数である。
+古典的なファイバーは $\CC[U,Z,V,W]$ であり、
+$Z=1$ 上の半古典極限は、$Q=vw+g(u,1)$ として
+\[
+ \alpha=\lambda Q\,du+\mu u\,dQ
+\]
+に対応する。$(\lambda,\mu,g)$ を一般に選ぶと、これは $\PP^3$ の
+$\operatorname{Log}(1,1,2)$ 成分の一般元を与える。
+\end{proposition}
+\begin{proof}
+$B=R[U,Z][V;\sigma]$ 上で
+\[
+ \tau|_{R[U,Z]}=\sigma^{-1},\quad \tau(V)=q^{-1}V,
+ \qquad \delta|_{R[U,Z]}=0,\quad \delta(V)=-q^{-1}F_g
+\]
+と置く。$\tau$ は自己同型である。
+$b\in R[U,Z]$ に対して、関係式 $Vb=\sigma(b)V$ に
+$\tau$-導分を適用した両辺は、ともに $-q^{-1}F_gb$ になる。
+従って $\delta$ は well-defined で、
+$A_g=B[W;\tau,\delta]$ である。
+PBW 基底は $U^iZ^jV^kW^\ell$ であり、平坦性、Hilbert 級数、
+全ファイバーの noetherian domain 性を与える。
+AS 正則性と大域次元は、graded Ore extension が
+twisted Calabi--Yau 次元を1増やす定理から従う
+\cite[定理0.2、\S1.2--1.3]{LiuWangWu}。
+
+$g=g(u,1)$ と略記すれば
+\[
+ \left.\frac{F_g}{\hbar}\right|_{\hbar=0}
+   =\lambda g+\mu u g'(u).
+\]
+従ってアフィンチャートでの括弧は
+\[
+ \{u,v\}=\mu uv,\qquad \{u,w\}=-\mu uw,\qquad
+ \{v,w\}=\lambda(vw+g)+\mu u g'.
+\]
+これが主張した1形式を与える。
+その同次表示は
+\[
+ UZQ\left(\lambda\frac{dU}{U}
+    +(-\lambda-2\mu)\frac{dZ}{Z}
+    +\mu\frac{dQ}{Q}\right),\qquad Q=VW+g(U,Z)
+\]
+である。
+一般の二平面を $U=0,Z=0$ に移し、一般の二次式の
+$V,W$ に関する非退化部分を $VW$ に直す。
+さらに $V,W$ に $U,Z$ の一次式を加えると混合項が消え、
+二次式は $VW+g(U,Z)$ になる。これにより一般の
+$\operatorname{Log}(1,1,2)$ を覆う。
+この斉次 lift では $Z$ を中心として選んでいる。
+\end{proof}
+
+$g=Z^2$ の場合に、
+\[
+ B_q=R\langle Z,V,W\rangle/
+       (Z\text{ は中心},\ VW-qWV-(q-1)Z^2)
+\]
+と置く。これは三次元 AS-regular 代数であり、
+$\rho(V)=pV,\rho(W)=p^{-1}W,\rho(Z)=Z$ は自己同型である。
+$Y_0$ を中心として
+\[
+ T=B_q[Y_0][Y_1;\rho],\qquad
+ \deg B_{q,1}=(0,1),\quad\deg Y_i=(1,0),\qquad
+ C_{p,q}=\bigoplus_{n\ge0}T_{(n,n)}
+\]
+を取る。ここで $\rho(Y_0)=Y_0$ とする。
+
+\begin{proposition}\label{prop:projective-line-conic-link}
+$C_{p,q}$ は $\PP^1\times\PP^2$ の Segre 環の次数ごとに自由な
+noetherian 変形であり、
+\[
+ \operatorname{rank}_R(C_{p,q})_n=(n+1)\binom{n+2}{2}
+\]
+を満たす。$\lambda,\mu$ と座標変換を動かした族の半古典極限は
+直線・二次曲線成分の一般元を覆い、
+各幾何学的ファイバーの perfect 圏は smooth proper である。
+$A_g$ と $C_{p,q}$ の非可換関数体は、任意の $g$ に対して同型である。
+この同型の古典極限は Poisson 双有理変換である。
+\end{proposition}
+\begin{proof}
+PBW 基底より $T_{(a,b)}$ の階数は $(a+1)\binom{b+2}{2}$ である。
+対角環は六つの $Y_iZ,Y_iV,Y_iW$ で生成される。
+$V,W$ の補助重みを1、$Z,Y_i$ の補助重みを0とする濾過を入れると、
+対応する次数環は量子 Segre 環である。
+これは有限生成可換半群環の双指標 twist なので noetherian である。
+従って $C_{p,q}$ も noetherian である。
+$B_q$ の AS 正則性と補題\ref{lem:ore-projective-bundle}により、
+射影模型の perfect 圏は smooth proper である。
+
+中心的な次数1元 $Y_0Z$ を局所化した次数零部分は
+\[
+ u=Y_1/Y_0,\qquad v=V/Z,\qquad w=W/Z
+\]
+で生成され、関係式は
+\[
+ uv=pvu,\qquad uw=p^{-1}wu,\qquad
+ vw-qwv=q-1.
+\]
+この半古典極限は前節の直線・二次曲線型の正規形である。
+
+一方、$A_g$ の $Z=1$ のチャートで
+\[
+ \Omega=wv+g(u,1)
+\]
+と置くと、関係式から
+\[
+ u\Omega=\Omega u,\qquad v\Omega=q\Omega v,
+ \qquad uv=pvu
+\]
+を得る。PBW 基底で $\Omega$ のべきの最高 $w$ 次数を比較すると、
+$u,v,\Omega$ の量子単項式は一次独立である。
+さらに
+\[
+ w=(\Omega-g(u,1))v^{-1}
+\]
+なので、分数体は三変数量子トーラスの分数体
+\[
+ D_{p,q}=
+ \Frac\bigl(\operatorname{Frac}(R)
+ \langle u^{\pm1},v^{\pm1},\Omega^{\pm1}\rangle/
+ (uv-pvu,u\Omega-\Omega u,v\Omega-q\Omega v)\bigr)
+\]
+に一致する。$C_{p,q}$ のチャートでは $g=1$ なので同じ分数体を得る。
+具体的には $u,v$ を固定して
+\[
+ w_g=w_1+(1-g(u,1))v^{-1}
+\]
+とする写像が同型である。逆写像も同じ式から得られる。
+古典極限は $vw_g+g(u,1)=vw_1+1$ を保ち、
+$\{u,v\}=\mu uv,\{v,Q\}=\lambda vQ,\{u,Q\}=0$ と整合する。
+\end{proof}
+
+\section{Riccati 成分の微分型量子化と双有理障害}
+\label{sec:riccati-quantum}
+
+共点三直線のアフィン正規形を
+\[
+ \pi=f(x)\partial_x\wedge\partial_y
+       +h(t,x)\partial_t\wedge\partial_y,
+ \qquad h(t,x)=h_0(t)+xh_1(t)
+\]
+とする。$f$ は三次式、$h_0,h_1$ は二次以下である。
+\[
+ \partial=f(x)\partial_x+h(t,x)\partial_t
+\]
+を $\CC[x,t]$ の導分とする。
+
+\begin{proposition}\label{prop:riccati-ore}
+代数
+\[
+ \mathcal R=\CC[\hbar,x,t][y;-\hbar\partial]
+\]
+は有限型の平坦な代数族であり、関係式は
+\[
+ [x,t]=0,\qquad [x,y]=\hbar f(x),\qquad
+ [t,y]=\hbar h(t,x)
+\]
+である。その半古典極限は指定した Riccati 構造に一致する。
+各ファイバーは noetherian domain である。
+\end{proposition}
+\begin{proof}
+Ore 拡大の PBW 基底は $x^it^jy^k$ であり、
+導分の係数は $\hbar$ と元のパラメーターの多項式である。
+これが任意の係数族に対する平坦性と半古典式を与える。
+noetherian 性と domain 性も導分型 Ore 拡大から従う
+\cite[\S1.3]{LiuWangWu}。
+\end{proof}
+
+第\ref{sec:riccati-p3-link}節では、一般元について通常の $\PP^3$ を
+古典ファイバーとする AS-regular コンパクト化を構成する。
+元の $\PP^1\times\PP^2$ の射影量子化との比較は追加の問題である。
+
+\begin{lemma}\label{lem:differential-poisson-obstruction}
+$K$ を標数零の可換体、$\partial$ をその導分とする。
+$F=K(y)$ に
+\[
+ \{a,b\}=0\ (a,b\in K),\qquad \{a,y\}=\partial(a)
+\]
+という Poisson 構造を入れる。
+非零定数 $\lambda\in\ker\partial$ と $A,B\in F^*$ に対して
+$\{A,B\}=\lambda AB$ は成立しない。
+\end{lemma}
+\begin{proof}
+$y$ に関する有理関数の次数を、分子の次数と分母の次数の差で定める。
+$\partial$ はこの次数を増やさず、$\partial_y$ は少なくとも1下げるので
+\[
+ \deg_y\{A,B\}\le\deg_y A+\deg_y B-1.
+\]
+一方、$\lambda AB$ の次数は $\deg_y A+\deg_y B$ である。
+\end{proof}
+
+\begin{corollary}\label{cor:riccati-not-log-poisson}
+Riccati 正規形の Poisson 関数体は、非零の log-canonical
+Poisson 関数体と Poisson 双有理同値でない。
+従って、上表の残る七つのトーラス型に帰着する成分の一般元とは区別される。
+\end{corollary}
+\begin{proof}
+Riccati 型には補題を $K=\CC(x,t)$ として適用する。
+非零の log-canonical 型では、ある二つの座標が
+$\{x_i,x_j\}=\lambda_{ij}x_ix_j$、$\lambda_{ij}\ne0$ を満たす。
+その逆像は補題に反する。
+\end{proof}
+
+この分離は既知の Poisson 双有理不変量からも従う。
+実際、Riccati 型では $\{x,y/f(x)\}=1$ である。
+Goodearl--Launois \cite[命題5.2(a)、系5.3]{GoodearlLaunois}
+は、log-canonical Poisson 関数体には括弧が1となる二元が存在しないことを示した。
+上の次数による証明は、逆に Riccati 関数体における
+非零 log-canonical 対の不存在を直接示している。
+
+量子側では Alev--Dumas 不変量
+\[
+ \AD_k(D)=[D^*,D^*]\cap k^*
+\]
+を用いる。定義と量子トーラスでの計算は
+\cite[定義3.1、命題3.3]{GoodearlYakimov} にまとめられている。
+
+\begin{lemma}\label{lem:differential-ad}
+$k\subset\ker\partial\subset K$ とし、
+$D=\Frac(K[y;\partial])$ と置くと、$\AD_k(D)=\{1\}$ である。
+\end{lemma}
+\begin{proof}
+非零の Ore 多項式 $P=\sum a_i y^i$ の最高次係数を
+$\operatorname{lc}(P)$ と書く。
+導分の項は次数を下げるため
+\[
+ \operatorname{lc}(PQ)=\operatorname{lc}(P)\operatorname{lc}(Q)
+\]
+となる。右分数で
+$\operatorname{lc}(PQ^{-1})=\operatorname{lc}(P)/\operatorname{lc}(Q)$
+と定めると、共通右分母に通分することで表示に依らないことが分かる。
+実際、$Qa=Sb$ と $Pa=Rb$ が同時に成立する表示について、
+最高次係数の等式から $\operatorname{lc}(P)/\operatorname{lc}(Q)
+=\operatorname{lc}(R)/\operatorname{lc}(S)$ が従う。
+同じ通分により乗法性も従い、$\operatorname{lc}:D^*\to K^*$ は群準同型である。
+$K^*$ は可換なので全ての乗法交換子の像は1である。
+$\lambda\in k^*$ の像は $\lambda$ 自身なので、主張を得る。
+\end{proof}
+
+\begin{corollary}\label{cor:riccati-not-log-quantum}
+上の Riccati Ore 模型の量子分数体は、交換係数の少なくとも一つが
+1と異なる量子トーラスの分数体と $k$-同型でない。
+ここで $k=\CC(\hbar)$、または非零パラメーターに特殊化した後の $k=\CC$
+と取れる。
+\end{corollary}
+\begin{proof}
+量子トーラスでは $X_iX_jX_i^{-1}X_j^{-1}=q_{ij}$ なので、
+$q_{ij}\ne1$ は非自明な $\AD_k$ の元である。
+補題が Riccati Ore 分数体でのその存在を排除する。
+\end{proof}
+
+最後の系はここで指定した量子化同士の比較である。
+同じ一次 Poisson 構造を持つ量子化の選択を変えた場合には、
+新しい代数について不変量を計算する必要がある。

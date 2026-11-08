@@ -1,0 +1,408 @@
+\section{楕円曲線を中心とする基本変換の相対共通圏}
+\label{pcat:sec}
+
+本節では三重積の最大 pencil 成分に対し、楕円曲線を例外成分に持つ
+二つの相対 SOD を構成する。
+二つの収縮は同じ楕円曲線の圏を用いる有限回の mutation によって得られる。
+さらに共通の generic localization と一次 Poisson 括弧を指定する。
+
+\subsection{古典的な基本変換と gluing のデータ}
+
+$S=\mathbb P^1_y\times\mathbb P^1_z$、$L=\mathcal O_S(1,1)$ とする。
+$a,b,c,d\in H^0(S,L)$ を取り、
+\[
+ s=xa+b,\qquad t=xc+d,\qquad D=bc-ad
+ \tag{PC1}
+\]
+と置く。$D=0$ が滑らかな楕円曲線 $E\subset S$ を定め、
+行列 $\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$ の四成分が
+同時に消えないと仮定する。
+$E$ 上で $[u_0:u_1]=[a:c]=[b:d]$ により
+\[
+ \ell:E\longrightarrow\mathbb P^1_u,\qquad
+ M=\ell^*\mathcal O_{\mathbb P^1}(1)
+ \tag{PC2}
+\]
+を定める。一般の pencil では $\deg M=2$ である。
+右辺の二つの表示は、それぞれが定義される開集合上で用いる。
+
+$X=\mathbb P^1_x\times S$、$X'=\mathbb P^1_u\times S$ と置き、
+$Z=\{s=t=0\}\subset X$、$Z'=(\ell,i)(E)\subset X'$ とする。
+ここで $i:E\hookrightarrow S$ は包含である。
+古典的な共通模型は
+\[
+ B=\operatorname{Bl}_{Z}X\cong\operatorname{Bl}_{Z'}X'.
+ \tag{PC3}
+\]
+以下で $H_x,H_u,L$ はそれぞれ $B$ への引戻しも表す。
+$f':B\to X'$ の例外因子を $F'$ とすると
+\[
+                 F'=H_u+L-H_x.
+                 \tag{PC4}
+\]
+実際、$X'$ から $\mathbb P^1_x$ への有理写像は
+$u_0c-u_1a,u_0d-u_1b$ の二切断によって定まり、
+その線形系の固定因子が blow-up 後の $F'$ である。
+
+滑らかな点付き代数曲線 $(U,0)$ の座標環を $R$ とする。
+第\ref{sec:nc-surface-links}節の構成から、$S$ の Poisson 構造
+$D(y,z)\partial_y\wedge\partial_z$ の量子化
+$\mathcal C_R$ を取り、その固定楕円曲線への restriction と
+Segre shift を
+\[
+ \rho:\mathcal C_R\longrightarrow\operatorname{Perf}(E_R),
+ \qquad \mathsf s:\mathcal C_R\xrightarrow{\sim}\mathcal C_R
+ \tag{PC5}
+\]
+と書く。$E_R=E\times U$ であり、古典点では
+$\rho_0=Li^*$、$\mathsf s_0=(-)\otimes L$ である。
+ここでは通常の斉次 quadric 環の次数一 shift を用いる。
+有限 Beilinson 代数とその $E_R$ 上の加群によって、(PC5) は
+$R$ 上の perfect bimodule を持つ代数的な quasi-functor になる。
+
+$\mathcal C'_R=\operatorname{Perf}(\mathbb P^1_U)\otimes_R\mathcal C_R$ とし、
+\[
+ \theta(A\boxtimes G)=L\ell_R^*A\otimes^L\rho(G)
+ \tag{PC6}
+\]
+で $\theta:\mathcal C'_R\to\operatorname{Perf}(E_R)$ を定める。
+同じ記号で $\ell_R:E_R\to\mathbb P^1_U$ を表した。
+二つの成分の間の Hom を
+\[
+ \operatorname{RHom}_{\mathcal H_R}(A,jF)
+ =\operatorname{RHom}_{E_R}(\theta A,F),\qquad
+ \operatorname{RHom}_{\mathcal H_R}(jF,A)=0
+ \tag{PC7}
+\]
+とする upper triangular dg category の perfect hull を
+$\mathcal H_R$ と定める。$j$ は楕円成分の埋込みを表す。
+
+\begin{lemma}\label{pcat:gluing}
+$\mathcal H_R$ は $R$ 上 smooth proper であり、
+\[
+ \mathcal H_R=\langle\mathcal C'_R,\mathcal E_R\rangle,
+ \qquad \mathcal E_R=j\operatorname{Perf}(E_R).
+ \tag{PC8}
+\]
+古典点のこの分解は、$f'$ の右側 Orlov 分解
+\[
+ \operatorname{Perf}(B)
+ =\langle Lf'^*\operatorname{Perf}(X'),j'_*p'^*\operatorname{Perf}(E)\rangle
+ \tag{PC9}
+\]
+と同一視される。構成と分解は任意の導来基底変換と両立する。
+\end{lemma}
+
+\begin{proof}
+dg gluing とその SOD は \cite[定義3.4--3.5、命題3.7--3.8]{PencilOrlovGluing}
+の構成である。各成分は $R$ 上 smooth proper であり、(PC7) の bimodule は
+相対的に perfect である。
+後者は、$\mathcal C'_R$ の有限個の生成元の像が $E_R$ 上 perfect であることと、
+$E_R\to U$ の smooth properness から従う。
+より具体的には、両成分の perfect な対角 bimodule を用いると、
+$R$ 上 perfect な Hom を持つ bimodule は両成分のテンソル積上でも perfect になる。
+gluing の対角は、二つの対角 bimodule とこの cross bimodule から有限個の cone で
+作られる。これで相対 smoothness を得る。
+properness は (PC7) の全 Hom が $R$ 上 perfect であることから従う。
+体上の同じ判定は \cite[命題3.22、定理3.25]{PencilOrlovGluing} にある。
+この証明は perfect な対角と有限個の cone だけを用いるため基底変換を保つ。
+
+古典点では $\theta_0=L(\ell,i)^*$ である。
+右側 Orlov 分解の二成分間の Hom は (PC7) に一致する。
+従って gluing の再構成により (PC9) と一致する。
+この codimension two の gluing 表示は
+\cite[例3.10]{PencilOrlovGluing} にも明記されている。
+随伴と射影関手は perfect bimodule の双対とテンソル積で作られるので、
+SOD も任意の導来基底変換と両立する。
+\end{proof}
+
+\subsection{二回の mutation と三重積の成分}
+
+$\mathcal C_0,\mathcal C_u\subset\mathcal C'_R$ を
+$G\mapsto\mathcal O\boxtimes G$ および
+$G\mapsto\mathcal O(1)\boxtimes G$ の像とする。
+従って $\mathcal H_R=\langle\mathcal C_0,\mathcal C_u,\mathcal E_R\rangle$ である。
+admissible な成分 $\mathcal D$ の包含を $a$、その左随伴を $a^*$ とし、
+右 mutation を
+\[
+ \mathsf R_{\mathcal D}(T)
+ =\operatorname{Cone}(T\longrightarrow aa^*T)[-1]
+ \tag{PC10}
+\]
+という規約で用いる。部分圏としての mutation はシフトの規約に依存しない。
+
+\begin{theorem}\label{pcat:two-contractions}
+上のデータに対して
+\[
+ \mathcal W_R=\mathsf R_{\mathcal E_R}(\mathcal C_u),\qquad
+ \mathcal E_R^{\rm new}=\mathsf R_{\mathcal W_R}(\mathcal E_R),\qquad
+ \mathcal A_R=\langle\mathcal C_0,\mathcal W_R\rangle
+ \tag{PC11}
+\]
+と定める。このとき
+\[
+ \mathcal H_R
+ =\langle\operatorname{Perf}(\mathbb P^1_U)\otimes_R\mathcal C_R,
+               \operatorname{Perf}(E_R)\rangle
+ =\langle\mathcal A_R,\operatorname{Perf}(E_R)\rangle
+ \tag{PC12}
+\]
+という相対 admissible SOD がある。
+二番目の楕円成分の埋込みは $\mathsf R_{\mathcal W_R}\circ j$ である。
+古典点で $\mathcal A_0$ は $Lf^*\operatorname{Perf}(X)$ に一致する。
+
+さらに $0$ の近傍を縮めると、$\mathcal A_R$ は階数64・八頂点の
+finite locally free directed $R$-代数 $A_R$ の perfect 圏となる。
+その八つの対象は、古典点で $X=(\mathbb P^1)^3$ の矩形 Beilinson collection
+$\mathcal O_X(\varepsilon_x,\varepsilon_y,\varepsilon_z)$
+$(\varepsilon_i\in\{0,1\})$ の引戻しを与える。
+全構成は任意の導来基底変換と両立する。
+\end{theorem}
+
+\begin{proof}
+admissible な二成分の mutation を順に適用すると
+\[
+ \langle\mathcal C_0,\mathcal C_u,\mathcal E_R\rangle
+ \longmapsto
+ \langle\mathcal C_0,\mathcal E_R,\mathcal W_R\rangle
+ \longmapsto
+ \langle\mathcal C_0,\mathcal W_R,\mathcal E_R^{\rm new}\rangle.
+ \tag{PC13}
+\]
+mutation は移動する成分上の同値であり、
+$\mathcal W_R\simeq\mathcal C_R$ と
+$\mathcal E_R^{\rm new}\simeq\operatorname{Perf}(E_R)$ を得る。
+二つの楕円成分の同値はこの具体的な mutation によって指定される。
+
+古典点で $T=\mathcal O_B(H_u)\otimes p_S^*G$ とする。
+$\mathcal E_0$ への左射影の unit は例外因子への制限であり、
+\[
+ 0\longrightarrow T(-F')\longrightarrow T
+ \longrightarrow j'_*j'^*T\longrightarrow0
+\]
+が (PC10) の三角となる。
+(PC4) により
+\[
+ \mathsf R_{\mathcal E_0}
+       (\mathcal O(H_u)\otimes p_S^*G)
+ =\mathcal O(H_x)\otimes p_S^*(G\otimes L^{-1}).
+ \tag{PC14}
+\]
+$(-)\otimes L^{-1}$ は $\operatorname{Perf}(S)$ の自己同値なので、
+$\mathcal W_0=\mathcal O(H_x)\otimes p_S^*\operatorname{Perf}(S)$ である。
+従って $\langle\mathcal C_0,\mathcal W_0\rangle$ は
+$Lf^*\operatorname{Perf}(X)$ であり、その補成分は $f$ の右側 Orlov 成分に一致する。
+
+$\mathcal C_R$ に矩形例外集 $F_0,F_1,F_2,F_3$ を選ぶ。
+古典点では順に $\mathcal O_S,\mathcal O_S(1,0),\mathcal O_S(0,1),\mathcal O_S(1,1)$
+とする。これは第\ref{sec:relative-common-blowup}節の四対象からも作れる。
+古典点が $(\mathcal O,\mathcal O(1,0),\mathcal O(1,1),\mathcal O(2,1))$ の表示では、
+最後の二対象の評価三角から $\mathcal O(0,1)$ を得る。
+基底を縮めると、この有限個の対象間の Hom は古典点と同じ次数零の階数を持ち、
+相対 full strong exceptional collection となる。
+
+八対象を
+\[
+ T_{0,i}=\mathcal O\boxtimes F_i,\qquad
+ T_{1,i}=\mathsf R_{\mathcal E_R}
+              (\mathcal O(1)\boxtimes\mathsf s F_i)
+ \quad(0\le i\le3)
+ \tag{PC15}
+\]
+と定める。(PC14) によってその古典点は所望の矩形例外集である。
+各 Hom は $R$ 上 perfect であり、古典点で高次コホモロジーが零なので、
+共通の近傍で次数零の有限局所自由加群になる。
+半直交性、例外性および生成性は (PC13) と四対象の生成性から従う。
+従って $A_R=\operatorname{End}(\bigoplus T_{\varepsilon,i})$ は directed である。
+階数は古典点で計算でき、
+\[
+ \operatorname{rk}_R A_R
+ =\prod_{r=1}^3\left(1+1+2\right)=64.
+ \tag{PC16}
+\]
+基底変換に関する主張は、全ての Hom、随伴、mutation が perfect bimodule から
+構成されることによる。
+\end{proof}
+
+\begin{proposition}\label{pcat:kernel-bimodule}
+$C_R=\operatorname{End}(\bigoplus_{i=0}^3F_i)$ とすると $\operatorname{rk}_R C_R=16$ である。
+$A_R$ の二つの四頂点 corner は $C_R$ に同型で、cross bimodule は
+\[
+ K_R(F,G)=\operatorname{Fib}\!\left(
+ H^0(\mathbb P^1,\mathcal O(1))\otimes
+       \operatorname{RHom}_{\mathcal C_R}(F,\mathsf sG)
+ \longrightarrow
+ \operatorname{RHom}_{E_R}(\rho F,M\otimes\rho(\mathsf sG))
+ \right)
+ \tag{PC17}
+\]
+で与えられる。写像は $\ell$ による切断の評価と $\rho$ から誘導される。
+有限個の $F_i,F_j$ に対して $K_R$ は次数零に集中し、その全階数は32である。
+\end{proposition}
+
+\begin{proof}
+(PC10) の三角に
+$\operatorname{RHom}_{\mathcal H_R}(\mathcal O\boxtimes F,-)$ を適用する。
+$j^*(\mathcal O(1)\boxtimes\mathsf sG)=M\otimes\rho(\mathsf sG)$ と
+(PC7) により (PC17) が得られる。
+
+古典点では determinant の行列から
+\[
+ 0\longrightarrow (L^{-1})^{\oplus2}
+ \xrightarrow{\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)}
+ \mathcal O_S^{\oplus2}\longrightarrow i_*M\longrightarrow0
+ \tag{PC18}
+\]
+を得る。$E$ 上で行列の階数は一であり、その像は
+$\ell^*\mathcal O_{\mathbb P^1}(-1)\subset\mathcal O_E^{\oplus2}$ なので、
+cokernel は (PC2) の $M$ である。
+ここで (PC17) の評価写像の基底は $(-u_1,u_0)$ と取る。
+これは通常の $(u_0,u_1)$ からの定数基底変換であり、
+行列の像 $(u_0,u_1)$ を核とする quotient map を与える。
+従って (PC17) の古典点は
+\[
+ K_0(F,G)=H^0(\mathbb P^1_x,\mathcal O(1))\otimes
+                    \operatorname{RHom}_S(F,G)
+ \tag{PC19}
+\]
+となる。
+例えば $F=\mathcal O_S(\alpha_y,\alpha_z)$、
+$G=\mathcal O_S(\beta_y,\beta_z)$ について
+$m=1+\beta_y-\alpha_y$、$n=1+\beta_z-\alpha_z$ と置くと、
+$m,n\in\{0,1,2\}$ である。(PC17) の古典点の写像は全射で、
+その source と target の次元は $2(m+1)(n+1)$ と $2+2m+2n$、
+kernel の次元は $2mn$ となる。
+全射性は (PC18) を $\mathcal O_S(m,n)$ で捩り、
+$H^1(\mathcal O_S(m-1,n-1))=0$ を用いれば従う。
+これらの有限個の写像に相対的な perfectness と基底変換を適用すると、
+一つの近傍で次数零への集中と同じ階数を得る。
+従って $\operatorname{rk}K_R=2\operatorname{rk}C_R=32$ である。
+\end{proof}
+
+\subsection{共通 generic localization と一次括弧}
+
+以下では $K=\mathbb C(U)$ とし、quadric の関数斜体を
+$D_K=Q_{\rm gr}(\mathcal Q_K)_0$ と書く。
+$D_K(u)$ は中央不定元 $u$ を持つ $D_K[u]$ の全分数斜体を意味する。
+
+\begin{theorem}\label{pcat:generic}
+定理\ref{pcat:two-contractions}の二つの収縮に対して、
+同じ斜体 $D_K(u)$ への generic localization を指定できる。
+これは $\mathcal H_K$ と両端点の適切な thick 部分圏による Verdier 商の
+冪等完備化であり、二つの楕円成分はともに局所化で零となる。
+古典点への剰余体の同一視は
+\[
+ u=\frac{xc+d}{xa+b},\qquad
+ x=\frac{d-ub}{ua-c}
+ \tag{PC20}
+\]
+である。$\mathcal A_R$ の一次 Hochschild 類は、
+$X$ 上の $s\,dt-t\,ds$ に対応する Poisson 構造である。
+\end{theorem}
+
+\begin{proof}
+最初の SOD の楕円成分を零に送る射影を用い、
+\[
+ q:\mathcal H_K\longrightarrow\mathcal C'_K
+       \longrightarrow\operatorname{Perf}(D_K(u))
+ \tag{PC21}
+\]
+と置く。後半は quadric の normal な元の projective localization と
+affine Ore localization、および中央変数 $u$ の局所化である。
+補題\ref{lem:normal-projective-localization}、命題\ref{prop:generic-perf}により、
+(PC21) はその kernel による Verdier 商の冪等完備化を与える。
+
+第二の楕円成分も kernel に入ることを、mutation の随伴から直接確認する。
+$W(G)=\mathsf R_{\mathcal E_R}(\mathcal O(1)\boxtimes\mathsf sG)$ と書き、
+$W^*$ をその左随伴とする。
+$\operatorname{RHom}(jF,\mathcal O(1)\boxtimes\mathsf sG)=0$ なので、
+mutation の三角から
+\[
+ \operatorname{RHom}_{\mathcal H_R}(jF,W(G))
+ =\operatorname{RHom}_{E_R}(F,M\otimes\rho(\mathsf sG))[-1].
+\]
+$\rho^L$ を $\rho$ の左随伴とすると、これより
+\[
+          W^*jF=\mathsf s^{-1}\rho^L(M^{-1}\otimes F)[1]
+          \tag{PC22}
+\]
+となる。
+命題\ref{prop:relative-elliptic-chart}の楕円 divisor は正規 regular 元 $g$ で定義される。
+その長さ一の graded resolution に双対を取ると、$\rho^L$ は $E_R$ からの
+pushforward に normal twist とシフトを合成した関手である。
+従って $\rho^L$ の像は $g$ の局所化で零となる。
+mutation の三角と $qj=0$ より
+\[
+ qW(W^*jF)
+ =q(\mathcal O(1)\boxtimes\rho^L(M^{-1}\otimes F))[1]=0.
+\]
+第二の mutation の三角からも
+\[
+             \mathcal E_K^{\rm new}\subset\ker q
+ \tag{PC23}
+\]
+を得る。
+二番目の SOD を先に商にすることにより、$q|_{\mathcal A_K}$ も
+$\operatorname{Perf}(D_K(u))$ への Verdier localization となる。
+(PC20) は古典点の二つの blow-down の関数体の同一視である。
+
+最後に一次類を照合する。
+$0$ における局所環の一様化元を $h$ とする。
+quadric 族の次数ごとの平坦性と古典点での整性から、
+$h$ の位数は $D_K(u)$ 上の離散付値に延びる。
+その付値環 $V$ の剰余体は $\mathbb C(S)(u)=\mathbb C(B)$ である。
+命題\ref{prop:relative-common-field}の証明と同様に、
+quadric の有限 Beilinson 代数の generic functor は $V$ 上の有限自由複体で表せる。
+$\mathbb P^1$ の矢には $1,u$ を用い、$\mathcal E_R$ を零へ送る。
+これにより (PC21) の $h$-整な模型を得る。
+その還元は $B$ の通常の generic restriction である。
+$\mathcal A_0\simeq\operatorname{Perf}(X)$ と
+$H^1(X,T_X)=H^2(X,\mathcal O_X)=0$ より
+\[
+ HH^2(\mathcal A_0)=H^0(X,\wedge^2T_X).
+ \tag{PC24}
+\]
+上で作った $h$-整な局所化は、この一次類を $V/h^2V$ の一次類へ送る。
+この両立性を代数で確認できる。
+八対象の像を $V$ 上で自明化すると、対応する代数写像
+$A_R\to\operatorname{Mat}_8(V)$ を得る。
+具体的には、それぞれの像を有限自由 $V$-複体で表すと、
+その還元は古典的な直線束の generic fiber であり、剰余体の次数零の一次元空間となる。
+付値環上の有限複体の消去補題により各複体は $V[0]$ に簡約され、
+次数零の射を取ると上の代数写像が得られる。
+その一次項について乗法の保存を展開すると、source と target の
+一次 Hochschild cocycle の差は写像の一次項の coboundary になる。
+古典点で $T=\operatorname{Mat}_8(\mathbb C(X))$ と置けば、
+この写像は tilting bundle の generic restriction である。
+generic restriction の平坦性と tilting Morita 同値から
+$T\otimes^L_{A_0}T\simeq T$ となる。
+実際、generic point の包含 $j_\eta$ は flat monomorphism であり、
+$j_\eta^*j_{\eta*}\simeq\mathrm{id}$ である。
+tilting Morita 同値の下で、この fully faithful な右随伴は
+上の代数写像の restriction of scalars に対応する。
+従って導来随伴により
+$HH^*(A_0,T)\simeq HH^*(T,T)\simeq HH^*(\mathbb C(X))$ を得る。
+先の cocycle の等式は、この同定の下で (PC24) の通常の制限写像を与える。
+従って $\mathcal A_R$ の bivector の関数体上の括弧は
+\[
+ \{u,y\}=\{u,z\}=0,\qquad \{y,z\}=D(y,z).
+ \tag{PC25}
+\]
+(PC20) を用いて $X$ の座標に戻すと、これは (PC1) の
+$s\,dt-t\,ds$ に対応する括弧である。
+正則 bivector は稠密開集合への制限で一意に定まるので、主張が従う。
+\end{proof}
+
+\begin{remark}\label{pcat:scope}
+構成には $E\to\mathbb P^1_u$ の全グラフを用いている。
+次数二の写像の分岐点でも、$Z'\subset X'$ は滑らかな codimension two の中心であり、
+二点への分裂やそのための基底拡大は不要である。
+二つの楕円成分は (PC13) の mutation によって、固定された
+$\operatorname{Perf}(E_R)$ と同値になる。
+
+定理\ref{pcat:generic}は、選んだ有限代数 $A_R$ と generic localization の組を与える。
+特定の Segre 偏極付き斉次環との同値を得るには、その斉次環の八対象と
+命題\ref{pcat:kernel-bimodule}の cross bimodule を照合する必要がある。
+また共通圏 $\mathcal H_R$ 自身の一次類を $HH^2(B)$ の全 HKR 成分に分解する問題は、
+両端点の一次 Poisson 類と共通 generic localization の同定から独立に扱う。
+\end{remark}

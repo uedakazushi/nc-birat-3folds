@@ -1,0 +1,218 @@
+\section{分数体と半古典極限}
+\label{sec:nc-fields}
+
+基礎体を標数零の体 $k$ とする。連結次数付き noetherian domain $A$ に対して
+\[
+ k(\operatorname{qgr}A)=Q_0(A):=Q_{\mathrm{gr}}(A)_0
+\]
+と書く。$Q_{\mathrm{gr}}$ は非零斉次元を可逆にした次数付き分数環である。
+本稿での非可換双有理同値は、この division ring の $k$-同型を意味する。
+必要な場合には、半古典極限との整合性と、共通の非可換 blowup による実現も指定する。
+一般の smooth proper dg 圏の変形から、この分数体を取り出すには
+追加の射影表示またはアフィン表示が必要である。
+
+\begin{lemma}\label{lem:segre-field}
+$A$ を $A_1\ne0$ を満たし次数1で生成される連結次数付き noetherian domain とし、
+$R=A\mathbin{\#}k[s,t]=\bigoplus_{n\geq0}A_n\otimes k[s,t]_n$ と置く。
+このとき $Q_0(R)\cong Q_0(A)(u)$、ただし $u=t/s$ は中心変数である。
+\end{lemma}
+\begin{proof}
+同次数の非零斉次元 $a,b\in A_n$ の比は
+$(a s^n)(b s^n)^{-1}$ によって $Q_0(R)$ に入る。
+非零 $a_1\in A_1$ を取れば、
+$(a_1t)(a_1s)^{-1}=u$ も入る。
+逆に $a_ns^{n-i}t^i=a_ns^n u^i$ なので、
+任意の斉次元の比は $Q_0(A)(u)$ に入る。
+$u$ は中心で超越的であり、二つの包含は逆になる。
+\end{proof}
+
+\begin{lemma}\label{lem:ore-projective-bundle}
+$G$ を次数1で生成される連結局所有限 noetherian 次数付き代数とし、
+$\mathcal C=\operatorname{Perf}(\operatorname{qgr}G)$ を smooth proper とする。
+$\rho$ を $G$ の次数付き自己同型とする。
+$H=G[Y_0][Y_1;\rho]$ とし、$Y_0$ は中央、
+$\deg G_1=(1,0)$、$\deg Y_i=(0,1)$ とする。
+右加群の twist $M\mapsto M_\rho$ が誘導する自己同値を $\Phi$ と書く。
+$H$ の二重次数付き射影圏には
+\[
+ \operatorname{Perf}(\operatorname{Qgr}_{\mathbb Z^2}H)
+ =\langle p^*\mathcal C,\ p^*\mathcal C(0,1)\rangle
+\]
+という半直交分解があり、これは smooth proper な dg 圏である。
+対角部分環の商圏を取っても同じ結論を得る。
+\end{lemma}
+\begin{proof}
+$p^*$ は $M\mapsto M\otimes_GH$ から誘導される。
+第二次数についての相対 cohomology は、PBW 基底と二変数 Koszul 複体から
+\[
+ Rp_*p^*M=M,\qquad Rp_*(p^*M(0,-1))=0,\qquad
+ Rp_*(p^*M(0,1))=M\oplus\Phi M
+\]
+となる。
+従って二つの functor は fully faithful であり、指定した順序で半直交である。
+また $Y_0,Y_1$ による Koszul 複体を射影圏へ移すと
+\[
+ 0\longrightarrow p^*(\Phi M)(0,-2)
+ \longrightarrow p^*M(0,-1)\oplus p^*(\Phi M)(0,-1)
+ \longrightarrow p^*M\longrightarrow0
+\]
+を得る。これは全ての第二次数の twist を二つの隣接する次数から生成する。
+誘導加群の全 twist は二重次数付き射影圏の perfect 部分を生成するため、
+上の半直交分解は full である。
+二成分の間の bimodule は $\mathrm{id}_{\mathcal C}\oplus\Phi$ の graph bimodule である。
+これは $\mathcal C$ の smoothness により perfect であり、properness により
+各 Hom 複体は有限次元 cohomology を持つ。
+二つの diagonal bimodule とこの graph bimodule を結ぶ三角形から、
+gluing の diagonal も perfect となる。
+これで smoothness と properness が従う。
+最後に対角部分環 $S=\bigoplus_nH_{n,n}$ を考える。
+$H$ は noetherian Ore 拡大である。
+斉次右イデアル $I\subset S$ について $IH$ の有限個の斉次生成元を
+$i_1,\ldots,i_m\in I$ から選ぶと、対角部分を取って
+$I=\sum_j i_jS$ を得る。従って $S$ は graded noetherian であり、
+非負次数の最高次項を用いる標準的な議論から noetherian でもある。
+左イデアルについても同様である。
+二重次数付き商圏では、各元が十分大きい矩形次数の全ての元で
+零になる加群を torsion とする。
+PBW 基底と $G$ の次数1生成性から、非負添字について
+$H_{a,b}H_{c,d}=H_{a+c,b+d}$ である。
+対角抽出 $M\mapsto M_\Delta$ と $N\mapsto N\otimes_SH$ を取ると、
+後者の対角抽出は $N$ 自身になる。
+counit $M_\Delta\otimes_SH\to M$ の余核は、各斉次元を
+十分大きい対角次数へ移すと像に入るため torsion である。
+核の対角部分は零なので、同じ積の全射性から核も torsion である。
+従って両 functor は商圏で互いに逆の同値を与える。
+通常の tensor product の場合の定式化には
+\cite[\S3.2、定理3.32]{BallardFarman} も参照されたい。
+\end{proof}
+
+\subsection{半古典極限を備えた division ring}
+
+滑らかな点付き曲線の局所環を $R$、その一様化元を $\hbar$、分数体を $k$ とする。
+$R$ 上平坦な Ore domain $\mathcal A$ について、
+$\mathcal A/\hbar\mathcal A$ が可換 domain で、
+$\hbar$-進フィルターが分離的であると仮定する。
+PBW 基底を持つ以下の族はこの条件を満たす。
+\[
+ v(a)=\max\{n:a\in\hbar^n\mathcal A\},\qquad
+ v(ab)=v(a)+v(b)
+\]
+だから、$v$ は $\Frac\mathcal A$ に離散付値として延長する。
+その付値環の剰余体は $\Frac(\mathcal A/\hbar\mathcal A)$ であり、
+\[
+ \{\bar a,\bar b\}=\overline{\hbar^{-1}[a,b]}
+\]
+で Poisson 括弧が定まる。
+実際、分数の分子と分母から同じ $\hbar$ の冪を除いて剰余を取れば
+剰余体の記述を得る。積と交換子についての主張は Ore 分数表示によって延長する。
+この構造と剰余体 $\mathbb C(X)$ の同定を、分数体の Poisson 標識と呼ぶ。
+次数付き族の $Q_0$ に対しても同じ構成を用いる。
+
+\begin{proposition}\label{prop:toric-common-field}
+乗法的交代行列 $q=(q_{ij})$ に対して
+\[
+ \mathbb T_q=k\langle X_1^{\pm1},X_2^{\pm1},X_3^{\pm1}\rangle/
+ (X_iX_j=q_{ij}X_jX_i)
+\]
+と置く。三模型 $\PP^3,\PP^1\times\PP^2,(\PP^1)^3$ の Cox 環を
+同じ三次元トーラスの双指標で twist した斉次環は、
+いずれも $\Frac\mathbb T_q$ を次数零分数体に持つ。
+$q_{ij}=1+\hbar\lambda_{ij}+O(\hbar^2)$ なら、半古典極限は
+$\{x_i,x_j\}=\lambda_{ij}x_ix_j$ である。
+\end{proposition}
+\begin{proof}
+各射影因子の一つの斉次座標にトーラス重み零を与え、残る三つに
+$\mathbb Z^3$ の標準基底を与える。
+各因子の重み零の座標を可逆にした次数零部分は量子アフィン三空間であり、
+さらに三つの座標を可逆にすると $\mathbb T_q$ を得る。
+通常の斉次環または対角 Segre 部分環から同じ比を生成できるので、
+全ての次数零分数体は一致する。
+単項式基底が PBW 基底であることから次数ごとの平坦性が従い、
+交換関係を $\hbar$ の一次まで取れば括弧を得る。
+射影模型の smoothness と矩形 exceptional collection は
+同梱の量子化原稿第3節で証明した。
+\end{proof}
+
+$M=(m_{ia})\in\mathrm{GL}_3(\mathbb Z)$ に対し、順序を固定した単項式
+$Y_i=X_1^{m_{i1}}X_2^{m_{i2}}X_3^{m_{i3}}$ を取ると
+\[
+ q'_{ij}=\prod_{a,b}q_{ab}^{m_{ia}m_{jb}},\qquad
+ \lambda'=M\lambda M^{\mathsf T}
+\]
+となる。逆行列の単項式は可逆なスカラー因子を除いて $X_i$ を復元するので、
+これは実際の division ring の同型である。
+この公式を用いて高次の量子化パラメーターも対応させる。
+
+\begin{proposition}\label{prop:log-coefficient-invariant}
+log-canonical Poisson 関数体
+$\mathbb C(x_1,x_2,x_3)$、$\{x_i,x_j\}=\lambda_{ij}x_ix_j$
+について、加法群
+\[
+ \Gamma_\lambda=\sum_{i<j}\mathbb Z\lambda_{ij}\subset\mathbb C
+\]
+は Poisson 双有理不変量である。
+\end{proposition}
+\begin{proof}
+反復 Laurent 級数体への埋め込みで単項式付値を取る。
+有理関数 $f,g$ の先頭指数を $m,n\in\mathbb Z^3$ とする。
+$\{f,g\}=c fg$ が定数 $c$ について成立する場合、
+先頭項の比較により $c=m\lambda n^{\mathsf T}$ となる。
+従って全ての定数 log-bracket は $\Gamma_\lambda$ に属する。
+逆に座標対は全ての $\lambda_{ij}$ を与えるので、
+このような定数の生成する加法群はちょうど $\Gamma_\lambda$ である。
+これは関数体そのものから定義される。
+同じ議論の一般次元の定式化は
+\cite[命題5.2(b)、定理5.5]{GoodearlLaunois} にある。
+\end{proof}
+
+従って係数に $\mathbb Q$-線形独立性を課すと、
+一般の三係数型、二係数型、一係数型はそれぞれ
+$\operatorname{rank}_{\mathbb Z}\Gamma_\lambda=3,2,1$ で区別できる。
+以下の成分間の対応では係数を照合している。
+
+\subsection{pencil の分数線形変換}
+
+\begin{proposition}\label{prop:quantum-pencil}
+$D$ を曲面の Poisson 関数体の量子化とし、$U$ を中心変数とする。
+四つの有理関数 $a,b,c,d$ の持ち上げ $A,B,C,D_1\in D$ を選び、
+$bc-ad\ne0$ と仮定する。このとき
+\[
+ X=(UA-C)^{-1}(D_1-UB),\qquad
+ U=(CX+D_1)(AX+B)^{-1}
+\]
+は互いに逆な非可換分数式であり、$D(U)$ は $D$ と $X$ で division ring
+として生成される。半古典極限は
+\[
+ x=\frac{d-ub}{ua-c},\qquad u=\frac{cx+d}{ax+b}
+\]
+である。
+\end{proposition}
+\begin{proof}
+$UA-C$ の剰余は非零である。
+$AX+B$ の剰余は $(ad-bc)/(ua-c)$ なので、これも非零である。
+定義式の左から $UA-C$ を掛けて整理すると
+$U(AX+B)=CX+D_1$ を得る。$U$ の中心性だけを用いており、
+$A,B,C,D_1$ の相互の可換性は仮定していない。
+逆式から $U$ を復元でき、剰余を取ると所望の有理式になる。
+Poisson 括弧は付値環の交換子から定まるため、この剰余体の同型と整合する。
+\end{proof}
+
+三重積の一般の pencil を
+\[
+ s=xa(y,z)+b(y,z),\quad t=xc(y,z)+d(y,z),\quad
+ \Delta=bc-ad
+\]
+と書くと、古典的な変換は $u=t/s$ であり、変換後の括弧は
+$\{y,z\}=\Delta(y,z)$、$u$ は Casimir である。
+従って、双二次式 $\Delta$ の非可換 quadric の関数体 $D$ に
+命題\ref{prop:quantum-pencil}を適用すれば、pencil と二因子型を
+同時に標識した量子化分数体 $D(U)$ が得られる。
+
+$\PP^3$ の二次曲面 pencil でも、
+$q_i=x_0\ell_i+r_i$ として
+$(a,b,c,d)=(\ell_0,r_0,\ell_1,r_1)$ を用いれば同じ命題を適用できる。
+曲面側の三次式は $\ell_1r_0-\ell_0r_1$ である。
+これらは分数体とその Poisson 標識の構成である。
+指定した射影模型の斉次環への延長と、その量子化の選択は
+第\ref{sec:elliptic-links}節および第\ref{sec:p3-models}節で扱う。
+

@@ -1,0 +1,320 @@
+\section{双指標によるトーリック blow-up と半直交分解}
+\label{sec:toric-nc-blowups}
+
+命題\ref{prop:toric-explicit-blowups}の全ての blow-up を、
+共通トーラスの同じ量子化と両立させる。
+本節では $M=\mathbb Z^3$ とし、
+\[
+ B=\CC[q_{12}^{\pm1},q_{13}^{\pm1},q_{23}^{\pm1}],
+ \qquad
+ c(m,n)=\prod_{i<j}q_{ij}^{m_i n_j}
+\]
+を用いる。幾何学的ファイバーについて述べるときは $B\to k$ を取り、
+$k$ を標数零の代数閉体、$q_{ij}\in k^\times$ とする。
+$M$-斉次元の積を $a\star b=c(|a|,|b|)ab$ で変更する操作を
+$c$-twist と呼ぶ。双指標恒等式によって結合性が成り立つ。
+トーリック多様体の扇、正規単項式の Ore 局所化と層の貼合せを用いる構成は
+Cirio--Landi--Szabo \cite[\S\S3--4]{ToricCLS} による。
+以下では blow-up の Rees 環と導来圏の全ての射にも同じ twist を施す。
+
+\subsection{射影模型と局所 Rees 環}
+
+$X=X_\Sigma$ を滑らかな射影トーリック多様体とする。
+錐 $\sigma\in\Sigma$ 上の局所環を
+\[
+ A_{\sigma,B}^c
+ =\bigoplus_{m\in\sigma^\vee\cap M}B X^m,
+ \qquad X^m\star X^n=c(m,n)X^{m+n}
+\]
+と定める。面への制限は単項式の Ore 局所化である。
+従ってこれらの右加群圏を共通部分上で貼り合わせることができる。
+得られる coherent 圏を $\operatorname{coh}X_c$、
+その perfect dg 圏を $\mathcal C_c(X)$ と書く。
+トーラス不変の閉部分多様体 $Z$ には、その二側単項式イデアルによる商を用いる。
+軌道閉包では、これは有効商トーラスの指標部分格子への $c$ の制限に一致する。
+
+この圏には有限表示の射影模型がある。
+古典的な Cox 構成と coherent 加群の表示には
+\cite[補題2.2、定理3.2、命題3.3]{ToricCox} を用いる。
+Cox 環 $S=\CC[z_\rho:\rho\in\Sigma(1)]$ の
+$\operatorname{Pic}(X)$ 次数を用い、完全列
+\[
+ 0\longrightarrow M\longrightarrow
+ \mathbb Z^{\Sigma(1)}
+ \longrightarrow\operatorname{Pic}(X)\longrightarrow0
+\]
+の分裂を一つ選ぶ。$M$ への射影を Cox 変数の重みとし、
+$S_B^c$ を $B\otimes S$ の $c$-twist とする。
+これは可逆なスカラー交換関係を持つ量子多項式環である。
+各最大錐 $\sigma$ について
+$z^{\widehat\sigma}=\prod_{\rho\notin\sigma(1)}z_\rho$ を固定順に取る。
+この正規元を可逆化した環は $\operatorname{Pic}(X)$ に関して強次数付きであり、
+その次数零部分は $A_{\sigma,B}^c$ である。
+実際、$\sigma$ が滑らかなので、$\sigma$ の外の Cox 変数の次数は
+$\operatorname{Pic}(X)$ の基底になる。
+その単項式は局所化後に各次数の可逆元を与える。
+従って強次数付き環の次数零部分への制限により
+\[
+ \operatorname{coh}X_c
+ \simeq
+ \operatorname{gr}^{\operatorname{Pic}(X)}S_B^c/
+ \{\text{全ての }z^{\widehat\sigma}\text{ 局所化で零になる加群}\}
+ \tag{TNC1}
+\]
+を得る。有限個のアフィンチャート上の生成元と関係式の分母を払うと、
+貼合せられた coherent 加群が右辺の有限生成次数付き加群から来ることも分かる。
+分裂を変えても局所環 $A_{\sigma,B}^c$ の貼合せは同じである。
+
+十分高いトーラス線形化された ample line bundle $H$ を取れば、
+切断環
+\[
+ R_B(X,H)^c
+ =\bigoplus_{n\geq0}H^0(X,H^{\otimes n})\otimes_\CC B
+\]
+にも重みによる同じ積を入れられる。
+各次数は有限階数自由 $B$-加群であり、
+環は有限生成量子多項式環の商になるので noetherian である。
+頂点切断を可逆化した次数零環は $A_{\sigma,B}^c$ となるため、
+その tails は式 (TNC1) の圏と同値である。
+三つの端点では、$H=\mathcal O(1)$、$\mathcal O(1,1)$、
+$\mathcal O(1,1,1)$ に対する環は
+本書第\ref{sec:toric-quantization}節 のトーラス型量子化そのものである。
+
+\begin{lemma}\label{lem:toric-twisted-rees}
+$f:\widetilde X=\operatorname{Bl}_Z X\to X$ を、
+滑らかなトーラス不変中心 $Z$ に沿う blow-up とする。
+星状細分の量子模型 $\widetilde X_c$ は、各アフィンチャート上で
+通常の積を用いる Rees 環
+\[
+ \mathcal R(I_c)=\bigoplus_{d\geq0}I_c^d t^d
+ \subset A_\sigma^c[t],
+ \qquad t\text{ は中央}
+ \tag{TNC2}
+\]
+の相対 Proj と一致する。
+その中心イデアル $I_c$ は $Z$ の単項式イデアルの $c$-twist である。
+量子トーラスへの局所化後、$f_c$ は恒等写像となる。
+\end{lemma}
+\begin{proof}
+中心と交わる滑らかなアフィンチャートで、
+古典的な中心イデアルを $I=(x_1,\ldots,x_d)$ と書く。
+ここで $d=\operatorname{codim}(Z,X)$ であり、
+必要なら残りの座標の一部を可逆にする。
+各 $x_i$ は $A_\sigma^c$ の正規元である。
+単項式積の係数は全て $B$ の単元なので、
+$I_c^n$ の単項式集合は古典的な $I^n$ と一致する。
+従って $\mathcal R(I_c)=\mathcal R(I)^c$ が成り立つ。
+$t$ の $M$ 重みは零とする。
+
+$x_i t$ を可逆化した次数零環は
+\[
+ x_i,\qquad x_jx_i^{-1}\ (1\leq j\leq d,\ j\ne i),
+ \qquad x_\ell\ (\ell>d)
+ \tag{TNC3}
+\]
+で生成される。比の表示には非零スカラーを吸収する。
+これらの重みは
+$m_i,\ m_j-m_i,\ m_\ell$ であり、古典的な blow-up チャートの双対半群をなす。
+その積も $X^m\star X^n=c(m,n)X^{m+n}$ である。
+この計算はチャートの共通部分での単項式局所化と両立するので、
+星状細分の貼合せと一致する。
+全座標を可逆化すると、全てのチャートは同じ $B_c[M]$ に入る。
+\end{proof}
+
+\subsection{重みを持つ全射空間の twist}
+
+次の補題で非同変導来圏の生成性を扱う。
+トーラス線形化は変形する対象を指定するために用い、
+射空間には全てのトーラス重みを含める。
+
+\begin{lemma}\label{lem:toric-twist-homs-generation}
+$X$ を滑らかな射影トーリック多様体とし、
+$(E_1,\ldots,E_N)$ をトーラス線形化された perfect complexes からなる
+full exceptional collection とする。
+その $c$-twist $(E_1^c,\ldots,E_N^c)$ は
+$D^b(\operatorname{coh}X_c)$ の full exceptional collection である。
+各 $E_i^c$ は通常の非同変 coherent 圏の対象として取る。
+トーラス線形化された perfect complexes $P,Q$ の間では
+\[
+ \operatorname{Ext}^r_{X_c}(P^c,Q^c)_m
+ \simeq \operatorname{Ext}^r_X(P,Q)_m
+ \tag{TNC4}
+\]
+であり、右辺における重み $m$ の射 $f$ と重み $n$ の射 $g$ の合成は、
+左辺では $c(n,m)(g\circ f)$ に変わる。
+\end{lemma}
+\begin{proof}
+まず右 $M$-次数付き $A$-加群 $P$ の作用を
+$p\star a=c(|p|,|a|)pa$ とする。
+重み $m$ の $A$-線形写像 $f:P\to Q$ に対し
+\[
+ f^c(p_\ell)=c(m,\ell)f(p_\ell)
+ \tag{TNC5}
+\]
+と置けば、双指標性から $A^c$-線形である。
+さらに
+$(g^c\circ f^c)(p_\ell)=c(n,m)(g\circ f)^c(p_\ell)$
+となる。有限生成加群間の射は有限個の重み成分の和なので、
+この計算は非同変の全射空間を記述する。
+重み零の微分を持つ自由分解とトーリック被覆の \v Cech 複体に適用すると
+式 (TNC4) と合成則を得る。
+
+同じ議論はトーラス線形化された perfect complexes に適用できる。
+各対象は Cox 環上で
+$\operatorname{Pic}(X)\oplus M$-次数付きの有限自由分解を持つ。
+完全性は単項式局所化後にも保存される。
+従って例外性と半直交性は式 (TNC4) から従う。
+
+生成性には重みシフトも確認する。
+$P\langle s\rangle_\ell=P_{\ell+s}$ と置くと、
+重み $\ell$ の元 $p_\ell\in P$ を $c(s,\ell)p_\ell$ へ送る写像は
+\[
+ (P\langle s\rangle)^c\simeq P^c
+ \tag{TNC6}
+\]
+という非同変加群同型を与える。
+実際、その右作用に現れる係数の比は
+$c(\ell-s,n)c(s,\ell+n)=c(s,\ell)c(\ell,n)$ である。
+
+古典的なトーラス線形化された line bundle $L$ に対し、
+full exceptional collection の評価三角を順に用いる。
+その係数 $\operatorname{RHom}(E_i,L)$ は有限次元のトーラス表現であり、
+評価写像を全重み成分に分けると、各写像は重み零に取れる。
+これにより $L$ は $E_i$ の指標 twist から有限回の cone と直和因子で生成される。
+この構成を $c$-twist し、式 (TNC6) を用いると、
+$L^c$ は $E_i^c$ から生成される。
+
+一方、量子 Cox 環 $S^c$ は有限大域次元を持つ。
+$\dim X>0$ のとき、ample divisor $A$ との交点 $D\mapsto D\cdot A^{\dim X-1}$ は
+各 Cox 変数に正の整数次数を与える。
+この補助次数に関する graded Nakayama により、
+有限生成の次数付き射影 $S^c$-加群は次数付き自由加群となる。
+$\dim X=0$ では $S^c=k$ なので同じ結論が直ちに従う。
+従って任意の有限生成 $\operatorname{Pic}(X)$-次数付き加群は、
+有限個の Cox 自由加群の次数シフトから生成される。
+式 (TNC1) を通すと、$D^b(\operatorname{coh}X_c)$ は全ての $L^c$ から生成される。
+以上から全圏での生成性が従う。
+\end{proof}
+
+\begin{theorem}\label{thm:toric-nc-orlov}
+$X$ と $Z$ を滑らかな射影トーリック多様体とし、
+$Z\subset X$ を余次元 $d\geq2$ の軌道閉包とする。
+$X$ と $Z$ がトーラス線形化された full exceptional collections を持つと仮定する。
+共通双指標 $c$ の量子模型には
+\[
+ \mathcal C_c(\widetilde X)
+ =
+ \left\langle
+ \Phi^c_{1-d}\mathcal C_c(Z),\ldots,
+ \Phi^c_{-1}\mathcal C_c(Z),
+ Lf_c^*\mathcal C_c(X)
+ \right\rangle
+ \tag{TNC7}
+\]
+という admissible SOD がある。
+$Lf_c^*$ は補題\ref{lem:toric-twisted-rees}の射の導来 pullback である。
+$\Phi^c_i$ は古典的な
+$j_*(q^*(-)\otimes\mathcal O_E(i))$ の全重み Hom を twist した functor である。
+各幾何学的ファイバーは smooth proper dg 圏となる。
+\end{theorem}
+\begin{proof}
+古典的な Orlov の functor はトーラス作用と両立する。
+例外因子の $\mathcal O_E(i)$ もトーラス線形化を持つ。
+同変化については Elagin \cite[定理10.2]{ToricElagin} を参照できる。
+各 functor の Hom 上の写像は重みを保つので、
+式 (TNC5) による合成則と両立する。
+従って full exceptional collection 上の dg functor を twist すると、
+非同変 perfect 圏の間の functor が得られる。
+局所の自由複体上では $Lf_c^*$ は環準同型
+$A_\sigma^c\to A_{\sigma'}^c$ による導来拡大と一致する。
+それゆえ全圏でも補題\ref{lem:toric-twisted-rees}の射の pullback である。
+
+古典的な二つの full exceptional collections を Orlov の順序で並べると、
+$\widetilde X$ のトーラス線形化された full exceptional collection を得る。
+補題\ref{lem:toric-twist-homs-generation}をこの collection に適用すると、
+全てのブロックの fully faithfulness、半直交性および生成性が従う。
+
+properness は式 (TNC4) による Hom の有限次元性から従う。
+smoothness は有限個の例外対象の directed な最小 $A_\infty$ 模型から分かる。
+その augmentation ideal の因子を並べた reduced bar resolution は、
+非零の射の列で対象の番号が狭義に増加するため有限長になる。
+各 Hom は有限次元なので対角 bimodule は perfect である。
+smooth proper 圏の間の上記 fully faithful functor は左右の随伴を持つ。
+\end{proof}
+
+この証明は $B$ 上でも行える。
+古典的 Hom の有限次元な最小 $A_\infty$ 模型を重みごとに取り、
+高次積の入力を $a_n,\ldots,a_1$、重みを $m_n,\ldots,m_1$ とすると、
+その積を
+\[
+ \mu_n^c(a_n,\ldots,a_1)
+ =
+ \left(\prod_{i>j}c(m_i,m_j)\right)
+ \mu_n(a_n,\ldots,a_1)
+ \tag{TNC8}
+\]
+で定める。全 Stasheff 恒等式の各項には同じ係数が掛かる。
+directed 性と厳密な単位性によって非零の高次積の arity は有限に限られる。
+従って有限自由 $B$-加群上の代数的な smooth proper dg 圏の族となり、
+上記 SOD は perfect dg 圏の任意の derived 基底変換と両立する。
+
+\subsection{三つの模型の共通量子 blow-up}
+
+\begin{corollary}\label{cor:toric-nc-common}
+三つの標準模型のトーラス型量子化を $X_{3,c},X_{12,c},X_{111,c}$ とする。
+命題\ref{prop:toric-explicit-blowups}の全列は、
+共通の射影量子模型 $Z_{\mathrm{per},c}$ への blow-up 列に持ち上がる。
+各段階は式 (TNC2) の Rees 構成を持ち、式 (TNC7) の SOD を持つ。
+点中心は二つの $\operatorname{Perf}(k)$、
+曲線中心は一つの $\operatorname{Perf}(\PP^1)$ を加える。
+共通模型は三つの表示のいずれからも長さ24の full exceptional collection を持つ。
+その共通の関数斜体は
+\[
+ D_q
+ =
+ \operatorname{Frac}\!
+ \left(
+ k\langle x_1^{\pm1},x_2^{\pm1},x_3^{\pm1}\rangle/
+ (x_ix_j-q_{ij}x_jx_i)_{i<j}
+ \right)
+ \tag{TNC9}
+\]
+であり、全ての pullback がこの斜体上で恒等写像を誘導する。
+\end{corollary}
+\begin{proof}
+三つの出発点の矩形 Beilinson collections はトーラス線形化されている。
+各中心はトーラス固定点または滑らかな不変曲線 $\PP^1$ であり、
+それぞれの full exceptional collection は一対象または二対象からなる。
+$\PP^1$ の二対象 $(\mathcal O,\mathcal O(1))$ の間には
+長さ二の非単位合成がないので、全 Hom の双指標 twist は
+通常の Kronecker 圏と同じになる。
+従って中心の圏はそれぞれ $\operatorname{Perf}(k)$、
+$\operatorname{Perf}(\PP^1)$ である。
+定理\ref{thm:toric-nc-orlov}を各段階に適用する。
+最終扇は三つの列で同一なので、局所環の貼合せから共通模型も同一である。
+例外対象の個数は
+\[
+ 4+2\cdot4+2\cdot6
+ =
+ 6+2\cdot1+2\cdot8
+ =
+ 8+2\cdot2+2\cdot6
+ =24
+\]
+となる。
+
+全てのアフィンチャートで単項式を可逆化すると同じ量子トーラス $k_c[M]$ を得る。
+各チャートは noetherian domain であり、その分数体は式 (TNC9) である。
+Rees チャートの式 (TNC3) から各射はこの局所化と両立する。
+例外ブロックの対象は量子トーラスへの制限で零となるので、
+SOD の pullback 成分の generic quotient はそのまま保存される。
+\end{proof}
+
+基底を $q_{ij}=1+h\lambda_{ij}$ によって制限すると、
+$h=0$ で古典的な共通 blow-up 列と Orlov の SOD を回復する。
+各局所環の一次交換子は
+$\{X^m,X^n\}
+=\sum_{i<j}\lambda_{ij}(m_i n_j-m_j n_i)X^{m+n}$
+であり、全中間模型で同じ $\pi_\lambda$ を持ち上げる。
+この構成には $q_{ij}$ の無限位数の仮定はない。
+トーラス型の三つの成分の一般元に対する、古典点を含む代数的な共通模型である。

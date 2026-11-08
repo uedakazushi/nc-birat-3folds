@@ -1,0 +1,396 @@
+% 2026-11-08 v7. Integration fragment for Japanese LuaLaTeX.
+% The new comparison argument is proved below for the explicitly stated
+% marked cubic Z-algebra presentation. See 01-research-notes.md for scope.
+% Existing bibliography keys are reused. Add QuadricBR2020 and QuadricMU2021.
+
+\subsection{楕円型 quadric の一点 blowup と切断環の比較}
+\label{blowup:quadric-comparison}
+
+以下では $k$ を標数零の代数閉体とする。
+$A$ を三次元 cubic AS-regular $\mathbb Z$-代数とし、
+$X=\operatorname{Proj}A$、$P_i=\pi(e_iA)$ と書く。
+$A$ の楕円データを $(E,M_0,M_1,M_2)$ とし、$E$ は滑らかと仮定する。
+この記法では $M_i$ は次数2の直線束であり、
+$E\hookrightarrow\mathbb P^1\times\mathbb P^1$ を定める隣接する二つの pencil を持つ。
+楕円曲線への包含を $i\colon E\hookrightarrow X$ とする。
+標準的な同値 $\operatorname{qgr}(A/(g_i))\simeq\operatorname{coh}E$ を
+$Li^*P_0=\mathcal O_E$ となるよう規格化すると
+\begin{equation}\label{blowup:quadric-restrictions}
+ F_0=\mathcal O_E,\qquad
+ F_j=Li^*P_j=(M_0\otimes\cdots\otimes M_{j-1})^{-1}
+ \quad(1\le j\le3).
+\end{equation}
+この同定は twisted homogeneous coordinate $\mathbb Z$-代数の定義から従い、
+$\operatorname{Hom}(P_{j+1},P_j)=H^0(E,M_j)$ の制限は切断の評価写像である。
+用いている cubic $\mathbb Z$-代数の分類と楕円データについては
+\cite[命題5.1.2、\S5.5]{VdBQuadrics} を参照する。
+
+\begin{lemma}[一点上の半単純な制限による消滅]
+\label{blowup:quadric-kernel}
+$T\in D^-_{\mathrm{coh}}(X)$ と $t\in E$ が
+\[
+ R\Gamma(X,T)=0,\qquad
+ \mathcal H^j(Li^*T)\cong k(t)^{\oplus m_j}
+ \quad(j\in\mathbb Z)
+\]
+を満たすとする。各 $m_j$ は有限とする。このとき $T=0$ である。
+\end{lemma}
+
+\begin{proof}
+$(P_3,P_2,P_1,P_0)$ は full strong exceptional collection である。
+最初の二対象を right mutation して
+\[
+ 0\longrightarrow P_3\longrightarrow
+ H^0(E,M_2)^\vee\otimes P_2\longrightarrow U\longrightarrow0
+\]
+を得る。Belmans--Raedschelders の計算
+\cite[命題3.12]{QuadricBR2020} により、
+$(P_2,U,P_1,P_0)$ は full strong exceptional collection であり、
+$U$ と $P_1$ は完全に直交する。
+従って $R\Gamma(X,-)$ の核は
+\[
+ \mathcal K=\langle P_2,U,P_1\rangle
+\]
+に対応する。
+その tilting 代数 $H$ は、一つの頂点から他の二頂点へそれぞれ二本の矢が出る
+関係式のない quiver の道代数であり、hereditary である。
+ここで必要となるのは三頂点の部分代数だけである。
+
+上の mutation 列を $E$ に制限する。
+$M_2$ の二次元の全切断空間は basepoint-free なので、
+制限した左の射は部分直線束の包含になる。
+二次元ベクトル空間の行列式の基底を一つ固定すれば
+\begin{equation}\label{blowup:quadric-mutated-restriction}
+ Li^*P_2=F_2,\qquad Li^*U=F_2\otimes M_2,\qquad
+ Li^*P_1=F_2\otimes M_1.
+\end{equation}
+二組の矢は、それぞれ $M_2$ と $M_1$ の全切断による写像である。
+
+hereditary 性より、$D^-_{\mathrm{fd}}(H)$ の対象はそのコホモロジー加群の
+シフトの直和に分解する。有限次元 $H$-加群の最小射影分解を
+$\mathcal K$ に戻すと、その対応物は
+\begin{equation}\label{blowup:quadric-two-term}
+ W\otimes P_2\longrightarrow
+ V\otimes U\oplus V'\otimes P_1
+\end{equation}
+という二項複体と $P_2$ の直和に分かれる。
+最小性により、始域の $P_2$ から終域の $P_2$ への成分は零になる。
+$Li^*P_2$ は直線束なので、$P_2$ の単独の直和因子は仮定から生じない。
+また、各二項複体の制限のコホモロジーも $k(t)$ の直和である。
+有限振幅の制限関手はこの各次数で有限な直和と可換する。
+
+式\eqref{blowup:quadric-two-term}を制限し $F_2^{-1}$ を掛けると
+\[
+ \varphi\colon\mathcal O_E^{\oplus w}\longrightarrow
+ M_2^{\oplus v}\oplus M_1^{\oplus v'}
+\]
+を得る。核は局所自由層の部分層かつ torsion なので零である。
+余核が torsion であることから $w=v+v'$ である。
+直線束の次数を比較すると
+\[
+ \operatorname{length}(\operatorname{coker}\varphi)=2(v+v')=2w.
+\]
+一方、余核が $k(t)^{\oplus m}$ なら、$t$ におけるファイバーへの全射から
+$m\le v+v'=w$ となる。従って $2w\le w$ であり $w=0$ である。
+全ての直和因子が零となり、$T=0$ を得る。
+\end{proof}
+
+\begin{theorem}[cubic 表示を持つ quadric の比較同値]
+\label{blowup:quadric-section-equivalence}
+上の $X$ が、構造層と $E$ の埋め込みを保つ同値
+\[
+ X\simeq\operatorname{Proj}Q
+\]
+によって、$A$ の二周期的な even Veronese の通常の斉次表示 $Q$ を持つとする。
+さらに $Q$ は domain で、次数2の中心的正則元 $g$ を持ち
+\[
+ Q/gQ=B(E,\mathcal L,\alpha),\qquad \deg\mathcal L=4
+\]
+とする。$T_0=Q^{(2)}$ とし、
+\[
+ T_0/gT_0=B(E,\mathcal M,\tau),\qquad
+ \mathcal M=\mathcal L\otimes\alpha^*\mathcal L,\qquad
+ \tau=\alpha^2
+\]
+と書く。$|\tau|=\infty$ と仮定する。
+任意の $t\in E$ に対して $R=T_0(t)$ とおけば、
+Van den Bergh の一点 blowup $\alpha_t\colon\widetilde X_t\to X$ と切断環への射
+$\delta_t\colon\widetilde X_t\to\operatorname{Proj}R$ は
+\[
+ R\delta_{t*}\colon D^b(\operatorname{coh}\widetilde X_t)
+       \xrightarrow{\ \sim\ }D^b(\operatorname{qgr}R)
+\]
+という dg-enhanced 同値を与える。その逆は $L\delta_t^*$ である。
+従って $\mathcal E_t=R\delta_{t*}\mathcal O_{L_t}(-1)$ とおけば
+\begin{equation}\label{blowup:quadric-unconditional-sod}
+ \operatorname{Perf}(\operatorname{qgr}R)
+ =\left\langle
+     \mathcal E_t\otimes_k\operatorname{Perf}(k),\quad
+     R\delta_{t*}L\alpha_t^*\operatorname{Perf}(\operatorname{qgr}Q)
+   \right\rangle
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Van den Bergh の構成に用いる仮定を確認する。
+$E\subset X$ は滑らかな両側閉 Cartier divisor であり、
+$\mathcal O_X(E)=\mathcal O_X(2)$ は ample である。
+標準的な $P_i$ は $E$-flat で、制限は直線束であり、$X$ を生成する。
+cubic AS-regular 性から $\operatorname{Mod}(X)$ は有限 homological dimension を持つ。
+また $P_0=\mathcal O_X$ が exceptional なので
+$R\Gamma(X,\mathcal O_X)=k$ である。
+normal bimodule に点イデアルを掛けた $E$ 上の invertible bimodule は
+$(\mathcal M(-t))_\tau$ であり、次数は7である。
+その正の冪は $H^1=0$ を満たし ample である。
+従って \cite[\S9.2、命題9.2.2、命題9.2.3]{BlowupVdB2001} が適用される。
+
+切断環の同定もここで確認できる。
+Van den Bergh の Rees bimodule algebra を $\mathcal D_t$ とし
+$D_t=\Gamma(X,\mathcal D_t\mathcal O_X)$ とする。
+この標準表示では
+$Q_n=H^0(X,\mathcal O_X(n))$ for $n\ge0$ である。
+従って Rees algebra の包含から $D_t\subset T_0$ を得る。
+同文献の式(6.16)と命題9.2.3から
+\[
+ 0\longrightarrow D_t(-1)\xrightarrow{g}D_t
+ \longrightarrow B(E,\mathcal M(-t),\tau)\longrightarrow0
+\]
+を得る。次数1部分は
+\[
+ (D_t)_1/k g=H^0(E,\mathcal M(-t))\subset H^0(E,\mathcal M).
+\]
+この式は点の表示を固定する。
+右加群の grading shift による点の移動はこの標識に含める。
+$R=T_0(t)$ はこの次数1部分で生成される
+\cite[定理5.3]{BlowupRSS2015}。
+従って $R\subset D_t$ である。
+両者の $g$ による商は同じ twisted homogeneous coordinate ring であり、
+各次数の次元は
+\[
+ \dim_k R_n=\dim_k(D_t)_n=1+\frac{7n(n+1)}2.
+\]
+よって $R=D_t$ である。
+
+命題9.2.3は $R\delta_{t*}L\delta_t^*=\mathrm{id}$ を $D^-$ 上で与える。
+さらに $\delta_{t*}$ の cohomological dimension は高々1である。
+$N\in D^-_{\mathrm{coh}}(\widetilde X_t)$ が $R\delta_{t*}N=0$ を満たすとする。
+$T=R\alpha_{t*}N$ とおく。
+blowup の分解 \cite[定理8.4.1]{BlowupVdB2001} により三角
+\[
+ L\alpha_t^*T\longrightarrow N\longrightarrow C\longrightarrow
+\]
+が存在し、$C$ は $\mathcal O_{L_t}(-1)$ のシフトの直和である。
+pushforward の合成と $R\delta_{t*}N=0$ から
+$R\Gamma(X,T)=R\Gamma(\widetilde X_t,N)=0$ となる。
+同文献の式(9.11)と、$\delta_t$ が $E$ 上で恒等写像になることから
+$Li^*N=0$ である。
+$\mathcal O_{L_t}(-1)$ の $E$ への導来制限は一点の skyscraper である。
+従って $Li^*T$ の各コホモロジーは同じ一点の skyscraper の有限直和であり、
+補題\ref{blowup:quadric-kernel}により $T=0$ となる。
+三角から $N\simeq C$ であり、その制限が零であることから $C=0$、従って $N=0$ である。
+これで $R\delta_{t*}$ の核が $D^-_{\mathrm{coh}}$ 上で消滅した。
+
+有界性は次の spectral sequence から従う。
+$F\in\operatorname{coh}(\operatorname{Proj}R)$ とし $N=L\delta_t^*F$ とおく。
+$R^j\delta_{t*}=0$ for $j>1$ より
+\[
+ 0\longrightarrow R^1\delta_{t*}\mathcal H^{r-1}(N)
+ \longrightarrow\mathcal H^r(R\delta_{t*}N)
+ \longrightarrow\delta_{t*}\mathcal H^r(N)\longrightarrow0
+\]
+を得る。$R\delta_{t*}N=F$ なので、$r<-1$ に対して
+$R\delta_{t*}\mathcal H^r(N)=0$ である。
+核の消滅から $\mathcal H^r(N)=0$ となり、$L\delta_t^*$ の振幅は $[-1,0]$ に入る。
+従って上の随伴同値は $D^b_{\mathrm{coh}}$ に制限する。
+導来関手は元の bimodule functor から構成されるので dg enhancement と両立する。
+最後に定理8.4.1の分解をこの同値で移すと
+式\eqref{blowup:quadric-unconditional-sod}を得る。
+\end{proof}
+
+\begin{remark}[適用範囲と generic localization]
+この定理の仮定は、$E$ と構造層を標識した cubic $\mathbb Z$-代数表示を含む。
+この表示を既に持つ曲面族では、categorical blowup と切断環の比較を
+さらに仮定する必要がなくなる。
+RSS の任意の hypersurface 表示の quadric に適用する際には、
+その標識付き表示との同定を確認する。
+
+点イデアル bimodule は generic localization で単位 bimodule になる。
+従って Rees bimodule algebra の局所化は一変数の斉次環となり、
+$\alpha_t$ は generic quotient 上で恒等同値を誘導する。
+また $D_t=R\subset T_0$ という上の同定は、$\delta_t$ が誘導する
+generic quotient の同一視を、この包含が誘導する分数体の同一視に固定する。
+従って、$D=Q_0(Q)\cong Q_0(R)$ とし両側の局所化関手を $\ell_Q,\ell_R$ と書けば
+\[
+ \ell_R\circ R\delta_{t*}L\alpha_t^*\simeq\ell_Q
+\]
+となる。例外対象 $\mathcal E_t$ の generic rank は零である。
+ここで使う $Q_0(R)=Q_0(T_0)$ は
+\cite[定理1.1(2)]{BlowupRSS2015}の分数環の保存とも一致する。
+\end{remark}
+
+\begin{proposition}[Sklyanin pencil の一般の quadric への適用]
+\label{blowup:generic-sklyanin-quadric}
+$S_4$ を、滑らかな楕円曲線 $E$、次数4の直線束 $\mathcal L$、
+無限位数の平行移動 $\alpha$ に付随する四次元 Sklyanin 代数とする。
+その中心的二次元部分空間から得られる pencil
+$Q=S_4/(\Omega)$ の非空 Zariski 開集合上で、任意の $t\in E$ に対し
+定理\ref{blowup:quadric-section-equivalence}の比較同値と
+式\eqref{blowup:quadric-unconditional-sod}が成立する。
+\end{proposition}
+
+\begin{proof}
+滑らかな $\operatorname{qgr}Q$ における二つの正規化された rank-one
+maximal Cohen--Macaulay module を $X,Y$ とする。
+各々は次数0の二元で生成される。
+syzygy による置換 $M\mapsto\Omega M(1)$ が $X,Y$ を交換するとき、
+$Q$ は \emph{standard} と呼ばれる。
+この二つの可能性と standard の定義は
+\cite[命題5.3、定義5.4]{QuadricMU2021} による。
+$X,Y$ は次数の移動を除いて $Q^{\oplus2}$ の部分加群となるので、
+$g$ は両者の上で正則である
+\cite[命題5.4、補題5.5]{SmithVdB}。
+
+standard 条件が pencil の一般点で満たされることを、$E$ への制限で確認する。
+一つの ruling の line module を $L_D=Q/V(D)Q$ とし、
+$D$ は $E$ 上の次数2の有効因子、
+$V(D)=H^0(E,\mathcal L(-D))$ とする。
+ここでは右加群の規約を用いる。
+この secant の記述は \cite[Basic Facts 7.2]{RSS2023} の右加群版による。
+line module と spinor module の対応により
+\[
+ 0\longrightarrow M(-1)\longrightarrow Q\longrightarrow L_D\longrightarrow0
+\]
+があり、$M$ は $X,Y$ のいずれかである。
+\cite[命題7.2]{SmithVdB}
+残る中心元 $g$ は $L_D$ 上で正則である。
+実際 $L_D$ は2-critical であり、$gL_D=0$ なら
+$B(E,\mathcal L,\alpha)$-module としての Hilbert 多項式の一次係数は
+$4$ の非負整数倍になるが、line module の一次係数は1である。
+従って $gL_D\ne0$ であり、criticality より $g$ の核は零である。
+よって上の列は $E$ への制限後も完全である。
+$\mathcal L(-D)$ は次数2で globally generated なので
+\[
+ Li^*M(-1)=\mathcal O_E(-D).
+\]
+$N=\mathcal O_E(D)$ とおく。
+右加群の grading shift は
+$F\mapsto\alpha_*(F\otimes\mathcal L)$ に対応するので
+\[
+ Li^*M=\alpha_*(\mathcal L\otimes N^{-1}).
+\]
+他方、\cite[補題5.5(2)]{SmithVdB} の列
+\[
+ 0\longrightarrow M(-1)\longrightarrow Q^{\oplus2}
+ \longrightarrow\Omega M(1)\longrightarrow0
+\]
+を制限する。$\Omega M(1)$ も $X,Y$ の一方であり、$g$ はその上で正則である。
+従って制限後も完全で、行列式から $Li^*\Omega M(1)=N$ を得る。
+従って $\Omega M(1)\cong M$ なら
+\begin{equation}\label{blowup:nonstandard-necessary}
+ N\otimes\alpha^*N\cong\mathcal L.
+\end{equation}
+写像 $\operatorname{Pic}^2E\to\operatorname{Pic}^4E$、
+$N\mapsto N\otimes\alpha^*N$ は、平行移動を除けば multiplication by 2 である。
+式\eqref{blowup:nonstandard-necessary}の解は高々4個である。
+secant の因子類 $N\in\operatorname{Pic}^2E$ を固定すると、
+対応する line module を annihilate する central quadric は一意である。
+\cite[\S10.3]{SmithVdB} の左加群での記述に対し、
+右加群の記述は \cite[Basic Facts 7.2]{RSS2023} に明記されている。
+従って non-standard な $Q$ は、上の高々4個の $N$ が定める有限個の
+pencil の元に含まれる。これらと非 smooth な元を除けば $Q$ は standard である。
+
+この開集合上で、Mori--Ueyama の full geometric helix
+\cite[定理5.16]{QuadricMU2021}と
+$0\to X(-2)\to Q(-1)^{\oplus2}\to Y(-1)\to0$ を用いると
+\[
+ \bigl(\mathcal O_Q(-1),\widetilde Y(-1),\widetilde X(-1),\mathcal O_Q\bigr)
+\]
+という full strong exceptional collection が得られる。
+強例外性と二つの中間対象の完全直交性は
+同文献の補題5.6、5.9、5.13からも直接従う。
+$E$ への制限は全て直線束で、その次数は順に $-4,-2,-2,0$ である。
+従って最初の三頂点は再び hereditary fork になり、
+補題\ref{blowup:quadric-kernel}の rank と degree の証明がそのまま適用できる。
+残りの仮定は RSS の quadric elliptic surface の設定で満たされ、
+$g$ は中心的な次数2の正則元である。
+$Q$ は AS-Gorenstein で depth が3なので、
+$Q_n=H^0(\operatorname{qgr}Q,\mathcal O_Q(n))$ for $n\ge0$ も成り立つ。
+定理\ref{blowup:quadric-section-equivalence}の証明を適用して結論を得る。
+\end{proof}
+
+\begin{corollary}[共通切断環の二つの分解と三次元の積]
+\label{blowup:rss-common-sod}
+命題\ref{blowup:generic-sklyanin-quadric}の開集合から $Q$ を取り、
+$\tau=\alpha^2$、$|\tau|=\infty$ とする。
+任意の $t\in E$ に対して、RSS の同型
+\cite[定理7.3]{RSS2023}を
+\[
+ R=Q^{(2)}(t)
+   \cong S^{(3)}(\tau^{-1}p+\tau^{-1}q),
+ \qquad \sigma^3=\tau,\qquad p\ne q
+\]
+と書く。ここで $S=S(E,\sigma)$ は三次元 Sklyanin 代数である。
+$\mathcal A_U=\operatorname{Perf}(\operatorname{qgr}U)$ とおくと、
+dg-enhanced な fully faithful functor
+$\Phi_S\colon\mathcal A_S\to\mathcal A_R$、
+$\Phi_Q\colon\mathcal A_Q\to\mathcal A_R$ と例外対象
+$E_1,E_2,F\in\mathcal A_R$ が存在して
+\begin{align}
+ \mathcal A_R
+  &=\langle E_2\otimes_k\operatorname{Perf}(k),\,
+          E_1\otimes_k\operatorname{Perf}(k),\,
+          \Phi_S(\mathcal A_S)\rangle,
+       \label{blowup:rss-plane-sod}\\
+ \mathcal A_R
+  &=\langle F\otimes_k\operatorname{Perf}(k),\,
+          \Phi_Q(\mathcal A_Q)\rangle.
+       \label{blowup:rss-quadric-sod}
+\end{align}
+両 embedding は、RSS の環包含と上の同型が定める
+\[
+ Q_0(S)\cong Q_0(R)\cong Q_0(Q)
+\]
+という generic quotient の同一視に整合する。
+
+さらに $\mathcal P=\operatorname{Perf}(\mathbb P^1)$ とし、
+テンソル積は dg Morita テンソル積の冪等完備化とする。
+$\mathcal B=\mathcal P\otimes_k^{\mathrm L}\mathcal A_R$ は
+\begin{align}
+ \mathcal B
+   &=\langle\mathcal P,\,\mathcal P,\,
+            \mathcal P\otimes_k^{\mathrm L}\mathcal A_S\rangle,
+        \label{blowup:rss-product-plane-sod}\\
+ \mathcal B
+   &=\langle\mathcal P,\,
+            \mathcal P\otimes_k^{\mathrm L}\mathcal A_Q\rangle.
+        \label{blowup:rss-product-quadric-sod}
+\end{align}
+を持つ。各成分は上の fully faithful functor の積による像を表す。
+三次元の generic quotient でも、$u$ を中心的な不定元として
+$Q_0(S)(u)\cong Q_0(Q)(u)$ が保たれる。
+\end{corollary}
+
+\begin{proof}
+quadric 側は命題\ref{blowup:generic-sklyanin-quadric}から従う。
+平面側では $p_1=\tau^{-1}p$、$p_2=\tau^{-1}q$ とおく。
+RSS の反復公式 \cite[命題5.4]{BlowupRSS2015} により
+$S^{(3)}(p_1+p_2)=S^{(3)}(p_1)(p_2)$ である。
+各段階の切断環は、上の次数1部分と $g$ による商の比較によって
+Van den Bergh の切断環と一致する。
+$p_1\ne p_2$ なので $\sigma p_1\ne\sigma p_2$ である。
+二点の場合、これは \cite[定義11.1.2]{BlowupVdB2001} の一般位置条件を満たす。
+従って同文献の定理11.1.3による二段階の比較同値と、
+各段階の blowup 分解である定理8.4.1を合成すれば
+式\eqref{blowup:rss-plane-sod}を得る。
+$E_1$ は第一段階の例外対象を第二段階の fully faithful functor で移した対象であり、
+$E_2$ は第二段階の例外対象である。
+generic quotient での整合性は、各 Rees bimodule と切断環包含の
+generic localization についての先の議論を二回適用すれば従う。
+
+dg-enhanced な admissible decomposition の各 inclusion と adjoint を
+$\mathcal P$ とテンソルすると、その単位・余単位および射影三角もテンソルされる。
+従って完全忠実性、半直交性、生成性が保たれ、積の二つの分解を得る。
+最後に $\mathbb P^1$ の generic point に制限し、
+中心的な変数 $u$ を加えた Ore 分数環を取れば最後の主張を得る。
+この系は固定された無限位数パラメータでの主張である。
+\end{proof}

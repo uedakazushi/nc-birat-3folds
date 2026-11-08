@@ -1,0 +1,174 @@
+\subsection{三つの標準的なコンパクト化のトーラス型}
+$T=(\mathbb C^*)^3$ の座標を $x_1,x_2,x_3$ とする。
+$\lambda=(\lambda_{ij})$ を定数歪対称行列として
+\[
+ \pi_\lambda=\sum_{i<j}\lambda_{ij}
+ (x_i\partial_{x_i})\wedge(x_j\partial_{x_j})
+\]
+と置く。三つのベクトル場は可換なので Jacobi 条件が成り立つ。
+任意の滑らかなトーリックコンパクト化でこれらは大域正則ベクトル場に
+延長する。従って $\pi_\lambda$ は $\mathbb P^3$、
+$\mathbb P^1\times\mathbb P^2$、$(\mathbb P^1)^3$ のそれぞれで正則であり、
+共通の稠密トーラス上で恒等写像によって同じ Poisson 双ベクトルを与える。
+
+この対応には滑らかな共通 Poisson 解消が存在する。
+$N=\mathbb Z^3$ において $v_i=e_i$ $(1\le i\le3)$、
+$v_0=-e_1-e_2-e_3$ とする。非空真部分集合 $I\subset\{0,1,2,3\}$
+について $v_I=\sum_{i\in I}v_i$ を取り、部分集合の鎖に対応する錐を
+すべて取ると $A_3$ 型 permutohedral fan を得る。
+$N_{\mathbb R}$ の実座標を $\xi_1,\xi_2,\xi_3$ とすると、
+その極大錐は $0,\xi_1,\xi_2,\xi_3$ の大小関係を一つに固定する錐であり、
+その各原始生成元は $N$ の基底をなす。この扇は
+$\mathbb P^3$ の扇、座標直交象限からなる $(\mathbb P^1)^3$ の扇、
+および、$\mathbb P^1$ の方向を $e_3$、$\mathbb P^2$ の三つの半直線を
+$e_1,e_2,-e_1-e_2$ とする積の扇を細分する。
+対応する滑らかな射影トーリック三次元多様体 $Z_{\rm per}$ から三つの
+コンパクト化への固有双有理トーリック射が得られる。
+$\pi_\lambda$ は $Z_{\rm per}$ 上でも正則であり、各射が稠密トーラス上で
+Poisson であることから全体で Poisson である。
+三つの射はいずれも滑らかなトーラス不変中心の blow-up の合成である。
+その中心を以下に明示する。滑らかな扇の錐
+$\tau=\langle r_1,\ldots,r_c\rangle$ に対応する軌道閉包を blow-up すると、
+$r_\tau=r_1+\cdots+r_c$ を加える star subdivision になる。
+三次元錐を中心にすれば点、二次元錐を中心にすれば曲線の blow-up である。
+中心とそれに対応する錐は、各段階の模型上で取る。
+
+\begin{proposition}\label{prop:toric-explicit-blowups}
+共通模型 $Z_{\rm per}$ は次の三つの列のいずれによっても得られる。
+\begin{enumerate}
+\item $\mathbb P^3$ から四つの座標点を blow-up し、続いて六つの座標直線の
+狭義変換を blow-up する。対応する中心錐は、まず
+$\langle v_i,v_j,v_k\rangle$ $(i<j<k)$ の四つ、続いて
+$\langle v_i,v_j\rangle$ $(i<j)$ の六つである。
+\item $(\mathbb P^1)^3$ から、二つの点
+$\langle e_1,e_2,e_3\rangle$、$\langle-e_1,-e_2,-e_3\rangle$
+を blow-up する。続いて六つの曲線
+$\langle e_i,e_j\rangle$ および $\langle-e_i,-e_j\rangle$ $(i<j)$
+の狭義変換を blow-up する。
+\item $\mathbb P^1\times\mathbb P^2$ の扇を上と同じ規約で取り、
+$c=-e_1-e_2$、$w=-e_1-e_2-e_3$ と置く。
+次の表の順序で、一点と八曲線を blow-up する。
+\[
+\begin{array}{c|c|c}
+ \text{段階}&\text{中心錐}&\text{新しい半直線の原始生成元}\\\hline
+ 1&\langle e_1,e_2,e_3\rangle&e_1+e_2+e_3\\
+ 2&\langle c,-e_3\rangle&w\\
+ 3&\langle c,e_2\rangle&-e_1\\
+ 4&\langle w,e_2\rangle&-e_1-e_3\\
+ 5&\langle c,e_1\rangle&-e_2\\
+ 6&\langle w,e_1\rangle&-e_2-e_3\\
+ 7&\langle e_2,e_3\rangle&e_2+e_3\\
+ 8&\langle e_1,e_3\rangle&e_1+e_3\\
+ 9&\langle e_1,e_2\rangle&e_1+e_2
+\end{array}
+\]
+\end{enumerate}
+各列の全中間模型で $\pi_\lambda$ は正則であり、各 blow-down は Poisson 射である。
+従って三つの端点の間のトーラス型の双有理写像は、この共通模型を通る
+Poisson blow-up と blow-down の列として表せる。
+\end{proposition}
+\begin{proof}
+各列について star subdivision の規則を適用する。
+以下では $\sigma(1)$ を錐 $\sigma$ の半直線の原始生成元の集合とする。
+中心錐 $\tau$ を含む最大錐 $\sigma$ は、$r\in\tau(1)$ ごとに
+\[
+ \bigl\langle r_\tau,\ \sigma(1)\setminus\{r\}\bigr\rangle
+\]
+で置き換え、それ以外の最大錐は保つ。
+上の各中心は指定された段階で実際に錐をなし、新しく得られる最大錐の
+三本の生成元の行列式は $\pm1$ である。
+また各段階の二次元面の線形包は
+$\xi_i=0$ または $\xi_i=\xi_j$ の形になる。
+これらは、表および二つの対称な列の生成元について外積を取れば確認できる。
+従って $0,\xi_1,\xi_2,\xi_3$ の大小関係による扇は、全中間扇を細分する。
+
+三つの初期扇の最大錐の個数はそれぞれ $4,8,6$ である。
+三次元錐の star subdivision は一つの最大錐を三つに置き換える。
+二次元錐は滑らかな完備三次元扇のちょうど二つの最大錐に含まれ、
+それぞれを二分する。従っていずれの操作も最大錐の個数を二つ増やす。
+操作の回数はそれぞれ $10,8,9$ なので、最終扇の最大錐は全て24個である。
+これらは24個の大小関係の錐によって細分されるため、各最大錐が一つずつ一致する。
+同じ結論は、最終最大錐が
+\[
+ \bigl\langle
+ v_{i_1},\ v_{i_1}+v_{i_2},\ v_{i_1}+v_{i_2}+v_{i_3}
+ \bigr\rangle,
+ \qquad (i_1,i_2,i_3,i_4)\in\mathfrak S_4
+\]
+となることを上の置換規則で列挙しても得られる。
+付属の \texttt{check\_birational.py} は中心の存在、全段階の滑らかさと面の条件、
+最終24錐の集合の一致を整数演算で検証する。
+Poisson 構造については、各中間模型が同じトーラスの滑らかなコンパクト化なので、
+三つのトーラス作用のベクトル場の外積がそのまま正則な延長を与える。
+\end{proof}
+
+\subsection{\texorpdfstring{$(\mathbb P^1)^3$}{P1 x P1 x P1} の対数型からトーラス型への変換}
+$S=\mathbb P^1_x\times\mathbb P^1_z$ とし、
+$F,G\in H^0(S,\mathcal O_S(1,1))$ を一般の切断とする。
+第三因子の座標を $y$ とし、対応する対数型の双ベクトルを局所体積形式
+$dx\wedge dy\wedge dz$ との縮約で
+\[
+ \alpha=yFG\left(a\frac{dy}{y}+b\,d\log\frac FG\right)
+\]
+と表す。これは $y=0,\infty,F=0,G=0$ に対応する対数型である。
+各係数は
+\[
+ \alpha_x=by(GF_x-FG_x),\quad
+ \alpha_y=aFG,\quad
+ \alpha_z=by(GF_z-FG_z)
+\]
+であり、それぞれの多重次数は高々 $(0,1,2)$、$(2,0,2)$、$(2,1,0)$
+となる。従って対応する双ベクトルは三重積全体で正則である。
+$F=xA(z)+B(z)$、$G=xC(z)+D(z)$ と書き、
+$\Delta=AD-BC\in H^0(\mathbb P^1_z,\mathcal O(2))$ と置く。
+有理写像
+\[
+ \Phi(x,y,z)=\left(u=\frac FG,\,y,\,z\right)
+\]
+は、$\Delta\ne0$ の開集合上で
+$x=(B-uD)/(uC-A)$ を逆写像に持つ。
+$\partial u/\partial x=\Delta/G^2$ であるから、体積形式の変換も含めて
+\[
+ \iota_{\Phi_*\pi}(du\wedge dy\wedge dz)
+   =\frac{\Delta}{G^2}\alpha
+   =\Delta\bigl(a u\,dy+b y\,du\bigr).
+\]
+従って双ベクトルそのものの像は
+\[
+ \Phi_*\pi
+   =\Delta(z)\left(b y\partial_y\wedge\partial_z
+                         +a u\partial_z\wedge\partial_u\right).
+ \tag{T}\label{eq:birational-log-toric}
+\]
+直接に Poisson 括弧を計算しても
+\[
+ \{u,y\}=0,\qquad \{y,z\}=by\Delta,\qquad
+ \{z,u\}=au\Delta
+\]
+を得る。像の各項も三つの因子上の大域正則ベクトル場の外積である。
+一般の $F,G$ に対して $\Delta\partial_z$ は相異なる二つの零点を持ち、
+適当な射影座標 $w$ で $\Delta\partial_z=\kappa w\partial_w$ と書ける。
+式 \eqref{eq:birational-log-toric} はこの座標でトーラス型となる。
+その係数行列は $\lambda_{uy}=0$ を満たすので、この構成の像は
+トーラス型のうち一つの係数が零となる部分族である。
+
+この双有理写像も Poisson blow-up の組合せで実現できる。
+一般の $F,G$ の共通零点は $S$ 上の相異なる二点 $p_1,p_2$ であり、
+その $z$ 座標は $\Delta$ の二つの零点である。
+$X=S\times\mathbb P^1_y$ 上の不定点集合は
+\[
+ E=(F=G=0)=\bigl(\{p_1\}\sqcup\{p_2\}\bigr)\times\mathbb P^1_y.
+\]
+$E$ は滑らかな余次元二の零 Poisson 部分多様体である。
+グラフの閉包は $\mathrm{Bl}_E X$ で、方程式は
+$u_0F-u_1G=0$ である。反対側から見ると、これは
+\[
+ E'=\{u_0A-u_1C=u_0B-u_1D=0\}
+       \subset\mathbb P^1_u\times\mathbb P^1_z\times\mathbb P^1_y
+\]
+の blow-up である。$E'$ も二本の相異なる $\mathbb P^1_y$ の和であり、
+式 \eqref{eq:birational-log-toric} はその上で零となる。
+滑らかな余次元二の Poisson 中心では conormal Lie algebra の退化条件は
+自動的に成り立つので、Polishchuk の blow-up 定理によって両側の
+blow-up に正則 Poisson 構造が持ち上がる。両構造は共通の稠密開集合で
+一致するため、グラフ全体で一致する。これにより、両コンパクト化上の正則な双ベクトルと共通 Poisson 解消が得られる。

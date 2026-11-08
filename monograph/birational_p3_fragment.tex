@@ -1,0 +1,201 @@
+\subsection{二次曲面 pencil と垂直型の Poisson 双有理同値}
+\label{sec:birational-rat22-vertical}
+
+この節では基礎体を $\mathbf C$ とし、双有理写像が誘導する関数体の同型が
+Poisson 括弧を保存するとき、二つの Poisson 多様体は Poisson 双有理同値であるという。
+ここで用いる双有理同値は、滑らかな共通モデルからの正則 Poisson 射によって実現される。
+
+\begin{theorem}
+\label{thm:rat22-vertical}
+$\mathbf P^3$ 上の二次式 $q_0,q_1$ の共通零点
+$E=\{q_0=q_1=0\}$ が滑らかな完全交叉曲線であるとし、
+\[
+ \alpha=q_0\,dq_1-q_1\,dq_0
+ \in H^0\bigl(\mathbf P^3,\Omega^1_{\mathbf P^3}(4)\bigr)
+\]
+に対応する Poisson 双ベクトルを $\pi$ とする。
+任意の $p\in E$ に対し、滑らかな平面三次曲線
+$C\subset\mathbf P^2$ と、滑らかな射影三次元多様体 $Z$ 上の正則 Poisson 構造
+$\widetilde\pi$ が存在し、
+\[
+ (\mathbf P^3,\pi)
+ \xleftarrow{\ \beta\ }
+ (Z,\widetilde\pi)
+ \xrightarrow{\ \psi\ }
+ (\mathbf P^1\times\mathbf P^2,\pi_C)
+\]
+の両射は双有理かつ正則な Poisson 射となる。
+ここで $\pi_C$ は $\mathbf P^2$ 上の三次式 $C$ に対応する Poisson 構造の
+$\mathbf P^1\times\mathbf P^2$ への垂直な延長である。
+また $C$ は $E$ と同型であり、具体的に
+\[
+ Z=\operatorname{Bl}_{E'}\bigl(\operatorname{Bl}_p\mathbf P^3\bigr)
+ \cong\operatorname{Bl}_{\Gamma}(\mathbf P^1\times\mathbf P^2),
+\]
+と取れる。ここで $E'$ は $E$ の狭義変換であり、
+$\Gamma$ は $(1,1)$ 型および $(1,2)$ 型因子の滑らかな完全交叉である。
+第二射影は $\Gamma\cong C$ を与え、第一射影 $\Gamma\to\mathbf P^1$ の次数は $2$ である。
+逆に、任意の非零三次式で定義される滑らかな平面三次曲線と、その垂直型 Poisson 構造は、
+この構成から得られる。
+\end{theorem}
+
+\begin{proof}
+$p=[1:0:0:0]$ とする斉次座標 $[x_0:x_1:x_2:x_3]$ を取り、
+$y=[x_1:x_2:x_3]$ と書く。
+$q_i(p)=0$ より、一意的に
+\[
+ q_i=x_0\ell_i(y)+r_i(y)\qquad(i=0,1)
+\]
+と書ける。ここで $\ell_i$ は一次式、$r_i$ は二次式である。
+$E$ の $p$ における滑らかさから $\ell_0,\ell_1$ は一次独立である。
+\[
+ C(y)=\ell_1(y)r_0(y)-\ell_0(y)r_1(y)
+\]
+と置き、次の双有理写像を考える。
+\[
+ \varphi\colon\mathbf P^3\dashrightarrow\mathbf P^1\times\mathbf P^2,
+ \qquad x\longmapsto\bigl([q_0(x):q_1(x)],y\bigr).
+ \tag{\ref{sec:birational-rat22-vertical}.1}
+\]
+逆写像を斉次座標で表すため、$\mathbf P^1$ の座標を $[a:b]$ とし、
+\[
+ D=a\ell_1-b\ell_0,\qquad N=br_0-ar_1
+\]
+と置く。このとき逆写像は
+\[
+ \chi\colon\mathbf P^1\times\mathbf P^2\dashrightarrow\mathbf P^3,
+ \qquad ([a:b],[y_1:y_2:y_3])
+ \longmapsto[N:Dy_1:Dy_2:Dy_3]
+\]
+である。実際、$q_0(N,Dy)=aDC$, $q_1(N,Dy)=bDC$ が成り立つ。
+$a\ne0$ の開集合で $u=b/a$ とすれば、これは
+$x_0=(u r_0-r_1)/(\ell_1-u\ell_0)$ と同値である。
+
+まず Poisson 双ベクトルの変換を計算する。
+$x_3=1$ とし、$v=x_1/x_3$, $w=x_2/x_3$ を使う。
+このアフィン座標で $\iota_\pi(dx_0\wedge dv\wedge dw)=\alpha$ とすると、
+\[
+ \alpha=q_0^2\,du,
+ \qquad
+ \frac{\partial u}{\partial x_0}
+ =\frac{\ell_1q_0-\ell_0q_1}{q_0^2}
+ =\frac{C(v,w,1)}{q_0^2}.
+\]
+$u$ は Casimir であり、$\{v,w\}_\pi$ は $\alpha$ の $dx_0$ 係数だから、
+\[
+ \varphi_*\pi
+ =C(v,w,1)\,\partial_v\wedge\partial_w.
+ \tag{\ref{sec:birational-rat22-vertical}.2}
+\]
+これは $\mathbf P^1\times\mathbf P^2$ 全体で正則である。
+この等式は双ベクトルそのものの変換公式である。
+
+次に $C=0$ の滑らかさを確認する。
+$E$ は楕円曲線であり、$H=\mathcal O_E(1)$ は次数 $4$ の直線束である。
+$p$ からの射影が $E$ 上に誘導する写像は完全線形系 $|H(-p)|$ で与えられる。
+次数 $3$ の直線束は楕円曲線上で非常に豊富なので、これは $E$ を滑らかな平面三次曲線に埋め込む。
+$q_0=q_1=0$ から $x_0$ を消去すると像の方程式は $C=0$ となる。
+したがって、この三次式は滑らかな曲線を定義する。
+
+$B=\operatorname{Bl}_p\mathbf P^3$ と置く。
+$p$ からの射影は $B\to\mathbf P^2$ に延長する。
+$p$ の近傍で $s=q_0$, $t=q_1$ を適切な局所自明化で表し、
+$E=\{s=t=0\}$ となるエタール局所座標 $(s,t,e)$ を取る。
+$\pi$ は、正則可逆関数 $h$ を用いて
+\[
+ \pi=h(s,t,e)\,(s\partial_s+t\partial_t)\wedge\partial_e
+ \tag{\ref{sec:birational-rat22-vertical}.3}
+\]
+と書ける。符号は $h$ に含めている。
+点の blowup の $s$ チャート
+$(s,t,e)=(a,ab,ac)$ では
+\[
+ (s\partial_s+t\partial_t)\wedge\partial_e
+ =\partial_a\wedge\partial_c,
+\]
+$e$ チャート $(s,t,e)=(ea,eb,e)$ では
+\[
+ (s\partial_s+t\partial_t)\wedge\partial_e
+ =(a\partial_a+b\partial_b)\wedge\partial_e.
+\]
+$t$ チャートも同様なので、$\pi$ は $B$ 上の正則 Poisson 構造に持ち上がる。
+$E'$ は $e$ チャートの $a=b=0$ であり、持ち上げた双ベクトルは $E'$ 上で消える。
+さらに $E'$ を blowup し、例えば $b=ac$ と置くと
+\[
+ (a\partial_a+b\partial_b)\wedge\partial_e
+ =a\partial_a\wedge\partial_e.
+\]
+よって $Z=\operatorname{Bl}_{E'}B$ にも正則に持ち上がる。
+各段階の Jacobi 恒等式は稠密開集合で成立するため全体で成立する。
+
+$B$ 上の pencil の基底イデアルは、点の blowup の例外因子を共通因子として除くと
+$E'$ のイデアルになる。実際、$s$ チャートでは残余イデアルは $(1,b)$ であり、
+$e$ チャートでは $(a,b)$ である。
+したがって $Z$ 上で $[q_0:q_1]$ も射に延長し、
+射影 $Z\to\mathbf P^2$ と合わせて双有理射
+$\psi\colon Z\to\mathbf P^1\times\mathbf P^2$ を得る。
+式~(\ref{sec:birational-rat22-vertical}.2) より、$\psi$ は稠密開集合で Poisson 射である。
+双方の構造と射が正則であるから、$\psi$ は全体で Poisson 射となる。
+$\beta$ についても同様である。
+
+$\psi$ を blowup として同定する。
+$\chi$ の四つの座標は $\mathcal O(1,2)$ の切断であり、その基底イデアルは
+\[
+ (N,Dy_1,Dy_2,Dy_3)=(N,D)
+\]
+である。ここで右辺との等式はイデアル層の等式であり、各点で少なくとも一つの $y_j$ が
+可逆であることによる。
+したがって $\chi$ のグラフの閉包は
+$\operatorname{Bl}_{\Gamma}(\mathbf P^1\times\mathbf P^2)$ となる。ただし
+\[
+ \Gamma=\{D=N=0\}.
+\]
+一方、$B$ は $p$ からの射影のグラフの閉包であり、
+$Z=\operatorname{Bl}_{E'}B$ はその上の残余 pencil のグラフの閉包である。
+従って $Z$ は $\varphi$ のグラフの閉包そのものである。
+互いに逆な双有理写像のグラフの閉包は因子の順序を交換すると一致するため、
+\[
+ Z\cong\operatorname{Bl}_{\Gamma}(\mathbf P^1\times\mathbf P^2)
+\]
+を得る。この同型のもとで $\psi$ は blowup の射である。
+
+$\Gamma$ の滑らかさも直接確認できる。
+$p_0=\{\ell_0=\ell_1=0\}$ と置くと、$C(p_0)=0$ である。
+$y\ne p_0$ では $D=0$ が $[a:b]=[\ell_0(y):\ell_1(y)]$ を定め、
+$N=0$ は $C(y)=0$ と同値になる。
+$C$ の滑らかさから $(r_0(p_0),r_1(p_0))\ne(0,0)$ である。
+例えば $r_0(p_0)\ne0$ なら、$a=1$ とするチャートで
+$N=0$ から $b=r_1/r_0$ を得て、残りの方程式は
+$D=C/r_0=0$ となる。
+従って第二射影はスキームの同型 $\Gamma\cong C$ を与える。
+特に $\Gamma$ は滑らかな楕円曲線であり、表示通り $(1,1),(1,2)$ 型の完全交叉である。
+第一射影は $C$ 上の線形系 $|\mathcal O_C(1)(-p_0)|$ で与えられる。
+この直線束の次数は $2$ で、完全線形系は基点を持たないので、
+$\Gamma\to\mathbf P^1$ の次数は $2$ である。
+
+逆に、滑らかな平面三次式 $C(y)$ と点 $p_0\in\{C=0\}$ を取る。
+$p_0$ のイデアルを生成する独立な一次式 $\ell_0,\ell_1$ を選ぶと、
+$C\in(\ell_0,\ell_1)$ より二次式 $r_0,r_1$ を用いて
+\[
+ C=\ell_1r_0-\ell_0r_1
+\]
+と書ける。$q_i=x_0\ell_i+r_i$ と置く。
+$p=[1:0:0:0]$ では二つの微分 $dq_0,dq_1$ が一次独立である。
+$y\ne p_0$ では $q_0=q_1=0$ は $C(y)=0$ と $x_0$ を一意に定める一次方程式に同値であり、
+この部分は $C\setminus\{p_0\}$ と同型である。
+$C$ の $p_0$ における滑らかさから
+$(r_0(p_0),r_1(p_0))\ne(0,0)$ であり、$y=p_0$ の上に $p$ 以外の点はない。
+以上により $\{q_0=q_1=0\}$ は滑らかな完全交叉曲線となる。
+先の変換公式は、指定した三次式 $C$ の係数を含めてそのまま与える。
+\end{proof}
+
+\begin{remark}
+二次曲面 pencil 成分 $R(2,2)$ は
+$\operatorname{Gr}(2,H^0(\mathbf P^3,\mathcal O(2)))$ に対応し、
+$\dim H^0(\mathbf P^3,\mathcal O(2))=10$ なので、アフィン Poisson 空間内での次元は
+$2(10-2)+1=17$ である。
+垂直成分 $V_{\mathrm{vert}}$ は
+$H^0(\mathbf P^2,\mathcal O(3))$ であり、アフィン次元は $10$ である。
+定理~\ref{thm:rat22-vertical} は両成分の滑らかな楕円曲線を伴う開集合の間の
+Poisson 双有理同値を構成する。写像の選択には、基底楕円曲線上の点の選択が含まれる。
+\end{remark}

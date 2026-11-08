@@ -1,0 +1,132 @@
+\section{非可換有理性の定義と射影三空間への双有理性}\label{sec:nc-rationality}
+\subsection{定義の区別}
+可換な射影三次元多様体 $X$ の有理性は $\CC(X)\simeq\CC(t_1,t_2,t_3)$ で
+定まるが、この右辺の非可換な標準模型は一意には存在しない。
+本節では、連結 $\mathbb N$ 次数付き、有限生成な noetherian Ore domain $A$
+に対する次数零分数斜体 $D(A)=Q_{\mathrm{gr}}(A)_0$ を用い、
+同じ $\CC$-斜体を持つとき\emph{斜体的双有理同値}と呼ぶ。
+一般の smooth proper dg 圏については、tilting 代数の有限次元性だけから
+このような斜体が存在するとは限らない。従って圏量子化のみの場合に
+「非可換関数体」を無条件に割り当てることはしない。
+
+\begin{definition}[AS-有理性、研究上の定義案]\label{def:as-rational}
+$A$ を上記の domain で GK 次元4のものとする。
+$\qgr A$ が\emph{AS-有理的}であるとは、
+ある連結次数付き noetherian AS-regular domain $B$ が存在し、
+$\operatorname{gldim}B=4$、$H_B(z)=(1-z)^{-4}$、かつ
+$D(A)\simeq D(B)$ が成り立つことである。
+これは $A$ の明示した斉次表示における定義であり、
+任意の dg 圏に同じ条件が内在的に定まると主張するものではない。
+\end{definition}
+
+$B$ を特定の量子多項式環に限定した定義は、上の存在条件より強い。
+また古典的な rational 三次元多様体を特殊ファイバーに持つことを
+\emph{変形有理性}と呼ぶこともできるが、これは斜体的双有理性とは別の性質である。
+次数零斜体の構成が存在する場合、Veronese を取っても斜体は不変である。
+
+\begin{lemma}[Veronese 不変性]\label{lem:veronese-function}
+$A$ を連結次数付き domain とし、各非負次数に非零な斉次元が存在し、
+斉次元からなる Ore 局所化が存在するとする。任意の $d\ge1$ について
+$D(A^{(d)})\simeq D(A)$ となる。
+\end{lemma}
+\begin{proof}
+$D(A)$ の元を、同次数の非零斉次元 $a,b$ による右分数 $ab^{-1}$ で表す。
+$\deg a=\deg b=n$ として、$n+m\equiv0\pmod d$ となる $m\ge0$ の
+非零な斉次元 $c$ を選べば、
+$ab^{-1}=(ac)(bc)^{-1}$ であり、分子と分母はともに $A^{(d)}$ に属する。
+逆の包含は明白である。
+\end{proof}
+
+\subsection{非可換射影三空間自身の異なる双有理型}
+\begin{proposition}[量子型と Weyl 型の区別]\label{prop:distinct-nc-p3}
+$k=\CC$ とし、$q\in k^\times$ は1の冪根でないとする。
+次数1の生成元 $x_0,x_1,x_2,x_3$ からなる二つの次数付き代数を
+\[
+ B_q=\frac{k\langle x_0,x_1,x_2,x_3\rangle}
+ {\bigl([x_0,x_i],[x_3,x_i],\;x_1x_2-qx_2x_1\bigr)},
+ \qquad
+ B_{\mathrm W}=\frac{k\langle x_0,x_1,x_2,x_3\rangle}
+ {\bigl([x_0,x_i],[x_3,x_i],\;x_1x_2-x_2x_1-x_0^2\bigr)}
+\]
+で定める。ただし $[x_0,x_i]$ と $[x_3,x_i]$ は
+その変数を中央にする全関係式を表す。
+いずれも Hilbert 級数 $(1-z)^{-4}$ の4次元 AS-regular domain であるが、
+$D(B_q)\not\simeq D(B_{\mathrm W})$ である。
+\end{proposition}
+\begin{proof}
+$B_q$ は量子多項式環である。$B_{\mathrm W}$ は
+$k[x_0,x_1,x_3]$ の導分 $\delta(x_1)=-x_0^2$、
+$\delta(x_0)=\delta(x_3)=0$ による次数付き Ore 拡大である。
+従っていずれも PBW 基底を持ち、Hilbert 級数は指定のもので、
+標準的な量子多項式環／斉次 Weyl 環の AS-regular 性が適用される。
+$x_0\ne0$ の次数零座標を $u=x_1x_0^{-1}$、$v=x_2x_0^{-1}$、
+$w=x_3x_0^{-1}$ とすれば、
+\[
+ D(B_q)\simeq\Frac\bigl(k(w)\langle u,v\rangle/(uv-qvu)\bigr),
+ \quad
+ D(B_{\mathrm W})\simeq\Frac\bigl(k(w)\langle u,v\rangle/(uv-vu-1)\bigr).
+\]
+スカラー交換子不変量 $\AD_k(D)=[D^\times,D^\times]\cap k^\times$ は
+第一の場合に $\langle q\rangle$、第二の場合に $\{1\}$ である。
+後者は Weyl 斜体の標準的な Alev--Dumas 不変量であり、
+前者は量子トーラスの同不変量である
+（\cite{GoodearlYakimov,StaffordVanDenBergh2001} 参照）。
+したがって二つの斜体は同型でない。
+\end{proof}
+
+\begin{remark}
+上の命題は「非可換 $\PP^3$ の関数斜体」を一つに固定できないことを示す。
+自由代数の universal free skew field を「非可換有理関数体」と呼ぶ
+別の用語法もあるが、これは本書の AS-regular な射影三次元幾何とは
+異なる概念である。
+\end{remark}
+
+\subsection{変形と Poisson 双有理性の必要条件}
+\begin{proposition}[半古典極限の必要条件]\label{prop:semiclassical-necessity}
+$\hbar$-torsion-free で完備な二つの可換極限を持つ量子化の
+generic fraction algebra $\mathscr D_1,\mathscr D_2$ に、
+$\hbar$ を固定し、指定した $\hbar$-整格子を相互に保つ同型 $\Phi$ が存在するとする。
+このとき $\Phi$ の $\hbar$ についての還元は可換関数体の Poisson 同型を誘導する。
+\end{proposition}
+\begin{proof}
+$[a,b]\in\hbar\mathscr D_i$ と
+$\{\bar a,\bar b\}=\overline{\hbar^{-1}[a,b]}$ の定義を用いる。
+$\Phi$ が格子および $\hbar$ を保つため、還元した同型は括弧を保つ。
+\end{proof}
+\begin{remark}
+格子を保たない $k((\hbar))$-斜体の抽象的同型だけから
+Poisson 双有理性を結論することはできない。また $X$ が rational でも、
+その Poisson 括弧を $\PP^3$ の稠密開集合へ移すと通常は有理的な極を持ち、
+$\PP^3$ 全体で正則な双ベクトルにはならない。
+この極を解消してなお $H_B(z)=(1-z)^{-4}$ の AS-regular 模型を得ることは
+追加の大域的問題である。
+\end{remark}
+
+\subsection{三次元における AS-有理性予想の正確な範囲}
+本書のトーラス型では量子多項式環の関数斜体と一致し、
+line--conic 型と Riccati 型にも、指定した非可換 $\PP^3$ の特殊族との明示的同型がある。
+一方、垂直楕円型と $R(2,2)$ Sklyanin pencil との比較には
+中心体上の有限拡大からの下降が残る。
+三重積の最大 pencil 成分については、Segre 量子化と階数64の共通圏の
+関数斜体を同定する問題が残る。
+これらを解くことは、可換極限が rational な三次元量子化が
+AS-有理的になるための具体的な十分条件を与えることに相当する。
+
+\begin{quote}
+\textbf{研究問題（量子有理性問題）.}
+滑らかな rational 三次元多様体の integral な斉次量子化は、
+高次の量子化データを適合させたとき、
+何らかの4次元 AS-regular 非可換射影三空間に斜体的に双有理同値となるか。
+さらに、古典的な双有理写像を保つ $\hbar$-整な同型として実現できるか。
+\end{quote}
+これは現段階では予想としても根拠が十分でないため、
+肯定・否定いずれも未確定な研究問題として扱う。
+Sklyanin に由来する楕円的付値、量子トーラスのスカラー交換子群、
+中心の超越次数、Riccati 導分の微分体としての性質、
+generic fiber 上の Galois 下降などを判別手段とする。
+非可換曲面の研究では、Presotto--Van den Bergh の
+Sklyanin 平面と quadric の同じ斜体を持つ構成
+\cite{PVdB2016}、Rogalski--Sierra--Stafford の極小模型
+\cite{RogalskiSierraStafford2020}、Artin の関数斜体の分類問題
+\cite{StaffordVanDenBergh2001} が先行する。
+これらは三次元に対する一般の肯定解を与えるものではない。

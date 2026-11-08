@@ -1,0 +1,226 @@
+\section{全ての Poisson 方向の代数的圏量子化}
+\label{sec:tilting-quantization}
+
+この節では、滑らかで固有な dg 圏の変形という意味での非可換代数多様体を扱う。
+半古典極限は
+\[
+ HH^2(X)\simeq
+ H^0(X,\wedge^2T_X)\oplus H^1(X,T_X)\oplus H^2(X,\mathcal O_X)
+\]
+による Kodaira--Spencer 類で指定する。
+以下の二つの多様体では後の二項は零である。
+標識した古典的ファイバーの変形底を用い、自己同値による大域的な商は別に考える。
+
+\subsection{有限次元の tilting 代数}
+
+$X=\mathbb P^1\times\mathbb P^2$ の場合には
+\[
+ \mathcal E_X=\bigoplus_{\substack{0\leq a\leq1\\0\leq b\leq2}}\mathcal O_X(a,b),
+ \qquad
+ A_X=\operatorname{End}_X(\mathcal E_X)
+\]
+とし、$X=(\mathbb P^1)^3$ の場合には
+\[
+ \mathcal E_X=\bigoplus_{a,b,c\in\{0,1\}}\mathcal O_X(a,b,c),
+ \qquad
+ A_X=\operatorname{End}_X(\mathcal E_X)
+\]
+とする。接束を $T_X$ と書く。
+射影空間上の標準的な full strong exceptional collection の外積を用いているので、
+\[
+ \operatorname{Perf}(X)\simeq\operatorname{Perf}(A_X).
+\]
+$B_n=\operatorname{End}_{\mathbb P^n}
+(\bigoplus_{i=0}^{n}\mathcal O(i))$ と置けば、それぞれ
+$A_X=B_1\otimes B_2$、$A_X=B_1^{\otimes3}$ である。
+
+直和因子を添字集合 $I$ の元 $\alpha$ で表す。
+$I$ は $\{0,1\}\times\{0,1,2\}$ または $\{0,1\}^3$ であり、
+座標ごとの半順序を入れる。
+\[
+ V_{\beta\alpha}
+ =\operatorname{Hom}_X(\mathcal O_X(\alpha),\mathcal O_X(\beta))
+\]
+は $\alpha\leq\beta$ の場合だけ非零である。
+$X=\prod_i\mathbb P^{n_i}$ と書くと
+\[
+ \dim V_{\beta\alpha}
+ =\prod_i\binom{n_i+\beta_i-\alpha_i}{n_i}.
+\]
+対角部分 $E=\bigoplus_{\alpha\in I}\mathbb C e_\alpha$ と、
+狭義上三角部分 $J=\bigoplus_{\alpha<\beta}V_{\beta\alpha}$ を固定する。
+各 $V_{\beta\alpha}$ に内部次数 $|\beta|-|\alpha|$ を与える。
+
+\begin{lemma}\label{lem:directed-quantization}
+$E$ の積、$E$ による左右作用、および上記の corner 空間を保つ任意の結合的積に対し、
+$A=E\oplus J$ は有限次元であり、$A$ の大域次元は $3$ 以下である。
+相対 normalized bar resolution は長さ $3$ の有限生成射影 $A$-双加群分解となる。
+同じ構成は任意の可換基底環上で成り立ち、相対的な smoothness と properness を与える。
+\end{lemma}
+
+\begin{proof}
+半順序集合 $I$ の狭義鎖の長さは高々 $3$ であるから
+$J^{\otimes_E4}=0$ である。
+射影 $A\to E$ は代数準同型であり、相対 normalized bar resolution は
+\[
+ 0\longrightarrow A\otimes_EJ^{\otimes_E3}\otimes_EA
+ \longrightarrow A\otimes_EJ^{\otimes_E2}\otimes_EA
+ \longrightarrow A\otimes_EJ\otimes_EA
+ \longrightarrow A\otimes_EA
+ \longrightarrow A\longrightarrow0
+\]
+となる。この複体の完全性は通常の bar contraction による。
+各項は $Ae_\beta\otimes_{\mathbb C}e_\alpha A$ の有限直和であるから
+$A$-双加群として射影的である。
+同様の左加群 bar resolution を任意の $A$-加群に適用すれば大域次元の上界を得る。
+可換基底環上でも corner 空間を有限自由加群に置き換えることで同じ証明が使える。
+\end{proof}
+
+古典的な積は Koszul である。Koszul 条件は、この有限 bar 複体について
+$i\ne j$ に対する $\operatorname{Tor}^{A}_i(E,E)_j=0$ と書ける。
+内部次数は高々 $3$ なので有限個の消失条件であり、古典的な積の Zariski 開近傍で保たれる。
+Koszul 性のもとでは、corner Hilbert 行列の逆行列から
+生成元、二次関係式、三次シジジーの数が決まる。
+\[
+\begin{array}{c|r|r|r|r|r}
+ X&\dim A_X&\text{頂点}&\text{矢}&\text{二次関係式}
+      &\text{三次シジジー}\\ \hline
+ \mathbb P^1\times\mathbb P^2&60&6&18&18&6\\
+ (\mathbb P^1)^3&64&8&24&24&8
+\end{array}
+\]
+最後の列は極小頂点と極大頂点の間の $\operatorname{Tor}_3$ の次元である。
+従ってこの開近傍では大域次元はちょうど $3$ となる。
+数値は \texttt{check\_tilting.py} で整数演算により再現できる。
+
+\subsection{Jacobi 概型と半普遍変形底}
+
+\[
+ C_X=\operatorname{Pois}(X)
+ =\{\pi\in H^0(X,\wedge^2T_X)\mid[\pi,\pi]=0\}
+\]
+を Jacobi 方程式が定義するアフィン概型とする。
+この記号にはその非被約構造も含める。
+
+\begin{proposition}\label{prop:poisson-hull}
+$A_X$ の結合代数変形の代数的な半普遍底 $(S_X,s_0)$ を取り、
+古典的な点での標識を固定できる。
+このとき
+\[
+ \widehat{\mathcal O}_{S_X,s_0}
+ \simeq
+ \widehat{\mathcal O}_{C_X,0}
+\]
+という完備局所環の同型があり、接空間上の同型は HKR 同型
+$HH^2(A_X)\simeq H^0(X,\wedge^2T_X)$ と整合する。
+\end{proposition}
+
+\begin{proof}
+$\mathbb P^1$ 上の外積接束は $\mathcal O,\mathcal O(2)$ であり、
+$\mathbb P^2$ 上では $\mathcal O,T_{\mathbb P^2},\mathcal O(3)$ である。
+Euler 完全系列と K\"unneth の公式から
+\[
+ H^q(X,\wedge^pT_X)=0\qquad(q>0)
+\]
+を得る。従って global polyvector field の dg Lie 代数
+\[
+ \mathfrak g_X^{p-1}=H^0(X,\wedge^pT_X),\qquad d=0
+\]
+は derived global polyvector field を計算する。
+Van den Bergh の大域的 formality 定理
+\cite[定理1.1および式(1.3)]{VdBGlobal} と tilting による変形理論の同値
+\cite[定理3.18、命題3.21]{BW2024} により、
+$\mathfrak g_X$ は $A_X$ の Hochschild dg Lie 代数と $L_\infty$ 準同型の意味で同値である。
+$E$ は分離的なので、$E$-relative normalized Hochschild 複体を用いてよい。
+実際、形式変形の中で $E$ の原始冪等元は持ち上がり、その持ち上げは
+古典的なファイバー上で恒等な共役を除いて一意である。
+平坦性によって各 corner の階数も保たれるので、全ての結合代数の形式変形を
+この固定した $E$ と corner 空間を持つ表示に移せる。
+
+この同値を、有限型の変形底に結び付ける。
+$C_E^n=\operatorname{Hom}_{E\text{-}E}(J^{\otimes_E n},A_X)$ とし、
+$\mu_0$ を古典的な積、$d=[\mu_0,-]$ と書く。
+$\mu_0+C_E^2$ の中で結合律を満たす積の概型を $M_X$ とする。
+これは有限個の二次方程式が定義するアフィン概型である。
+$B_E^2=dC_E^1$ の線形補空間 $L\subset C_E^2$ を選び、
+\[
+ S_X=M_X\cap(\mu_0+L)
+\]
+と置くと、$T_{s_0}S_X\simeq HH^2(A_X)$ となる。
+
+この切片が hull を与えることを確認する。
+corner ごとの基底変換群が $M_X$ に作用し、その無限小作用の像は $B_E^2$ である。
+$C_E^1$ 内で $\ker d$ の補空間を選ぶと、この補空間から $B_E^2$ への微分は同型である。
+形式的陰関数定理によって、古典的な積の形式近傍で基底変換方向を取り除ける。
+小拡大に沿って基底変換を持ち上げ、$B_E^2$ 成分を逐次消せるので、
+$\widehat{S_X}_{s_0}$ から結合代数の変形関手への射は形式的に滑らかであり、
+接空間上で同型を与える。
+
+一方、$\mathfrak g_X$ の微分は零であるため、その Maurer--Cartan 方程式は
+まさに $[\pi,\pi]=0$ である。
+gauge 群は小拡大に沿って持ち上がり、原点の一次接空間には自明に作用するので、
+$\widehat{C_X}_0$ も対応する変形関手の hull である。
+ここで用いる gauge 群は、基底の極大イデアルを $\mathfrak m$ として
+$\exp(\mathfrak m\otimes\mathfrak g_X^0)$ であり、標識した古典的ファイバー上で恒等となる。
+上記の $L_\infty$ 同値と hull の一意性
+\cite[命題2.9]{Schlessinger} によって所要の完備局所環の同型を得る。
+\end{proof}
+
+\begin{theorem}\label{thm:algebraic-quantization-all}
+$X=\mathbb P^1\times\mathbb P^2$ または $(\mathbb P^1)^3$ とする。
+点付き有限型アフィン概型 $(U,u_0)$ と、両方とも \'etale な射
+\[
+ (C_X,0)\xleftarrow{\ p\ }(U,u_0)
+ \xrightarrow{\ q\ }(S_X,s_0)
+\]
+および $U$ 上の有限自由な結合代数 $\mathcal A$ が存在し、次を満たす。
+\begin{enumerate}
+ \item $\mathcal A_{u_0}\simeq A_X$ であり、
+ $\operatorname{Perf}(\mathcal A_{u_0})\simeq\operatorname{Perf}(X)$ である。
+ \item $\mathcal A$ の階数はそれぞれ $60,64$ である。
+ $U$ を縮小すると全ての幾何学的ファイバーは Koszul、大域次元 $3$ となり、
+ $\operatorname{Perf}(\mathcal A)$ は相対的に smooth かつ proper である。
+ \item 古典的な点の Kodaira--Spencer 写像は同型
+ \[
+ T_{u_0}U\simeq H^0(X,\wedge^2T_X)
+       \xrightarrow{\ \sim\ }HH^2(A_X)
+ \]
+ である。その次元はそれぞれ $34,27$ である。
+ \item 任意の $\pi\in C_X(\mathbb C)$ に対し、滑らかな点付き代数曲線
+ $(B,b_0)$ 上の $\mathcal A$ の引戻しで、
+ 局所座標 $t$ に関する一次変形類が $\pi$ となるものが存在する。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+命題 \ref{prop:poisson-hull} の完備局所環の同型に Artin 近似を適用する。
+具体的には \cite[補題37.39.2、Tag 0CAT]{StacksArtin} を $N=2$ で用いる。
+これにより、与えた同型と一次まで整合する共通の \'etale 近傍 $U$ を得る。
+$S_X\subset M_X$ の普遍的な積を $U$ に引き戻して $\mathcal A$ を定める。
+その基礎加群は $A_X\otimes_{\mathbb C}\mathcal O_U$ である。
+補題 \ref{lem:directed-quantization} とその後の Koszul 開条件が第二項を与える。
+
+HKR 次元は
+\[
+ h^0(\wedge^2T_{\mathbb P^1\times\mathbb P^2})
+ =3\cdot8+10=34,\qquad
+ h^0(\wedge^2T_{(\mathbb P^1)^3})=3\cdot3\cdot3=27
+\]
+である。Artin 近似を二次の極大イデアルまで整合させたので、
+Kodaira--Spencer 写像は指定した HKR 同型になる。
+
+最後に直線 $\mathbb A^1\to C_X$, $t\mapsto t\pi$ に沿って $U$ を基底変換する。
+点 $(u_0,0)$ の近傍 $B$ は $\mathbb A^1$ 上 \'etale なので滑らかな代数曲線である。
+この曲線に沿う一次変形類は $\pi$ である。
+\end{proof}
+
+\begin{remark}\label{rem:quantization-scope}
+定理は、全ての Poisson 成分を含む、古典的な点の \'etale 局所的な代数的圏量子化を与える。
+命題 \ref{prop:poisson-hull} は Jacobi 概型の非被約構造を保持するので、
+形式局所的な既約成分と冪零方向も半普遍変形底に引き継がれる。
+特定の形式的 star product の全係数との一致を指定する場合には、
+その形式族自体の代数化を追加して調べる必要がある。
+また、偏極、多重斉次座標環、あるいは指定した connected AS-regular ambient を伴う構成では、
+それらの追加構造も変形の対象に含める必要がある。
+この節で得た代数の表示は、有限次元の tilting 代数とその有限本の関係式によるものである。
+\end{remark}
