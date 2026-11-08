@@ -1,0 +1,150 @@
+\subsection{楕円曲線に沿う基本変換と三重積のペンシル}
+$S=\mathbb P^1_y\times\mathbb P^1_z$, $X=\mathbb P^1_x\times S$ とおく。
+$s,t\in H^0(X,\mathcal O(1,1,1))$ を
+\[
+ s=xa(y,z)+b(y,z),\qquad t=xc(y,z)+d(y,z),\qquad
+ a,b,c,d\in H^0(S,\mathcal O(1,1))
+\]
+と書き、$\alpha=s\,dt-t\,ds$ に対応する Poisson 構造を $\pi$ とする。
+\[
+ D=bc-ad\in H^0(S,\mathcal O(2,2)),\qquad u=t/s
+\]
+とおけば、関数体上で $u$ は Casimir であり
+\[
+ \{u,y\}=\{u,z\}=0,\qquad
+ \{y,z\}=s\partial_xt-t\partial_xs=D(y,z).
+\]
+従って有理写像
+\[
+ \Phi\colon X\dashrightarrow X'=\mathbb P^1_u\times S,
+ \qquad (x,y,z)\longmapsto(t/s,y,z)
+\]
+は $\pi$ を実際の双ベクトル $D(y,z)\partial_y\wedge\partial_z$ に送る。
+変換式は双ベクトル自体の等式である。
+$D\ne0$ なら逆写像は
+\[
+ x=\frac{d-ub}{ua-c}
+\]
+なので $\Phi$ は双有理である。
+
+一般の $s,t$ に対して $E=\{s=t=0\}\subset X$ は滑らかな楕円曲線である。
+また $\Gamma=\{D=0\}\subset S$ は滑らかな $(2,2)$ 曲線である。
+$a,b,c,d$ は同時には零にならず、$\Gamma$ 上で行列
+$\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$ は階数一なので、
+射影 $E\to\Gamma$ は同型になる。
+$[x_0:x_1]$, $[u_0:u_1]$ を $x=x_1/x_0$, $u=u_1/u_0$ に対応する座標とすれば、
+$\Phi$ の閉グラフは
+\[
+ B=\{x_1(u_0c-u_1a)+x_0(u_0d-u_1b)=0\}
+ \subset\mathbb P^1_x\times\mathbb P^1_u\times S.
+\]
+これは同時に
+\[
+ B\cong\operatorname{Bl}_{E}X
+ \cong\operatorname{Bl}_{E'}X',\qquad
+ E'=\{u_0c-u_1a=u_0d-u_1b=0\}
+\]
+である。実際、どちらの射影に関しても二つの切断の比のグラフであり、
+それらの共通零点は滑らかな余次元二の完全交叉である。
+同様に $E'\to\Gamma$ は同型で、$B$ は滑らかである。
+
+命題\ref{prop:poisson-centres}の曲線中心の条件を適用する。
+
+$E$ 上では $s=t=0$ より $\pi=0$ であり、$E'$ 上では $D=0$ である。
+従って $B$ 上には正則 Poisson 構造があり、上の二つの射影はいずれも
+Poisson 射である。二つの持ち上げは稠密開集合で等しいので一致する。
+一般の $u$ に対する葉の閉包は、元の側では $(1,1,1)$ 型の
+次数六の del Pezzo 曲面、変換先では $\mathbb P^1\times\mathbb P^1$ である。
+$E'\to\mathbb P^1_u$ の次数は二であり、共通モデルの上では後者を二点で
+ブローアップして前者を得る。
+
+この構成は一般の $(2,2)$ 型の Poisson 双ベクトルを与える。
+実際、$V=H^0(S,\mathcal O(1,1))$, $W=H^0(S,\mathcal O(2,2))$ とおくと、
+行列式写像 $V^4\to W$, $(a,b,c,d)\mapsto bc-ad$ の微分は
+\[
+ (\dot a,\dot b,\dot c,\dot d)\longmapsto
+ c\dot b+b\dot c-d\dot a-a\dot d.
+\]
+$a,b,c,d$ が $V$ を張る点では、その像は $V\cdot V=W$ である。
+従って行列式写像は優越的であり、$D$ が滑らかである開条件と
+$a,b,c,d$ が同時には消えない開条件を満たす一般点で、上の構成が適用できる。
+
+\subsection{平面と二重積の曲面リンク}
+\label{subsec:classical-surface-link}
+相異なる $p,q\in\mathbb P^2$ と、$r\in\mathbb P^1\times\mathbb P^1$ に対して
+標準的な曲面の同型
+\[
+ S_0=\operatorname{Bl}_{p,q}\mathbb P^2
+ \cong\operatorname{Bl}_{r}(\mathbb P^1\times\mathbb P^1)
+\]
+がある。左側では $p,q$ を結ぶ直線の狭義変換を右側の $r$ へ収縮する。
+座標を
+\[
+ p=[0:1:0],\quad q=[0:0:1],\quad
+ [T:Y:Z]=[1:y:z],\quad r=(\infty,\infty)
+\]
+と取れば、有理写像は共通アフィン平面上で恒等写像である。
+このリンクに $\mathbb P^1_x$ を掛けた三次元のリンクを考える。
+
+三重積上の双ベクトルを
+\[
+ \rho=A(y,z)\partial_y\wedge\partial_z+
+       B(x,z)\partial_z\wedge\partial_x+
+       C(x,y)\partial_x\wedge\partial_y
+\]
+と書く。$A=\sum_{0\le i,j\le2}a_{ij}y^iz^j$ とし、
+$B=b_0(x)+b_1(x)z+b_2(x)z^2$、
+$C=c_0(x)+c_1(x)y+c_2(x)y^2$ とする。
+この同じ有理双ベクトルが $\mathbb P^1\times\mathbb P^2$ に正則に延びる条件は
+\begin{equation}\label{eq:surface-link-conditions}
+ a_{22}=0,\qquad b_2(x)\equiv0,\qquad c_2(x)\equiv0.
+\end{equation}
+これは $\rho|_{\mathbb P^1\times\{r\}}=0$ と同値である。
+直接には、$a_{22}=0$ は $A$ の全次数が三以下となる条件であり、
+残り二条件は混合ベクトル場が平面の射影ベクトル場となる条件である。
+一般の射影ベクトル場の二次部分は
+$\ell(y,z)(y\partial_y+z\partial_z)$ なので、
+各係数が一方の変数だけに依存する本表示では二次部分は消えなければならない。
+
+逆向きには、$\mathbb P^1_x\times\mathbb P^2$ 上の双ベクトルを
+\[
+ \rho=F\,\partial_y\wedge\partial_z+
+       \sum_{i=0}^2 x^i\partial_x\wedge V_i
+\]
+と書く。ここで $F$ は斉次平面三次式のアフィン表示であり、$V_i$ は
+平面の射影ベクトル場である。三重積への正則延長の必要十分条件は
+\[
+ F(p)=F(q)=0,\qquad V_i(p)=V_i(q)=0\quad(0\le i\le2).
+\]
+すなわち $\mathbb P^1\times\{p,q\}$ 上で双ベクトルが零になる条件である。
+固定した座標の下で両側の条件を満たす双ベクトルの空間はともに二十次元で、
+共通アフィンチャートでの恒等写像がそれらを線形に同一視する。
+Jacobi 方程式も同一視される。
+これらの条件が成り立つとき $\mathbb P^1\times S_0$ の上への持ち上げは正則で、
+両射影が Poisson 射になる。
+
+特に $F=0$ が滑らかな平面三次曲線 $\Gamma_2$ で、混合項が零ならば、
+$p,q\in\Gamma_2$ を相異なる一般の二点に選べる。
+その狭義変換は $S_0$ 上でも滑らかな楕円曲線であり、
+$p,q$ を結ぶ直線の狭義変換と一点で横断的に交わる。
+従って収縮後の曲線 $\Gamma_{11}$ は滑らかな $(2,2)$ 曲線である。
+クラスを用いると、$H$ を平面の直線、$E_p,E_q$ を例外曲線として
+\[
+ F_1=H-E_p,\quad F_2=H-E_q,\quad E_r=H-E_p-E_q,
+ \qquad 3H-E_p-E_q=2F_1+2F_2-E_r
+\]
+となる。これが $(2,2)$ 型を与える。
+逆に一般の滑らかな $(2,2)$ 曲線上の一般点を $r$ に選べば、
+二本の座標線を収縮して滑らかな平面三次曲線を得る。
+従って純粋な曲面 Poisson 構造については、平面三次曲線の一般点と
+二重積の $(2,2)$ 曲線の一般点が、正則 Poisson 共通モデルを介して対応する。
+
+上の曲面リンクを三重積の一般のペンシルに直接適用するには、
+\eqref{eq:surface-link-conditions} を満たす特殊化が必要である。
+実際、一般のペンシルでは三つの辺の $3\times3$ テンソルはいずれも階数三である。
+例えば $s=1+xyz$, $t=x+y+z$ では各辺の係数は
+$1-yz(y+z)$ とその置換であり、係数行列の行列式は非零である。
+$\mathbb P^1_x\times\{(y_0,z_0)\}$ 上で混合項が恒等的に消える条件は、
+階数三のテンソルを $y_0$ または $z_0$ における非零評価写像で縮約して零にする条件なので、
+成立しない。ペンシルから純粋な曲面型へ先に楕円曲線に沿う基本変換を行うことで、
+その後に曲面リンクを適用できる。

@@ -1,0 +1,110 @@
+\section{反標準環からの導来圏の復元：正確な判定と障害}
+\label{sec:restored-anticanonical}
+第\ref{sec:anticanonical-common-ring}節は、反標準 orbit 環を
+二点 blow-up 環と同定する。しかし環の同型とカテゴリーの同値は別の命題である。
+その間に必要な条件を、既知の復元定理を用いて明示する。
+
+\begin{theorem}[反標準 section functor の十分条件]\label{thm:restored-az}
+$\mathcal H$ を $k$-線形、局所 noetherian な abelian category とし、
+$O\in\mathcal H$ を noetherian object、$F:\mathcal H\to\mathcal H$ を
+完全な自己同値とする。
+任意の noetherian objects の間の Hom が有限次元であり、
+$(O,F)$ が Artin--Zhang の意味で ample、すなわち
+\begin{enumerate}
+\item 任意の noetherian な $M\in\mathcal H$ に対し、有限個の $n_i\ge0$ と全射
+$\bigoplus_iF^{-n_i}O\twoheadrightarrow M$ が存在する。
+\item 任意の noetherian objects の全射 $M\twoheadrightarrow N$ について、
+$n\gg0$ のとき
+$\operatorname{Hom}(F^{-n}O,M)\to\operatorname{Hom}(F^{-n}O,N)$ が全射となる。
+\end{enumerate}
+と仮定する。
+$R=\bigoplus_{n\ge0}\operatorname{Hom}_{\mathcal H}(O,F^nO)$ に
+$u\cdot v=F^{\deg v}(u)\circ v$ で積を入れると、
+$R$ は右 noetherian であり、自然な section functor は
+$\mathcal H\simeq\operatorname{qgr}R$ を誘導する。
+さらに、ある smooth proper dg 圏 $\mathcal C$ が
+$D^b(\mathcal H)$ の指定 dg enhancement に同値ならば、
+$\mathcal C\simeq D^b(\operatorname{qgr}R)$ である。
+\end{theorem}
+\begin{proof}
+最初の結論は Artin--Zhang の ample pair による復元定理である
+\cite{KeelerNCRings,ArtinZhang1994}。
+後半は同じ abelian equivalence を有界導来圏へ適用する。
+この定理は $F$ が \emph{指定した heart 上で t-exact} であることを前提とする。
+三角圏上の自己同値であるというだけでは仮定を満たさない。
+\end{proof}
+
+\begin{corollary}[本研究に必要な検証項目]\label{cor:restored-az-criteria}
+第\ref{sec:anticanonical-common-ring}節の階数23の共通圏 $\mathcal C_B$
+について、反標準関手 $F=S_{\mathcal C_B}^{-1}[2]$ と
+構造対象 $O$ が、ある noetherian な bounded heart $\mathcal H_B$ に対して
+$F$ の t-exactness と定理\ref{thm:restored-az}の二つの ample 条件を満たし、
+$D^b(\mathcal H_B)\simeq\mathcal C_B$ が成り立てば、
+\[
+\mathcal C_B\simeq D^b(\operatorname{qgr}\mathscr A),
+\qquad
+\mathscr A=\bigoplus_{n\ge0}\operatorname{Hom}(O,F^nO)
+\]
+となる。特に固定された無限位数ファイバーにおける
+$\mathscr A\simeq\mathcal S^{(3)}(\tau^{-1}p+\tau^{-1}q)$ の
+\emph{環としての}同定からこの結論を得るには、上記の heart と ample 性の検証が必要である。
+\end{corollary}
+
+\begin{proposition}[五つの section module の比較の十分条件]
+$R$ を右 noetherian な次数付き代数とし、
+$\mathcal C_B=\operatorname{Perf}(B)$ に五個の full exceptional objects
+$E_1,\ldots,E_5$ を選ぶ。
+$\operatorname{qgr}R$ 上の五個の objects $M_i$ が、
+\[
+\operatorname{RHom}_{\operatorname{qgr}R}(M_i,M_j)
+ \simeq \operatorname{RHom}_{\mathcal C_B}(E_i,E_j)
+\]
+を合成と単位まで保つ dg 代数として実現し、
+$\bigoplus_iM_i$ が $D^b(\operatorname{qgr}R)$ の classical generator
+であるとする。このとき
+$D^b(\operatorname{qgr}R)\simeq\mathcal C_B$ が成立する。
+\end{proposition}
+\begin{proof}
+五個の対象の full dg endomorphism algebra を比較し、
+導来 Morita 理論を適用する。
+単に Euler 行列や $K_0$ 上の Serre 作用が一致するだけでは、
+full dg endomorphism algebra の一致は従わない。
+\end{proof}
+
+\begin{remark}[再開時の有限入力]
+もし定理\ref{thm:restored-az}の heart が得られれば、
+各 $E_i$ に対して
+\[
+M_i=\bigoplus_{n\ge0}\operatorname{Hom}_{\mathcal H_B}(O,F^nE_i)
+\]
+を考えられる。$u\in\operatorname{Hom}(O,F^nE_i)$ と
+$r\in R_m$ の右積は $u\cdot r=F^m(u)\circ r$ である。
+十分大きな共通の次数シフトを選び、五つの加群の有限表示、
+全高次 $\operatorname{Ext}$、生成性、各積 $M_i\otimes M_j\to M_k$
+に相当する合成の比較を調べればよい。
+第\ref{sec:anticanonical-common-ring}節に既にある
+$\mathcal S_3$ の二点 evaluation の核と42本の二次関係式は、
+この有限計算の入力となる。
+ただし\emph{すべての次数についての生成性}と
+$F$ の t-exactness は現時点で検証されていない。
+\end{remark}
+
+\begin{remark}[反標準環だけでは圏を復元できない例]\label{ex:restored-weak-dp}
+$Y$ を $\mathbb P^2$ の一点 $p$ を blow-up し、
+さらに最初の例外曲線上の点 $q$ を blow-up した滑らかな曲面とする。
+$H,E_1,E_2$ を pullback basis とすると
+\[
+ -K_Y=3H-E_1-E_2,\qquad C=E_1-E_2,
+ \quad C^2=-2,\quad (-K_Y)\cdot C=0.
+\]
+ここで $C$ は最初の例外曲線の狭義変換である。
+$-K_Y$ は big かつ nef だが ample ではなく、反標準射は $C$ を収縮する。
+反標準環 $R(Y,-K_Y)$ の $\operatorname{Proj}$ は $A_1$ 型特異点を持つ
+反標準模型になる。従って
+$\operatorname{coh}Y$ を $\operatorname{qgr}R(Y,-K_Y)$ と
+反標準 section functor で同一視することはできない。
+実際、右辺は特異な反標準模型の coherent sheaves であり、
+$Y$ の滑らかな幾何をそのまま回復しない。
+これは固定ファイバーの環の同型だけから圏の同値を
+推論できないことを示す可換な障害例である。
+\end{remark}

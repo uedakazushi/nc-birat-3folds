@@ -1,0 +1,13 @@
+# LuaLaTeX and Python build outputs
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+__pycache__/
+*.pyc
+build/
+preview/
+.DS_Store

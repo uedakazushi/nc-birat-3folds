@@ -1,0 +1,136 @@
+\section{三重積の対数型の非可換双有理変換}
+\label{sec:cube-log}
+
+三重積の三つの対数型成分の一般元は、因子を並べ替えた後、
+\[
+ \pi=(a x^2+b xz+c z^2)\partial_x\wedge\partial_z
+       +\kappa y\partial_y\wedge(x\partial_x+z\partial_z)
+\]
+と正規化される。ここで $b^2-4ac\ne0$ を仮定する。
+同梱の量子化原稿第4節では同変な cubic $\mathbb Z$-代数を用いた。
+この節では分数体が直接計算できる別の斉次表示を構成する。
+
+$B_R=R[Y,Z]$ とし、$R$ は必要な非零多項式を逆にした
+$\mathbb C[\hbar]$ の局所化とする。
+\[
+ L(Y)=\tfrac b2Y+cZ,\qquad
+ L(Z)=-aY-\tfrac b2Z,\qquad
+ \sigma=1+\hbar L\quad\text{on }\langle Y,Z\rangle.
+\]
+$\det\sigma$ を逆にして $\sigma$ を $B_R$ の自己同型にし、$t=YZ$ と置く。
+generalized Weyl algebra
+\[
+ G_R=B_R\langle X,W\rangle/
+ \bigl(Xf-\sigma(f)X,\;Wf-\sigma^{-1}(f)W,\;
+       WX-t,\;XW-\sigma(t)\bigr)
+\]
+の全生成元に次数1を与える。
+
+\begin{proposition}\label{prop:gwa-quadric}
+$G_R$ は次数ごとに自由な noetherian domain で、Hilbert 級数は
+$(1+s)/(1-s)^3$ である。$\hbar=0$ では
+$\mathbb C[X,Y,Z,W]/(XW-YZ)$ になる。
+基底を $0$ の近傍に制限すると、各幾何学的ファイバーの射影圏は
+smooth な非可換 quadric であり、その半古典極限は
+$(a x^2+b xz+c z^2)\partial_x\wedge\partial_z$ である。
+\end{proposition}
+\begin{proof}
+$G_R$ は $B_R[X^{\pm1};\sigma]$ に $W=tX^{-1}$ として埋め込まれ、
+\[
+ B_R\ \oplus\!\bigoplus_{n\ge1} B_RX^n
+       \ \oplus\!\bigoplus_{n\ge1} B_RW^n
+\]
+が正規形となる。これが平坦性、domain 性、Hilbert 級数を与える。
+さらに
+\[
+ S_R=B_R[X;\sigma][W;\tau,\delta],\quad
+ \tau|_{B_R}=\sigma^{-1},\quad\tau(X)=X,\quad
+ \delta|_{B_R}=0,\quad\delta(X)=t-\sigma(t)
+\]
+と置くと、$\tau,\delta$ は最初の Ore 関係を保存する。
+$g=WX-t$ は中心的な正則二次元で、$G_R=S_R/(g)$ である。
+各ファイバーの $S_R$ は四次元の homogeneous Ore AS-regular 代数である。
+これは Ore 拡大の twisted Calabi--Yau 性と正の次数付けからも従う
+\cite[定理0.2]{LiuWangWu}。
+$S_b$ は $Y,Z,X,W$ の順序に関する quadratic PBW 代数なので Koszul であり、
+中心的な正則二次元による商 $G_b=S_b/(g)$ も Koszul である。
+
+smoothness を有限次元の条件で確認する。
+Smith--Van den Bergh \cite[補題5.1、命題5.2、定理5.6]{SmithVdB}
+により、$G_R$ の quadratic dual に付随する有限次元代数
+\[
+ C(G_R)=G_R^![w^{-1}]_0
+\]
+が半単純なら $\operatorname{qgr}G_R$ は smooth である。
+ここで $w$ は $G_R^!$ の中心的な正則次数2の元であり、
+$G_R^!/(w)=S_R^!$ である。
+各ファイバーで $\dim(G_R^!)_4=\dim(G_R^!)_8=8$ で、
+$w^2:(G_R^!)_4\to(G_R^!)_8$ は同型である。
+従って基底を縮めれば、$C(G_R)$ は $(G_R^!)_4$ 上にこの同型で
+積を戻した階数8の代数族として構成できる。
+古典点では通常の smooth quadric の even Clifford 代数
+$M_2(\mathbb C)\oplus M_2(\mathbb C)$ である。
+正則表現の trace pairing の行列式が非零である開集合を取れば、
+全ファイバーで半単純性と smoothness が従う。
+
+半古典括弧は
+$\{Y,Z\}=0$、$\{X,f\}=L(f)X$、$\{W,f\}=-L(f)W$ である。
+$x=Y/X,z=Z/X$ とすると
+\[
+ \{x,z\}=z\bigl(\tfrac b2x+cz\bigr)
+             -x\bigl(-ax-\tfrac b2z\bigr)
+          =ax^2+bxz+cz^2.
+\]
+\end{proof}
+
+重み $(X,Y,Z,W)=(0,1,1,2)$ の作用 $\rho$ は上の関係を保つ。
+$p=1+\hbar\kappa$ をさらに $R$ 上で可逆にして、
+\[
+ H_R=G_R[Y_0][Y_1;\rho_p],\qquad
+ \mathcal R_R=\bigoplus_{n\ge0}(H_R)_{n,n}
+\]
+と置く。$Y_0$ は中心的であり、$Y_i$ は第二次数1を持つ。
+$\mathcal R_R$ は階数 $(n+1)^3$ の次数ごとに平坦な斉次環で、
+古典点は $(\PP^1)^3$ の Segre 環である。
+同変 Ore 拡大と Segre 積には補題\ref{lem:ore-projective-bundle}を適用できる。
+各幾何学的ファイバー $G_b$ の dg smoothness と properness は、Orlov の分解
+\cite[定理2.5]{OrlovSing} と Smith--Van den Bergh の
+MCM 圏と $D^b(\operatorname{mod}C(G_b))$ の同値から従う。
+実際、Gorenstein parameter は2なので二つの構造層 twist と
+$C(G_b)$ の二つの単純加群が full exceptional collection を与える。
+従って得られる三次元模型は次数ごとに平坦で、
+各幾何学的ファイバーが dg smooth proper である。
+アフィン座標 $y=Y_1/Y_0$ の交換子は混合項
+$\kappa y\partial_y\wedge(x\partial_x+z\partial_z)$ を与える。
+
+\begin{theorem}\label{thm:cube-log-torus}
+上の射影量子化の division ring は、
+一つの交換係数が1である三次元量子トーラスの division ring と同型である。
+従って三重積の対数型の一般元には、トーラス型と非可換双有理な
+射影量子化を選べる。
+\end{theorem}
+\begin{proof}
+$L$ の固有一次式を $U,V$、固有値を $\nu,-\nu$ とする。
+$\nu^2=(b^2-4ac)/4$ である。
+$\sigma(U)=\lambda U,\sigma(V)=\mu V$、
+$\lambda=1+\hbar\nu,\mu=1-\hbar\nu$ と置く。
+次数零の分数体は $r=UX^{-1},s=VX^{-1}$ で生成され、
+\[
+ rs=\frac\lambda\mu sr,
+ \qquad yr=p\,ry,\qquad ys=p\,sy.
+\]
+実際、$W=YZ X^{-1}$ なので $W$ は追加の分数体生成元を与えない。
+$a_0=rs^{-1}$ と置けば
+\[
+ ya_0=a_0y,\qquad
+ a_0s=\frac\lambda\mu sa_0,\qquad ys=p\,sy.
+\]
+これが所望の量子トーラス表示である。
+命題\ref{prop:toric-common-field}により、同じ分数体を持つ
+三模型のトーラス型 compactification が得られる。
+\end{proof}
+
+パラメーターを $q=\mu/\lambda$ と合わせると、
+この分数体は第\ref{sec:line-conic-quantum}節の line--conic 型とも一致する。
+この対応では量子化パラメーターの高次項も上式によって選んでいる。
+

@@ -1,0 +1,132 @@
+\section{トーリック量子化の AS-有理性と Casimir 体}\label{sec:toric-as-rational}
+この節では、前節の AS-有理性の定義案を適用できる模型の範囲を
+三次元トーリック多様体へ拡げる。量子トーリック多様体の張り合わせの
+一般構成は Cirio--Landi--Szabo~\cite{CLS} による。
+以下で新たに示す同型はその構成の関数斜体レベルの直接的な帰結であり、
+既存文献に対する新規性は主張しない。
+
+\subsection{双指標と任意のトーリックコンパクト化}
+$k$ を標数零の体、$M\simeq\mathbb Z^3$ を指標格子とし、
+$c:M\times M\to k^\times$ を双指標とする。
+$k_c[M]$ は基底 $X^m$、積
+\[
+ X^m X^n=c(m,n)X^{m+n}
+\]
+をもつ twisted group algebra である。
+$c$ の交代化 $q(m,n)=c(m,n)c(n,m)^{-1}$ は
+$q(e_i,e_j)=q_{ij}$ をみたす。別の双指標で同じ交代化を持つものは、
+$M$ が自由アーベル群であるため、基底の再規格化により同型な twisted group algebra を与える。
+$T_c$ は $k_c[M]$ の Ore 分数斜体とする。
+
+\begin{theorem}[トーリック AS-有理性の十分条件]\label{thm:toric-AS-rational}
+$X$ を稠密トーラス $T=\operatorname{Spec}k[M]$ を持つ正規トーリック射影三次元多様体とする。
+同じ双指標 $c$ による $X$ の量子トーリック変形 $X_c$ を、
+各トーリック affine chart の twisted semigroup algebra により定める。
+関数斜体を共通トーラスの Ore 局所化で定めると
+\[
+ D(X_c)\simeq \operatorname{Frac}k_c[M]\simeq D(B_q),
+\]
+ここで
+\[
+ B_q=k\langle x_0,x_1,x_2,x_3\rangle/
+ (x_0x_i-x_ix_0,\ x_ix_j-q_{ij}x_jx_i\ (1\le i<j\le3))
+\]
+は四生成元の量子多項式環である。
+したがって、$X_c$ の関数斜体を上記の通り定める限り、
+$X_c$ は AS-有理的である。この主張はトーリック fan の滑らかさを要しない。
+\end{theorem}
+\begin{proof}
+$X$ の任意の最大錐 $\sigma$ の semigroup algebra $k[\sigma^\vee\cap M]$ を
+$c$ で twist すると、全て同じ $k_c[M]$ の部分代数になる。
+稠密トーラス上で全ての指標を可逆化した Ore 局所化は $k_c[M]$ であり、
+各 chart が同じ分数斜体 $T_c$ を与える。
+$B_q$ は反復 skew polynomial extension だから、noetherian domain で
+Hilbert 級数 $(1-z)^{-4}$ の四次元 AS-regular algebra である。
+$x_0$ は中央な非零斉次元である。$u_i=x_ix_0^{-1}$ と置けば
+\[
+ (B_q[x_0^{-1}])_0
+ =k\langle u_1,u_2,u_3\rangle/(u_i u_j-q_{ij}u_j u_i).
+\]
+これら $u_i$ を可逆化すると $k_q[M]$ になり、上述の交代化の一致から
+$k_q[M]\simeq k_c[M]$ である。
+全斉次非零元の Ore 局所化における次数零の斜体は
+$\operatorname{Frac}((B_q[x_0^{-1}])_0)$ に一致する。
+実際、同次数 $d$ の $a,b$ の右分数は
+$(ax_0^{-d})(bx_0^{-d})^{-1}$ で表せる。よって $D(B_q)\simeq T_c$ となる。
+\end{proof}
+
+\begin{remark}[適用範囲]
+この定理は指定した\emph{双指標 twist} に関するものであり、
+トーリック三次元多様体の任意の非可換変形が AS-有理的という主張ではない。
+また、この同型は一般に極小模型や SOD の同一視を意味しない。
+具体的な $\PP^3$, $\PP^1\times\PP^2$, $(\PP^1)^3$ の共通 Rees blow-up は
+第\ref{sec:toric-nc-blowups}節で扱った。
+\end{remark}
+
+\subsection{対数正準 Poisson 関数体の中心}
+$\Lambda=(\lambda_{ij})\in\operatorname{Mat}_3(k)$ を歪対称行列とし、
+$\{X^m,X^n\}=\lambda(m,n)X^{m+n}$ により $k[M]$ を Poisson algebra とする。
+$L_\Lambda=\{m\in M: \lambda(m,n)=0\text{ for all }n\in M\}$ と置く。
+
+\begin{proposition}[有理 Casimir 体]\label{prop:toric-Poisson-center}
+$\operatorname{char}k=0$ とすると、
+\[
+ Z_{\mathrm{Pois}}(k(M))=\operatorname{Frac}(k[L_\Lambda]).
+\]
+とくに $\lambda_{12},\lambda_{13},\lambda_{23}$ が $\mathbb Q$ 上一次独立なら
+有理 Casimir は定数のみである。
+\end{proposition}
+\begin{proof}
+$D_i=\{X^{e_i},-\}/X^{e_i}$ は Laurent 多項式環上の重み導分であり、
+$D_i(X^m)=\lambda(e_i,m)X^m$ である。
+$f=a/b\in k(M)$ を既約分数で $D_i f=0$ とすると、
+Laurent 多項式環 $k[M]$ は UFD なので
+$a\mid D_i a$ および $b\mid D_i b$ となる。
+$D_i a$ が零でない場合、その Newton polytope は $a$ のものに含まれる。
+$D_i a=ac$ と Newton polytope の積の Minkowski 和の等式を合わせると、
+$\operatorname{Newt}(c)=\{0\}$ であり、$D_i a=\alpha_i a$、
+同様に $D_i b=\alpha_i b$ となる。零の場合も $\alpha_i=0$ とすればよい。
+全ての $i$ についてこれを行うと、$a$ と $b$ の支持の任意の二つの指数の差は
+$L_\Lambda$ に属し、さらに $a$ と $b$ は同じ重みを持つ。
+したがって $f$ は $L_\Lambda$ に属する単項式の有理式である。
+逆向きの包含は定義から従う。
+\end{proof}
+
+\begin{remark}[形式的量子化]
+$k$ を標数零の体とし、$q_{ij}=\exp(\hbar\lambda_{ij})\in k((\hbar))$ とする。
+量子トーラスの Laurent 代数の中心の基底は
+$X^m\;(m\in L_\Lambda)$ である。なぜなら
+$\exp(\hbar\lambda(e_i,m))=1$ と
+$\lambda(e_i,m)=0$ が同値だからである。
+分数斜体の中心をこの Laurent 中心の分数体と同定するには
+量子トーラスの中心の分数体定理を用いる。
+従って量子 Casimir 中心と Poisson 有理中心は同じ整数格子で制御される。
+\end{remark}
+
+\subsection{中央線形元を持つ非可換平面の安定化}
+\begin{proposition}[中央な $\PP^1$ 方向の AS-有理性]\label{prop:central-stabilization}
+$S$ を連結次数付き noetherian AS-regular domain で
+$\operatorname{gldim}S=3$, $H_S(z)=(1-z)^{-3}$ とする。
+$S_1$ に非零の中央元 $h$ が存在すると仮定する。
+新しい次数1の中央変数 $v$ を付けた $B=S[v]$ は四次元 AS-regular domain で
+$H_B(z)=(1-z)^{-4}$ を持ち、
+\[
+ D(B)\simeq D(S)(w),\qquad w=vh^{-1}\text{ は中央}.
+\]
+したがって $D(S)(w)$ を関数斜体に持つ三次元量子化は AS-有理的である。
+\end{proposition}
+\begin{proof}
+中央多項式拡大の AS-regular 性と Hilbert 級数の積公式による。
+$h$ は中央非零の次数1元だから
+$R=(S[h^{-1}])_0$ は domain で、その分数斜体は $D(S)$ に一致する。
+実際、同次数 $d$ の斉次元による分数 $ab^{-1}$ は
+$(ah^{-d})(bh^{-d})^{-1}$ と書ける。
+$w=vh^{-1}$ は $S[h^{-1}]$ と可換であり、
+$(B[h^{-1}])_0=R[w]$ となる。
+従って $D(B)=\operatorname{Frac}(R[w])=D(S)(w)$ である。
+\end{proof}
+\begin{remark}
+一般の楕円 Sklyanin 平面には中央な次数1の元がないので、この命題だけでは
+垂直楕円型や三重積最大 pencil 型の未解決比較を解決しない。
+強い中央性の仮定を外した一般化は別の研究問題である。
+\end{remark}

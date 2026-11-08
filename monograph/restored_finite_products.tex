@@ -1,0 +1,89 @@
+\section{任意の射影空間の有限積に対する代数的圏量子化}
+\label{sec:restored-finite-products}
+
+本節は第\ref{sec:products-foundation}節と第\ref{sec:tilting-quantization}節の
+議論の適用範囲を拡張する。以下の結論は、\emph{圏の量子化}についてのものであり、
+指定した多重偏極の斉次環の量子化を意味しない。
+また、異なる高次項をもつ量子化が一意に定まるという主張でもない。
+
+\begin{theorem}[有限積への代数的量子化の拡張]\label{thm:restored-product-quant}
+$k=\mathbb C$、$X=\prod_{i=1}^r\mathbb P^{n_i}$、$d=\sum_i n_i$ とおき、
+$\pi\in H^0(X,\wedge^2T_X)$ が $[\pi,\pi]=0$ を満たすとする。
+$\mathcal E=\bigoplus_{0\le a_i\le n_i}\mathcal O_X(a_1,\ldots,a_r)$、
+$A_0=\operatorname{End}_X(\mathcal E)$ とする。
+すると、滑らかな点付き有限型代数曲線 $(B,b)$ と
+$B$ 上の有限局所自由な結合代数 $\mathcal A$ が存在して、次を満たす。
+\begin{enumerate}
+\item $\mathcal A_b\simeq A_0$ および
+$\operatorname{Perf}(\mathcal A_b)\simeq\operatorname{Perf}(X)$。
+\item $\operatorname{rank}_{\mathcal O_B}\mathcal A
+=\prod_i\binom{2n_i+2}{n_i}$。
+$B$ を縮めれば、すべての幾何学的ファイバーの大域次元は高々 $d$、
+かつ $\mathcal A$ は相対双加群として perfect である。
+従って対応する perfect dg 圏は相対的に smooth proper である。
+\item 接ベクトル $v\in T_bB$ の Kodaira--Spencer 類は
+$\operatorname{HH}^2(X)$ の HKR 分解の下で $\pi$ である。
+\end{enumerate}
+さらに $A_0$ の形式的量子化 $\widehat\mu$ を一つ固定すれば、
+任意の整数 $N\ge1$ に対して、この代数曲線と族を選び直し、
+形式的な基底・corner 表示で結合積の $N$-jet を
+$\widehat\mu$ の $N$-jet に一致させられる。
+ここでの最後の主張は、\emph{各有限 $N$ ごと}の代数化であり、
+一つの代数的な族が任意の $N$ に対して同じ指定形式解を与えるという意味ではない。
+\end{theorem}
+\begin{proof}
+第\ref{prop:products-tilting-rank}命題により、矩形 tilting 束の高次自己拡大は零で、
+$\operatorname{Perf}(X)$ と $\operatorname{Perf}(A_0)$ は Morita 同値である。
+$T_X$ の外冪の高次コホモロジーはすべて消えるため、
+大域 polyvector の Schouten dg Lie 代数
+\[
+\mathfrak g=\bigoplus_{p\ge0}H^0(X,\wedge^pT_X)[1-p],\qquad d_{\mathfrak g}=0
+\]
+は derived global polyvector dg Lie 代数へ準同型となる。
+Van den Bergh の大域 formality と tilting の Hochschild 変形理論
+\cite{VdBGlobal,BW2024} によって、これは $A_0$ の
+normalized Hochschild cochain dg Lie 代数と $L_\infty$ 同値である。
+$h\pi$ は Schouten Maurer--Cartan 方程式を満たすので、この同値で
+$A_0[[h]]$ 上の形式的な結合積 $\widehat\mu$ に移る。
+その一次 Hochschild 類は $\pi$ に対応する。
+
+$A_0$ の原始直交冪等元 $e_a$ は有限個で、$E=\bigoplus_a ke_a$ は分離的である。
+形式変形では冪等元が持ち上がり、$E$-relative な normalized cochain 複体を用いると、
+各 $e_bA_0e_a$ の階数を固定した corner の積に移せる。
+半順序 $a\le b$ を満たさない corner は零のままである。
+その積は、有限個の構造定数が満たす有限個の結合律の多項式方程式に等しい。
+この方程式の形式解 $\widehat\mu$ に Artin 近似を適用すると、
+任意の $N$ について $k[h]_{(h)}$ の Hensel 化上の解 $\mu_N$ が得られ、
+$\mu_N\equiv\widehat\mu\pmod {h^{N+1}}$ とできる
+\cite{StacksArtin}。
+Hensel 化は有限型の étale 近傍のフィルター付き極限であり、
+有限個の構造定数はその一つに降下する。
+従って $(\mathbb A^1,0)$ の滑らかな étale 近傍
+$(B,b)$ 上で、要求した結合代数の族が得られる。
+$N\ge1$ としたので一次 Kodaira--Spencer 類が保持される。
+
+残る滑らかさと大域次元を確認する。
+矩形の半順序の狭義鎖の長さは高々 $d$ である。
+$J=\bigoplus_{a<b}e_b\mathcal Ae_a$ は
+$J^{\otimes_E(d+1)}=0$ を満たす。
+$E$ は基底環上の分離的代数 $\mathcal O_B^{\oplus |I|}$ であるから、
+\[
+ 0\to \mathcal A\otimes_EJ^{\otimes_Ed}\otimes_E\mathcal A
+ \to\cdots\to\mathcal A\otimes_E\mathcal A\to\mathcal A\to0
+\]
+という相対 normalized bar 分解があり、全項は
+$\mathcal A$-双加群として相対射影的で、全長は $d$ である。
+同じ構成を左加群に適用して各幾何学的ファイバーの
+大域次元が高々 $d$ であることが従う。
+$\mathcal A$ は有限局所自由なので properness も従う。
+階数は第\ref{prop:products-tilting-rank}命題で計算済みである。
+\end{proof}
+
+\begin{remark}[制約と証明の所在]
+形式量子化を代数的曲線へ写す上の主張は、
+大域 formality と Artin 近似という引用定理に依存する。
+$\operatorname{Pois}(X)$ の全ての成分の概型同型や、
+一意な代数化、多重偏極の保存、AS-regular な ambient の存在は主張しない。
+特に任意の有限積の場合に、ある一つの連結した代数的族で
+すべての Poisson 方向を同時にパラメータ化することまではここでは証明していない。
+\end{remark}

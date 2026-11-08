@@ -1,0 +1,130 @@
+\section{トーラス型の明示的な代数的量子化}
+\label{sec:toric-quantization}
+
+$X=\prod_{a=1}^r\PP^{n_a}$ とし、$(n_1,\ldots,n_r)=(1,2)$ または
+$(1,1,1)$ とする。稠密トーラスの座標を $x_1,x_2,x_3$ と書く。
+\[
+ \pi_\lambda=\sum_{1\leq i<j\leq3}\lambda_{ij}
+ (x_i\partial_{x_i})\wedge(x_j\partial_{x_j})
+\]
+の量子化は有限個の二次関係式で記述できる。
+
+各因子の Cox 変数を $z_{a,0},\ldots,z_{a,n_a}$ とする。
+$\deg z_{a,j}=e_a\in\mathbb Z^r$ とし、トーラス重みは
+$\operatorname{wt}(z_{a,0})=0$、残りの三変数の重みは
+$M=\mathbb Z^3$ の基底に取る。
+\[
+ B=\CC[q_{12}^{\pm1},q_{13}^{\pm1},q_{23}^{\pm1}],\qquad
+ c(m,n)=\prod_{i<j}q_{ij}^{m_i n_j}
+\]
+と置く。通常の Cox 環の基底変換
+$B\otimes_\CC\CC[z_{a,j}]$ に対し、重み斉次な元の積を
+\[
+ f\star g=c(\operatorname{wt}f,\operatorname{wt}g)fg
+ \tag{*}
+\]
+で定め、この多重斉次環を $A_B$ と書く。
+
+\begin{proposition}\label{prop:toric-algebraic}
+$A_B$ は $B$ 上平坦な多重斉次環であり、各幾何学的ファイバーは
+Cox 変数の個数を大域次元とする量子多項式環である。
+対角部分環
+\[
+ R_B=\bigoplus_{d\geq0}(A_B)_{(d,\ldots,d)}
+\]
+は次数 $1$ で生成される noetherian 斉次環であり、各次数は $B$ 上自由である。
+その階数は
+\[
+ \operatorname{rank}_B(R_B)_d=
+ \begin{cases}
+ (d+1)\binom{d+2}{2}&X=\PP^1\times\PP^2,\\
+ (d+1)^3&X=(\PP^1)^3.
+ \end{cases}
+\]
+$q_{12}=q_{13}=q_{23}=1$ のファイバーは $X$ の Segre 座標環である。
+各幾何学的ファイバー $R_q$ の tails は完全強例外列をもち、
+$D^b(\operatorname{qgr}R_q)$ は滑らかで固有な三次元の非可換射影多様体を与える。
+より具体的には、大域次元 $3$ の有限次元代数の導来圏に同値である。
+\end{proposition}
+
+\begin{proof}
+双指標の恒等式
+\[
+ c(m,n)c(m+n,p)=c(n,p)c(m,n+p)
+\]
+から積の結合性が従う。順序を固定した Cox 単項式は $B$ 基底であり、
+二変数の交換は可逆なスカラーを掛ける操作である。
+従って $A_B$ は反復 skew polynomial extension である。
+各体上のファイバーの通常の Koszul 複体は量子 Koszul 複体に変形し、
+Cox 変数の個数を長さとする最小分解を与える。
+
+対角次数の単項式を選べば自由性と階数公式が従う。
+各ブロックから一変数ずつ選んだ積は $(1,\ldots,1)$ 次であり、
+それらが $R_B$ を生成する。それらの間にもスカラー交換関係があるので、
+$R_B$ は有限生成量子多項式環の商である。従って noetherian である。
+
+すべての Cox 変数は正規元であり、上記 Segre 単項式も正規元である。
+各 Segre 単項式の Ore 局所化の次数零部分は、各ブロックの選んだ変数を
+逆にした Cox 環の多重次数零部分と一致する。
+これによって $\operatorname{qgr}R_q$ は Cox 環の多重射影化に一致する。
+量子トーリック多様体を正規単項式の局所化で貼り合わせる方法は
+\cite[\S\S3--5]{CLS} にも記述されている。
+
+この圏の多重シフトを $\mathcal O(\mathbf a)$ と書く。
+Cox の \v Cech 複体を各トーラス重みに分けると、可換模型との相違は
+非零スカラーのみであり、双指標恒等式による基底変更で可換複体と同型になる。
+従って
+\[
+ \dim\operatorname{Ext}^k\bigl(\mathcal O(\mathbf a),
+       \mathcal O(\mathbf b)\bigr)
+ =\dim H^k\bigl(X,\mathcal O(\mathbf b-\mathbf a)\bigr).
+\]
+特に
+\[
+ T_q=\bigoplus_{0\leq a_i\leq n_i}\mathcal O(\mathbf a)
+\]
+は強例外列の直和になる。各ブロックの変数の量子 Koszul 複体は、
+そのブロックの零集合に台をもつ余核をもち、この余核は多重射影化で零になる。
+従って各方向の任意のシフトは上記有限個のシフトから生成される。
+$A_q$ の有限大域次元により全ての有限生成多重斉次加群は有限の自由分解をもち、
+$T_q$ の生成性が従う。
+
+$\operatorname{End}(T_q)$ は可換模型の矩形 Beilinson 代数の
+トーラス重みによる双指標 twist である。
+可換模型の各頂点単純加群の最小射影分解は重み斉次に取れ、
+同じ twist はこの分解の完全性と最小性を保つ。
+従って全ての頂点単純加群の射影次元は保たれ、
+$\operatorname{gldim}\operatorname{End}(T_q)=\sum_i n_i=3$ となる。
+この有限次元代数の有限大域次元から導来圏の滑らかさと固有性が従う。
+\end{proof}
+
+\begin{corollary}\label{cor:toric-semiclassical}
+任意の $\lambda_{ij}\in\CC$ に対し
+\[
+ q_{ij}=1+h\lambda_{ij},\qquad
+ B_\lambda=\CC\left[h,
+ \left(\prod_{i<j}(1+h\lambda_{ij})\right)^{-1}\right]
+\]
+と基底変換すると、$\pi_\lambda$ を半古典極限にもつ代数的な族を得る。
+$\lambda_{ij}$ 自身も独立変数としてよい。
+\end{corollary}
+
+\begin{proof}
+重み斉次な $f,g$ の重みを $m,n$ とすると
+\[
+ \left.\frac{f\star g-g\star f}{h}\right|_{h=0}
+ =\left(\sum_{i<j}\lambda_{ij}(m_i n_j-m_j n_i)\right)fg.
+\]
+これは $\pi_\lambda$ の括弧である。
+Cox の次数零局所化でも同じ式が成り立つ。
+上の基底は $h=0$ を含む有限型の滑らかなアフィン曲線であり、
+すべての積と関係式はこの曲線上で代数的である。
+\end{proof}
+
+この構成に $\operatorname{Aut}(X)$ による座標変換を合わせると、
+本書 のトーラス成分の開稠密な族を量子化できる。
+三重積の一般のトーラス型については、三つの係数と
+$\operatorname{PGL}_2^3$ の座標変換を合わせた $9$ 次元の Poisson 族を覆う。
+$\PP^1\times\PP^2$ では同様に $11$ 次元の成分を覆う。
+本節の明示式が直接扱うのは最大トーラスに共役な作用であり、
+閉包の全ての境界点に対する量子化は一般存在定理による。

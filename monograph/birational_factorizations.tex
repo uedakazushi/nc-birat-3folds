@@ -1,0 +1,136 @@
+\section{古典的 Poisson 双有理写像の blow-up 表示}
+\label{sec:classical-factorizations}
+
+標数零の滑らかな完備多様体間の双有理写像には、滑らかな中心の
+blow-up と blow-down による弱分解がある
+\cite[定理0.1.1]{AKMW}。
+Poisson 構造を各中間模型上で正則に保つには、各中心に追加条件が必要になる。
+本節では使用する中心を具体的に指定し、共通の滑らかな Poisson 模型を構成する。
+
+\subsection{曲線中心と点中心の持ち上げ条件}
+
+\begin{proposition}\label{prop:poisson-centres}
+滑らかな三次元 Poisson 多様体 $(X,\pi)$ と滑らかな中心 $Z$ を考える。
+\begin{enumerate}
+\item $Z$ が曲線ならば、$\pi$ が $\operatorname{Bl}_Z X$ に正則に持ち上がる
+必要十分条件は $\pi|_Z=0$ である。
+\item $Z=\{p\}$ が点ならば、必要十分条件は $\pi(p)=0$ と、$p$ を原点とする
+局所座標での一次項が
+\[
+ \pi_1=\bigl(x\partial_x+y\partial_y+z\partial_z\bigr)\wedge V
+\]
+と書けることである。ここで $V$ は定係数ベクトル場である。
+\end{enumerate}
+いずれの場合も持ち上げは一意的で、blow-down 射は Poisson 射となる。
+\end{proposition}
+
+\begin{proof}
+曲線の場合、$Z=\{v=w=0\}$ として
+\[
+ \pi=A\partial_v\wedge\partial_w+
+ B\partial_w\wedge\partial_x+C\partial_x\wedge\partial_v
+\]
+と書く。$w=v\tau$ のチャートでは
+\[
+ \widetilde\pi=\frac{A}{v}\partial_v\wedge\partial_\tau+
+ C\partial_x\wedge\partial_v-
+ \frac{B+\tau C}{v}\partial_x\wedge\partial_\tau.
+\]
+例外因子上の任意の $\tau$ で正則となる条件は
+$A|_Z=B|_Z=C|_Z=0$ である。他方のチャートも同じ条件を与える。
+
+点の場合、$A=\{y,z\}$、$B=\{z,x\}$、$C=\{x,y\}$ と置く。
+$u=y/x$、$v=z/x$ のチャートでは
+\[
+ \{x,u\}=C/x,\qquad \{x,v\}=-B/x,\qquad
+ \{u,v\}=\frac{xA+yB+zC}{x^3}.
+\]
+三つのチャートの正則性から定数項は全て零となる。
+$A_1,B_1,C_1$ を一次項とすると、残る条件は
+\[
+ xA_1+yB_1+zC_1=0.
+\]
+一次式のこの関係は、$(A_1,B_1,C_1)$ の係数行列が歪対称であることと同値であり、
+ちょうど命題の $\pi_1$ を与える。二次以上の項については、上の最後の分子は
+三次以上なので、各 blow-up チャートへの代入後に分母が消える。
+これで十分性も従う。
+一意性と Jacobi 恒等式は中心の補集合の稠密性による。
+\end{proof}
+
+この条件は Polishchuk \cite[定理8.2、命題8.3]{Polishchuk1997} の
+退化した余法 Lie 代数という条件の三次元での表示である。
+例えば $\pi=x\partial_y\wedge\partial_z$ は原点で零であるが、
+$\{y/x,z/x\}=1/x$ なので原点の blow-up には持ち上がらない。
+一方、以下の二次曲面 pencil の点中心では一次項の条件も満たされる。
+
+\input{birational_p3_fragment}
+\input{birational_cube_fragment}
+\input{birational_toric_fragment}
+
+\subsection{\texorpdfstring{$X_{12}$}{X12} の有理 pencil 成分}
+分類節の $C_{(1,1)^2(0,1)}$ を考える。
+$F,G\in H^0(X_{12},\mathcal O(1,1))$、
+$L\in H^0(\PP^2,\mathcal O(1))$ に対し
+\[
+ \alpha=L(F\,dG-G\,dF)
+\]
+と置く。$F=xa(v,w)+b(v,w)$、$G=xc(v,w)+d(v,w)$ と書くと、
+$u=G/F$ は Casimir であり
+\[
+ \{v,w\}=L(bc-ad),\qquad \{u,v\}=\{u,w\}=0.
+\]
+従って $(x,v,w)\mapsto(u,v,w)$ は、零三次曲線が直線と二次曲線の和である
+垂直型への Poisson 双有理写像である。
+一般の係数では、行列式 $bc-ad=0$ は滑らかな二次曲線であり、
+$a,b,c,d$ は平面上で同時には零にならない。
+$F=G=0$ および逆写像の基底曲線は、この二次曲線と同型な滑らかな有理曲線である。
+両曲線上でそれぞれの双ベクトルは零になる。
+前述の比の閉グラフの議論と命題\ref{prop:poisson-centres}により、
+そのグラフは両側の Poisson blow-up である。
+
+より一般に $\CC(S)(x)$ の括弧が $\CC(S)$ 上の括弧 $\sigma$ を保ち、
+$u=(ax+b)/(cx+d)$ が非定数の Casimir ならば、
+$(x,s)\mapsto(u,s)$ は同じ $\sigma$ を垂直に持つ積への Poisson 双有理写像を与える。
+正則な共通模型の構成では、基底イデアルと各中心上の双ベクトルを別に確認する。
+
+\subsection{共通模型上の古典的 SOD}
+
+滑らかな中心 $Y\subset X$ の余次元を $c$、$f:\widetilde X\to X$ をその blow-up、
+$j:E\hookrightarrow\widetilde X$、$p:E\to Y$ を例外因子の射とする。
+Orlov \cite[定理4.3]{OrlovBlowup} の式は
+\[
+ \operatorname{Perf}(\widetilde X)=
+ \left\langle
+ j_*\bigl(p^*\operatorname{Perf}(Y)\otimes\mathcal O_E(1-c)\bigr),\ldots,
+ j_*\bigl(p^*\operatorname{Perf}(Y)\otimes\mathcal O_E(-1)\bigr),
+ Lf^*\operatorname{Perf}(X)
+ \right\rangle.
+\]
+三次元では曲線中心につき $\operatorname{Perf}(Y)$ が一個、
+点中心につき $\operatorname{Perf}(\CC)$ が二個現れる。
+例えば定理\ref{thm:rat22-vertical}の共通模型では、埋込み関手を省略すると
+\[
+\begin{aligned}
+ \operatorname{Perf}(Z)
+ &=\left\langle\operatorname{Perf}(E'),\operatorname{Perf}(\CC),
+                  \operatorname{Perf}(\CC),\operatorname{Perf}(\PP^3)\right\rangle,\\
+ \operatorname{Perf}(Z)
+ &=\left\langle\operatorname{Perf}(\Gamma),
+                  \operatorname{Perf}(\PP^1\times\PP^2)\right\rangle.
+\end{aligned}
+\]
+$E'\cong\Gamma$ は楕円曲線である。
+三重積 pencil の共通模型でも、両側にそれぞれ楕円曲線の圏が一個加わる。
+
+命題\ref{prop:toric-explicit-blowups}の $Z_{\rm per}$ は長さ24の full exceptional collection を持つ。
+実際、三つの端点の標準的な積の例外集の長さは順に $4,6,8$ である。
+各点 blow-up には二つの例外対象が加わり、各曲線中心は滑らかな完備トーリック曲線
+$\PP^1$ なので、その二項例外集が加わる。従って三つの構成から得られる長さは
+\[
+ 4+2\cdot4+2\cdot6
+ =6+2\cdot1+2\cdot8
+ =8+2\cdot2+2\cdot6=24
+\]
+と一致する。この記述は上の可換な共通模型の導来圏についてのものである。
+これらの式の非可換化には、中心とその例外部分を含む blow-up 圏の構成が必要になる。
+その構成に適用できる先行結果を第\ref{sec:nc-blowups}節で整理する。

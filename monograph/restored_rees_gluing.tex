@@ -1,0 +1,120 @@
+\section{中央 pencil の例外代数と圏論的 blow-up の構成}
+\label{sec:restored-rees-sod}
+前節の Rees 環の表示からは、例外因子の代数と、
+\emph{比較対象としての} categorical blow-up をさらに構成できる。
+しかし両者を同一視するには、別個の比較定理が必要である。
+
+\begin{proposition}[随伴次数環]\label{prop:restored-associated-graded}
+第\ref{prop:rees-central-regular}命題の仮定の下で $D=A/(s,t)$ とおく。
+Rees 次数を $m$ とすると、自然な同型
+\[
+\operatorname{gr}_{I}A=\bigoplus_{m\ge0}I^m/I^{m+1}
+ \simeq D[U,V],\qquad [s]\mapsto U,\ [t]\mapsto V
+\]
+がある。右辺で $U,V$ は $D$ と可換な中央不定元である。
+特に $D$ が次数六の楕円 twisted homogeneous coordinate ring で、
+$\operatorname{qgr}D\simeq\operatorname{coh}E$ なら、
+Rees 方向の例外射影模型の局所チャートは
+$D[w]$ と $D[w^{-1}]$ で記述できる。
+偏極の共通 twist を除くと、例外モデルは
+$E\times\mathbb P^1$ の非可換代数的表示になる。
+\end{proposition}
+\begin{proof}
+Rees 代数 $\mathcal R_A(I)$ を、基底環 $A$ から来る
+次数零の二側イデアル $I\mathcal R_A(I)$ で割ると
+\[
+\mathcal R_A(I)/I\mathcal R_A(I)
+ =\bigoplus_{m\ge0}I^m/I^{m+1}
+\]
+を得る。
+第\ref{prop:rees-central-regular}命題の表示ではこの商は
+\[
+ A[U,V]/(tU-sV,s,t)=(A/I)[U,V]
+\]
+である。$U$ と $V$ は中央なので、$U\ne0$ と $V\ne0$ の
+二つの標準チャートを取ると、それぞれの相対次数零部分は
+$D[V/U]$ と $D[U/V]$ になる。
+交叉上で両座標が互いに逆になるから、最後の主張が従う。
+\end{proof}
+
+\begin{theorem}[制限関手からの categorical blow-up]\label{thm:restored-categorical-gluing}
+$\mathcal C$ と $\mathcal D$ を smooth proper な冪等完備 dg 圏とし、
+$\operatorname{Res}:\mathcal C\to\mathcal D$ を perfect dg bimodule によって
+表される dg 関手とする。
+すると smooth proper な dg 圏 $\mathcal B_{\mathrm{cat}}$ が構成でき、
+\[
+ \mathcal B_{\mathrm{cat}}
+ =\langle\mathcal D,\mathcal C\rangle
+\]
+という admissible な半直交分解を持つ。
+ここで混合 Hom は、$G\in\mathcal D,F\in\mathcal C$ に対して
+\[
+\operatorname{RHom}_{\mathcal B_{\mathrm{cat}}}(G,F)
+ \simeq\operatorname{RHom}_{\mathcal D}(G,\operatorname{Res}F)[-1],
+\qquad
+\operatorname{RHom}_{\mathcal B_{\mathrm{cat}}}(F,G)=0
+\]
+と指定できる。
+さらに $X$ を滑らかな射影多様体、$Z\subset X$ を滑らかな余次元二の中心とし、
+$\mathcal C=\operatorname{Perf}(X)$、$\mathcal D=\operatorname{Perf}(Z)$、
+$\operatorname{Res}=Li^*$ とすると、
+この圏は標準的な dg enhancement の意味で
+$\operatorname{Perf}(\operatorname{Bl}_Z X)$ と同値である。
+\end{theorem}
+\begin{proof}
+まず $\mathcal D$ と $\mathcal C$ を二つの対角成分とし、
+$\mathcal D$ から $\mathcal C$ への Hom を指定の perfect bimodule、
+逆向きの Hom を零とする上三角 dg category を作る。
+その perfect closure を $\mathcal B_{\mathrm{cat}}$ とおく。
+上三角性から二つの fully faithful な包含と表示した半直交分解が得られる。
+両成分の smooth properness と bimodule の perfect 性から、
+Orlov の gluing 定理\cite{PencilOrlovGluing}によって
+$\mathcal B_{\mathrm{cat}}$ も smooth proper である。
+
+可換の場合の同定を確認する。
+$f:Y=\operatorname{Bl}_Z X\to X$、$j:P(N_{Z/X})\hookrightarrow Y$、
+$p:P(N_{Z/X})\to Z$ とおく。
+$\Psi(G)=j_*(p^*G\otimes\mathcal O_{P(N)}(-1))$ とすれば、
+Orlov の blow-up 公式は
+$\operatorname{Perf}(Y)=\langle\Psi\operatorname{Perf}(Z),
+Lf^*\operatorname{Perf}(X)\rangle$ を与える\cite{OrlovBlowup}。
+$Rp_*\mathcal O_{P(N)}(-1)=0$ により
+$\operatorname{RHom}_Y(f^*F,\Psi G)=0$ である。
+また、例外因子の正規束が $\mathcal O_{P(N)}(-1)$ なので
+$j^!f^*F\simeq p^*i^*F\otimes\mathcal O_{P(N)}(-1)[-1]$。
+従って
+\[
+\operatorname{RHom}_Y(\Psi G,f^*F)
+ \simeq\operatorname{RHom}_{Z}(G,Li^*F)[-1].
+\]
+この dg bimodule と両対角成分が一致するから、
+gluing の普遍性により主張の同値が従う。
+\end{proof}
+
+\begin{remark}[中央 pencil への適用範囲]\label{rem:restored-sod-scope}
+最大 pencil の代数 $A$ で $A/(s,t)=B(E,M,\tau)$ とすると、
+$E$ は中心の候補である。
+$\mathcal C=\operatorname{Perf}(\operatorname{qgr}A)$ が smooth proper で、
+中央商に沿う導来制限 $\operatorname{Res}:\mathcal C\to\operatorname{Perf}(E)$ が
+perfect bimodule で表されるなら、上の定理は
+$\langle\operatorname{Perf}(E),\mathcal C\rangle$ を持つ
+\emph{categorical} blow-up の存在を与える。
+しかしこの圏が第\ref{prop:rees-central-regular}命題の
+Rees 環の $\operatorname{qgr}$ から作る圏と同値であることは、
+本書ではまだ証明していない。
+また $\operatorname{Perf}(\operatorname{qgr}A)$ と
+第\ref{pcat:sec}節の階数64の mutation 代数の同値も未解決である。
+これらを混同すると、存在が未確認の SOD を Rees 模型へ誤って付与することになる。
+\end{remark}
+
+\begin{proposition}[generic localization の条件付き両立性]
+上の $\mathcal B_{\mathrm{cat}}=\langle\mathcal D,\mathcal C\rangle$ において、
+$L:\mathcal C\to\mathcal G$ を Verdier 局所化とする。
+$\mathcal B_{\mathrm{cat}}/\mathcal D$ は冪等完備化を除き $\mathcal C$ と同値であり、
+従って $L$ は $\mathcal B_{\mathrm{cat}}$ から $\mathcal G$ への
+局所化へ合成され、$\mathcal D$ の対象はそこで零になる。
+ただしこの事実だけから、別の Rees 圏の generic localization と同一視することはできない。
+\end{proposition}
+\begin{proof}
+admissible SOD の Verdier 商の普遍性による。
+\end{proof}
