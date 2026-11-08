@@ -1,0 +1,668 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs,array,longtable}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={三つの有理三次元多様体の Poisson 成分と非可換双有理模型},
+ pdfsubject={Poisson structures and noncommutative birational geometry}}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{corollary}[theorem]{系}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{remark}[theorem]{注意}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\Frac}{\operatorname{Frac}}
+\newcommand{\Qgr}{\operatorname{Qgr}}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\AD}{\operatorname{AD}}
+\title{有理三次元多様体の Poisson 構造と非可換双有理幾何\\\large 成分分類・量子化・blow-up・半直交分解}
+\author{}
+\date{2026年11月8日\quad 統合・再検証第12版}
+\begin{document}
+\maketitle
+\begin{abstract}
+$\PP^1\times\PP^2$ と $(\PP^1)^3$ の Poisson 概型の既約成分を分類し、
+$\PP^3$ を含む三模型の非可換射影量子化と双有理変換を調べる。
+前者は九成分を持ち、Riccati 成分の生成点の長さは2、他は1である。
+後者は八成分を持ち、全成分は生成点で被約である。
+成分の網羅性、次元、生成点の構造、および指定 del Pezzo 因子への延長を本文で証明する。
+さらに射影空間の任意の有限積上の Poisson 方向について、
+有限型の曲線上の smooth proper dg 圏の代数的量子化を構成する。
+$\PP^1\times\PP^2$ の七成分が
+log-canonical な有理 Poisson 関数体に帰着し、残る二成分には
+楕円型および Riccati 型の模型が得られる。
+Riccati 型と非零 log-canonical 型を分離する次数評価と
+非可換分数体のスカラー交換子不変量を与える。
+二平面と二次曲面の対数型、line--conic 型、および三重積の対数型について、
+共通の量子トーラス分数体を持つ射影量子化を明示する。
+楕円型には、二点 evaluation による有限代数から二つの収縮を持つ
+相対 smooth proper 圏を構成し、quadric の射影環と共通関数斜体を復元する。
+この共通圏の反標準切断環は全次数で平坦であり、
+Sklyanin 平面の二点 blow-up 環として表示される。
+三重積の最大 pencil 成分には、八生成元・三十七二次関係式の
+Segre 斉次環の代数的量子化を構成する。
+また楕円曲線を中心とする共通圏に二つの半直交分解を与え、
+両端点の一次 Poisson 構造と共通関数斜体を同定する。
+三模型のトーラス型には同じ双指標で変形した共通 Rees 模型を構成し、
+全 blow-up 段階の Orlov 型半直交分解を証明する。
+Riccati 型には $S(2,3)$ 内の特殊族を与える通常の射影三空間の量子化を構成する。
+さらに例外型の Weyl 関数体と、Sklyanin pencil の
+中心部分体の有限拡大後の比較を記述する。
+古典的な対応を滑らかな中心の blow-up と blow-down で表示し、
+三次元にも適用できる非可換 blow-up と半直交分解の先行結果の仮定を明示する。
+楕円 quadric の一点 blow-up では hereditary 部分圏の消滅補題により
+圏論的 blow-up と切断環の射影圏を比較する。
+中央正則列の Rees 環・随伴次数環を証明し、中央二変数環上の自由性と、
+アフィン blow-up の基底変換・Orlov 型半直交分解を構成する。
+射影圏への降下には非 perfect な頂点 torsion の問題が残る。
+反標準 section functor からの圏復元は Artin--Zhang の ample 条件の下で導き、
+条件を外せない可換 weak del Pezzo の反例を与える。
+関数斜体の回復を零ランク対象による局所化として記述し、
+同じ型の半直交成分を持つ量子平面の関数斜体が異なる例を与える。
+さらに、非可換射影三空間への斜体的双有理性を AS-有理性として定式化し、
+量子トーラス型と Weyl 型の異なる非可換 $\PP^3$ 関数斜体を証明する。
+全ての三次元トーリック双指標量子化の AS-有理性を与える四次元量子多項式環を構成し、
+有理 Casimir 体と中央元をもつ曲面模型の安定化を記述する。
+\end{abstract}
+\setcounter{tocdepth}{2}
+\begingroup
+\footnotesize
+\makeatletter
+\renewcommand{\@pnumwidth}{2em}
+\makeatother
+\tableofcontents
+\endgroup
+\clearpage
+
+\section{目的、先行研究と結果の範囲}
+
+三つの可換な有理三次元多様体を
+$X_3=\PP^3$、$X_{12}=\PP^1\times\PP^2$、$X_{111}=(\PP^1)^3$ と書く。
+各 $X$ の Poisson 概型は
+\[
+ \operatorname{Pois}(X)
+ =\{\pi\in H^0(X,\wedge^2T_X):[\pi,\pi]=0\}
+\]
+である。成分は自己同型群とスカラー倍で割る前のものを用いる。
+本書の問題は、成分の一般元を量子化した非可換多様体の間で、
+分数体の同型と共通 blowup を構成することである。
+古典的なファイバーと一次の Poisson 括弧を固定し、
+量子化の高次項は双有理比較と両立するように選ぶ。
+
+$X_3$ の六成分とそれらの一般元の斉次量子化は
+Pym \cite[定理1.1、命題2.9、第3節]{Pym2015} による。
+$X_{12}$ の九成分は第\ref{p12:classification}節、
+$X_{111}$ の八成分は第\ref{cube:sec:classification}節で、
+正規形から網羅性と生成点の概型構造まで証明する。
+三次曲線補集合の基本群などの一般定理は、その仮定と参照箇所を明記して用いる。
+古典的 Poisson 双有理変換の共通 blow-up は第\ref{sec:classical-factorizations}節で構成する。
+全 Poisson 方向の代数的な圏量子化の一般存在定理は本書第\ref{sec:tilting-quantization}節に証明を記す。
+
+非可換曲面の既知の双有理定理は
+Presotto--Van den Bergh \cite{PVdB2016}、Presotto \cite{Presotto2018}、
+Rogalski--Sierra--Stafford \cite{RSS2023} による。
+とくに quadratic Sklyanin 平面と cubic $\mathbb Z$-代数で表される quadric の間には、
+楕円曲線上の直線束と平行移動を照合した関数体の同型がある。
+本書ではこの比較を、指定した古典的な曲面リンクを持つ代数的な族に組み込む。
+Poisson 関数体の障害と整数係数不変量には
+Goodearl--Launois \cite{GoodearlLaunois}、
+非可換分数体のスカラー交換子には
+Goodearl--Yakimov \cite{GoodearlYakimov} を参照する。
+明示的な Ore 構成とその適用、相対的な構成、および本書の直接計算の
+新規性・優先関係は未確定である。
+
+blow-up と SOD に関しては、Van den Bergh の非可換曲面論、
+滑らかな中心に沿う order の blow-up、および非可換射影束の定理を用いる。
+第\ref{sec:relative-common-blowup}節では、平面の Beilinson 代数に
+楕円曲線上の二点の evaluation 加群を加え、階数23の有限代数から共通圏を作る。
+exceptional objects の \'etale 局所持上げと四頂点の quadric 再構成により、
+古典点を含む二つの SOD と両端点の射影環が得られる。
+関数斜体の比較は付値環上の有限複体の消去により証明する。
+$\PP^1$ との積は、三次元の相対共通模型と二種類の SOD を与える。
+第\ref{sec:anticanonical-common-ring}節では、その曲面共通圏の
+反標準 orbit 環を計算する。restriction の Serre 三角と楕円曲線上の消滅により
+全次数の平坦性を証明し、mutation の自然射と RSS の Hilbert 関数を用いて
+平面側の二点 blow-up 環へ同定する。
+
+第\ref{sec:toric-nc-blowups}節では、
+Cirio--Landi--Szabo \cite{ToricCLS} の量子トーリック構成と
+Orlov の同変性 \cite{ToricElagin} を用い、三模型の共通 blow-up を構成する。
+全重みの Hom と高次積を双指標で変形し、非同変導来圏の生成性を証明する。
+共通模型は長さ24の full exceptional collection を持つ。
+第\ref{sec:nc-blowups}節ではさらに、
+Van den Bergh の切断環比較を quadric に適用する消滅補題を証明し、
+固定された一般の Sklyanin quadric について RSS の共通環に二つの SOD を与える。
+第\ref{sec:sod-functions}節では、関数斜体を保持する局所化との両立条件を示す。
+全ての成分間の対応を中心付きの非可換 blow-up で表示する問題は残る。
+
+
+第\ref{sec:native-pencil}節では Rains \cite{PencilRainsFiltered} の
+filtered deformation の族のうち、次数六の $\mathbb P^1$ ruling を用いる。
+同論文の非可換 Fano 三次元多様体の構成方針に対し、本書では
+一般の $(1,1,1)$ pencil の標識、相対 ruling、二重中央拡大の全次数 PBW 性、
+一次 Poisson 類、および無限位数ファイバーの中心を具体的に同定する。
+第\ref{pcat:sec}節では Orlov \cite{PencilOrlovGluing} の dg gluing を用い、
+楕円曲線のグラフを中心とする相対共通圏を構成する。
+二回の mutation により階数64の三重積の量子化と第二の楕円成分を得る。
+これらの具体的な主張の新規性は未確定である。
+
+\subsection{主張の状態と適用範囲}
+本書の基本定理は、先行定理を仮定つきで使用した結果と、
+ここで直接証明した補題を区別して述べる。
+射影空間の任意の有限積の量子化は第\ref{sec:restored-finite-products}節で、
+大域 formality と Artin 近似に依存する存在定理として示す。
+反標準環からの共通圏の復元は第\ref{sec:restored-anticanonical}節の
+ample 性を含む明示的な十分条件のもとで成立し、
+本研究の特定の共通圏でその条件はまだすべて確認できていない。
+中央 pencil の Rees 環から例外随伴次数環を構成し、
+制限関手に対応する dg gluing の SOD は第\ref{sec:restored-rees-sod}節で証明する。
+アフィン圏では Rees 模型と gluing が同値であるが、
+非可換射影圏への導来 torsion 局所化を伴う降下は未証明である。
+2026年の二文献の定理は第\ref{sec:restored-primary}節で
+著者の定理として正確な適用範囲を記す。
+
+\subsection{成分ごとの量子化模型}
+
+$\PP^3$ について、既知の六族は次の通りである。
+\[
+\begin{array}{c|l}
+\text{Poisson 成分}&\text{一般元の非可換射影模型}\\\hline
+L(1,1,1,1)&\text{四生成元 skew-polynomial 環}\\
+L(1,1,2)&\text{二次の反復 Ore 拡大}\\
+R(2,2)&\text{四次元 Sklyanin 代数}\\
+R(1,3)&\text{三次元 Sklyanin 代数の中心拡大}\\
+S(2,3)&\text{可換三変数環の微分 Ore 拡大}\\
+E(3)&\text{二次元 affine Lie 代数の CGG 量子化}
+\end{array}
+\]
+$R(1,3)$ の一般元の関数体の比較は、本書の残る課題に含める。
+
+三重積の八成分は次の四種類になる。
+\[
+\begin{array}{c|c|c|l}
+\text{成分}&\text{個数}&\text{次元}&\text{本書での比較}\\\hline
+\mathcal T&1&9&\text{三次元量子トーラス}\\
+\mathcal S_{ij}&3&9&\text{非可換 quadric と中央 }\PP^1\text{ の積}\\
+\mathcal L_i&3&10&\text{二つの交換パラメーターを持つ量子トーラス}\\
+\mathcal R&1&13&\text{中央 pencil を持つ Segre 環と楕円中心の共通圏}
+\end{array}
+\]
+$\mathcal R$ の斉次環は第\ref{sec:native-pencil}節、
+二つの収縮を持つ相対共通圏は第\ref{pcat:sec}節で構成する。
+両構成の導来同値と分数斜体の同定は追加の比較問題である。
+$X_{12}$ の九成分の具体的な関数体は第\ref{sec:p1p2-models}節で一覧にする。
+
+\subsection{証明した対応}
+
+次の表では非可換関数体の同型と、中心の拡大を伴う比較を明記する。
+\begin{center}
+\small
+\begin{tabular}{p{.28\textwidth}|p{.28\textwidth}|p{.34\textwidth}}
+一方の模型&他方の模型&得られる対応\\\hline
+三模型のトーラス型&同じ $q_{ij}$ を持つトーラス型&共通 Rees 模型、各段階の SOD、同じ分数体\\
+$X_3$ の一般の $L(1,1,2)$&$X_{12}$ の一般の line--conic 型&明示的な Ore 分数式による同型\\
+$X_{111}$ の一般の $\mathcal L_i$&一係数零のトーラス型&generalized Weyl 模型の分数体の同型\\
+$X_{12}$ の一般の垂直型&$X_{111}$ の一般の二因子型&相対共通圏、二つの SOD、同じ分数体\\
+$X_{111}$ の一般の最大 pencil 型&同じ楕円曲線を持つ二因子型&楕円中心の共通圏、二つの SOD、同じ斜体 $D(u)$\\
+$X_3$ の一般の $E(3)$&垂直型の三重直線退化&中央な一変数上の Weyl 分数体\\
+$X_{12}$ の一般の Riccati 型&$X_3$ の $S(2,3)$ 内の特殊族&微分 Ore 分数体の同型\\
+四次元 Sklyanin pencil&三次元 Sklyanin 曲面&中心部分体の有限拡大後の同型
+\end{tabular}
+\end{center}
+
+『一般』は、明記した代数的な非退化条件を満たす点を意味する。
+平行移動の無限位数や係数の $\mathbb Q$-線形独立性を用いる箇所では、
+その条件を追加して述べる。これらの条件を複素閉点の Zariski 開条件とは扱わない。
+
+\part{基礎、変形理論と量子化}
+
+\section{一般の射影空間の積における矩形 tilting 束と消滅}
+\label{sec:products-foundation}
+この節は以後の量子化の共通する可換幾何学的入力を、任意の有限積について証明する。
+この節単独では量子化を主張しないが、次節で代数的存在定理へ進む。
+\begin{proposition}\label{prop:products-tilting-rank}
+$X=\prod_{i=1}^r\mathbb P^{n_i}$ とし、$n_i\ge1$ とする。
+\[
+\mathcal E=\bigoplus_{0\le a_i\le n_i}
+\mathcal O_X(a_1,\ldots,a_r),\qquad A=\operatorname{End}_X(\mathcal E).
+\]
+このとき $\mathcal E$ は full strong tilting 束であり、
+\[
+\dim_{\mathbb C}A=\prod_{i=1}^r\binom{2n_i+2}{n_i}.
+\]
+また、全ての $p\ge0$ と $q>0$ について
+\[
+H^q(X,\wedge^pT_X)=0.
+\]
+従って HKR 同型の下で $HH^m(X)$ は次数 $m$ の大域 polyvector に一致する。
+\end{proposition}
+\begin{proof}
+各 $\mathbb P^{n_i}$ の Beilinson の full strong exceptional collection
+$\bigl(\mathcal O,\ldots,\mathcal O(n_i)\bigr)$ の外積は
+$\mathcal E$ の直和分解を与え、Kunneth の公式と生成性から full strong tilting となる。
+単一因子における自己準同型代数の次元は
+\[
+\sum_{0\le a\le b\le n}h^0(\mathbb P^n,\mathcal O(b-a))
+=\sum_{d=0}^n(n+1-d)\binom{n+d}{n}
+=\binom{2n+2}{n}.
+\]
+最後の等式は binomial coefficient の Pascal 恒等式を二度適用すれば従う。
+全積では Hom の Kunneth 公式によって次元が積になる。
+一方 $T_X=\bigoplus_i\mathrm{pr}_i^*T_{\mathbb P^{n_i}}$ より
+$\wedge^pT_X$ は外冪の外積の直和に分解する。
+$\wedge^jT_{\mathbb P^n}\simeq\Omega^{n-j}_{\mathbb P^n}(n+1)$ であり、
+Bott の消滅（または捻った Euler 複体）から高次コホモロジーは消える。
+再び Kunneth の公式を適用すればよい。HKR 分解の $q>0$ の項はすべて消える。
+\end{proof}
+\begin{remark}
+この命題は $X_{12}$ で $\dim A=60$、$X_{111}$ で $\dim A=64$ を与える。
+この入力から第\ref{thm:restored-product-quant}定理で、
+各 Poisson 方向に沿う代数的圏量子化を構成する。
+\end{remark}
+\input{restored_finite_products}
+\section{量子化の定式化と先行研究}
+
+基礎体を $\CC$ とする。点付き代数曲線 $(B,b_0)$ 上の非可換変形が
+$\pi\in H^0(X,\wedge^2T_X)$ を量子化するとは、古典的なファイバーを
+$X$ と同定したときの一次変形類が HKR 同型を通して $\pi$ になることをいう。
+斉次座標環 $R$ を変形する場合は、局所関数について
+\[
+ \left.\frac{\widetilde f\widetilde g-\widetilde g\widetilde f}{t}
+ \right|_{t=0}=\{f,g\}_{\pi}
+\]
+という通常の半古典極限で同じ条件を指定できる。
+ここで $t$ は $b_0$ で一次の零点を持つ局所パラメーターである。
+
+第\ref{sec:tilting-quantization}節の一般定理では、非可換多様体を
+有限次元代数の perfect dg 圏によって表す。
+古典的な点の近傍で、全ての Poisson 方向を含む有限型代数的な族が存在する。
+この族は選んだ tilting bundle と古典的ファイバーの標識を伴う。
+第\ref{sec:toric-quantization}節と第\ref{sec:surface-quantization}節では、
+次数ごとに平坦な connected graded algebra とその $\operatorname{qgr}$ を用いる。
+得られた範囲を次に記す。
+\[
+\begin{array}{c|c|l}
+\text{模型}&\text{Poisson 構造}&\text{代数的な構成}\\\hline
+\PP^1\times\PP^2, (\PP^1)^3&\text{全て}&
+     \text{tilting 代数の \'etale 局所変形}\\
+\PP^1\times\PP^2, (\PP^1)^3&\text{トーラス型の一般元}&
+     \text{Cox 環の双指標 twist}\\
+\PP^1\times\PP^2&V_{\mathrm{vert}}\text{ の全て}&
+     \text{quadratic AS-regular 曲面との積}\\
+(\PP^1)^3&\mathcal S_{ij}\text{ の全て}&
+     \text{非可換 quadric との積}\\
+(\PP^1)^3&\mathcal L_i\text{ の一般元}&
+     \text{同変 quadric と Ore 拡大}\\
+(\PP^1)^3&\mathcal R\text{ の一般元}&
+     \text{次数六楕円代数の二重中央拡大}
+\end{array}
+\]
+成分の分類と記号は本書の成分分類 による。
+一般存在定理は、これらの成分分類の網羅性を仮定しない。
+
+大域的量子化には Kontsevich \cite{KontsevichAlgebraic} と
+Van den Bergh \cite{VdBGlobal} の formality を用いる。
+tilting bundle による変形理論の記述は
+Barmeier--Wang \cite[\S3.2]{BW2024} に詳しい。
+本稿の一般存在証明は、この形式変形理論を有限次元の結合律の概型に移し、
+Artin 近似 \cite{StacksArtin} で有限型の基底に置き換えるものである。
+矩形の半順序を用いることで、全ファイバーの相対 smoothness と
+大域次元の上界を直接証明できる。
+
+明示的な構成は、量子トーリック多様体 \cite{CLS}、
+三次元 quadratic AS-regular 代数 \cite{MoriSmith}、
+Van den Bergh の非可換 quadric \cite{VdBQuadrics} に依存する。
+二因子型では cubic $\mathbb Z$-代数の二周期的な表示を用い、
+対数型ではその同変性を利用する。
+先行研究の一般理論と今回の具体化の関係は各証明中に明記した。
+この具体化の新規性および優先関係は未確定である。
+
+\input{quant_tilting_fragment}
+
+\input{quant_toric_fragment}
+
+\section{曲面の量子化から得られる斉次環}
+\label{sec:surface-quantization}
+\input{quant_elliptic_fragment}
+
+\section{反標準偏極による半形式的な射影量子化}
+\label{sec:anticanonical-quantization}
+
+全ての Poisson 構造について、偏極を伴う半形式的な射影量子化も存在する。
+$\PP^1\times\PP^2$ では $L=\mathcal O(2,3)=-K_X$、
+$(\PP^1)^3$ では $L=\mathcal O(1,1,1)$ を用いる。
+
+任意の Poisson 多様体の標準束 $K_X$ は標準的な平坦 Poisson 接続を持つ。
+局所体積形式 $\omega$ を選ぶと、Hamiltonian ベクトル場の発散が定める
+modular vector field $\operatorname{div}_{\omega}\pi$ を用いて書ける。
+局所体積形式の変更に伴う変換則は $K_X$ の遷移関数の対数微分と一致するので、
+$K_X^{\times}$ 上の $\mathbb G_m$-不変 Poisson 双ベクトルに貼り合わさる。
+双対を取ると $-K_X$ に同じ性質があり、直線束の $m$ 乗根が存在すれば、
+接続の局所係数を $m$ で割ることでその根にも同じ構造が入る。
+この構成の Poisson 加群としての定式化は
+Polishchuk \cite[\S1]{PolishchukQuant} を参照されたい。
+
+上の $L$ は ample であり、$H^1(X,\mathcal O_X)=H^2(X,\mathcal O_X)=0$ だから、
+Kontsevich \cite[\S3.1、構成2]{KontsevichAlgebraic} により
+十分大きい $n_0$ に対する切断環
+\[
+ \CC\oplus\bigoplus_{n\geq n_0}H^0(X,L^n)
+\]
+の次数ごとに自由な noetherian $\CC[[t]]$-代数変形が得られる。
+これは全ての $\pi$ に対する偏極付き半形式的量子化を与える。
+この節の基底は $\operatorname{Spec}\CC[[t]]$ である。
+第\ref{sec:tilting-quantization}節の有限型基底上の圏の族に、
+この偏極と全次数の切断環を同時に実現する構成は追加の課題である。
+
+\section{成分の局所幾何と残る課題}
+
+定理\ref{thm:algebraic-quantization-all}では、Jacobi 概型と
+非可換圏の半普遍底は古典的な点の共通 \'etale 近傍を持つ。
+従って本書 の三重積の分類から、標識付き半普遍底の原点における
+既約分枝は八つで、その次元は $13,10,10,10,9,9,9,9$ となる。
+元の成分は斉次錐なので、原点での完備化によって既約性が保たれる。
+この主張は半普遍変形底についてのものであり、
+自己同値をさらに同一視する大域モジュライを定めるにはその作用を指定する。
+
+$\PP^1\times\PP^2$ についても本書 の分類から、
+同様に九つの分枝と Riccati 分枝の生成点の長さ2が対応する。
+その分類の網羅性と生成点の長さの証明は本書に収めている。
+本稿の量子化の存在と完備局所環の同型は、この数値的帰結と独立に証明した。
+
+三重積の八成分の一般元について、元の Segre 偏極を持つ
+平坦斉次量子化が得られた。最大 pencil の証明は本書
+本書 の「最大 pencil 成分の Segre 射影量子化」にある。
+別の節では楕円中心の相対共通圏と二つの SOD も構成した。
+この特定の斉次環と圏の導来同値、$\PP^1\times\PP^2$ の残る成分の
+具体的な関係式、および全成分での偏極付き双有理比較を引き続き調べる。
+
+\texttt{check\_tilting.py} は有限次元代数の corner の次元、
+Hilbert 行列の逆行列、鎖の長さと Hochschild cochain の次元を整数演算で確認する。
+\texttt{check\_quantization.py} は明示的な族の半古典極限と
+四重テンソルの二周期性を確認する。
+formality、Artin 近似、および AS 正則性の分類定理は、上記の文献に依存する。
+
+
+\part{Poisson 概型の既約成分}
+\input{classification_p1p2}
+\input{classification_cube}
+
+\part{可換模型の Poisson 双有理幾何}
+\input{birational_factorizations}
+
+\part{非可換射影模型と関数斜体}
+\input{nc_field_fragment}
+\input{nc_p1p2_fragment}
+\input{nc_riccati_p3_fragment}
+\input{nc_cube_log_fragment}
+\input{nc_surface_fragment}
+\input{nc_p3_fragment}
+
+\part{楕円型の共通圏と反標準環}
+\input{nc_relative_blowup}
+\input{nc_relative_generic}
+\input{nc_anticanonical_ring}
+
+\part{中央 pencil、射影量子化と共通模型}
+\input{nc_pencil_projective}
+\input{nc_pencil_common}
+
+\section{中央な正則列の Rees 環と楕円中心の blow-up}
+\label{sec:central-rees}
+ここでは前節の中央 pencil から生じる blow-up を、導来圏の主張とは独立に代数的に定式化する。
+\begin{proposition}\label{prop:rees-central-regular}
+$A$ を結合的な $k$-代数、$s,t\in Z(A)$ を中央元の正則列とする。
+すなわち $s$ は $A$ の左右非零因子で、$t$ は $A/sA$ の左右非零因子である。
+$I=(s,t)A$ とし、$U,V$ を次数 $1$ の中央不定元とする。このとき自然な準同型
+\[
+ A[U,V]/(tU-sV)\longrightarrow\mathcal R_A(I)
+ =\bigoplus_{n\ge0} I^n z^n\subset A[z],
+ \qquad U\mapsto sz,\quad V\mapsto tz
+\]
+は Rees 次数付き代数の同型である。
+\end{proposition}
+\begin{proof}
+各 $I^n$ は $s^it^{n-i}$（$0\le i\le n$）で生成されるので全射である。
+単項式間の関係 $tU=sV$ は零へ写る。
+逆に、次数 $n$ の核の元を $F=\sum_{i=0}^{n}a_iU^iV^{n-i}$ と書く。
+$\sum_i a_is^it^{n-i}=0$ を $sA$ で割ると、
+$\bar a_0\bar t^n=0$ が $A/sA$ で成立する。
+$\bar t$ は非零因子なので $a_0=sb$ と書ける。
+$tU-sV$ の $-bV^{n-1}$ 倍を加減して定数項を消すと、
+新しい $F$ は $U$ で割れる。像も $0$ なので $s$ を消去し、
+次数 $n-1$ の同じ主張に帰着する。$n=0$ で核は零であるから帰納法が閉じる。
+\end{proof}
+\begin{remark}
+この命題は、中央元 $s,t$ の存在と正則性を前提として Rees 環を同定する。
+$\operatorname{Proj}$ の適切な非可換導来圏に Orlov 型の SOD が存在することは、
+この代数同型だけからは従わない。その主張には blow-up 圏、例外対象、
+導来完全忠実性、局所化との両立性の別個の検証を要する。
+また本命題から、二種類の pencil 量子化が導来同値であるとは結論できない。
+\end{remark}
+
+\input{restored_rees_gluing}
+\input{central_pencil_basechange}
+\part{非可換 blow-up、SOD と局所化}
+\input{nc_toric_blowup}
+\input{nc_blowups}
+\input{sod_function_fields}
+\input{restored_anticanonical_criterion}
+\input{restored_literature_scope}
+
+\part{非可換有理性と双有理分類の展望}
+\input{nc_rationality}
+\input{toric_as_rational}
+\part{未解決問題と検証}
+\section{残る問題と検証可能性}
+
+本稿で得た非可換分数体の同型は、成分間の対応を作る具体的な選択を伴う。
+同じ Poisson 双有理同値を持つ任意の二つの量子化について、
+高次係数を含めた分数体の分類を決定する問題が残る。
+量子トーラスの係数群と Riccati の微分 Ore 型の障害は、
+この分類のための直接計算できる不変量となる。
+
+共通圏の二つの収縮と射影環の再構成は
+第\ref{sec:relative-common-blowup}節で古典点を含む族として得られた。
+第\ref{sec:anticanonical-common-ring}節では反標準切断環を計算し、
+平面の二点 blow-up の相対部分環として同定した。
+可換二点 blow-up では、二点が相異なると反標準類は ample、
+infinitely-near では $(-2)$ 曲線の収縮で ample でなくなる。
+両者の反標準 Hilbert 関数は一致するため、数値情報だけでは復元できない。
+さらに、この section functor から共通圏全体を復元するには、
+coherent heart、構造対象、ample 性または既知の derived comparison を照合する。
+特定の quadric 側の反標準表示との比較にも、点と周期性の標識を保持する必要がある。
+さらに次の三つを調べる。
+第一に、Sklyanin pencil の有限中心拡大後の同型を
+$\mathbb C(u)$ 上へ下降する条件を求める。
+二つの ruling と点・直線束の descent datum を保持して計算する。
+第二に、第\ref{sec:native-pencil}節の Segre 斉次環と
+第\ref{pcat:sec}節の三重積の圏量子化を比較する。
+斉次環側の八対象の Hom と合成を、命題\ref{pcat:kernel-bimodule}の
+階数32の cross bimodule に照合し、導来同値と generic localization を同時に固定する。
+この比較は、元の偏極と中心を指定した非可換 contraction を与えるための次の段階である。
+第三に、$R(1,3)$ と一般の $S(2,3)$ の関数体を調べ、
+Riccati 型の $S(2,3)$ 内への対応の像とファイバーを決定する。
+微分 Ore 型については導分の有理第一積分、定数体、および微分体同型が主要なデータになる。
+
+本稿の主要な式は添付コードで再現できる。
+\texttt{check\_nc\_p1p2.py} は九成分の正規形の有理変換、
+\texttt{check\_p3\_nc.py} は CGG 積と Weyl 変換、
+\texttt{check\_nc\_links.py} は分数線形変換、GWA の半古典式、
+量子トーラスの単項式変換を検算する。
+\texttt{check\_riccati\_p3.py} は根の正規化、斉次化および normal なチャートを検算する。
+\texttt{check\_relative\_blowup.py} は共通圏の二つの例外集の Euler 行列、
+反標準関手の $K_0$ 作用と Hilbert 多項式を照合し、
+\texttt{check\_toric\_blowup.py} は双指標の合成則と Rees チャートを検算する。
+\texttt{check\_pencil\_quantization.py} は Segre の二次関係式、
+楕円完全交叉の有限次数の Koszul 階数、ruling の根格子と
+共通圏の有限階数を照合する。
+これらの有限検算と、本文の生成性・局所化・全次数の平坦性の証明を併用する。
+全成分の網羅性、AS 正則性、曲面双有理定理の依存関係と証明箇所は
+本文および同梱の研究方針に示した。
+
+
+\begin{thebibliography}{99}
+\bibitem{ArtinZhang1994} M. Artin and J. J. Zhang,
+Noncommutative projective schemes, Adv. Math. 109 (1994), 228--287.
+\url{https://doi.org/10.1006/aima.1994.1087}.
+\bibitem{KeelerNCRings} D. S. Keeler,
+The rings of noncommutative projective geometry,
+arXiv:math/0205005 (2002), Theorem 2.3.
+\url{https://arxiv.org/abs/math/0205005}.
+\bibitem{MoriUeyamaWu2026} I. Mori, K. Ueyama and W. Wu,
+Irreducible noncommutative quadrics, arXiv:2606.24606 (2026),
+Theorems 1.3 and 5.17.
+\url{https://arxiv.org/abs/2606.24606}.
+\bibitem{DeDeyn2026} T. De Deyn,
+A stacky resolution of singularities for orders by Azumaya algebras,
+arXiv:2606.05137v2 (2026), Theorem 1.1.
+\url{https://arxiv.org/abs/2606.05137}.
+
+
+\bibitem{Pym2015} B. Pym,
+Quantum deformations of projective three-space,
+Adv. Math. 281 (2015), 1216--1241.
+\href{https://doi.org/10.1016/j.aim.2015.06.005}{doi:10.1016/j.aim.2015.06.005},
+\href{https://arxiv.org/abs/1403.6444}{arXiv:1403.6444}.
+\bibitem{PVdB2016} D. Presotto and M. Van den Bergh,
+Noncommutative versions of some classical birational transformations,
+J. Noncommut. Geom. 10 (2016), 221--244.
+\href{https://doi.org/10.4171/JNCG/232}{doi:10.4171/JNCG/232},
+\href{https://arxiv.org/abs/1410.5207}{arXiv:1410.5207}.
+\bibitem{Presotto2018} D. Presotto,
+Symmetric noncommutative birational transformations,
+J. Noncommut. Geom. 12 (2018), 733--778.
+\href{https://doi.org/10.4171/JNCG/290}{doi:10.4171/JNCG/290},
+\href{https://arxiv.org/abs/1607.08383}{arXiv:1607.08383}.
+本文の定理番号は出版版による。
+\bibitem{RSS2023} D. Rogalski, S. J. Sierra and J. T. Stafford,
+Ring-theoretic blowing down II: Birational transformations,
+J. Noncommut. Geom. 17 (2023), 1045--1097.
+\href{https://doi.org/10.4171/JNCG/510}{doi:10.4171/JNCG/510},
+\href{https://arxiv.org/abs/2107.01991}{arXiv:2107.01991}.
+本文の定理番号は出版版による。
+\bibitem{VdBQuadrics} M. Van den Bergh,
+Non-commutative quadrics, Int. Math. Res. Not. 2011 (17), 3983--4026.
+\href{https://doi.org/10.1093/imrn/rnq234}{doi:10.1093/imrn/rnq234},
+\href{https://arxiv.org/abs/0807.3753}{arXiv:0807.3753}.
+\bibitem{SmithVdB} S. P. Smith and M. Van den Bergh,
+Noncommutative quadric surfaces, J. Noncommut. Geom. 7 (2013), 817--856.
+\href{https://doi.org/10.4171/JNCG/136}{doi:10.4171/JNCG/136}.
+\bibitem{LiuWangWu} L.-Y. Liu, S.-Q. Wang and Q.-S. Wu,
+Twisted Calabi--Yau property of Ore extensions,
+J. Noncommut. Geom. 8 (2014), 587--609.
+\href{https://doi.org/10.4171/JNCG/165}{doi:10.4171/JNCG/165},
+\href{https://arxiv.org/abs/1205.0893}{arXiv:1205.0893}.
+\bibitem{GoodearlLaunois} K. R. Goodearl and S. Launois,
+The Dixmier--Moeglin equivalence and a Gel'fand--Kirillov problem for Poisson polynomial algebras,
+Bull. Soc. Math. France 139 (2011), 1--39.
+\href{https://doi.org/10.24033/bsmf.2598}{doi:10.24033/bsmf.2598}.
+\bibitem{GoodearlYakimov} K. R. Goodearl and M. T. Yakimov,
+Twist invariants of graded algebras, Contemp. Math. 715 (2018), 141--170.
+\href{https://arxiv.org/abs/1706.06957}{arXiv:1706.06957}.
+\bibitem{OrlovSing} D. Orlov,
+Derived categories of coherent sheaves and triangulated categories of singularities,
+\href{https://arxiv.org/abs/math/0503632}{arXiv:math/0503632v3}.
+定理2.5および命題2.17を用いる。
+\bibitem{BallardFarman} M. R. Ballard and B. A. Farman,
+Kernels for noncommutative projective schemes,
+\href{https://arxiv.org/abs/1709.06470v2}{arXiv:1709.06470v2}.
+本文の定理番号はこの版による。
+\bibitem{AKMW} D. Abramovich, K. Karu, K. Matsuki and J. W{\l}odarczyk,
+Torification and factorization of birational maps,
+J. Amer. Math. Soc. 15 (2002), 531--572.
+\href{https://doi.org/10.1090/S0894-0347-02-00396-X}{doi:10.1090/S0894-0347-02-00396-X},
+\href{https://arxiv.org/abs/math/9904135}{arXiv:math/9904135}.
+\bibitem{KuznetsovSODBaseChange} A. Kuznetsov,
+Base change for semiorthogonal decompositions,
+Compos. Math. 147 (2011), 852--876.
+\url{https://doi.org/10.1112/S0010437X10005166}.
+\bibitem{OrlovBlowup} D. O. Orlov,
+Projective bundles, monoidal transformations, and derived categories of coherent sheaves,
+Russian Acad. Sci. Izv. Math. 41 (1993), 133--141.
+\href{https://doi.org/10.1070/IM1993v041n01ABEH002182}{doi:10.1070/IM1993v041n01ABEH002182}.
+\bibitem{NeemanRanicki} A. Neeman and A. Ranicki,
+Noncommutative localisation in algebraic K-theory I,
+Geom. Topol. 8 (2004), 1385--1425.
+\href{https://doi.org/10.2140/gt.2004.8.1385}{doi:10.2140/gt.2004.8.1385},
+\href{https://arxiv.org/abs/math/0410620}{arXiv:math/0410620}.
+\input{classification_p1p2_bib}
+\input{classification_cube_bib}
+\input{nc_blowups_bib}
+\bibitem{PencilRainsFiltered} E. M. Rains,
+Filtered deformations of elliptic algebras,
+arXiv:2107.13540v2 (2022).
+\url{https://arxiv.org/abs/2107.13540}.
+\bibitem{PencilRainsBirational} E. M. Rains,
+The birational geometry of noncommutative surfaces,
+arXiv:1907.11301 (2019).
+\url{https://arxiv.org/abs/1907.11301}.
+\bibitem{PencilOrlovGluing} D. Orlov,
+Smooth and proper noncommutative schemes and gluing of DG categories,
+Adv. Math. 302 (2016), 59--105.
+\url{https://doi.org/10.1016/j.aim.2016.07.014}.
+\url{https://arxiv.org/abs/1402.7364v5}.
+\bibitem{ACAnnoLogvinenko} R. Anno and T. Logvinenko,
+Spherical DG-functors,
+J. Eur. Math. Soc. 19 (2017), 2577--2656.
+\url{https://doi.org/10.4171/JEMS/724}.
+\url{https://arxiv.org/abs/1309.5035v2}.
+\bibitem{ACKeelerAmple} D. S. Keeler,
+Ample filters of invertible sheaves,
+J. Algebra 259 (2003), no.~1, 243--283.
+Corrigendum, J. Algebra 507 (2018), 592--598.
+訂正を含む arXiv:math/0108068v5 を用いる。
+\url{https://doi.org/10.1016/S0021-8693(02)00557-4}.
+\url{https://arxiv.org/abs/math/0108068v5}.
+\bibitem{ACBocklandt} R. Bocklandt,
+Graded Calabi Yau algebras of dimension 3,
+J. Pure Appl. Algebra 212 (2008), 14--32.
+\url{https://doi.org/10.1016/j.jpaa.2007.03.009}.
+\url{https://arxiv.org/abs/math/0603558}.
+
+\bibitem{VdBGlobal} M. Van den Bergh,
+On global deformation quantization in the algebraic case,
+J. Algebra 315 (2007), 326--395.
+\href{https://arxiv.org/abs/math/0603200}{arXiv:math/0603200}.
+\bibitem{BW2024} S. Barmeier and Z. Wang,
+Deformations of categories of coherent sheaves via quivers with relations,
+Algebraic Geometry 11 (2024), 1--36.
+\href{https://doi.org/10.14231/AG-2024-001}{doi:10.14231/AG-2024-001},
+\href{https://arxiv.org/abs/2107.07490}{arXiv:2107.07490}.
+\bibitem{Schlessinger} M. Schlessinger,
+Functors of Artin rings, Trans. Amer. Math. Soc. 130 (1968), 208--222.
+\href{https://doi.org/10.2307/1994967}{doi:10.2307/1994967}.
+\bibitem{StacksArtin} The Stacks Project Authors,
+\'Etale neighbourhoods and Artin approximation, Lemmas 37.39.1--37.39.2.
+\href{https://stacks.math.columbia.edu/tag/0CAT}{Tag 0CAT}.
+\bibitem{CLS} L. Cirio, G. Landi and R. J. Szabo,
+Algebraic deformations of toric varieties I. General constructions,
+Adv. Math. 246 (2013), 33--88.
+\href{https://arxiv.org/abs/1001.1242}{arXiv:1001.1242}.
+\bibitem{MoriSmith} I. Mori and S. P. Smith,
+The classification of 3-Calabi--Yau algebras with 3 generators and 3 quadratic relations,
+Math. Z. 287 (2017), 215--241.
+\href{https://doi.org/10.1007/s00209-016-1824-5}{doi:10.1007/s00209-016-1824-5},
+\href{https://arxiv.org/abs/1502.07403}{arXiv:1502.07403}.
+\bibitem{OkawaUedaQuadrics} S. Okawa and K. Ueda,
+Noncommutative quadric surfaces and noncommutative conifolds.
+\href{https://arxiv.org/abs/1403.0713}{arXiv:1403.0713}.
+\bibitem{KontsevichAlgebraic} M. Kontsevich,
+Deformation quantization of algebraic varieties,
+Lett. Math. Phys. 56 (2001), 271--294.
+\href{https://arxiv.org/abs/math/0106006}{arXiv:math/0106006}.
+\bibitem{PolishchukQuant} A. Polishchuk, Algebraic geometry of Poisson brackets,
+J. Math. Sci. 84 (1997), 1413--1444.
+\href{https://pages.uoregon.edu/apolish/alg-geom-poisson.pdf}{著者公開PDF}.
+
+\bibitem{StaffordVanDenBergh2001} J. T. Stafford and M. Van den Bergh,
+Noncommutative curves and noncommutative surfaces,
+Bull. Amer. Math. Soc. 38 (2001), 171--216.
+\url{https://arxiv.org/abs/math/9910082}.
+\bibitem{RogalskiSierraStafford2020} D. Rogalski, S. J. Sierra and J. T. Stafford,
+Some noncommutative minimal surfaces,
+Adv. Math. 369 (2020), 107151.
+\url{https://doi.org/10.1016/j.aim.2020.107151}.
+\end{thebibliography}
+\end{document}

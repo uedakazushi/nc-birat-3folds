@@ -1,0 +1,525 @@
+\section{最大 pencil 成分の Segre 射影量子化}
+\label{sec:native-pencil}
+
+三重積の最大成分 $\mathcal R$ の一般元に対し、
+元の $\mathcal O(1,1,1)$ 偏極を持つ斉次環の代数的量子化を構成する。
+Rains \cite[命題5.1、第6節]{PencilRainsFiltered} による
+楕円代数の filtered deformation の族を用い、元の pencil に対応する
+相対的な直線と、全次数の平坦性を具体的に記述する。
+filtered deformation の直線から非可換 Fano 三次元多様体を作る方針は
+同論文 p.14 に既に記されている。
+本節で必要な曲面論は \cite{PencilRainsBirational} を基盤とする。
+
+本節の $B^{-}(E,L,\tau)$ は Rains の規約に合わせ、
+$L_n=L\otimes(\tau^{-1})^*L\otimes\cdots\otimes(\tau^{1-n})^*L$ と
+積 $f*g=f(\tau^{-m})^*g$ を用いる。
+本稿の他節の規約では $B^{-}(E,L,\tau)=B(E,L,\tau^{-1})$ である。
+
+\subsection{次数六の filtered deformation の相対 ruling}
+\label{pencil:subsec:ruling}
+
+楕円曲線の Picard 群はこの小節では加法的に書く。
+滑らかな楕円曲線 $E$ と $L_E\in\operatorname{Pic}^6(E)$ を固定する。
+量子化を表す平行移動を $\eta\in\operatorname{Pic}^0(E)$ と書き、
+Rains \cite[\S6]{PencilRainsFiltered} の次数六のパラメーターを
+\[
+ h\in\operatorname{Pic}^3(E),\qquad
+ x_0,x_1,x_2\in\operatorname{Pic}^1(E)
+\]
+とする。これらはそれぞれ $\phi[\mathcal O_H(-1)]$ と
+$\phi[\mathcal O_{e_i}(-1)]$ の行列式である。
+例えば前者の楕円曲線への導来制限は交点に支持された長さ三の類であり、
+その行列式の次数は三である。
+$\phi[\mathcal O_X]=[\mathcal O_E]$ を指定した場合、
+同論文の式(6.4)は
+\begin{equation}\label{pencil:eq:period-torsor}
+ 3h-x_0-x_1-x_2=\ell_\eta,
+ \qquad \ell_\eta=L_E-6\eta
+\end{equation}
+となる。この三次元の torsor を $T_\eta$ と書く。
+
+\begin{lemma}\label{pencil:lem:relative-ruling}
+Rains の次数六の族は、$T_\eta/W(A_2A_1)$ から
+$B^{-}(E,L_E,\tau_\eta)$ の filtered deformation のモジュライへの代数的な射を与える。
+$\eta$ を $0$ を含む滑らかな代数曲線 $U$ 上で動かすと、この商は
+\[
+ \bigl(T_0/W(A_2A_1)\bigr)\times U
+ \simeq\mathbb P^1\times\mathbb P^2\times U
+\]
+と自明化できる。三つの $y_i$ が相異なる $\mathbb P^2$ の点を固定して得る
+相対 $\mathbb P^1_U$ 上では、filtered deformation の自然な直線束の引戻しは
+\[
+ \mathcal O_{\mathbb P^1_U}(1)\otimes p_U^*N
+\]
+の形である。ここで $N$ は $U$ 上の直線束であり、$0$ の近傍で自明化できる。
+\end{lemma}
+
+\begin{proof}
+使用する Rains の結果を指定する。
+同論文の第4節では、rank と degree を保つ写像
+$K_0(X)\to K_0(E)$ から、標識した楕円非可換曲面を構成する。
+構造層に命題5.1を適用すると、反標準環とその filtered deformation を得る。
+第6節の式(6.1)--(6.8)は、$L_E$ と平行移動を固定したこの族を
+式\eqref{pencil:eq:period-torsor}で表示する。
+同節の式(6.8)の後の Weyl 群に関する議論により、
+filtered deformation への射は有限 Weyl 群による商に降りる。
+ここで用いるのは構成された族からの射である。
+すべての filtered deformation をこの族が尽くすという予想は用いない。
+
+これらの構成は、Poincar\'e 直線束と楕円曲線上の点の universal family を用いて
+代数的な族の上で実行される。
+必要な正次数の Hom の消失と基底変換は、命題5.1の完全系列(5.5)から従う。
+Weyl 群による不変性は、同節で説明される通り、根が収縮されない稠密部分での
+同型を有限表示の係数の恒等式として延長することで得られる。
+従って $\eta=0$ を含めて同じ射が定義される。
+
+商と相対自明化を直接計算する。
+$y_i=x_i-h\in\operatorname{Pic}^{-2}(E)$ とおけば
+\[
+ y_0+y_1+y_2=-\ell_\eta.
+\]
+$A_2$ の Weyl 群は三つの $y_i$ を置換する。
+$A_1$ の Cremona 反射は
+\[
+ h\longmapsto2h-x_0-x_1-x_2=\ell_\eta-h,
+ \qquad x_i\longmapsto h-x_j-x_k
+\]
+であり、三つの $y_i$ は固定する。
+従って商は
+\[
+ \left(\operatorname{Pic}^3(E)/(h\sim\ell_\eta-h)\right)
+ \times
+ \left(\{(y_0,y_1,y_2)\mid\textstyle\sum_i y_i=-\ell_\eta\}/\mathfrak S_3\right)
+\]
+となる。第一因子は楕円曲線の二重商 $\mathbb P^1$、
+第二因子は対称三乗の Abel 写像のファイバー $\mathbb P^2$ である。
+さらに
+\begin{equation}\label{pencil:eq:relative-period-trivialization}
+ h=h^{(0)}-3\eta,\qquad
+ x_i=x_i^{(0)}-\eta,\qquad
+ y_i=y_i^{(0)}+2\eta
+\end{equation}
+は $T_0\times U\to T_U$ の同型であり、上の Weyl 作用と可換である。
+これが必要な相対自明化を与える。
+
+最後に直線束を確認する。
+Rains の命題6.1では、$\phi[\mathcal O_X]=[\mathcal O_E]$ のとき、
+自然な直線束の引戻しの偏極は
+\[
+ -\frac{h^2}{2}+\frac{x_0^2+x_1^2+x_2^2}{2}
+ =h^2-\ell_\eta h+\frac{y_0^2+y_1^2+y_2^2}{2}
+\]
+である。式(6.13)ではこの直線束が商上の $\mathcal O(1,1)$ に対応する。
+この下降は直線束そのものについて確認できる。
+必要なら基底を \'etale 局所化して
+$2h_* =\ell_\eta$、$3y_*=-\ell_\eta$ を選び、
+$h=h_*+a$、$y_i=y_*+b_i$、$\sum_i b_i=0$ と書く。
+命題6.1の直線束は、基底からの直線束を除いて、
+\[
+ \mathcal O_E(2[0])\boxtimes
+ \left.\left(\bigotimes_{i=0}^2\operatorname{pr}_i^*
+                \mathcal O_E([0])\right)\right|_{\sum b_i=0}
+\]
+となる。第一因子は $a\mapsto\{a,-a\}$ による
+$\mathcal O_{\mathbb P^1}(1)$ の引戻しである。
+第二因子は対称因子 $b_0+b_1+b_2\in|3[0]|$ による
+$\mathcal O_{\mathbb P^2}(1)$ の引戻しである。
+後者では $0$ を含む因子の超平面が、$b_i=0$ で定まる
+三つの theta divisor の和に引き戻される。
+従ってこの計算は偏極の数値類に加え、商上の直線束の表示を与える。
+係数族の線形化についても下降を確認できる。
+固定した相異なる $y_i$ の順序を選ぶと、残る商は
+$h\mapsto\ell_\eta-h$ だけである。
+式\eqref{pencil:eq:relative-period-trivialization}でこの反転と四つの固定点は一定になり、
+古典点での安定化群は pencil の $\mathcal O(1)$ の引戻し上自明に作用する。
+その文字は $\{\pm1\}$ 値で局所一定なので、相対族でも自明であり、
+有限群商の直線束の下降条件を満たす。
+固定した $\mathbb P^2$ の点上で見ると、$h$ の楕円曲線上での次数は二であり、
+次数二の商写像により $\mathbb P^1$ 上の次数は一となる。
+相対的には $\operatorname{Pic}(\mathbb P^1_U)
+\simeq\operatorname{Pic}(U)\oplus\mathbb Z[\mathcal O(1)]$ から所望の表示を得る。
+\end{proof}
+
+\begin{lemma}\label{pencil:lem:classical-ruling}
+$X=(\mathbb P^1)^3$ の一般の $(1,1,1)$ pencil の基底曲線を $E$ とし、
+三つの因子の次数二の直線束の制限を $L_x,L_y,L_z$ とする。
+その pencil の次数六 del Pezzo 曲面の族は、
+補題\ref{pencil:lem:relative-ruling}の $\eta=0$ において、
+第二因子の点
+\[
+ \{-L_x,-L_y,-L_z\}\in\mathbb P^2
+\]
+を固定した $\mathbb P^1$ ruling に対応する。
+ここでは $L_E=L_x+L_y+L_z$ とする。
+\end{lemma}
+
+\begin{proof}
+$s=xa+b$、$t=xc+d$ と書く。
+$E$ 上の階数一の行列
+$\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$ は
+\[
+ \mathcal O_E^{\oplus2}\longrightarrow L_x
+ \longrightarrow(L_y\otimes L_z)^{\oplus2}
+\]
+と因子化する。従って $u=t/s$ に対応する射 $E\to\mathbb P^1$ の直線束は
+$M=L_y+L_z-L_x$ である。
+一般の $u$ に対応する次数六の葉は
+$Y_u=\operatorname{Bl}_{p,q}(\mathbb P^1_y\times\mathbb P^1_z)$ と書け、
+$p+q\in|M|$ である。
+$F_1,F_2$ を二つの ruling、$E_p,E_q$ を例外曲線とする。
+平面への blowdown に対応する基底を
+\[
+ H=F_1+F_2-E_p,\quad e_0=F_1-E_p,\quad
+ e_1=F_2-E_p,\quad e_2=E_q
+\]
+と取る。このとき $H-e_0-e_1-e_2=E_p-E_q$ であり、
+\[
+ h=L_y+L_z-p,\quad x_0=L_y-p,\quad
+ x_1=L_z-p,\quad x_2=q.
+\]
+従って
+\[
+ (y_0,y_1,y_2)=(-L_z,-L_y,p+q-L_y-L_z)
+ =(-L_z,-L_y,-L_x)
+\]
+となり、第二因子は一定である。
+$p\mapsto L_y+L_z-p$ は $E\to\operatorname{Pic}^3(E)$ の同型で、
+$p\leftrightarrow q$ を $h\leftrightarrow L_E-h$ に移す。
+従って $|M|$ と第一因子 $\mathbb P^1$ の間の写像は同型である。
+一般の $u$ で得た射の同定は、両辺の代数的な射の同一性により pencil 全体へ延びる。
+分岐点 $p=q$ では、標識した滑らかな曲面は infinitely-near blow-up となり、
+$E_p-E_q$ の $(-2)$-曲線を反標準環が収縮する。
+従ってこの延長は、元の pencil の特異な次数六のメンバーとも整合する。
+\end{proof}
+
+\subsection{filtered deformation の直線からの二重中央拡大}
+\label{pencil:subsec:central-extension}
+
+以下の構成では、通常の斉次環を得る際の全次数の平坦性を一度に確認する。
+整域 $R$ 上の次数付き代数 $B=\bigoplus_{j\geq0}B_j$ を取り、
+$B_0=R$、各 $B_j$ は有限射影的とする。
+有限射影的な $V=B_1$ と $P\subset V\otimes_RV$ によって
+$B=T_R(V)/(P)$ と表示されると仮定する。
+$S=R[s,t]$ とし、$s,t$ を中央元として
+\begin{equation}\label{pencil:eq:two-parameter-presentation}
+ A=
+ T_R(V)[s,t]\big/
+ \bigl(r-\ell(r)-q(r)\mid r\in P\bigr)
+\end{equation}
+を定める。ここで
+\[
+ \ell:P\longrightarrow V\otimes_R S_1,
+ \qquad q:P\longrightarrow S_2
+\]
+は $R$-線形であり、$V,s,t$ はすべて全次数 $1$ とする。
+
+\begin{lemma}\label{pencil:lem:double-pbw}
+式\eqref{pencil:eq:two-parameter-presentation}に $V$-次数によるフィルトレーション
+$F$ を入れる。このフィルトレーションでは $s,t$ の次数を $0$ とする。
+$K=\operatorname{Frac}(S)$ 上で
+\[
+ \operatorname{gr}_F(A\otimes_SK)\simeq B\otimes_RK
+\]
+が成り立つと仮定する。このとき
+\[
+ \operatorname{gr}_F A\simeq B\otimes_RS,
+ \qquad
+ A\simeq\bigoplus_{j\geq0} B_j\otimes_RS
+ \quad\text{（$S$-加群として）}
+\]
+となる。後の同型では $B_j$ の元に全次数 $j$ を与える。
+特に各 $A_n$ は有限射影的な $R$-加群であり、
+\begin{equation}\label{pencil:eq:central-hilbert}
+ \operatorname{rank}_R A_n
+ =\sum_{j=0}^n(n-j+1)\operatorname{rank}_R B_j.
+\end{equation}
+$s,t$ は中央正則列であり、$A/(s,t)\simeq B$ である。
+これらの結論は任意の $R$-代数への基底変換と両立する。
+\end{lemma}
+
+\begin{proof}
+各 $j$ について、有限射影性を用いて全射
+$V^{\otimes j}\to B_j$ の $R$-線形切断を選ぶ。
+その像を使うと $S$-線形写像
+\[
+ N:=\bigoplus_{j\geq0}B_j\otimes_RS\longrightarrow A
+\]
+を得る。この写像は全射である。実際、$V$-次数 $j$ の語は
+$B_j$ の選んだ持上げと、$P$ の関係式を含む語の和に書ける。
+後者で $r$ を $\ell(r)+q(r)$ に置き換えると $V$-次数が下がるので、
+次数に関する帰納法を適用できる。
+体 $K$ 上では仮定によりこの写像は同型である。
+$N$ は整域 $S$ 上捩れを持たないので、その核も捩れを持たない。
+核の $K$ へのテンソル積が零であることから核自身が零となる。
+同じ帰納法はフィルトレーションを保つので、associated graded の同型も従う。
+
+全次数 $n$ の部分を取ると、$A_n$ は
+$\bigoplus_{j=0}^n B_j\otimes_R S_{n-j}$ と同型になり、
+式\eqref{pencil:eq:central-hilbert}を得る。
+$S$-加群としての表示から $s$ が単射的に作用し、
+$A/sA\simeq\bigoplus_j B_j\otimes_RR[t]$ では $t$ が単射的に作用する。
+$s=t=0$ と置くと元の二次関係式を得る。
+選んだ切断を含む $S$-加群の同型をテンソルすることで、基底変換との両立性も分かる。
+\end{proof}
+
+この補題の generic な仮定は、filtered deformation のモジュライへの射から得られる。
+Rains \cite[命題2.2--2.3、定理2.12]{PencilRainsFiltered} の規約では、
+次数 $1$ の生成元に対する関係式の一次の補正係数の重みは $1$、
+定数の補正係数の重みは $2$ である。
+負次数の導分が存在しなければ、生成元の平行移動に関する線形補空間を選び、
+filtered deformation を一意な正規形で表せる。
+従って自然な直線束を $\mathcal O(1)$ と書いたとき、
+モジュライへの射
+\[
+ \iota:\mathbb P^1_R\longrightarrow\mathfrak M_B,
+ \qquad \iota^*\mathcal O(1)\simeq\mathcal O_{\mathbb P^1_R}(1)
+\]
+から、補正係数を二変数の同次形式として読める。
+その全次数がそれぞれ $1,2$ であることが、
+式\eqref{pencil:eq:two-parameter-presentation}の $\ell,q$ を与える。
+基底から来る直線束の因子がある場合は、基底の近傍で自明化して同じ構成を行う。
+
+相対的な正規形については、$V,P$ を基底の近傍で自由にし、
+生成元の定数移動が一次補正に与える線形写像
+\[
+ V^*\longrightarrow\operatorname{Hom}_R(P,V)
+\]
+の補空間を選べばよい。古典点での単射性は
+\cite[系2.5]{PencilRainsFiltered} による。
+これは有限行列の階数条件であるため、一度の基底縮小で補空間を選べる。
+各次数について個別の開集合を取り直す操作は必要ない。
+
+\begin{proposition}\label{pencil:prop:degree-six-central-extension}
+$E$ を滑らかな楕円曲線、$L_E$ を次数 $6$ の直線束とする。
+滑らかな点付き代数曲線 $(U,0)$ 上で、$\tau_0=\mathrm{id}_E$ を満たす
+平行移動 $\tau$ の族を取り、
+$B_U=B^{-}(E,L_E,\tau)$ を相対 twisted homogeneous coordinate ring とする。
+その filtered deformation のモジュライに、上記の自然な直線束を
+$\mathcal O(1)$ に引き戻す相対 $\mathbb P^1$ の族が与えられていると仮定する。
+すると基底の近傍で、通常の斉次代数 $A_U$ を構成でき、次を満たす。
+\begin{enumerate}
+ \item $A_U$ は次数 $1$ の八生成元と三十七個の二次関係式を持つ。
+ \item 二つの中央元 $s,t\in(A_U)_1$ が正則列となり、
+ $A_U/(s,t)\simeq B_U$ である。
+ \item 全次数 $n\geq0$ について $(A_U)_n$ は局所自由であり、
+ \[
+ \operatorname{rank}(A_U)_n=(n+1)^3,
+ \qquad
+ H_{A_U}(z)=\frac{1+4z+z^2}{(1-z)^4}.
+ \]
+ \item 各幾何学的ファイバーは noetherian な domain であり、Koszul である。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$B_U$ の各正次数成分は次数 $6n$ の楕円曲線上の直線束の大域切断であり、
+その階数は $6n$ である。次数 $0$ の階数は $1$ である。
+Rains \cite[定理3.19]{PencilRainsFiltered} により、
+次数 $6$ の twisted homogeneous coordinate ring は二次 Koszul 代数である。
+従って $V$ の階数は $6$、二次関係式の階数は $6^2-12=24$ となる。
+与えられた射から上の $\ell,q$ を取り、
+補題\ref{pencil:lem:double-pbw}を適用する。
+二十四個の変形された関係式に加え、
+$[s,x_i]=[t,x_i]=0$（$1\leq i\leq6$）と $[s,t]=0$ を入れるため、
+二次関係式の総数は $24+12+1=37$ である。
+Hilbert 級数は
+\[
+ H_{B_U}(z)=1+\sum_{n\geq1}6nz^n
+ =\frac{1+4z+z^2}{(1-z)^2},
+ \qquad
+ H_{A_U}(z)=\frac{H_{B_U}(z)}{(1-z)^2}
+\]
+から計算できる。
+
+任意の幾何学的ファイバーで、$F$ に関する associated graded は
+$B^{-}(E,L_E,\tau)[s,t]$ である。
+楕円曲線の twisted homogeneous coordinate ring は noetherian な domain であり、
+その多項式拡大も同じ性質を持つ。
+非負のフィルトレーションについての先頭項の議論から $A$ も domain となり、
+associated graded から有限個の生成元を持ち上げる標準的な議論で
+左右 noetherian 性が従う。
+また $B[s,t]$ は全次数に関して Koszul である。
+bar 複体に $F$ を入れた spectral sequence は、各全次数で有限の
+フィルトレーションを持つ。associated graded の Tor が対角上に集中するので、
+$\operatorname{Tor}^{A}_i(k,k)_j=0$（$i\ne j$）を得る。
+\end{proof}
+
+\subsection{中央 pencil による一次 Poisson 構造の同定}
+\label{pencil:subsec:semiclassical}
+
+$X=(\mathbb P^1)^3$、$L=\mathcal O_X(1,1,1)$ とする。
+一般の $s,t\in H^0(X,L)$ に対し、$\pi_{s,t}$ は
+$-K_X\simeq L^2$ と
+$\bigwedge^2T_X\simeq\Omega_X^1\otimes L^2$ を用いて
+$s\,dt-t\,ds$ に対応する双ベクトルとする。
+
+\begin{lemma}\label{pencil:lem:central-pencil-poisson}
+$s\,dt-t\,ds$ が余次元一の零点を持たないと仮定する。
+正則双ベクトル $\rho\in H^0(X,\bigwedge^2T_X)$ が
+$u=t/s$ を Casimir とするとき、ある $\lambda\in\mathbb C$ に対し
+$\rho=\lambda\pi_{s,t}$ となる。
+\end{lemma}
+
+\begin{proof}
+関数体上で $du\ne0$ であり、三次元の接空間において
+$\rho^\sharp(du)=0$ を満たす双ベクトルの空間は一次元である。
+従って $\rho=f\pi_{s,t}$、$f\in\mathbb C(X)$ と書ける。
+$\pi_{s,t}$ が余次元一で消えないことから、$\rho$ の正則性は
+$f$ がどの素因子上でも極を持たないことを意味する。
+$X$ は正規で固有だから $f$ は定数である。
+\end{proof}
+
+一般の pencil はこの仮定を満たす。
+例えば $s=xa+b$、$t=xc+d$ と書き、
+$D=bc-ad$ が滑らかな $(2,2)$ 曲線を定める一般の場合を考える。
+接束の直和分解に対応する一形式の第一成分は
+$D\in H^0(X,\mathcal O(0,2,2))$ である。
+したがって余次元一の共通零点があれば、その素因子は $D=0$ である。
+第二成分は $H^0(X,\mathcal O(2,0,2))$ に属する。
+これが $D=0$ 上で消えれば
+$H^0(X,\mathcal O(2,-2,0))=0$ より恒等的に零となる。
+一般の pencil では第二成分は非零なので、共通の素因子は存在しない。
+
+\begin{proposition}\label{pencil:prop:semiclassical-identification}
+命題\ref{pencil:prop:degree-six-central-extension}の族について、
+古典的ファイバーと中央元が
+\[
+ (A_0,s,t)\simeq
+ \left(\bigoplus_{n\geq0}H^0(X,L^n),s,t\right)
+\]
+と同定され、右辺の pencil は一般であると仮定する。
+さらに $\dot\tau_0\ne0$ とする。
+このとき $A_U$ の一次 Poisson 構造は
+$\lambda\pi_{s,t}$（$\lambda\ne0$）である。
+基底の局所パラメーターの一次係数を調整すると、
+指定した $\pi_{s,t}$ を量子化する。
+\end{proposition}
+
+\begin{proof}
+次数ごとの平坦性から、交換子を基底パラメーターで割ったものは
+$A_0$ 上の全次数 $0$ の Poisson 括弧を定め、$X$ に降りる。
+$s,t$ は族の上で中央なので、$u=t/s$ は降りた括弧の Casimir である。
+補題\ref{pencil:lem:central-pencil-poisson}により
+その括弧は $\lambda\pi_{s,t}$ の形を持つ。
+
+$\lambda\ne0$ を確認する。
+$B_U$ の斉次分数環は、適当な次数 $1$ の元 $w$ を用いて
+\[
+ \mathbb C(E)[w,w^{-1};\tau^{-1}]
+\]
+と書ける。従って $\dot\tau_0=v\ne0$ に対し、その一次括弧は
+\[
+ \{w,f\}=-v(f)w\qquad(f\in\mathbb C(E))
+\]
+となり非零である。
+もし $X$ 上の括弧が零ならば、$s$ が中央であるため、
+\[
+ A_0[s^{-1}]
+ =\bigl(A_0[s^{-1}]\bigr)_0[s,s^{-1}]
+\]
+上の括弧全体も零になる。
+$A_0$ は domain だから元の括弧も零になり、
+その商 $B_0=A_0/(s,t)$ の非零括弧に矛盾する。
+従って $\lambda\ne0$ であり、最後の規格化が可能である。
+\end{proof}
+
+\begin{theorem}\label{pencil:thm:native-segre}
+$X=(\mathbb P^1)^3$、$L=\mathcal O_X(1,1,1)$ とする。
+一般の $s,t\in H^0(X,L)$ が定める Poisson 構造 $\pi_{s,t}$ に対し、
+滑らかな点付き代数曲線 $(U,0)$ 上の通常の斉次代数の族 $A_U$ が存在し、
+\[
+ A_U\otimes_{\mathcal O_U}k(0)=\bigoplus_{n\geq0}H^0(X,L^n),
+ \qquad \operatorname{rank}(A_U)_n=(n+1)^3
+\]
+を満たす。
+この族は $\pi_{s,t}$ を量子化し、中央正則列をなす二つの次数一の元が
+古典的な $s,t$ を持ち上げる。
+各幾何学的ファイバーは八生成元・三十七二次関係式を持つ
+noetherian な Koszul domain である。
+\end{theorem}
+
+\begin{proof}
+基底楕円曲線 $E$ と $L_E=L|_E$ を固定する。
+平行移動 $\eta$ が零から非零の一次速度で動く代数曲線 $U$ を取り、
+補題\ref{pencil:lem:classical-ruling}の $\mathbb P^2$ の点を
+式\eqref{pencil:eq:relative-period-trivialization}で動かす。
+補題\ref{pencil:lem:relative-ruling}により、自然な直線束が
+$\mathcal O_{\mathbb P^1_U}(1)$ となる filtered deformation の族を得る。
+命題\ref{pencil:prop:degree-six-central-extension}を適用して $A_U$ を構成する。
+
+古典的ファイバーの環を同定する。
+$C_X=\bigoplus_{n\geq0}H^0(X,L^n)$ とおくと、
+$s,t$ は $C_X$ の中央正則列であり、
+$C_X/(s,t)\simeq B^{-}(E,L_E,\mathrm{id})$ である。
+後の等式は、二つの切断の Koszul 完全系列と
+$H^1(X,L^n)=H^2(X,L^n)=0$（$n\in\mathbb Z$）から従う。
+$C_X$ は二次表示を持つ Segre 環なので、
+$H^0(E,L_E)$ の六つの基底切断を持ち上げ、$s,t$ を加えると
+式\eqref{pencil:eq:two-parameter-presentation}の形の表示を持つ。
+中央正則列から
+\[
+ H_{C_X}(z)=\frac{H_{B^{-}(E,L_E,\mathrm{id})}(z)}{(1-z)^2}
+\]
+となり、graded な Nakayama の議論で選んだ持上げが
+$\mathbb C[s,t]$-加群の基底を与えることが分かる。
+従って $C_X$ 自身が、pencil に沿う filtered deformation の直線の二重中央拡大である。
+
+その filtered deformation の射は、
+補題\ref{pencil:lem:classical-ruling}によって $\eta=0$ の Rains の ruling と一致する。
+生成元の平行移動に関する正規形を取る際の変更は
+$x_i\mapsto x_i+a_i s+b_i t$ の形であり、中央 pencil を保つ。
+正規形の一意性から、対応する同次係数が一致する。
+自然な直線束の自明化を古典点で調整すると
+$A_U|_0\simeq C_X$ を $s,t$ の標識を保って得る。
+一次 Poisson 構造は命題\ref{pencil:prop:semiclassical-identification}で同定される。
+\end{proof}
+
+\begin{proposition}\label{pencil:prop:generic-center}
+上で構成した斉次環の体 $k$ 上のファイバーを $A$ とし、
+対応する楕円平行移動 $\tau$ が無限位数であるとする。
+全分数斜体を $Q(A)$、斉次分数環の次数零部分を $\operatorname{Frac}_0(A)$ と書くと、
+\[
+ Z(A)=k[s,t],\qquad
+ Z(Q(A))=k(s,t),\qquad
+ Z(\operatorname{Frac}_0(A))=k(t/s)
+\]
+である。
+\end{proposition}
+
+\begin{proof}
+$A$ は noetherian domain なので Ore 分数斜体を持つ。
+$V$-次数の associated graded が domain であることから、
+$\deg_F(ab)=\deg_F(a)+\deg_F(b)$ である。
+従って $\deg_F(ab^{-1})=\deg_F(a)-\deg_F(b)$ は分数表示に依存せず、
+$-\deg_F$ は $Q(A)$ 上の離散付値を定める。
+すべての非零同次先頭項が可逆化されるので
+\[
+ \operatorname{gr}_F Q(A)
+ \simeq k(s,t)(E)[w,w^{-1};\tau^{-1}]
+\]
+である。右辺では $w$ の次数を一、$k(s,t)(E)$ の次数を零とする。
+$\tau$ は無限位数なので、この環の中心は $k(s,t)$ である。
+実際、非零の次数 $n$ の中央元は $\tau^n=\mathrm{id}$ を強制する。
+また $\tau$-不変有理関数の極の有限集合は平行移動で不変であるため空であり、
+そのような有理関数は基礎体の元に限る。
+
+$z\in Z(Q(A))$ の先頭項は $\operatorname{gr}_F Q(A)$ の中心に属する。
+従って $\deg_Fz=0$ であり、その先頭項は $c\in k(s,t)$ である。
+$z-c$ が非零ならば、これは中央元で $\deg_F(z-c)<0$ となり矛盾する。
+従って $z=c$ である。
+$A$ の場合も同じ議論を $\operatorname{gr}_FA=B[s,t]$ に適用して
+$Z(A)=k[s,t]$ を得る。
+
+$s$ は中央な次数一の元なので
+$Q(A)=\operatorname{Frac}_0(A)(s)$ である。
+従って $\operatorname{Frac}_0(A)$ の中央元は $Q(A)$ 全体でも中央である。
+$k(s,t)$ の中の全次数零の元は $k(t/s)$ であり、最後の等式を得る。
+\end{proof}
+
+\begin{remark}\label{pencil:rem:scope}
+この構成は通常の斉次環、元の Segre Hilbert 級数、中央 pencil、
+指定された一次 Poisson 構造を同時に与える。
+共通 blow-up から得た smooth proper 圏との導来同値、
+およびその generic localization とこの斉次環の分数斜体との同定には、
+両方の構成における関手と標識の比較をさらに行う。
+\end{remark}

@@ -1,0 +1,554 @@
+\section{二つの収縮を持つ相対的な非可換共通模型}
+\label{sec:relative-common-blowup}
+
+本節では有限次元代数の変形を用いて、平面の二点 blow-up と
+quadric の一点 blow-up を同時に変形する。
+基底の \'etale 近傍への置換を許す。
+古典的ファイバーと一次の Poisson 方向を固定し、
+高次の量子化係数を比較に適合するように選ぶという本稿の方針に沿った構成である。
+得られる共通模型は有限型基底上の smooth proper dg 圏であり、
+二つの contraction は相対的な fully faithful functor と SOD として与える。
+
+\subsection{有限次元 directed 代数と例外集の変形}
+
+以下で $R$ は滑らかな複素アフィン曲線 $U$ の座標環、$0\in U$ は閉点とする。
+$R$-線形な有限対象圏 $\mathsf A$ が directed であるとは、
+対象を $T_1,\ldots,T_N$ と順序付けて
+\[
+ \operatorname{Hom}_{\mathsf A}(T_j,T_i)=0\quad(j>i),\qquad
+ \operatorname{End}_{\mathsf A}(T_i)=R
+\]
+と書けることをいう。
+全ての Hom は有限局所自由 $R$-加群と仮定する。
+同じ記号をその有限次元代数にも用い、右加群の perfect 圏を取る。
+
+\begin{lemma}\label{lem:directed-relative-smooth}
+上の $\operatorname{Perf}(\mathsf A)$ は $R$ 上 smooth proper である。
+この性質は任意の基底変換と両立する。
+\end{lemma}
+
+\begin{proof}
+$S=\bigoplus_iRe_i$、$J=\bigoplus_{i<j}\operatorname{Hom}(T_i,T_j)$ と置く。
+$\mathsf A=S\oplus J$ は分裂した $S$-代数である。
+正規化された相対 bar 分解は
+\[
+ \cdots\longrightarrow
+ \mathsf A\otimes_SJ^{\otimes_S2}\otimes_S\mathsf A
+ \longrightarrow\mathsf A\otimes_SJ\otimes_S\mathsf A
+ \longrightarrow\mathsf A\otimes_S\mathsf A
+ \longrightarrow\mathsf A
+\]
+となる。$J^{\otimes_SN}=0$ なので有限長である。
+各項は $\mathsf A$-両側加群として有限生成射影加群の直和因子であり、
+対角両側加群が perfect であることが従う。
+また $\mathsf A$ 自体が $R$ 上有限局所自由なので proper である。
+分解は $R$ 上分裂する正規化 bar 分解から得られ、基底変換後も同じ議論が成り立つ。
+\end{proof}
+
+\begin{lemma}\label{lem:exceptional-etale-lift}
+$\mathsf A$ を上の directed $R$-代数とする。
+$\operatorname{Perf}(\mathsf A_0)$ の有限個の exceptional objects は、
+$0$ の共通 \'etale 近傍上に同時に持ち上がる。
+指定した対象に既に持上げがある場合、その持上げを固定してよい。
+
+さらに $(F_{1,0},\ldots,F_{m,0})$ が full strong exceptional collection ならば、
+基底を縮めた後、その持上げ $(F_1,\ldots,F_m)$ は
+相対的な full strong exceptional collection となる。
+対応する SOD と Morita 同値は任意の基底変換と両立する。
+\end{lemma}
+
+\begin{proof}
+各対象を、$e_i\mathsf A_0$ の有限直和からなる有界射影複体 $P_0$ で表す。
+その次数付き加群の部分は、$e_i\mathsf A$ の同じ直和により持ち上げる。
+局所パラメーターを $h$ とし、微分 $d$ を $h$-進的に構成する。
+$h^{n+1}$ を法として $d^2=0$ が成り立つ場合、次の段階の障害は
+\[
+ H^2\operatorname{Hom}^{\bullet}_{\mathsf A_0}(P_0,P_0)
+ =\operatorname{Ext}^2(F_0,F_0)
+\]
+に属する。これは零である。
+具体的には、$h^{n+1}$ で割った $d^2$ の剰余が $[d_0,-]$ の二次 cocycle であり、
+その原始元を一次の微分に加えて消せばよい。
+従って有限長の同じ次数付き射影加群上に形式的な微分が得られる。
+
+有限個の Hom 加群を局所自明化すると、$d^2=0$ は有限個の行列係数に関する
+有限個の多項式方程式である。
+Artin 近似 \cite[定理16.13.2]{RelativeArtin} により、
+古典的な微分を保つ解が $0$ の \'etale 近傍上に存在する。
+有限個の対象について同じ操作を同時に行う。
+この障害計算は一般の対象の変形理論 \cite{RelativeLowen} の、
+有限射影複体に対する場合でもある。
+
+持ち上げた二対象の $\operatorname{RHom}$ は $R$ 上 perfect である。
+古典的ファイバーで次数零にのみコホモロジーを持つならば、
+近傍を縮めると次数零の有限局所自由加群になる。
+特殊ファイバーで零となる Hom 複体は、同じく近傍で零となる。
+従って strongness、半直交性、および相対的な exceptional 性が保たれる。
+特に
+\[
+ \mathsf C=\operatorname{End}\!\left(\bigoplus_{i=1}^mF_i\right)
+\]
+は finite locally free directed $R$-代数になる。
+
+生成性も確認する。
+$T=\bigoplus_iF_i$ とし、$T$ が定める fully faithful functor
+$\operatorname{Perf}(\mathsf C)\to\operatorname{Perf}(\mathsf A)$ を取る。
+補題\ref{lem:directed-relative-smooth} により $\mathsf C$ は相対的に smooth である。
+このため右随伴 $\operatorname{RHom}_{\mathsf A}(T,-)$ は perfect 圏に制限できる。
+自由生成元 $\mathsf A$ における counit の cone は $R$ 上 perfect であり、
+古典的ファイバーでは $T_0$ の生成性によって零である。
+そのコホモロジーの台を除けば cone は零となる。
+従って $\mathsf A$ は $T$ の生成する thick 部分圏に入り、fullness が従う。
+用いた Hom 同型、bar 分解、unit と counit の同型はすべて基底変換を保つ。
+\end{proof}
+
+\begin{remark}
+smooth proper なスキームの族における SOD の \'etale 局所変形は
+Belmans--Okawa--Ricolfi \cite{RelativeBOR} により一般的に扱われている。
+上の補題では directed 代数と full strong exceptional collection に対象を絞り、
+必要な変形と生成性を有限個の行列で証明した。
+\end{remark}
+
+\subsection{二点の evaluation による共通圏}
+
+$\mathcal S$ を命題\ref{prop:relative-elliptic-surface-link} の平面量子化の族とする。
+その Beilinson 代数を
+\[
+ A=\operatorname{End}\bigl(\mathcal O\oplus\mathcal O(1)\oplus\mathcal O(2)\bigr)
+\]
+と書く。
+有限表示としては三対象 $T_0,T_1,T_2$ と
+$\operatorname{Hom}(T_i,T_j)=\mathcal S_{j-i}$ $(i\le j)$ を用いる。
+$R$ 上の階数は $3+3+3+6=15$ である。
+
+固定された滑らかな楕円曲線を $E$ とし、その相異なる二点を $p,q$ とする。
+点に対応する右 $A$-加群を $M_p,M_q$ と書く。
+各頂点成分は階数一であり、古典点では
+\[
+ (M_p)_i=\operatorname{Hom}_{\mathbb P^2}(\mathcal O(i),k_p),
+ \qquad
+ (M_q)_i=\operatorname{Hom}_{\mathbb P^2}(\mathcal O(i),k_q)
+\]
+である。
+後述する $E$ への restriction による evaluation を使えば、
+これらを基底全体で代数的に定義できる。
+
+五対象 $T_0,T_1,T_2,P_p,P_q$ の $R$-線形圏 $B$ を
+\[
+ \begin{gathered}
+ \operatorname{Hom}_B(T_i,P_\nu)=(M_\nu)_i,
+ \qquad \operatorname{End}_B(P_\nu)=R,\\
+ \operatorname{Hom}_B(P_\nu,T_i)=0,
+ \qquad \operatorname{Hom}_B(P_p,P_q)=\operatorname{Hom}_B(P_q,P_p)=0
+ \end{gathered}
+\]
+によって定める。
+最初の三対象の間の Hom と積は $A$ のものであり、
+$T_i\to T_j\to P_\nu$ の合成は $M_\nu$ の右作用による。
+$B$ は階数 $15+6+2=23$ の directed 代数である。
+その perfect 圏を $\mathcal H=\operatorname{Perf}(B)$ と置く。
+
+\begin{theorem}\label{thm:relative-two-contractions}
+上の族について、$0$ の \'etale 近傍上で次が成り立つ。
+\begin{enumerate}
+\item
+$\mathcal H$ は $R$ 上 smooth proper であり、
+\[
+ \mathcal H=
+ \langle\operatorname{Perf}(A),\operatorname{Perf}(R),\operatorname{Perf}(R)\rangle.
+ \label{eq:relative-plane-sod}\tag{RB1}
+\]
+古典的ファイバーは
+$Y=\operatorname{Bl}_{p,q}\mathbb P^2$ の perfect 圏である。
+\item
+$Y\to\mathbb P^1\times\mathbb P^1$ を、$p,q$ を結ぶ直線の狭義変換を収縮する射とする。
+その例外曲線を $E_r$ と書く。
+$\mathcal H$ には、この側の pullback と $\mathcal O_{E_r}$ を持ち上げる
+相対的な full strong exceptional collection
+\[
+                 (Q_0,Q_1,Q_2,Q_3,\mathcal E_r)
+\]
+が存在する。$Q_0$ は最初の模型の $T_0=\mathcal O$ として固定できる。
+$C=\operatorname{End}(Q_0\oplus\cdots\oplus Q_3)$、
+$\mathcal C_{\mathrm{qd}}=\langle Q_0,Q_1,Q_2,Q_3\rangle$ とすると
+\[
+ \mathcal H=
+ \langle\mathcal C_{\mathrm{qd}},\operatorname{Perf}(R)\rangle,
+ \qquad \mathcal C_{\mathrm{qd}}\simeq\operatorname{Perf}(C).
+ \label{eq:relative-quadric-sod}\tag{RB2}
+\]
+これらの SOD は任意の基底変換と両立する。
+\item
+$C$ の階数は24であり、四対象間の Hom の階数は
+\[
+ \begin{pmatrix}
+ 1&2&4&6\\
+ 0&1&2&4\\
+ 0&0&1&2\\
+ 0&0&0&1
+ \end{pmatrix}.
+ \label{eq:relative-quadric-ranks}\tag{RB3}
+\]
+各 $\operatorname{Hom}(Q_i,\mathcal E_r)$ の階数は一である。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+古典的ファイバーで $f:Y\to\mathbb P^2$ とすると、
+Orlov の右側表示は
+\[
+ \operatorname{Perf}(Y)
+ =\langle f^*\operatorname{Perf}(\mathbb P^2),
+          \mathcal O_{E_p},\mathcal O_{E_q}\rangle
+\]
+である。
+$\operatorname{RHom}(f^*\mathcal O(i),\mathcal O_{E_\nu})$
+は点 $\nu$ での evaluation の一次元空間であり、
+逆向きの Hom は $H^*(\mathbb P^1,\mathcal O(-1))=0$ により零となる。
+従って
+\[
+ (f^*\mathcal O,f^*\mathcal O(1),f^*\mathcal O(2),
+       \mathcal O_{E_p},\mathcal O_{E_q})
+\]
+は full strong exceptional collection で、その End は $B_0$ である。
+一般の基底上の式 (RB1) は directed gluing の構成から従い、
+smooth properness は補題\ref{lem:directed-relative-smooth} による。
+
+次に $H=f^*\mathcal O_{\mathbb P^2}(1)$、$a=H-E_p$、$b=H-E_q$ と置く。
+quadric 側の pullback と例外対象は
+\[
+ \mathcal O_Y,\quad\mathcal O_Y(a),\quad\mathcal O_Y(a+b),\quad
+ \mathcal O_Y(2a+b),\quad\mathcal O_{E_r}
+ \label{eq:relative-classical-collection}\tag{RB4}
+\]
+である。
+quadric 上の最初の四対象は strong であり、
+Euler 完全列
+\[
+ 0\longrightarrow\mathcal O(0,1)
+ \longrightarrow\mathcal O(1,1)^{\oplus2}
+ \longrightarrow\mathcal O(2,1)\longrightarrow0
+\]
+を用いると矩形 Beilinson collection も生成するため full である。
+右側 Orlov 表示により、式 (RB4) 全体が $\operatorname{Perf}(Y)$ の
+full strong exceptional collection となる。
+補題\ref{lem:exceptional-etale-lift} によってこれを同時に持ち上げる。
+古典的な Hom は quadric 上の切断の次元であり、式 (RB3) と
+$\operatorname{Hom}(Q_i,\mathcal E_r)$ の階数一を与える。
+持上げ後も同じ階数となり、式 (RB2) が従う。
+\end{proof}
+
+\subsection{四対象の代数から射影 quadric を再構成する}
+
+\begin{proposition}\label{prop:relative-quadric-reconstruction}
+定理\ref{thm:relative-two-contractions} の $C$ は、基底を縮めると
+cubic AS-regular $\mathbb Z$-代数の族 $\mathcal D$ の四頂点部分代数として実現できる。
+各斉次部分は $R$ 上有限局所自由であり、全ての幾何学的ファイバーが
+三次元 cubic AS-regular $\mathbb Z$-代数となる。
+各ファイバーでは
+\[
+ \operatorname{Perf}(C_{\bar b})
+ \simeq D^b(\operatorname{qgr}\mathcal D_{\bar b}).
+\]
+古典的ファイバーは linear quadric である。
+\end{proposition}
+
+\begin{proof}
+右加群の向きを明記する。
+$0\le i\le j\le3$ に対し
+\[
+ D_{i,j}=\operatorname{Hom}(Q_{3-j},Q_{3-i})
+\]
+と置けば、通常の End の積は $D_{i,j}D_{j,k}\subset D_{i,k}$ を満たす。
+この四頂点代数は、冪等元の順序を逆にした $C$ である。
+$V_i=D_{i,i+1}$ $(i=0,1,2)$ と置く。
+長さ二の乗法は古典点で同型なので近傍でも同型であり、
+長さ三の乗法は全射である。
+従って
+\[
+ R_0=\ker(V_0\otimes V_1\otimes V_2\longrightarrow D_{0,3})
+\]
+は階数二の部分束である。
+$V_3=R_0^\vee$ とし、包含 $R_0\hookrightarrow V_0\otimes V_1\otimes V_2$
+が定める coevaluation tensor を
+\[
+ w\in V_0\otimes V_1\otimes V_2\otimes V_3
+\]
+と書く。
+
+古典点では $w$ は linear quadric の geometric quintuple である。
+geometric 条件の失敗は、隣接二因子の射影双対束の積上で
+縮約が零となる閉集合の像として表せる。
+この射は proper なので、geometric 条件は基底上で開である。
+従って一度基底を縮めると全てのファイバーでこの条件が成り立つ。
+Van den Bergh \cite[定理5.2.2、系5.2.3、定理5.5.10]{VdBQuadrics} により
+この quintuple は quadric を定める。
+具体的には $V_{i+4}=V_i$、$w_i$ を $w$ の巡回置換とし、
+$w_i$ の最後の因子での縮約像を三次関係式とする。
+従って構成は有限個の代数的データからなり、相対的に定義できる。
+
+全ての幾何学的ファイバーで
+\[
+ \dim D_{i,i+2n}=(n+1)^2,\qquad
+ \dim D_{i,i+2n+1}=(n+1)(n+2)
+\]
+となる。
+各部分は有限表示 $R$-加群であり、この一定次元性から局所自由性が従う。
+基底を次数ごとに取り替える必要はない。
+四個の標準対象の Hom は四頂点部分代数であり、
+cubic AS-regular 分解 \cite[定理5.5.7]{VdBQuadrics} により全ての twist を生成する。
+従ってその collection は full strong で、上の導来同値を得る。
+右加群の標準射影加群を $P_i=e_iD$ と書くと、
+$(\pi P_3,\pi P_2,\pi P_1,\pi P_0)$ が $(Q_0,Q_1,Q_2,Q_3)$ に対応する。
+\end{proof}
+
+\begin{lemma}\label{lem:relative-helix-basechange}
+四対象 $Q_0,\ldots,Q_3$ の geometric helix $(Q_i)_{i\in\mathbb Z}$ は、
+同じ基底上の perfect objects として取れる。
+$j\ge i$ に対して $\operatorname{RHom}(Q_i,Q_j)$ は次数零の
+有限局所自由 $R$-加群であり、任意の基底変換と可換する。
+$j-i=2n$ のとき階数は $(n+1)^2$、$j-i=2n+1$ のとき階数は
+$(n+1)(n+2)$ である。
+従って各ファイバーでの全ての正向き Hom は、同一の代数的 helix の特殊化から得られる。
+\end{lemma}
+
+\begin{proof}
+$\operatorname{Perf}(C)$ の相対 Serre functor を $S_{C/R}$ とする。
+$C$ は相対的に smooth proper なので、その Serre 両側加群と逆両側加群は perfect であり、
+構成は基底変換と両立する。
+$Q_{i+4}=S_{C/R}^{-1}(Q_i)[2]$ によって全ての整数へ延長する。
+各幾何学的ファイバーでは前命題の cubic AS-regular 模型と同定できる。
+その AS-Gorenstein 次数は4であり、最小分解とその双対
+\cite[定理5.5.7]{VdBQuadrics} から、この延長は標準的な
+$(\pi P_{3-i})_{i\in\mathbb Z}$ に一致する。
+同じ分解で計算すると、正向きの Hom の高次 Ext は零で、
+次数零の Hom は対応する $D_{3-j,3-i}$ である。
+従って全てのファイバーにおいて、主張した階数とコホモロジーの消滅が成立する。
+
+相対 Hom は $R$ 上 perfect である。
+その全ての幾何学的ファイバーが、同じ階数を持つ次数零のベクトル空間であることから、
+相対 Hom 自体が有限局所自由加群であり、任意の基底変換と可換する。
+この議論は既に全ファイバーで AS 正則性を確保した同じ基底上で成り立つため、
+添字ごとの追加の縮小を必要としない。
+\end{proof}
+
+\subsection{固定楕円曲線への restriction と相対的な even Veronese}
+
+固定楕円曲線を保持する平面の族では、上の $\mathbb Z$-代数を
+通常の次数付き環へ相対的に移すこともできる。
+まず evaluation 加群の規約を固定する。
+twisted homogeneous coordinate ring の積を
+$u*v=u\,\psi^{m*}v$ $(\deg u=m)$ と書く。
+$L=\mathcal O_E(1)$ とし
+\[
+ L_n=\bigotimes_{a=0}^{n-1}(\psi^a)^*L,\qquad
+ N_i^{\mathrm{pl}}=(\psi^{-i})^*L_i
+ =\bigotimes_{a=1}^{i}(\psi^{-a})^*L
+ \quad (0\le i\le2)
+\]
+と置く。
+平面の矢 $u:T_i\to T_j$ を
+$(\psi^{-j})^*u\in H^0(E,N_j^{\mathrm{pl}}(N_i^{\mathrm{pl}})^{-1})$
+に送る。
+実際、合成 $v\circ u$ に対応する $\mathcal S$ の積は $vu$ であり、
+\[
+ (\psi^{-k})^*(v\,\psi^{(k-j)*}u)
+ =(\psi^{-k})^*v\,(\psi^{-j})^*u
+\]
+なので、これは合成を保つ。
+この restriction の evaluation により
+$M_\nu=\operatorname{Hom}_E(\bigoplus_iN_i^{\mathrm{pl}},k_\nu)$
+$(\nu=p,q)$ と定義する。
+
+\begin{proposition}\label{prop:relative-even-rollup}
+上の evaluation により $B$ を構成する。
+定理\ref{thm:relative-two-contractions} の対象は、
+$0$ の \'etale 近傍上で、次の性質を持つように取れる。
+\begin{enumerate}
+\item
+$R$-線形な dg functor
+\[
+ \mathcal R_E:\mathcal H\longrightarrow\operatorname{Perf}(E\times U)
+\]
+があり、古典点では $E\hookrightarrow Y$ への導来引戻しである。
+$N_i=\mathcal R_E(Q_i)$ は直線束となる。
+\item
+$G_i=N_i^{-1}N_{i+1}$ $(i=0,1,2)$ は次数二の直線束であり、
+\[
+ (G_0,G_1,G_2)|_0=(L(-p),L(-q),L(-p)).
+\]
+四対象の全ての正向き Hom は
+\[
+ \operatorname{Hom}(Q_i,Q_j)
+ \xrightarrow{\ \sim\ }H^0(E,N_i^{-1}N_j)
+ \qquad(0\le i<j\le3)
+ \label{eq:relative-restriction-hom}\tag{RB5}
+\]
+によって記述される。
+\item
+同じ四頂点代数を持つ $\mathcal D$ を相対的に二周期とすることができる。
+従って $\mathcal Q_n=\mathcal D_{0,2n}$ は通常の次数付き環の族となり、
+\[
+ \operatorname{rank}_R\mathcal Q_n=(n+1)^2,\qquad
+ \mathcal Q\otimes_R k(0)
+ =\bigoplus_{n\ge0}H^0(\mathbb P^1\times\mathbb P^1,\mathcal O(n,n))
+\]
+を満たす。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$T_i$ を $N_i^{\mathrm{pl}}$、$P_p,P_q$ をそれぞれ $k_p,k_q$ へ送り、
+矢を上の restriction と evaluation に送る。
+これは有限対象圏 $B$ から perfect complexes への厳密な作用を定める。
+対応する両側加群による導来 tensor が $\mathcal R_E$ である。
+古典点では $E$ と $E_p,E_q$ は横断的に交わり、
+$L i^*\mathcal O_{E_\nu}=k_\nu$ となるため、$\mathcal R_E$ は $L i^*$ に一致する。
+
+各 $\mathcal R_E(Q_i)$ の古典的ファイバーは直線束である。
+perfect complex が階数一の局所自由加群になる条件は開であり、
+$E\times U\to U$ は proper なので、基底を縮めると $N_i$ はすべて直線束になる。
+その次数から $\deg G_i=2$ を得る。
+古典的な値は式 (RB4) を $E$ に制限すればよい。
+
+式 (RB5) を古典点で確認する。
+quadric 上で必要な直線束は $\mathcal O(1,0)$、$\mathcal O(0,1)$、
+$\mathcal O(1,1)$、$\mathcal O(2,1)$ である。
+$E\in|\mathcal O(2,2)|$ なので、restriction の核を与える差の直線束は
+少なくとも一方の次数が $-1$ である。
+その $H^0,H^1$ は零であり、restriction は同型となる。
+相対的には両辺が同じ階数の局所自由加群なので、同型性は近傍で保たれる。
+合成との両立性により、四頂点の三次関係式は
+$G_0,G_1,G_2$ の切断の乗法の核である。
+
+右加群の座標順序に合わせ
+$H_0=G_2,H_1=G_1,H_2=G_0$ と書く。
+$H_0\not\cong H_1$ と $H_1\not\cong H_2$ は古典点で成り立ち、近傍でも保たれる。
+$\Delta=H_2H_0^{-1}\in\operatorname{Pic}^0(E\times U/U)$ と置くと $\Delta_0=\mathcal O_E$ である。
+楕円曲線の原点を固定し、平行移動 $\alpha$ による次数二の直線束の変化を用いる。
+対応する写像は $[-2]:E\to\operatorname{Pic}^0(E)$ であり、標数零では \'etale である。
+従って基底を \'etale 局所化して
+\[
+ \alpha_0=\mathrm{id},\qquad
+ \alpha^*H_0\cong H_2,\qquad
+ \alpha^*H_1\cong H_1\otimes\Delta
+\]
+を得る。
+relative Picard 上の等式と実際の直線束の同型の差は基底からの直線束であり、
+有限個のこれらの因子は基底上で局所自明化できる。
+
+全ての整数 $m$ に対し
+\[
+ H_{2m}=(\alpha^m)^*H_0,\qquad
+ H_{2m+1}=(\alpha^m)^*H_1
+\]
+と定義し、$V_i=H^0(E,H_i)$ および
+\[
+ R_i=\ker\bigl(V_i\otimes V_{i+1}\otimes V_{i+2}
+                   \longrightarrow H^0(E,H_iH_{i+1}H_{i+2})\bigr)
+\]
+から $\mathcal D$ を構成する。
+隣接する二直線束は非同型なので、pencil trick により各 $R_i$ は階数二である。
+$H_0\not\cong H_2$ のファイバーでは、これは Van den Bergh の admissible quadruple による構成である。
+$H_0\cong H_2$ のファイバーでは、三次関係式は同じ偶奇の二因子を交換する
+linear quadric の関係式となる。
+従って全てのファイバーで AS 正則であり、前命題と同じ四頂点部分代数を持つ。
+
+$\alpha^*$ は全ての乗法写像と可換なので、
+相対的な二周期同型 $\phi:\mathcal D_{i,j}\to\mathcal D_{i+2,j+2}$ を与える。
+これは無限個の同型を独立に選ぶ構成ではなく、単一の $\alpha$ の反復による。
+$a\in\mathcal Q_m$、$b\in\mathcal Q_n$ に
+\[
+                         a*b=a\phi^m(b)
+\]
+と積を定める。
+その Hilbert 階数と古典的ファイバーは linear quadric の計算から従う。
+この相対的な議論は \cite[命題5.6.1、系5.6.2]{VdBQuadrics} の
+楕円曲線の二分点を選ぶ議論を、古典点での恒等平行移動を指定して行ったものである。
+\end{proof}
+
+\begin{proposition}\label{prop:relative-elliptic-chart}
+命題\ref{prop:relative-even-rollup} の族では、基底を縮めると
+二次の正規 regular 元 $g\in\mathcal Q_2$ と全射
+\[
+ \mathcal Q\longrightarrow T(E,N,\alpha),\qquad N=H_0\otimes H_1,
+ \qquad \mathcal Q/(g)\cong T(E,N,\alpha)
+\]
+が存在する。ここで $\deg N=4$ であり、右辺は相対 twisted homogeneous coordinate ring である。
+$g|_0$ は quadric 上の $E\in|\mathcal O(2,2)|$ の方程式となる。
+
+$K=\operatorname{Frac}(R)$ とすると、$\mathcal Q_K$ は左右 noetherian domain であり、
+非零斉次元は左右 Ore 集合をなす。
+固定楕円曲線の補集合に対応する affine chart は
+\[
+ \mathfrak U_K=(\mathcal Q_K[g^{-1}])_0
+\]
+である。その関数斜体は
+\[
+ \operatorname{Frac}(\mathfrak U_K)=Q_0(\mathcal Q_K)
+\]
+となる。
+\end{proposition}
+
+\begin{proof}
+切断の乗法から、各次数において
+\[
+ \mathcal Q_n\longrightarrow
+ H^0\!\left(E,N\otimes\alpha^*N\otimes\cdots
+                    \otimes(\alpha^{n-1})^*N\right)
+\]
+を得る。
+楕円型ファイバーでは \cite[定理5.5.6]{VdBQuadrics} により全射であり、
+その核は $\mathbb Z$-次数4の正規 regular 元により左右から生成される。
+線形ファイバーでは $H_0\cong H_2$ である。
+このとき $\alpha$ は両方の次数二の直線束を保ち、
+二つの線形系を通じて quadric の自己同型に延びる。
+even rollup は Segre 環のこの自己同型による twist として表せる。
+restriction の核は $E$ の方程式によって生成され、同じ正規性と regular 性を満たす。
+従って相対的な写像も全ての次数で全射となる。
+
+二次の核は階数 $9-8=1$ の直線束である。
+基底上でこれを自明化して生成元 $g$ を取る。
+各次数の核も有限局所自由であり、
+$g$ による左乗法と右乗法は、対応する核への写像として
+全ての幾何学的ファイバーで同型である。
+従って基底全体で同型となり、
+\[
+ \ker(\mathcal Q\longrightarrow T)=g\mathcal Q=\mathcal Qg
+\]
+および $g$ の正規 regular 性が得られる。
+ここでも次数ごとの基底の縮小は用いない。
+
+各幾何学的ファイバーの noetherian 性は
+\cite[系5.5.9、補題3.5]{VdBQuadrics} の noetherian 性と Veronese 同値から従う。
+これを generic fiber に適用し、体拡大から降下させると
+$\mathcal Q_K$ は左右 noetherian である。
+$T(E_K,N,\alpha)$ は整な楕円曲線の twisted section ring なので domain である。
+$g$ の正規 regular 性を用い、非零斉次元から割り切れる限り $g$ を取り除くと、
+次数が有限であるため有限回で止まる。
+$g$ を法とした積が非零であることから、元の積も非零となる。
+従って $\mathcal Q_K$ も domain である。
+左右 noetherian domain に対する Goldie の定理を斉次元に適用すれば Ore 性を得る。
+
+$g$ の冪による局所化は、その正規性から定義できる。
+第二 Veronese に移って $g$ の次数を一とすると、局所化した環は strongly graded であり、
+その次数零環が $\mathfrak U_K$ となる。
+最後の斜体の等式は直接確認できる。
+同次数の非零斉次元による分数 $ab^{-1}$ を取り、
+必要なら分子と分母に同じ非零一次斉次元を右から掛け、共通次数を $2n$ とする。
+すると
+\[
+ ab^{-1}=(ag^{-n})(bg^{-n})^{-1},\qquad
+ ag^{-n},bg^{-n}\in\mathfrak U_K
+\]
+である。
+反対向きの包含は局所化の定義から従う。
+\end{proof}
+
+\begin{remark}
+式 (RB1)--(RB2) は、古典点を含む代数的な共通 smooth proper 圏と二つの SOD を与える。
+この構成で得た共通圏と RSS の共通 blow-up 環の qgr との同定、
+および選択済みの特定の高次量子化係数との一致は、それぞれ比較すべき追加の問題である。
+本節で構成した二つの射影模型の一次 Poisson 括弧と generic localization の同定は、
+以下で扱う。
+\end{remark}

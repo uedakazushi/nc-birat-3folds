@@ -1,0 +1,453 @@
+\section{三重積の Poisson 概型の分類}\label{cube:sec:classification}
+\subsection{分類と成分の幾何}
+$X=\PP^1_1\times\PP^1_2\times\PP^1_3$、$L=\mathcal O_X(1,1,1)$ とし、
+$\mathfrak g_i=H^0(\PP^1_i,T_{\PP^1_i})\simeq\mathfrak{sl}_2$ とおく。
+因子には順序を付ける。$T_X$ を分解すると
+\[
+ V=H^0(X,\wedge^2T_X)=\bigoplus_{i<j}\mathfrak g_i\otimes\mathfrak g_j,\qquad
+ H^0(X,\wedge^3T_X)=\mathfrak g_1\otimes\mathfrak g_2\otimes\mathfrak g_3.
+\]
+いずれも次元27である。$V$ における $[\pi,\pi]=0$ の零点概型を
+$\operatorname{Pois}(X)$ と書く。各対のテンソルをその二因子上の双ベクトル場と同一視する。
+$-K_X\simeq L^2$ の同型を一つ選ぶと、
+$\wedge^2 T_X\simeq\Omega_X^1\otimes L^2$ により双ベクトルを捩れた一形式で表せる。
+同型を変える自由度は全体のスカラーである。
+
+\begin{theorem}\label{cube:th:classification}
+$\operatorname{Pois}(X)_{\mathrm{red}}$ の既約成分は以下の八つで尽きる。
+\[
+\begin{array}{c|c|c|l}
+\text{成分}&\text{個数}&\text{アフィン次元}&\text{一般元あるいは構成}\\ \hline
+\mathcal R&1&13& (1,1,1)\text{ 型の pencil}\\
+\mathcal L_i&3&10& (1,1)\text{ 型の二つの曲線と第 }i\text{ 因子の二点による対数形式}\\
+\mathcal T&1&9& \text{三つの因子のベクトル場によるトーラス型}\\
+\mathcal S_{ij}&3&9& \text{第 }i,j\text{ 因子の曲面上の任意の双ベクトル}
+\end{array}
+\]
+$\PP\mathcal R\simeq\operatorname{Gr}(2,H^0(X,L))$ であり、全八成分は $\operatorname{Pois}(X)$ の生成点で被約である。
+射影化は成分の個数を保ち、各次元を一つ下げる。
+全自己同型群による商スタックでは四つの既約成分になる。
+\end{theorem}
+
+ここで各族を具体的に定義する。$\mathcal R$ は $s,t\in H^0(X,L)$ に対する
+$\omega=s\,dt-t\,ds$ からなる。$s/t$ は一般元の有理第一積分である。
+一般の pencil の基底曲線は二つの $L$ の完全交叉である。
+Bertini と随伴公式からこれは滑らかな連結な種数1曲線で、各因子への射影は次数2である。
+滑らかな一般の葉の閉包 $D\in |L|$ では $-K_D=L|_D$、$K_D^2=L^3=6$ である。
+
+$\mathcal S_{ij}=\mathfrak g_i\otimes\mathfrak g_j$ は線形部分空間である。$\mathcal T$ は $u_i\in\mathfrak g_i$ を選び
+$\sum_{i<j}c_{ij}u_i\wedge u_j$ と書けるものの閉包である。
+これは $(\PP^2)^3$ 上の階数3のベクトル束の像の閉包であり、
+一般点から三つの直線 $\langle u_i\rangle$ を回収できる。よって既約で次元9である。
+半単純な $u_i$ をとれば、座標変換で $u_i$ は $x_i\partial_{x_i}$ の定数倍になる。
+
+$\{i,j,k\}=\{1,2,3\}$ とする。$\mathcal L_i$ は
+\begin{equation}\label{cube:eq:log-family}
+ \pi=D+u_i\wedge(h_j+h_k),\quad D\in\mathfrak g_j\otimes\mathfrak g_k,\quad
+ [h_j+h_k,D]=0,\quad \delta(h_j)=\delta(h_k)\ne0
+\end{equation}
+と書ける族の閉包である。$\delta$ はベクトル場の係数の二次式としての判別式である。
+$u_i$ も一般には半単純である。例えば $i=2$ とし、
+三因子の座標を $x,y,z$ とすると、開稠密な族は座標変換後
+\begin{equation}\label{cube:eq:normal-log}
+ \lambda y\partial_y\wedge(x\partial_x+z\partial_z)
+ +(a x^2+b xz+c z^2)\,\partial_z\wedge\partial_x
+\end{equation}
+の形をとる。ここで $\lambda\ne0$ は二つの半単純ベクトル場の規格化から生じる係数である。
+実際、縮約した一形式は $\lambda yz\,dx+(a x^2+b xz+c z^2)\,dy-\lambda xy\,dz$ で、
+$t=x/z$, $q(t)=a t^2+bt+c$ とすると $yz^2 q(t)$ で割って
+\[
+ \frac{dy}{y}+\lambda\,\frac{dt}{q(t)}
+\]
+を得る。一般の $q$ は相異なる二根を持ち、その部分分数分解は二つの対数微分の差である。
+従って極は $y=0,\infty$ の二因子と、二つの $t=\text{定数}$ の閉包である。
+後者は第 $j,k$ 因子の積における bidegree $(1,1)$ の曲線の逆像である。
+逆に、一般の二つの $(1,1)$ 曲線の交点二つを $(0,0),(\infty,\infty)$ に移せば
+この形になる。従って式~\eqref{cube:eq:normal-log} は表の対数型を与える。
+
+\paragraph{先行研究}
+Loray--Pereira--Touzet \cite[定理9.1]{p12-LPT} は Picard 数1の Fano 三次元多様体の
+Poisson 構造の成分を分類した。ここで扱う $X$ の Picard 数は3である。
+Belmans--Fatighenti--Tanturri \cite[\S2.2]{p12-BFT} は Fano 三次元多様体の多重ベクトル場の
+コホモロジーを決定し、自己括弧を調べる段階を明示した。$X$ は彼らの
+$\mathrm{MM}_{3.27}$ であり、対応する Fanography の項目 \cite{cube-Fano} もこの分類問題を掲げる。
+pencil から Poisson 構造を作る一般構成は \cite[\S3.2.2]{p12-Pym} を参照されたい。
+本稿の主眼はこの構成の像の判別式による特徴付け、および非一致軌跡も含む成分の網羅である。
+八成分の分類について、文献上の新規性と優先関係は未確定である。
+
+\subsection{三つの判別式条件と pencil}
+アフィン座標 $x,y,z$ で捩れた一形式を
+\[
+ \omega=A(y,z)\,dx+B(x,z)\,dy+C(x,y)\,dz
+\]
+と書く。各係数は二変数のそれぞれについて次数が高々2である。
+$J=\omega\wedge d\omega/(dx\wedge dy\wedge dz)$ は三重次数が高々 $(2,2,2)$ で、
+その27係数が Jacobi 方程式である。例えば $x$ 頂点では
+\[
+ D_x=\operatorname{disc}_y C(x,y)-\operatorname{disc}_z B(x,z)
+ \in H^0(\PP^1_x,\mathcal O(4)).
+\]
+他の二頂点でも巡回的に $D_y,D_z$ を定める。各 $\mathfrak g_i$ において
+$\delta(p_0+p_1t+p_2t^2)=p_1^2-4p_0p_2$ は随伴不変な二次形式であるため、
+この定義は座標変換と可換である。
+
+\begin{proposition}\label{cube:prop:res}
+$J=D_x=D_y=D_z=0$ の零点集合は $\mathcal R$ である。
+\end{proposition}
+\begin{proof}
+$W=H^0(X,L)$ は三つの二次元空間のテンソル積である。
+Gaussian 写像 $\gamma:\wedge^2W\to V$ を $s\wedge t\mapsto s\,dt-t\,ds$ とする。
+$\mathrm{SL}_2^3$ の表現として $\wedge^2W$ は、三つの $\mathfrak g_i\otimes\mathfrak g_j$ と
+一次元自明表現の直和である。実際、二つのテンソルを入れ替えて反対称になる項は、
+三因子のうち一つまたは三つで外積を取る項である。$\gamma$ は三つの9次元直和因子
+それぞれに非零である。例えば $s,t$ が一つの変数でのみ異なる分解テンソルを
+取れば、該当する微分の係数だけが非零になる。
+核は各二次元空間の交代テンソルの積 $\CC\Omega$ であり、
+$\Omega\in\wedge^2 W$ は $W^*$ 上の非退化交代形式である。
+特に $\PP\gamma$ の中心は階数8で、Grassmann 多様体の割線および接線の張る
+直線上の点の階数は高々4である。中心からの射影は $\operatorname{Gr}(2,W)$ 上で閉埋め込みとなる。
+
+$\gamma(s\wedge t)$ で $J=0$ は $s\,dt-t\,ds$ の可積分性から従う。
+$x$ を固定すると $s,t$ は $y,z$ の同次座標の双一次形式である。
+これらを $Y^{\mathsf t}FZ,Y^{\mathsf t}GZ$ とすると、$dy,dz$ の係数は
+それぞれ列または行の二本組の行列式に等しい（符号は判別式に影響しない）。
+この二つの二次形式の判別式は等しい。実際 $F$ が可逆な稠密開集合で
+基底変換により $F=I$ に帰着できる。両辺は同じ行列式指標で変換し、
+$F=I$ ではともに $(\mathrm{tr}\,G)^2-4\det G$ になる。
+多項式恒等式によりすべての $F,G$ で等しい。従って $D_x=D_y=D_z=0$ である。
+
+$V$ 上でこの射影された Grassmann 多様体の錐に消える二次方程式の空間を計算する。
+$\wedge^2W$ 上で分解テンソルに消える二次式は Plücker 二次式
+$q_\ell(\eta)=\ell(\eta\wedge\eta)$、$\ell\in(\wedge^4 W)^*$ の全体である。
+$q_\ell$ が $V$ に降りる条件は $\ell(\Omega\wedge\wedge^2W)=0$ である。
+ここで $\Omega\wedge-:\wedge^2W\to\wedge^4W$ は単射である。
+実際、$L_\Omega=\Omega\wedge-$ とし、Darboux 基底での対応する縮約を
+$\Lambda_\Omega$ とすると、次数二では
+$\Lambda_\Omega L_\Omega-L_\Omega\Lambda_\Omega=2\operatorname{id}$ である。
+$L_\Omega\beta=0$ なら
+$\beta=-\frac12(\Lambda_\Omega\beta)\Omega$ となり、
+$\Omega^2\ne0$ から $\beta=0$ を得る。従って二次式の空間は
+$\binom84-\binom82=42$ 次元である。
+一方、$J$ の係数は $\mathfrak g_1\otimes\mathfrak g_2\otimes\mathfrak g_3$ の双対、各 $D_i$ の係数は
+第 $i$ 因子の二項四次式の双対を与える。これら四表現は互いに非同型かつ既約であり、
+いずれの二次写像も非零である。例えば $A=z,B=1,C=0$ なら $J=1$、
+$B=0,C=y$ なら $D_x=1$ である。従って $27+3\cdot5=42$ 個の係数が
+この空間の基底をなす。よって三つの判別式条件と Jacobi 方程式を満たすことは、
+$\gamma(\eta)=\pi$ に対して
+\begin{equation}\label{cube:eq:primitive}
+ \eta\wedge\eta\;\in\;\Omega\wedge\wedge^2W
+\end{equation}
+と同値である。
+
+この二次条件の十分性を、重固有値および冪零部分を含めて示す。
+$\eta,\Omega$ を $W^*$ 上の交代形式とみなし、
+$\eta(v,w)=\Omega(Tv,w)$ で $T$ を定める。$T$ は $\Omega$ に関して自己随伴である。
+Darboux 分解 $W^*=P\oplus P^*$、$\dim P=4$ をとって
+$T=M\oplus M^{\mathsf t}$ と書けることを確認する。
+これはシンプレクティック・スペクトル定理 \cite[命題8]{cube-SM} の場合であるが、
+必要な線形代数をここに示す。異なる固有値の一般固有空間は
+$\Omega$ に関して直交するので、それぞれに帰着する。
+その上で $N=T-\lambda I$ の最大 Jordan 長を $m$ とし、
+$N^{m-1}v\ne0$ となる $v$ と
+$\Omega(N^{m-1}v,w)\ne0$ となる $w$ を選ぶ。
+$N$ の自己随伴性と交代性から
+$\Omega(N^iv,N^jv)=\Omega(v,N^{i+j}v)=0$ であり、$w$ にも同様である。
+二つの巡回空間の間の対は
+$\Omega(N^iv,N^jw)=\Omega(v,N^{i+j}w)$ で与えられ、
+$i+j\ge m$ で零、$i+j=m-1$ で非零である。
+従って両巡回空間の直和は非退化な $2m$ 次元の $T$-不変部分空間であり、
+その直交補空間も $T$-不変である。帰納的にこの分解を繰り返し、
+$v$ の巡回空間の直和を $P$、$w$ の巡回空間の直和をその補空間とする。
+後者の基底を $\Omega$ による双対基底に取れば、所望の行列表現を得る。
+任意の二次元部分空間 $S\subset P$ について $S\oplus S^\perp$ は
+Lagrange 部分空間である。ここで $S^\perp\subset P^*$ は零化空間を表す。
+式~\eqref{cube:eq:primitive} から $\eta^2$ はそこで消える。
+制限された $\eta$ の交差項は $S\to P/S$, $v\mapsto Mv\bmod S$
+の表現行列であり、二つの対角項は零である。従って任意の $S$ について
+$S+MS\ne P$ である。
+
+これよりある $\lambda$ について $\operatorname{rank}(M-\lambda I)\le1$ を得る。
+実際、すべての固有空間の次元が2以下なら、$M$ の有理標準形の巡回直和因子は高々二つである。
+不変因子が整除列をなし、最小の非定数不変因子の根が全因子に現れるためである。
+次元の分割が $4$ なら巡回ベクトル $u$ に対し $S=\langle u,M^2u\rangle$ を取る。
+$2+2$ なら二つの巡回ベクトルで $S$ を張る。
+$3+1$ なら三次元ブロックの巡回ベクトル $u$ と一次元ブロックの固有ベクトル $v$ を用い、
+$S=\langle u,Mu+v\rangle$ とする。
+いずれも $S+MS=P$ で矛盾する。従って $\eta-\lambda\Omega$ の階数は高々2であり、
+それは $s\wedge t$ と書ける。$\pi=\gamma(s\wedge t)$ となる。
+\end{proof}
+\subsection{判別式が異なる場合と既約分解}
+\subsubsection{頂点の四次式が一致しない場合}
+各因子のベクトル場の空間を $\mathfrak g_i=H^0(\mathbb P^1,T_{\mathbb P^1})$
+とする。アフィン座標ではベクトル場をその二次以下の係数で表し、
+$[p,q]=pq'-qp'$ と書く。$p=p_0+p_1t+p_2t^2$ に対して
+$\delta(p)=p_1^2-4p_0p_2$ と置く。$p\ne0$ のとき
+$\operatorname{ad}_p$ の $\mathfrak g_i/\langle p\rangle$ 上の固有値は
+$\pm\sqrt{\delta(p)}$ である。これは $p$ の零点が二つなら
+$p=ct$、重根を持つなら $p=1$ に座標を変えて確認できる。
+
+座標を $x,y,z$ とし、体積形式との縮約から得る一形式を
+\[
+ \omega=A(y,z)\,dx+B(x,z)\,dy+C(x,y)\,dz
+\]
+と書く。すなわち二重ベクトル場の表示
+$\pi=T+\partial_x\wedge(U+V)$ では
+$T=A\partial_y\wedge\partial_z$, $U=C\partial_y$, $V=-B\partial_z$ である。
+$x$ を固定して $B=B(x)\in\mathfrak g_z$、$C=C(x)\in\mathfrak g_y$
+と扱い、$\dot B,\dot C$ は $x$ 微分とする。
+Jacobi 方程式は
+\begin{equation}\label{cube:eq:nonres-frob}
+ (-\operatorname{ad}_C\otimes1+1\otimes\operatorname{ad}_B)A
+  + C\otimes\dot B-\dot C\otimes B=0.
+\end{equation}
+実際、その係数は $A(C_y-B_z)+B(A_z-C_x)+C(B_x-A_y)$ である。
+
+三辺がすべて非零で、$x$ に付随する二つの四次式
+$\delta(C(x))$ と $\delta(B(x))$ が異なると仮定する。一般の $x$ で
+$B,C\ne0$ である。$\mathfrak g_y/\langle C\rangle\otimes
+\mathfrak g_z/\langle B\rangle$ 上で
+$-\operatorname{ad}_C\otimes1+1\otimes\operatorname{ad}_B$ は可逆である。
+実際、一方が冪零の場合も二つの固有値集合は交わらない。
+従って \eqref{cube:eq:nonres-frob} より
+\begin{equation}\label{cube:eq:nonres-inc}
+ A\in C(x)\otimes\mathfrak g_z+\mathfrak g_y\otimes B(x).
+\end{equation}
+特に $\operatorname{rank}A\le2$ である。
+
+\paragraph{階数二の排除}
+$\operatorname{rank}A=2$ ならば \eqref{cube:eq:nonres-inc} によって
+$C(x),B(x)$ はそれぞれ $A$ の左右の二次元の像に属し、射影化した
+二点は固定した射影同型で対応する。実際、右側の直線 $\langle B(x)\rangle$ は
+左側の二次元空間の双対における $C(x)$ の零化直線の $A$ による像である。
+従って適当な基底 $u,v$ および $r,s$ を用いると
+\[
+ A=a(u\otimes s-v\otimes r),\quad
+ C=hF,\quad B=kG,\quad F=fu+gv,\quad G=fr+gs,\quad a\ne0.
+\]
+ここで $f,g$ は射影写像の共通因子を除いた同次数の二項形式で、
+$h,k$ は残りの因子である。以下の微分はアフィン座標で行う。
+この射影写像が定数でない場合、
+$W=f\dot g-g\dot f\ne0$ とおくと \eqref{cube:eq:nonres-frob} は
+\[
+ ah[u,v]\otimes G+akF\otimes[r,s]
+ +(h\dot k-k\dot h)F\otimes G
+ +hkW(u\otimes s-v\otimes r)=0
+\]
+となる。各二次元の像で割ると $[u,v]=l u+m v$、$[r,s]=n r+p s$
+を得る。特にこれらの平面は $\mathfrak{sl}_2$ の Borel 部分代数である。
+左または右に共変ベクトル $(-g,f)$ を適用すれば
+\[
+ kW=a(fm-gl),\qquad hW=a(gn-fp).
+\]
+$[F,[u,v]]=(fm-gl)[u,v]$、$[G,[r,s]]=(fp-gn)[r,s]$ であり、
+Borel の導来直線上の固有値の二乗は判別式に等しい。
+よって $\delta(C)=h^2(fm-gl)^2=k^2(fp-gn)^2=\delta(B)$ となり矛盾する。
+
+射影写像が定数ならば $C=hu$, $B=kr$, $A=u\otimes s+v\otimes r$ と書ける。
+\eqref{cube:eq:nonres-frob} より $[u,v]\in\langle u\rangle$,
+$[r,s]\in\langle r\rangle$ を得る。$u,v$ および $r,s$ はそれぞれ独立で
+あるから、$u,r$ は各 Borel の導来直線に属し、いずれも冪零である。
+再び $\delta(C)=\delta(B)=0$ となる。
+
+\paragraph{階数一と残りの辺}
+従って $A=u\otimes r$ と書ける。\eqref{cube:eq:nonres-inc} より
+$C(x)\in\langle u\rangle$ または $B(x)\in\langle r\rangle$
+が一般の $x$ で成り立つ。これらは $x$ に関する閉条件なので、
+いずれかが恒等的に成り立つ。対称性により $C=h\otimes u$ としてよい。
+このとき \eqref{cube:eq:nonres-frob} は
+\begin{equation}\label{cube:eq:axial-centralizer}
+ (\operatorname{ad}_h\otimes1-1\otimes\operatorname{ad}_r)B=0
+ \quad\text{in }\mathfrak g_x\otimes\mathfrak g_z
+\end{equation}
+に帰着する。ここで $h,r\ne0$ である。
+$\delta(h)\ne\delta(r)$ ならばこの核は $\langle h\otimes r\rangle$ である。
+実際、双方半単純なら共通固有値は $0$ のみで、一方が冪零なら
+他方の零固有空間上でその冪零作用の核を取ればよい。この場合、三辺は
+各頂点に一つずつ選んだ直線から作られる。
+
+$\delta(h)=\delta(r)$ の場合は \eqref{cube:eq:axial-centralizer} の核が
+三次元である。非零の判別式の場合は三つの固有値から各一次元を得る。
+両方が非零冪零なら両方の随伴作用が大きさ三の単一 Jordan ブロックであり、
+その間の intertwiner の空間は三次元である（不変双線形形式による双対化で
+符号が変わっても Jordan 型は同じである）。
+$\delta(h)=\delta(r)$ は六次元アフィン空間内の非退化二次錐であり、
+$h,r\ne0$ の開集合上で核は階数三のベクトル束になる。
+$\langle u\rangle\in\mathbb P(\mathfrak g_y)$ を動かすと、
+得られる族の閉包は既約で次元は $2+5+3=10$ である。実際、
+$u$ の代表を局所的に固定すると $A,C$ から $h,r$ が一意に定まる。
+$\delta(h)=\delta(r)\ne0$ 上で一般の $B$ は階数三である。
+従って三通りの共通頂点は一般点の階数から区別できる。
+
+最後に、辺がちょうど二本非零ならば共有する頂点における二つの像の任意の
+元が互いに可換である。$\mathfrak{sl}_2$ の任意の非零元の中心化代数は
+一次元なので、両方の像は同じ直線になる。この場合も各頂点における
+直線の選択から得られる。辺が一本だけ非零ならその辺のテンソルは任意である。
+\subsubsection{成分の極大性と一般点での被約性}
+命題~\ref{cube:prop:res} と前節の議論から八つの既約閉集合で全点が覆われる。
+三つの $\mathcal S_{ij}$ は支持する辺で区別され、三つの $\mathcal L_i$ は
+一般元で階数3をもつ辺で区別される。$\mathcal T$ と各 $\mathcal S_{ij}$ は同次元だが、
+$\mathcal T$ の一般元では全ての辺が非零である。
+各閉集合が実際に成分であることと一般点の被約性を同時に証明するため、
+各型の一点で接空間を計算する。
+
+以下、$w=(A,B,C)$ を用い、三つの辺の変数を順に $(y,z),(z,x),(x,y)$ とする。
+三重添字 $(i,a,b)$ は第 $i$ 辺のこの順序の単項式を表す。
+具体的な四点を次で選ぶ。
+\begin{itemize}
+\item $\mathcal R$ では $s,t$ の係数を $(x,y,z)$ の指数の辞書式昇順
+$000,001,010,011,100,101,110,111$ でそれぞれ
+$(2,-1,4,2,-3,5,1,3)$ および $(1,3,-3,4,1,2,-5,-1)$ とする。
+\item $\mathcal S_{23}$ では $A$ の係数を $(y,z)$ の指数の辞書式昇順で
+$(0,1,3,-1,1,5,5,0,2)$ とし、$B=C=0$ とする。
+\item $\mathcal T$ では $w=(yz,3zx,5xy)$ とする。
+\item $\mathcal L_2$ では $w=(2yz,3x^2+5xz+7z^2,-2xy)$ とする。
+\end{itemize}
+接空間の余次元は、$v$ を27個の単項式方向に動かしたときの
+\[
+ v\longmapsto v\cdot\mathrm{curl}\,w+w\cdot\mathrm{curl}\,v
+\]
+の階数である。像は各変数について次数2以下なので、
+$\{0,1,2\}^3$ の27点で評価すれば係数を可逆な行変換で置き換えたことになる。
+この $27\times27$ 行列を $M_\pi$ とする。
+行は点 $(x,y,z)\in\{0,1,2\}^3$、列は $(i,a,b)$ の辞書式昇順に並べ、
+いずれも1から番号を付ける。以下は非零小行列式の証明書である。
+$I,J$ はそれぞれ行と列の順序付き添字列であり、最後の欄は
+$\det M_\pi[I,J]$ の $101$ による剰余である。
+\[
+\begin{array}{c|l|r}
+ & (I,J)&\det\pmod {101}\\\hline
+\mathcal R&
+\begin{aligned}
+ I&=(1,2,3,4,5,6,10,11,12,7,8,13,14,19),\\
+ J&=(1,2,\ldots,14)
+\end{aligned}&96\\[4pt]
+\mathcal S_{23}&
+\begin{aligned}
+ I&=(1,10,19,4,11,20,8,13,22,2,5,12,7,14,15,21,23,24),\\
+ J&=(10,11,\ldots,27)
+\end{aligned}&57\\[4pt]
+\mathcal T&
+\begin{aligned}
+ I&=(10,11,12,13,14,16,15,17,9,22,4,18,5,23,6,3,20,24),\\
+ J&=(1,2,3,4,6,7,8,9,10,12,13,15,16,18,19,21,25,27)
+\end{aligned}&74\\[4pt]
+\mathcal L_2&
+\begin{aligned}
+ I&=(2,3,11,5,6,14,8,9,15,13,4,17,23,16,12,18,19),\\
+ J&=(1,2,3,4,5,6,7,8,9,10,11,15,18,19,21,25,27)
+\end{aligned}&52
+\end{array}
+\]
+したがって階数は順に $14,18,18,17$ 以上である。
+各点を含む既約族の次元が既に $13,9,9,10$ と分かっているので、
+接空間の次元による逆向きの評価と合わせて等号を得る。
+付属の \texttt{check\_jacobi.py} も同じ行列を整数で組み立て、
+有理数による行消去で次の値を再現する。
+
+\[
+\begin{array}{c|rrrr}
+ &\mathcal R&\mathcal S_{23}&\mathcal T&\mathcal L_2\\\hline
+ \operatorname{rank} dJ&14&18&18&17\\
+ \dim T_\pi\operatorname{Pois}(X)&13&9&9&10\\
+ \dim G\pi&9&6&6&7
+\end{array}
+\]
+である。最下段は $G=(\mathrm{PGL}_2)^3$ の九つの基本ベクトル場の
+Lie 微分の階数を示す。同じコードがこれも計算する。
+この $9\times27$ 行列を $N_\pi$ とし、行を
+$(t,d)\in\{1,2,3\}\times\{0,1,2\}$ に対応する
+$\mathcal L_{x_t^d\partial_{x_t}}\pi$ の辞書式昇順、列を上と同じ順序とすると、
+軌道次元の下界も次の非零小行列式で確認できる。
+\[
+\begin{array}{c|l|l|r}
+ &I&J&\det N_\pi[I,J]\pmod {101}\\\hline
+\mathcal R&(4,5,7,6,8,9,2,3,1)&(1,2,3,4,5,6,10,11,13)&52\\
+\mathcal S_{23}&(4,5,7,8,6,9)&(1,2,3,4,5,6)&82\\
+\mathcal T&(4,7,9,6,1,3)&(2,4,6,8,13,15)&92\\
+\mathcal L_2&(4,7,9,6,1,2,3)&(2,4,6,8,11,12,15)&75
+\end{array}
+\]
+軌道次元の上界は後の商の証明で説明する。
+上の四点で接空間の次元はその点を含む既約閉集合の次元に等しい。
+局所次元は両者の間にあるので、各点の局所環は正則で、対応する閉集合は
+その点を通る唯一の成分である。因子の置換により残りの四成分にも従う。
+これで定理~\ref{cube:th:classification} の固定 $X$ に関する主張が示された。
+Jacobi イデアル自体が根基的かどうかは、この一般点での計算からは決まらない。
+
+\subsection{自己同型群による商}
+$G=\operatorname{Aut}^0(X)=(\mathrm{PGL}_2)^3$、$\operatorname{Aut}(X)=G\rtimes\mathfrak S_3$ である。
+これは nef 錐の三本の端射線に対応する射影が自己同型により置換されることから従う。
+連結群 $G$ は各成分を保ち、$\mathfrak S_3$ はそれぞれ三つの $\mathcal L_i$、
+三つの $\mathcal S_{ij}$ を推移的に置換する。従って商スタックの成分は
+$G$ で八つ、$\operatorname{Aut}(X)$ で四つである。
+
+\begin{proposition}\label{cube:prop:git}
+アフィン GIT 商および $\mathcal O(1)$ による射影 GIT 商でもこの個数は保たれる。
+アフィン商の各成分の次元は $\mathcal R$ で4、他の型で3であり、
+射影商ではそれぞれ3と2である。特に、因子の順序を保つ射影商では
+\[
+ (\PP\mathcal R)\mathbin{/\mkern-6mu/}G\simeq\PP(1,2,2,3).
+\]
+\end{proposition}
+\begin{proof}
+$\mathfrak g_i$ をコンパクト実形 $\mathfrak{su}(2)$ の複素化とみなし、$V$ にその誘導実構造を入れる。
+各成分で実点は Zariski 稠密である。$\mathcal S_{ij}$ と $\mathcal T$ では実直線および実係数を用いる。
+$\mathcal L_i$ ではコンパクト実形で長さが等しい二つの非零元を選べるので、
+非退化二次錐 $\delta(h_j)=\delta(h_k)$ は滑らかな実点をもつ。
+その実点は稠密で、実構造を保つ階数3の核束でも同様である。
+$\mathcal R$ では $W$ の三因子に標準の四元数構造を入れると、
+そのテンソル積 $j$ は $j^2=-1$ を満たす。$\operatorname{Gr}(2,W)$ の $j$-不変な
+複素二平面は四元数直線の空間 $\mathbb H\PP^3$ となる。これは非特異な実形なので
+Zariski 稠密である。$s\wedge js$ は $\wedge^2j$ で不変であり、その実数倍が
+錐で稠密になる。$X$ の各因子の反足実構造がこの構造とベクトル場のコンパクト
+実構造を誘導するため、$L^2\simeq -K_X$ の同型を実構造と両立するように
+スカラー調整すれば $\gamma$ は実となる。
+
+コンパクト群に関して不変な実正定値内積を使うと、実ベクトルにおいて
+モーメント写像は零である。従って Kempf--Ness の定理 \cite{cube-KN} により各実点の
+$G$ 軌道は閉じている。各成分で他成分の和を避ける実点を取る。
+この点の商像が他成分の像にも属するなら、ファイバーの唯一の閉軌道が他成分にも
+含まれ、矛盾する。不変閉部分集合の像は閉じているので、商像はそれぞれ別の既約成分となる。
+内積を複素双線形に延長した不変二次式は非零実点で正であり、これらの点は
+射影 GIT でも半安定である。有限群 $\mathfrak S_3$ の商で成分はその軌道ごとにまとまる。
+
+各型の最大軌道次元は上表の値である。上限は $\mathcal R$ では $\dim G=9$、
+$\mathcal S_{ij}$ では残りの因子の自己同型、$\mathcal T$ では三つの中心化群から従う。
+$\mathcal L_i$ の一般元には $u_i$ の中心化トーラスと $h_j+h_k$ の対角トーラスが作用する。
+表の計算はこれらの上限に達している。
+最大軌道次元の開集合で選んだ実点の閉軌道は、その成分内で商のファイバーに一致する。
+真に大きな軌道の境界に入るなら軌道次元の最大性に反するからである。
+ファイバー次元定理によりアフィン商の次元は主張通りである。射影商の次元は
+正次数のスカラー倍を除くため一つ小さくなる。
+
+最後に $\PP\mathcal R$ の偏極は $\operatorname{Gr}(2,W)$ の Plücker 偏極である。
+射影像の斉次座標環はこの偏極の全切断環の部分環であり、
+一次部分の次元はそれぞれ27と28である。十分高い次数では両者は一致するので、
+$G$ 不変部分環の $\operatorname{Proj}$ も一致する。
+二つの切断の基底変換 $\mathrm{SL}_2$ の不変式は二行行列の最大 minors で生成され、
+その環は Grassmann 多様体の Plücker 切断環である。従ってさらに $G$ 不変式を取ると、
+$(\CC^2)^{\otimes4}$ の $\mathrm{SL}_2^4$ 不変式環が得られ、テンソル次数は
+Plücker 次数の二倍になる。Luque--Thibon \cite[\S\S II--III]{cube-LT} による
+自由生成元のテンソル次数は $2,4,4,6$ なので、この環の $\operatorname{Proj}$ は
+$\PP(1,2,2,3)$ である。
+\end{proof}
+
+\subsection{六次 del Pezzo 曲面上の括弧の延長}
+\begin{proposition}\label{cube:prop:delpezzo}
+滑らかな $S=(s=0)\in|L|$ と $\sigma\in H^0(S,-K_S)$ に対し、
+$S$ を Poisson 部分多様体にして $\pi|_S=\sigma$ を満たす
+$\pi\in\operatorname{Pois}(X)$ はただ一つ存在する。この延長は $\mathcal R$ に属し、
+$S,\sigma$ を動かした像の閉包は $\mathcal R$ である。
+\end{proposition}
+\begin{proof}
+随伴公式から $-K_S\simeq L|_S$ である。
+$0\to\mathcal O_X\xrightarrow{s}L\to L|_S\to0$ と $H^1(X,\mathcal O_X)=0$ により、
+対応する切断を $t\in H^0(X,L)$ に持ち上げる。$s\,dt-t\,ds$ は
+$S$ 上で $-t\,ds$ である。局所座標の一つに $s$ を取ると、
+これが $S$ に接する双ベクトルで、その誘導する切断は随伴同型の符号を選べば
+$\sigma$ である。持ち上げの不定性 $t\mapsto t+cs$ は消える。
+二つの延長の差は $H^0(X,\wedge^2 T_X\otimes L^{-1})$ に属するが、
+各直和因子は次数 $(1,1,-1)$ の置換であるから、この空間は零である。
+一般の pencil は滑らかなメンバーを持つので閉包についても従う。
+\end{proof}
+
