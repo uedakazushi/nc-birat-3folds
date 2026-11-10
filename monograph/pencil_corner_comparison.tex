@@ -1,0 +1,224 @@
+\section{最大 pencil の二模型の corner 比較と形式的障害}
+\label{sec:pencil-corner-comparison}
+
+第\ref{sec:native-pencil}節の Segre 斉次環と
+第\ref{pcat:sec}節の階数64の directed 代数を比較するため、
+古典的な二つの corner と cross bimodule を明示する。
+本節で実際に証明するのは、古典的な三角表示、
+一次変形の corner 類の一致、および比較の形式的な判定基準である。
+これらの結果だけで二つの非可換三次元模型の導来同値や
+分数斜体同型が得られるわけではない。
+
+\subsection{pencil の行列式と共通曲面の Poisson 類}
+
+\begin{lemma}[行列式による楕円中心と曲面 Poisson 類]
+\label{pcc:lem:determinant}
+$S=\mathbb P^1_y\times\mathbb P^1_z$、
+$X=\mathbb P^1_x\times S$ とし、
+$a,b,c,d\in H^0(S,\mathcal O_S(1,1))$ を取る。
+$s=xa+b$、$t=xc+d$、$D=bc-ad$ と書く。
+次が成立する。
+\begin{enumerate}
+\item $\omega=s\,dt-t\,ds$ の $dx$ 係数は $D$ であり、
+$x$ に依存しない。したがって、対応する大域 Poisson 双ベクトルの
+$\bigwedge^2T_S$ 成分は
+$D(y,z)\partial_y\wedge\partial_z$ である。
+\item $D=0$ が滑らかで、$a,b,c,d$ が同時に消える点がないとき、
+基底曲線 $Z=\{s=t=0\}\subset X$ の $S$ への射影は
+$E=\{D=0\}\subset S$ への同型である。
+$E$ は $S$ の反標準 $(2,2)$ 曲線であり、種数は1である。
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+$dx$ 係数は
+\[
+ s\,\partial_xt-t\,\partial_xs
+ =(xa+b)c-(xc+d)a=bc-ad=D
+\]
+である。$\iota_{\pi}(dx\wedge dy\wedge dz)=\omega$ という規約から
+$\partial_y\wedge\partial_z$ の係数がこの $D$ になる。
+$\mathcal O_S(2,2)\simeq-K_S$ なので、これは大域的な双ベクトルである。
+
+$s=t=0$ は、$\mathbb P^1_x$ の斉次座標 $[X_0:X_1]$ において
+\[
+ \begin{pmatrix}b&a\\d&c\end{pmatrix}
+ \begin{pmatrix}X_0\\X_1\end{pmatrix}=0
+\]
+と表される。この行列の行列式は $bc-ad=D$ である。
+$E$ 上では行列の階数がちょうど1なので、核は一次元であり、
+その核直線が $E\to\mathbb P^1_x$ の正則な射を定める。
+$Z$ はこの射のグラフである。これは $x=\infty$ を含む主張である。
+最後に $K_S=\mathcal O_S(-2,-2)$ と随伴公式より
+$K_E\simeq\mathcal O_E$、滑らかな $(2,2)$ 曲線の種数は1である。
+\end{proof}
+
+\subsection{八対象の三角表示と有限入力}
+
+$\varepsilon=(\varepsilon_x,\varepsilon_y,\varepsilon_z)\in\{0,1\}^3$ に対し
+$T_\varepsilon=\mathcal O_X(\varepsilon_x,\varepsilon_y,\varepsilon_z)$ と置き、
+$A_0=\operatorname{End}_X(\bigoplus_\varepsilon T_\varepsilon)$ とする。
+$S$ 上の四対象を $F_{ij}=\mathcal O_S(i,j)$ $(i,j\in\{0,1\})$、
+$C_0^{\mathrm{cl}}=\operatorname{End}_S(\bigoplus F_{ij})$ と書く。
+
+\begin{proposition}[二つの corner と cross の完全な表示]
+\label{pcc:prop:triangular-classical}
+$e_0,e_1\in A_0$ を $\varepsilon_x=0,1$ に対応する四対象の
+冪等元の和とする。このとき
+\[
+ e_0A_0e_1=0,\qquad
+ e_0A_0e_0\simeq C_0^{\mathrm{cl}},\qquad
+ e_1A_0e_1\simeq C_0^{\mathrm{cl}},
+\]
+および $(C_0^{\mathrm{cl}},C_0^{\mathrm{cl}})$-bimodule として
+\[
+ e_1A_0e_0\simeq
+ H^0(\mathbb P^1_x,\mathcal O(1))\otimes_{\mathbb C}C_0^{\mathrm{cl}}
+ \simeq(C_0^{\mathrm{cl}})^{\oplus2}.
+\]
+従って $A_0$ は二つの同型な corner と正則 bimodule 二個を持つ
+三角行列代数であり、その次元は
+\[
+ \dim C_0^{\mathrm{cl}}=16,\qquad
+ \dim e_1A_0e_0=32,\qquad \dim A_0=16+32+16=64.
+\]
+\end{proposition}
+\begin{proof}
+$\mathcal O(0)$ から $\mathcal O(1)$ への Hom は二次元、
+逆方向は零、同次数の End は一次元である。
+$S$ 上の Hom の高次 Ext はいずれも零なので、外積の Kunneth 公式が
+各 Hom とその合成を同定する。特に $e_1A_0e_0$ の左右の
+$C_0^{\mathrm{cl}}$-作用は正則 bimodule の左右の積である。
+一つの $\mathbb P^1$ の二対象の End 代数の次元は
+$1+2+1=4$ であり、$S$ の四対象では $4^2=16$。
+積の三因子では $4^3=64$ となる。
+\end{proof}
+
+\begin{lemma}[corner と cross の同型判定]
+\label{pcc:lem:triangular-criterion}
+$R$ を可換環とし、$e_0+e_1=1$、$e_0e_1=e_1e_0=0$、
+$e_0Ae_1=0$ を満たす $R$-代数 $A$ を考える。
+$C_i=e_iAe_i$、$M=e_1Ae_0$ と置くと、標識された代数として
+\[
+ A\simeq
+ \begin{pmatrix}C_0&0\\M&C_1\end{pmatrix}.
+\]
+同様の $A'$ との間に $e_i\mapsto e'_i$ を満たす $R$-代数同型が
+存在するための必要十分条件は、代数同型
+$\phi_i:C_i\xrightarrow{\sim}C'_i$ と、これらで作用を移した
+$(C'_1,C'_0)$-bimodule 同型
+$M\xrightarrow{\sim}M'$ が存在することである。
+\end{lemma}
+\begin{proof}
+直和分解 $A=e_0Ae_0\oplus e_1Ae_0\oplus e_1Ae_1$ と積の規則から
+表示を得る。代数同型を各直和因子へ制限すれば必要性が従い、
+逆に三つの同型を直和して作用の両立性から積が保たれることを確認する。
+\end{proof}
+
+この補題を第\ref{pcat:sec}節の相対代数 $A_R$ に適用すると、
+二つの階数16の corner の代数構造と、階数32の cross bimodule の
+\emph{左右作用を含む}同定が比較の有限入力となる。
+階数だけの一致、あるいは二つの corner の同型だけでは不十分である。
+第\ref{pcat:kernel-bimodule}命題の fiber 表示は cross の入力を与えるが、
+Segre 側の対応する八対象の構成と合成の照合はまだ行われていない。
+
+\subsection{一次の corner 類と比較できる範囲}
+
+\begin{proposition}[Hochschild 類の二つの corner への制限]
+\label{pcc:prop:corner-KS}
+$A_0$ の primitive idempotents を標識し、
+双対数 $R_1=\mathbb C[h]/(h^2)$ 上の平坦な結合代数変形
+$A_{R_1}$ を取る。冪等元は標識を保って持ち上げておく。
+$HH^2(A_0)\simeq H^0(X,\bigwedge^2T_X)$ の分解
+\[
+ H^0(X,\bigwedge^2T_X)
+ \simeq H^0(S,\bigwedge^2T_S)
+ \oplus
+ \bigl(H^0(\mathbb P^1_x,T_{\mathbb P^1_x})
+ \otimes H^0(S,T_S)\bigr)
+ \tag{CC1}
+\]
+において一次類を $(\beta,\mu)$ と書く。
+二つの四頂点 corner $e_iA_{R_1}e_i$ の
+$HH^2(C_0^{\mathrm{cl}})$-類は、ともに $\beta$ である。
+とくに $\pi_{s,t}$ に対応する変形では
+\[
+ \beta=D(y,z)\partial_y\wedge\partial_z,
+ \qquad D=bc-ad.
+ \tag{CC2}
+\]
+$HH^2(X)$ は27次元で、$\beta$ の空間は9次元、
+残る $\mu$ の空間は18次元である。
+\end{proposition}
+\begin{proof}
+$K=\operatorname{End}_{\mathbb P^1_x}(\mathcal O\oplus\mathcal O(1))$、
+$C=C_0^{\mathrm{cl}}$ と置くと、
+$A_0\simeq K\otimes_{\mathbb C}C$ であり、
+$e_iA_0e_i\simeq C$ である。有限大域次元代数の
+Hochschild Kunneth 同型と導来 Morita 不変性、HKR 同型を用いる。
+$HH^0(K)=\mathbb C$、$HH^1(K)\simeq H^0(\mathbb P^1,T)$、
+$HH^q(K)=0$ $(q\ge2)$ である。
+したがって
+\[
+ HH^2(A_0)\simeq HH^2(C)\oplus
+       \bigl(HH^1(K)\otimes HH^1(C)\bigr).
+\]
+$e_iKe_i=\mathbb C$ への Hochschild cochain の corner 制限は
+次数正の $HH^*(K)$ を零に送り、$HH^0(K)$ の単位は単位へ送る。
+従って $HH^2(A_0)\to HH^2(e_iA_0e_i)$ はいずれも
+第一直和因子への射影となる。
+$HH^1(C)=H^0(S,T_S)$ は6次元、
+$HH^2(C)=H^0(S,\bigwedge^2T_S)$ は9次元であり、
+$\dim HH^1(K)=3$。これより $9+3\cdot6=27$ となる。
+式(CC2) は補題\ref{pcc:lem:determinant}による。
+\end{proof}
+
+\begin{proposition}[二つの圏量子化の一次における一致]
+\label{pcc:prop:first-order}
+第\ref{thm:restored-product-quant}定理の $X=(\mathbb P^1)^3$、
+$\pi=\pi_{s,t}$ に対する階数64の tilting 代数族と、
+第\ref{pcat:two-contractions}定理の階数64の相対代数族を考える。
+両者の古典点の八対象を $T_\varepsilon$ と同定し、
+局所パラメーターを一次 Poisson 類が一致するように選ぶ。
+このとき双対数上に制限した二つの代数族は、
+八つの primitive idempotents を保つ代数同型で結ばれる。
+この同型は選択に依存し、一次の情報だけからは
+高次の同型も Segre 斉次環の導来同値も従わない。
+\end{proposition}
+\begin{proof}
+両族は古典点で $A_0$ に戻り、引用した二つの定理による
+Kodaira--Spencer 類は同じ $\pi_{s,t}\in HH^2(A_0)$ である。
+固定した $A_0$-加群上で双対数への結合積の変形を記述すると、
+一次項は Hochschild 2-cocycle となり、二つの積の差は coboundary である。
+したがって恒等写像に合同な $1+h f$ の形の変数変換により
+二つの積は同型になる。有限個の primitive idempotents が張る
+分離的部分代数
+$\mathbb C^{\oplus8}\subset A_0$ に関する relative cochain を使えば、
+この変数変換は冪等元を固定するように選べる。
+\end{proof}
+
+\begin{remark}[高次への帰着]
+\label{pcc:rem:obstruction}
+二つの完備 $\mathbb C[[h]]$-代数変形の同型を $h^n$ まで構成したとする。
+既存の標識を固定した上で、その同型を一次数延ばすための差は
+$HH^2(A_0)$ の元として表される。
+その類が零なら Hochschild 1-cochain による補正で延長できる。
+各段階で類が消えれば $h$-進完備性から形式同型を得る。
+本命題の結果から始める場合、次の最初の障害は $h^2$ の係数にある。
+式(CC1) により、その corner 成分は9次元の空間、
+混合成分は18次元の空間で測られる。
+ただしこれは\emph{選んだ比較を一段延ばす際の障害の所在}であり、
+実際の $h^2$ の値や、その消滅を示したものではない。
+また、この議論は指定した idempotents を持つ二つの有限代数についてであり、
+Segre 環の $\qgr$ に八対象の持上げが存在することは別途示す必要がある。
+\end{remark}
+
+\begin{remark}[残る厳密な比較]
+Segre 環 $A_U$ の非可換射影圏から八対象を取り出し、
+その dg End を $A_R$ と比較すること、特に cross の
+左右作用と合成を $\hbar$ の全次数で照合することが次の課題である。
+さらに導来同値と、第\ref{pcat:generic}定理で構成した
+$\operatorname{Perf}(D_K(u))$ への局所化との両立性を示さなければならない。
+第\ref{pcc:prop:first-order}命題はこれらの結論を主張しない。
+計算コード \texttt{computations/check\_pencil\_corners.py} は
+行列式と古典的な $16+32+16$ の分解を厳密に照合する。
+\end{remark}

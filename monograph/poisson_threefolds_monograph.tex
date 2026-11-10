@@ -18,7 +18,7 @@
 \newcommand{\AD}{\operatorname{AD}}
 \title{有理三次元多様体の Poisson 構造と非可換双有理幾何\\\large 成分分類・量子化・blow-up・半直交分解}
 \author{}
-\date{2026年11月8日\quad 統合・再検証第13版}
+\date{2026年11月8日\quad 統合・再検証第14版}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -44,6 +44,9 @@ Sklyanin 平面の二点 blow-up 環として表示される。
 Segre 斉次環の代数的量子化を構成する。
 また楕円曲線を中心とする共通圏に二つの半直交分解を与え、
 両端点の一次 Poisson 構造と共通関数斜体を同定する。
+古典的な二つの corner と cross bimodule を $16+32+16$ の三角表示で明示し、
+二つの既存の圏量子化が一次では同型であることを示す。
+Segre 斉次環との高次の比較は未完成である。
 三模型のトーラス型には同じ双指標で変形した共通 Rees 模型を構成し、
 全 blow-up 段階の Orlov 型半直交分解を証明する。
 Riccati 型には $S(2,3)$ 内の特殊族を与える通常の射影三空間の量子化を構成する。
@@ -148,6 +151,10 @@ filtered deformation の族のうち、次数六の $\mathbb P^1$ ruling を用�
 楕円曲線のグラフを中心とする相対共通圏を構成する。
 二回の mutation により階数64の三重積の量子化と第二の楕円成分を得る。
 これらの具体的な主張の新規性は未確定である。
+第\ref{sec:pencil-corner-comparison}節では両構成の古典的な八対象の
+二つの corner（各階数16）と cross bimodule（階数32）を比較し、
+一次の Hochschild 類の二つの corner への制限および有限代数の
+一次同型を証明する。Segre 側との高次の導来比較は未完成である。
 
 \subsection{主張の状態と適用範囲}
 本書の基本定理は、先行定理を仮定つきで使用した結果と、
@@ -409,6 +416,7 @@ formality、Artin 近似、および AS 正則性の分類定理は、上記の�
 \part{中央 pencil、射影量子化と共通模型}
 \input{nc_pencil_projective}
 \input{nc_pencil_common}
+\input{pencil_corner_comparison}
 
 \section{中央な正則列の Rees 環と楕円中心の blow-up}
 \label{sec:central-rees}

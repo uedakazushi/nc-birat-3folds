@@ -1,6 +1,6 @@
 # 研究方針　非可換三次元多様体の双有理幾何と非可換有理性
 
-2026年11月8日（日本標準時）・現行第13版（Sklyanin generic quadric の ruling 下降）
+2026年11月10日（日本標準時）・現行第14版（最大 pencil の一次 corner 比較）
 
 ## 目標と達成基準
 
@@ -12,7 +12,7 @@
 
 ## 現行版と再開の入口
 
-現在有効な公表用原稿は **`monograph/poisson_threefolds_monograph.tex`** を入口とする1冊だけである。PDFは `latexmk` により `monograph/build/poisson_threefolds_monograph.pdf` に再生成し、Gitでは追跡しない。2026年11月8日の現行第13版（Sklyanin generic quadric の ruling 下降）。旧版の参照を前提とせず、必要なソース・証明・実装・文献を同梱した。
+現在有効な公表用原稿は **`monograph/poisson_threefolds_monograph.tex`** を入口とする1冊だけである。PDFは `latexmk` により `monograph/build/poisson_threefolds_monograph.pdf` に再生成し、Gitでは追跡しない。2026年11月10日の現行第14版（最大 pencil の一次 corner 比較）。旧版の参照を前提とせず、必要なソース・証明・実装・文献を同梱した。
 
 研究の理解と再開に必要な情報は、この研究方針、`01-research-notes.md`、モノグラフ、依存TeX断片、計算コードに整理した。量子化の存在結果もモノグラフ前半に統合しているため、別の独立した量子化原稿は不要である。
 
@@ -46,6 +46,8 @@
 - 四次元 Sklyanin pencil は、中心部分体 C(u) の有限拡大後、三次元 Sklyanin 曲面の関数体と比較できる。C(u) 上への下降は未解決。
 
 直接計算の証明はモノグラフにある。AS 正則性、曲面双有理定理、Clifford 判定は記載した一次文献に依存する。無限位数や Q 線形独立性の条件を用いる結果では、その条件を複素閉点の Zariski 開条件として扱わない。
+
+**最大 pencil の比較に関する今回の直接証明**：`pencil_corner_comparison.tex` で、古典的な八対象の endomorphism algebra を二つの16次元 corner と32次元 cross bimodule に三角分解した。`s=xa+b,t=xc+d` の共通曲面 Poisson 類は `D=bc-ad` であり、HH²(X111)=27 のうち両 corner への共通制限が9次元、残る混合部分が18次元であることを証明した。`restored_finite_products.tex` の一般 tilting 量子化と `nc_pencil_common.tex` の共通圏量子化は、標識を合わせると双対数上で同型となる。ただしこれは Segre 斉次環と共通圏の高次同型ではない。次に Segre 側の八対象、corner 同型、cross の左右作用を高次まで比較する。
 
 ### blow-up と SOD
 
@@ -94,7 +96,7 @@
 
 ## 未解決の核心と次の着手方法
 
-1. **最大 pencil の二構成の比較。** `nc_pencil_projective.tex` の Segre 斉次環の八対象を作り、`pcat:kernel-bimodule` の階数32の cross bimodule と Hom・合成を照合する。特定の斉次環の smooth properness、階数64の mutation 代数との導来同値、D(u) への generic localization が一致することを達成基準とする。中央 pencil と三つの次数二直線束の標識を固定する。
+1. **最大 pencil の二構成の比較。** 新しい `pencil_corner_comparison.tex` の三角行列代数同型判定を使用し、`nc_pencil_projective.tex` の Segre 斉次環から八対象を作る。二つの16次元 corner の積を比較し、次に `pcat:kernel-bimodule` の階数32の cross bimodule の左右作用・合成を照合する。一次一致は一般 tilting 量子化と共通圏量子化に対して確立したが、Segre 側の lift と二次以降は未証明である。特定の斉次環の smooth properness、階数64の mutation 代数との導来同値、D(u) への generic localization が一致することを達成基準とする。中央 pencil と三つの次数二直線束の標識を固定する。
 2. **反標準 section functor と係数。** `restored_anticanonical_criterion.tex` の定理を適用するため、有限代数 B の coherent heart 上で $S^{-1}[2]$ の t-exactness、Artin–Zhang の ample 条件、五個の section module の full dg endomorphism algebra と生成性を照合する。42二次関係式と S3 の二点 evaluation の核 V を入力にし、旧版での証明報告だけを根拠に同値を主張しない。
 3. **Sklyanin pencil の下降。** `sklyanin_ruling_descent.tex` の $K' = \mathbb C(E)$ に移り、Smith--Van den Bergh の二つの spinor module の Galois 交換を明示的行列で計算する。Clifford 型代数は $M_2(K')$ に分裂済みなので、次は選んだ非可換曲面の関数斜体同型の cocycle $a_\gamma$ を生成元で計算し、非可換 $H^1$ 類の自明性を判定する。比較同型と平面の具体モデルが揃うまでは AS-有理性を断言しない。
 4. **Riccati の射影比較と残る成分。** P3 の S(2,3) 内の像とファイバーを求め、元の X12 偏極を回復する ample sequence または blow-up を構成する。導分の定数体・有理第一積分・monodromy を比較する。R(1,3) の中心拡大 Sklyanin 模型と残る log-canonical 正規形の native compactification も扱う。

@@ -1,6 +1,6 @@
 # 研究ノート　Poisson 成分・非可換関数体・射影模型
 
-2026年11月8日（日本標準時）・現行第10版（復元・再検証）
+2026年11月10日（日本標準時）・現行第11版（最大 pencil の一次 corner 比較）
 
 このノートは現行原稿を補う計算、証明の依存関係、文献上の注意、未解決の構成を整理する。中心原稿は `poisson_threefolds_monograph.tex`、再開の入口は `00-research-plan.md` である。
 
@@ -71,6 +71,16 @@ Rains の period は 3h−Σxi=L_E−6η、deg h=3、deg xi=1。yi=xi−h とす
 ℓ の分岐点 p=q では、marked smooth model は infinitely-near blow-up であり、Ep−Eq の (−2)-曲線を反標準環が収縮する。特異な次数六 pencil member と整合する。共通三次元模型の中心はグラフ E' 全体であり、分岐点でも滑らかな codimension two の中心となる。
 
 Rains の THCR は逆 pullback の規約である。本文では B^−(E,L,τ)=B(E,L,τ^{-1}) と明記した。既存の曲面・RSS 節では正 pullback の積 f*g=f ψ^{m*}g を保つ。この差は Poisson 括弧の符号に関わる。
+
+### 一次 corner 比較と二次障害の所在
+
+現行論文の `pencil_corner_comparison.tex` では、X=(P1)^3 の八つの矩形対象の End を二つの四頂点 Beilinson corner C と cross M に分解し、C の階数16、M の階数32、合計64を証明した。古典的な M は H0(P1,O(1))⊗C≅C⊕C という左右正則 C-bimodule であり、任意の変形で二つの corner と cross の左右作用が揃えば標識付き代数同型を得る。階数と Euler 行列の一致だけでは足りない。
+
+s=xa+b, t=xc+d とすると D=s∂_x t−t∂_x s=bc−ad は x に依存せず、共通曲面 S=P1_y×P1_z の Poisson クラス β=D∂_y∧∂_z を与える。行列式 D=0 は pencil の基底楕円曲線の S への射影像で、全四成分が同時に零にならない滑らかな場合、基底曲線から (2,2) 曲線への射影は同型。HH²(X)=HH²(S)⊕HH¹(P1_x)⊗HH¹(S) は9+18=27次元で、二つの corner の一次変形類は共に β である。
+
+一般 tilting 量子化（`restored_finite_products.tex`）と共通圏の階数64代数（`nc_pencil_common.tex`）は、同じ π_{s,t} を一次類として持つので、dual numbers 上で八個の primitive idempotents を保って同型となる。これは Hochschild 2-cocycle の差が coboundary になるという標準的な変形理論の帰結であり、比較写像は非一意。二次以降の差は選んだ比較に対する HH²(A0) の障害類として扱う。**Segre qgr の八対象 lift と二次係数の同定、generic localization の照合は未解決**。同梱 `check_pencil_corners.py` は行列式・Jacobi の例・64=16+32+16・積の結合律を有限計算で確認するが、HH² 同型そのものは計算で機械検証していない。
+
+新たに参照した文献候補：Kawamata, *Non-commutative deformations of tilting bundles and the derived McKay correspondence*, arXiv:2505.07174（2025年5月、概要のみ確認）、および同著者の刊行予定の *Non-commutative deformations of tilting bundles and the derived equivalence*（2026年7月受理と誌面に記載、定理本文は未確認）。tilting 束の形式的持上げとの関連があるため、Segre qgr への適用可能性を調査する。これらを現行の証明の根拠としてはまだ使用しない。
 
 ### 有限データと次の比較
 
