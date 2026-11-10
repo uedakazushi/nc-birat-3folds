@@ -10,12 +10,12 @@
 
 ## Build & tests
 
-必要環境：LuaLaTeX + LuaTeX-ja + AMS-LaTeX, Python 3 + SymPy。GitHub Actions は使用しない。
+必要環境：latexmk + LuaLaTeX + LuaTeX-ja + AMS-LaTeX、Python 3 + SymPy。GitHub Actions は使用しない。
 
 ```bash
 bash reproduce.sh
 ```
 
-主論文PDF：`monograph/poisson_threefolds_monograph.pdf`。Python検算は `computations/`。コードの成功は数学的な全証明の機械検証を意味しない。
+生成される主論文PDF（Git追跡外）：`monograph/build/poisson_threefolds_monograph.pdf`。個別に組版するにはリポジトリ直下で `latexmk monograph/poisson_threefolds_monograph.tex`、中間生成物を掃除するには `latexmk -c monograph/poisson_threefolds_monograph.tex` を実行する。設定はルートの `.latexmkrc`。Python検算は `computations/`。コードの成功は数学的な全証明の機械検証を意味しない。
 
-リポジトリに古いZIPや変更履歴、TeXの中間ファイルを保存しない。Git履歴は過去版を復元するためではなく共同研究の変更管理のために使用する。
+PDFはTeXソースから再生成できる限りGitにcommitせず、`.gitignore` で除外する。数学的内容がPDFにしかない場合に限り、その内容をTeX等の再現可能なソースへ移してから追跡を解除する。リポジトリに古いZIPや変更履歴、TeXの中間ファイルを保存しない。Git履歴は過去版を復元するためではなく共同研究の変更管理のために使用する。

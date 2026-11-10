@@ -12,7 +12,7 @@
 
 ## 現行版と再開の入口
 
-現在有効な公表用原稿は **`monograph/poisson_threefolds_monograph.tex` / `monograph/poisson_threefolds_monograph.pdf`** の1冊だけである。2026年11月8日の現行第13版（Sklyanin generic quadric の ruling 下降）。旧版の参照を前提とせず、必要なソース・証明・実装・文献を同梱した。
+現在有効な公表用原稿は **`monograph/poisson_threefolds_monograph.tex`** を入口とする1冊だけである。PDFは `latexmk` により `monograph/build/poisson_threefolds_monograph.pdf` に再生成し、Gitでは追跡しない。2026年11月8日の現行第13版（Sklyanin generic quadric の ruling 下降）。旧版の参照を前提とせず、必要なソース・証明・実装・文献を同梱した。
 
 研究の理解と再開に必要な情報は、この研究方針、`01-research-notes.md`、モノグラフ、依存TeX断片、計算コードに整理した。量子化の存在結果もモノグラフ前半に統合しているため、別の独立した量子化原稿は不要である。
 
@@ -105,7 +105,7 @@
 
 ## GitHub と Library の運用
 
-GitHub の公開リポジトリ `https://github.com/uedakazushi/nc-birat-3folds` の `main` に、現行の研究方針・研究ノート・モノグラフのLuaLaTeXソース/PDF・検算コード・再現手順のみを置く。未完成結果を含む研究中の内容も、今回のユーザー指示により**追加承諾なく直接mainへpushしてよい**。ただしpublicであることを意識し、主張の状態と検証範囲を明記する。GitHub Actions / PRを使わずローカル検証する。現行bundleの ZIP とPDFは Library にも区切りごとに保存する。Git履歴の存在は研究bundleに旧版を含めることを意味しない。
+GitHub の公開リポジトリ `https://github.com/uedakazushi/nc-birat-3folds` の `main` に、現行の研究方針・研究ノート・モノグラフのLuaLaTeXソース・検算コード・再現手順のみを置く。再生成可能なPDFは原則Gitで追跡せず、PDF固有の数学的内容があれば先にソース化する。未完成結果を含む研究中の内容も、今回のユーザー指示により**追加承諾なく直接mainへpushしてよい**。ただしpublicであることを意識し、主張の状態と検証範囲を明記する。GitHub Actions / PRを使わずローカル検証する。現行bundleの ZIP とPDFは Library にも区切りごとに保存する。Git履歴の存在は研究bundleに旧版を含めることを意味しない。
 
 ## 研究全体に共通する運営原則
 
@@ -122,10 +122,10 @@ GitHub の公開リポジトリ `https://github.com/uedakazushi/nc-birat-3folds`
 
 ## 再生成と検算
 
-必要環境は LuaLaTeX（ltjsarticle, LuaTeX-ja, AMS-LaTeX, mathtools, mathrsfs, hyperref）、日本語フォント、Python 3、SymPy。全てのTeX入力とコードは本bundle内にあり、外部データの入力は不要。
+必要環境は latexmk と LuaLaTeX（ltjsarticle, LuaTeX-ja, AMS-LaTeX, mathtools, mathrsfs, hyperref）、日本語フォント、Python 3、SymPy。全てのTeX入力とコードは本bundle内にあり、外部データの入力は不要。
 
 ```sh
 bash reproduce.sh
 ```
 
-今回の検証ログにある実行結果と、実際のPDFの頁数をそれぞれ確認する。有限計算はJacobiの階数、式の恒等性、有限次元不変量を検算するもので、本文の全証明の機械形式化ではない。これまでの原稿に書かれた高度な定理の全証明を今回独立に再検証したわけではない。上記二件の2026年一次文献は本文と定理番号を確認した。新しい構成の文献上の新規性・優先関係は未確定。
+リポジトリ直下で `latexmk monograph/poisson_threefolds_monograph.tex` を実行すれば、PDFが `monograph/build/` 以下に生成される。`bash reproduce.sh` はこの組版とPython検算を実行する。生成物は `.gitignore` により追跡しない。実際に組版・検算を実行した場合にのみ、その結果とPDFの頁数を報告する。有限計算はJacobiの階数、式の恒等性、有限次元不変量を検算するもので、本文の全証明の機械形式化ではない。これまでの原稿に書かれた高度な定理の全証明を今回独立に再検証したわけではない。上記二件の2026年一次文献は本文と定理番号を確認した。新しい構成の文献上の新規性・優先関係は未確定。

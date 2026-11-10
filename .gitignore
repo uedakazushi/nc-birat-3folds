@@ -11,3 +11,6 @@ __pycache__/
 build/
 preview/
 .DS_Store
+
+# Generated PDFs are rebuilt from TeX and normally not versioned.
+*.pdf
